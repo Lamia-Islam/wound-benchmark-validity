@@ -1,0 +1,11 @@
+scoring clinical reference rankings once
+  clinical ceiling rho = +0.567
+
+  amp   0.0  seed   2024  rho_med +0.564  rho_fuseg +0.303  mean +0.434
+  amp   0.0  seed      7  rho_med +0.636  rho_fuseg +0.291  mean +0.464
+  amp   0.0  seed    101  rho_med +0.625  rho_fuseg +0.308  mean +0.466
+  amp   0.0  seed    555  rho_med +0.589  rho_fuseg +0.224  mean +0.407
+  amp   0.0  seed  31337  rho_med +0.569  rho_fuseg +0.195  mean +0.382
+  amp  11.0  seed   2024  rho_med +0.605  rho_fuseg +0.387  mean +0.496
+  amp  11.0  seed      7  rho_med +0.609  rho_fuseg +0.301  mean +0.455
+  amp  11.0  seed    101  rho_med +0.615  rho_fuseg +0.324  mean +0.469

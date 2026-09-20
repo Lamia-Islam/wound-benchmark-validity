@@ -1,0 +1,4 @@
+Ablation table re-run on the CHROMA-CORRECTED generator B
+Traceback (most recent call last):
+  File "<stdin>", line 15, in <module>
+NameError: name 'ablated' is not defined

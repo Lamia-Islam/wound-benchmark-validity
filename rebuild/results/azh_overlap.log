@@ -1,0 +1,32 @@
+1010 FUSeg frames, 831 AZH patches
+FUSeg frames loaded and de-padded
+  917bc443be555adf  best NCC 0.614  vs 0087.png  at 0.70
+  a543071e0306613a  best NCC 0.800  vs 0691.png  at 0.30
+  0043723452709274  best NCC 0.755  vs 0003.png  at 0.30
+  56c170ce91161d74  best NCC 0.710  vs 0375.png  at 0.40
+  56bafc3eafc552f2  best NCC 0.807  vs 0402.png  at 0.30
+  0bc5e8bfd852b40e  best NCC 0.858  vs 0936.png  at 0.30
+  02858ff807796718  best NCC 0.874  vs 0013.png  at 0.30
+  a936e3e598229d7d  best NCC 0.657  vs 0955.png  at 0.30
+  2c13c4147e8715cf  best NCC 0.913  vs 0803.png  at 0.30
+  711c45c96ba87b3c  best NCC 0.715  vs 0857.png  at 0.55
+  3126d6b3a7054ba6  best NCC 0.669  vs 0223.png  at 0.30
+  05a18470225822d3  best NCC 0.845  vs 0029.png  at 0.40
+  6033416ddc1c66b4  best NCC 0.849  vs 0419.png  at 0.30
+  5e205dcfcc2f82ba  best NCC 0.600  vs 0394.png  at 0.30
+  1dbb00d92741863f  best NCC 0.761  vs 0408.png  at 0.30
+  75c868da5052f292  best NCC 0.739  vs 0279.png  at 0.30
+  abc37f40f84631b2  best NCC 0.909  vs 0724.png  at 0.30
+  6c814e96b2f2aff9  best NCC 0.818  vs 0833.png  at 0.40
+  2a38cd7d0f8e895d  best NCC 0.669  vs 0781.png  at 0.30
+  42c0f8ebd22e9e9b  best NCC 0.883  vs 0925.png  at 0.30
+  81df32c19f357191  best NCC 0.671  vs 0777.png  at 0.30
+  6ed6df09c891b32f  best NCC 0.697  vs 0476.png  at 0.30
+  9840cd3fcc2c2e48  best NCC 0.776  vs 0677.png  at 0.40
+  6a09d79501260728  best NCC 0.809  vs 0452.png  at 0.30
+  9448d85caa0130c2  best NCC 0.927  vs 0555.png  at 0.40
+
+================================================================
+median best NCC 0.776   min 0.600   max 0.927
+above 0.90: 3/25   above 0.75: 15/25
+NCC near 1.0 means the patch is literally a crop of that FUSeg frame.

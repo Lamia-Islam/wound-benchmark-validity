@@ -1,0 +1,44 @@
+{
+  "none": {
+    "rho_medetec": 0.5810276679841898,
+    "rho_fuseg": 0.24901185770750994,
+    "mean_rho": 0.41501976284584985,
+    "change": null,
+    "change_uncorrected": null
+  },
+  "grade_independent_size": {
+    "rho_medetec": 0.5584415584415585,
+    "rho_fuseg": 0.18577075098814233,
+    "mean_rho": 0.3721061547148504,
+    "change": -0.042913608130999426,
+    "change_uncorrected": -0.154
+  },
+  "off_centre_placement": {
+    "rho_medetec": 0.52343308865048,
+    "rho_fuseg": 0.1925465838509317,
+    "mean_rho": 0.35798983625070585,
+    "change": -0.057029926595144,
+    "change_uncorrected": -0.13
+  },
+  "clutter": {
+    "rho_medetec": 0.5686053077357426,
+    "rho_fuseg": 0.25014116318464147,
+    "mean_rho": 0.409373235460192,
+    "change": -0.005646527385657851,
+    "change_uncorrected": -0.091
+  },
+  "irregular_shape": {
+    "rho_medetec": 0.5640880858272164,
+    "rho_fuseg": 0.2783738001129306,
+    "mean_rho": 0.42123094297007346,
+    "change": 0.006211180124223614,
+    "change_uncorrected": -0.045
+  },
+  "textured_background": {
+    "rho_medetec": 0.4150197628458499,
+    "rho_fuseg": -0.05590062111801244,
+    "mean_rho": 0.17955957086391874,
+    "change": -0.2354601919819311,
+    "change_uncorrected": -0.316
+  }
+}

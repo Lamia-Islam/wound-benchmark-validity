@@ -1,0 +1,36 @@
+  scoring clinical rankings (cached after this)
+  clinical ceiling rho = +0.567
+  8 cells already done, 12 to go
+
+  amp  11.0  seed    555  rho_med +0.566  rho_fuseg +0.223  mean +0.395
+  amp  11.0  seed  31337  rho_med +0.553  rho_fuseg +0.207  mean +0.380
+  amp  28.0  seed   2024  rho_med +0.627  rho_fuseg +0.492  mean +0.560
+  amp  28.0  seed      7  rho_med +0.631  rho_fuseg +0.371  mean +0.501
+  amp  28.0  seed    101  rho_med +0.686  rho_fuseg +0.475  mean +0.580
+  amp  28.0  seed    555  rho_med +0.644  rho_fuseg +0.326  mean +0.485
+  amp  28.0  seed  31337  rho_med +0.641  rho_fuseg +0.337  mean +0.489
+  amp  40.0  seed   2024  rho_med +0.654  rho_fuseg +0.486  mean +0.570
+  amp  40.0  seed      7  rho_med +0.679  rho_fuseg +0.405  mean +0.542
+  amp  40.0  seed    101  rho_med +0.678  rho_fuseg +0.457  mean +0.567
+  amp  40.0  seed    555  rho_med +0.694  rho_fuseg +0.360  mean +0.527
+  amp  40.0  seed  31337  rho_med +0.641  rho_fuseg +0.307  mean +0.474
+
+==========================================================================
+CROSS-SEED SUMMARY
+==========================================================================
+ amplitude   n     mean      SD     min     max  % ceiling
+       0.0   5    0.431   0.036   0.382   0.466       76%
+      11.0   5    0.439   0.050   0.380   0.496       77%
+      28.0   5    0.523   0.044   0.485   0.580       92%
+      40.0   5    0.536   0.039   0.474   0.570       94%
+
+trend on seed-averaged curve (4 complete levels): Spearman +1.000, p 0.0851
+
+separation check:
+  amp 0: 0.431 (range 0.382-0.466)
+  amp 40: 0.536 (range 0.474-0.570)
+  ranges overlap: False
+
+within-seed trend, 5 seeds: median +0.800, all positive: True
+
+saved /home/claude/wound-recovery/rebuild/results/cross_seed.json

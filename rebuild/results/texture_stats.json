@@ -1,0 +1,74 @@
+[
+  {
+    "name": "CLINICAL Medetec",
+    "n": 152,
+    "background_texture_masked": 5.0702805519104,
+    "background_texture_unmasked": 7.750595569610596
+  },
+  {
+    "name": "CLINICAL FUSeg",
+    "n": 120,
+    "background_texture_masked": 3.966256618499756,
+    "background_texture_unmasked": 4.093523979187012
+  },
+  {
+    "name": "generator A",
+    "n": 45,
+    "background_texture_masked": 2.100037097930908,
+    "background_texture_unmasked": 2.133255958557129
+  },
+  {
+    "name": "generator B amp=0",
+    "n": 45,
+    "background_texture_masked": 2.143303632736206,
+    "background_texture_unmasked": 2.1580607891082764
+  },
+  {
+    "name": "generator B amp=2",
+    "n": 45,
+    "background_texture_masked": 2.1560235023498535,
+    "background_texture_unmasked": 2.1704695224761963
+  },
+  {
+    "name": "generator B amp=5",
+    "n": 45,
+    "background_texture_masked": 2.2189700603485107,
+    "background_texture_unmasked": 2.2395591735839844
+  },
+  {
+    "name": "generator B amp=11",
+    "n": 45,
+    "background_texture_masked": 2.4510838985443115,
+    "background_texture_unmasked": 2.4937422275543213
+  },
+  {
+    "name": "generator B amp=18",
+    "n": 45,
+    "background_texture_masked": 2.8372178077697754,
+    "background_texture_unmasked": 2.8831405639648438
+  },
+  {
+    "name": "generator B amp=28",
+    "n": 45,
+    "background_texture_masked": 3.4994418621063232,
+    "background_texture_unmasked": 3.581773519515991
+  },
+  {
+    "name": "generator B amp=40",
+    "n": 45,
+    "background_texture_masked": 4.3972649574279785,
+    "background_texture_unmasked": 4.560144901275635
+  },
+  {
+    "name": "generator B amp=55",
+    "n": 45,
+    "background_texture_masked": 5.606741428375244,
+    "background_texture_unmasked": 5.829277038574219
+  },
+  {
+    "name": "generator B amp=75",
+    "n": 45,
+    "background_texture_masked": 7.067752361297607,
+    "background_texture_unmasked": 7.377498626708984
+  }
+]

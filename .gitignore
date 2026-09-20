@@ -1,0 +1,4 @@
+rebuild/data/
+rebuild/results/*.pkl
+__pycache__/
+*.pyc

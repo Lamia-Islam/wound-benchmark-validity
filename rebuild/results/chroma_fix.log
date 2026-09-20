@@ -1,0 +1,29 @@
+ceiling +0.567
+0 done, 12 to go
+
+  amp   0.0 seed   2024  dist 0.545  mean rho +0.379
+  amp   0.0 seed      7  dist 0.523  mean rho +0.412
+  amp   0.0 seed    101  dist 0.560  mean rho +0.395
+  amp  11.0 seed   2024  dist 0.208  mean rho +0.415
+  amp  11.0 seed      7  dist 0.232  mean rho +0.438
+  amp  11.0 seed    101  dist 0.221  mean rho +0.428
+  amp  28.0 seed   2024  dist 0.453  mean rho +0.551
+  amp  28.0 seed      7  dist 0.440  mean rho +0.571
+  amp  28.0 seed    101  dist 0.442  mean rho +0.545
+  amp  40.0 seed   2024  dist 0.722  mean rho +0.508
+  amp  40.0 seed      7  dist 0.687  mean rho +0.594
+  amp  40.0 seed    101  dist 0.710  mean rho +0.583
+
+======================================================================
+CHROMA-CORRECTED GENERATOR B
+======================================================================
+   amp    dist   n   corrected  uncorrected   change   % ceil
+     0   0.543   3       0.395        0.431   -0.036     70%
+    11   0.220   3       0.427        0.439   -0.012     75%
+    28   0.445   3       0.556        0.523   +0.033     98%
+    40   0.707   3       0.562        0.536   +0.026     99%
+
+profile distance vs agreement, corrected generator: Spearman +0.400, p 0.7550
+best: amp 40, dist 0.707, rho 0.562 = 99% of ceiling
+
+saved /home/claude/wound-recovery/rebuild/results/chroma_fix.json

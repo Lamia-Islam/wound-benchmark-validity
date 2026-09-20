@@ -1,0 +1,16 @@
+cache already holds: ['fuseg', 'medetec']
+
+azh: 150 image/label pairs from AZH/test
+  mean lesion fraction 0.0285
+    azh: 25/150 (76s)
+    azh: 50/150 (135s)
+    azh: 75/150 (194s)
+    azh: 100/150 (249s)
+    azh: 125/150 (301s)
+    azh: 150/150 (356s)
+  cached azh
+
+azh_train_slice: 150 image/label pairs from AZH/train
+  mean lesion fraction 0.0263
+    azh_train_slice: 25/150 (57s)
+    azh_train_slice: 50/150 (120s)

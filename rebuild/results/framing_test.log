@@ -1,0 +1,31 @@
+loading FUSeg and cropping to Medetec framing
+  115 images; median lesion fraction 0.0076 -> 0.0979 (Medetec is 0.098)
+scoring 22 methods on cropped FUSeg
+
+  cropped-FUSeg vs Medetec  rho +0.440
+  cropped-FUSeg vs FUSeg    rho +0.417
+
+==============================================================================
+CONTRAST SWEEP re-correlated against the cropped reference
+==============================================================================
+  sat delta   vs Medetec   vs FUSeg   vs FUSeg-cropped
+       19.5        0.573      0.238              0.638
+       28.4        0.613      0.335              0.657
+       38.4        0.605      0.387              0.602
+       49.4        0.535      0.462              0.592
+       59.7        0.518      0.486              0.558
+       72.7        0.438      0.479              0.539
+       86.6        0.434      0.504              0.526
+
+trend of agreement against contrast:
+  vs Medetec         Spearman -0.893  (p 0.0132)
+  vs FUSeg           Spearman +0.964  (p 0.0034)
+  vs FUSeg-cropped   Spearman -0.964  (p 0.0030)
+
+  FUSeg trend was positive; after cropping it is negative
+  Medetec trend is negative
+
+  VERDICT: cropping FUSeg to Medetec's framing REVERSES its
+  contrast preference. Framing, not contrast, drives the split.
+
+saved /home/claude/wound-recovery/rebuild/results/framing_test.json

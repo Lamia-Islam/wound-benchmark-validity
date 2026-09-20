@@ -1,0 +1,88 @@
+{
+  "rows": [
+    {
+      "measured_sat_delta": 19.49212793480701,
+      "rho_medetec": 0.5732844058033065,
+      "rho_fuseg": 0.2383507578807836,
+      "rho_fuseg_cropped": 0.6376729991644661
+    },
+    {
+      "measured_sat_delta": 28.412822985167093,
+      "rho_medetec": 0.6126482213438735,
+      "rho_fuseg": 0.3348390739695088,
+      "rho_fuseg_cropped": 0.6566911349520046
+    },
+    {
+      "measured_sat_delta": 38.38457163836668,
+      "rho_medetec": 0.6047430830039526,
+      "rho_fuseg": 0.3867871259175608,
+      "rho_fuseg_cropped": 0.6024844720496896
+    },
+    {
+      "measured_sat_delta": 49.3915733394196,
+      "rho_medetec": 0.5347261434217957,
+      "rho_fuseg": 0.4624505928853756,
+      "rho_fuseg_cropped": 0.5923207227555054
+    },
+    {
+      "measured_sat_delta": 59.712214911356696,
+      "rho_medetec": 0.5177865612648223,
+      "rho_fuseg": 0.4861660079051384,
+      "rho_fuseg_cropped": 0.5584415584415585
+    },
+    {
+      "measured_sat_delta": 72.65428645535205,
+      "rho_medetec": 0.4376058723884812,
+      "rho_fuseg": 0.479390175042349,
+      "rho_fuseg_cropped": 0.5392433653303219
+    },
+    {
+      "measured_sat_delta": 86.62824936988916,
+      "rho_medetec": 0.4342179559570865,
+      "rho_fuseg": 0.5042348955392434,
+      "rho_fuseg_cropped": 0.5256916996047432
+    }
+  ],
+  "lesion_fraction_before": 0.007568359375,
+  "lesion_fraction_after": 0.09793526785714286,
+  "n_cropped": 115,
+  "cropped_per_method_dice": {
+    "adaptive_gaussian": 0.31609286864531416,
+    "adaptive_mean": 0.3315944262780838,
+    "otsu_gray": 0.2562949092097131,
+    "bgr_corner_distance": 0.26127382987175457,
+    "hsv_corner_distance": 0.31393395067379803,
+    "otsu_a": 0.33624591140630183,
+    "pct92_a": 0.498545055759908,
+    "redness_ratio": 0.3997973361639865,
+    "otsu_saturation": 0.19758431197787876,
+    "kmeans_lab_k3": 0.21748342411556268,
+    "kmeans_lab_k5": 0.2015535081332365,
+    "kmeans_lab_k4_higha": 0.34521228341188037,
+    "meanshift_otsu_a": 0.3444810348543361,
+    "watershed_a": 0.49521742056167706,
+    "grabcut_center": 0.5250583850424583,
+    "floodfill_a": 0.17243537542335666,
+    "chanvese_a": 0.2911159315797141,
+    "canny_fill": 0.25055510644392853,
+    "logreg_all": 0.4062794279564123,
+    "gbm_all": 0.4683706418979954,
+    "logreg_colour": 0.401599626516219,
+    "unet": 0.2215758451748726
+  },
+  "trends": {
+    "medetec": {
+      "rho": -0.8928571428571429,
+      "p": 0.013249337533123344
+    },
+    "fuseg": {
+      "rho": 0.9642857142857145,
+      "p": 0.003399830008499575
+    },
+    "fuseg_cropped": {
+      "rho": -0.9642857142857145,
+      "p": 0.002999850007499625
+    }
+  },
+  "reversed": true
+}

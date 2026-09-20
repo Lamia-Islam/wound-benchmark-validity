@@ -1,0 +1,27 @@
+refitting pixel classifiers on 14 features
+  247,975 px x 14 features (dropped a_localsd)
+  U-Net reloaded unchanged
+scoring generator A
+scoring generator B
+scoring medetec
+scoring fuseg
+
+learned-method scores on generator A (the diagnostic):
+  logreg_all         0.122
+  gbm_all            0.158
+  logreg_colour      0.803
+  unet               0.042
+  manuscript: logreg 0.166, gbm 0.011, unet 0.080
+
+==============================================================================
+rank agreement, 14-feature classifiers
+==============================================================================
+comparison                              rho        p   15-feat    target
+generator_a vs generator_b            0.476    0.026     0.456    -0.526
+generator_a vs medetec                0.318    0.148     0.342    -0.121
+generator_a vs fuseg                 -0.304    0.171    -0.099    -0.466
+generator_b vs medetec                0.554    0.007     0.605     0.439
+generator_b vs fuseg                  0.115    0.613     0.387     0.560
+medetec vs fuseg                      0.389    0.078     0.567     0.560
+
+saved /home/claude/wound-recovery/rebuild/results/rank_validity_14.json
