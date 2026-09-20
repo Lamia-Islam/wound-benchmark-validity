@@ -1,0 +1,34 @@
+loading training images
+sampling pixels once (reused for every variant)
+  247,975 px x 15 features
+  eval: genA 15, medetec 40, fuseg 40
+
+variant                       genA   Medetec    FUSeg  |genA-0.166|
+-------------------------------------------------------------------
+none (all 15)                0.936     0.567    0.342         0.770
+drop B                       0.936     0.566    0.343         0.770
+drop G                       0.935     0.569    0.340         0.769
+drop R                       0.936     0.566    0.342         0.770
+drop L                       0.933     0.575    0.345         0.767
+drop a                       0.938     0.559    0.338         0.772
+drop b                       0.935     0.562    0.346         0.769
+drop H                       0.934     0.583    0.336         0.768
+drop S                       0.936     0.567    0.343         0.770
+drop V                       0.936     0.560    0.342         0.770
+drop a_localmean             0.937     0.560    0.340         0.771
+drop a_localsd               0.122     0.366    0.316         0.044
+drop gray_localmean          0.937     0.566    0.343         0.771
+drop gray_localsd            0.943     0.580    0.343         0.777
+drop a_centred               0.937     0.564    0.339         0.771
+drop S_centred               0.938     0.561    0.338         0.772
+
+manuscript targets: genA 0.166, Medetec 0.451, FUSeg 0.437
+
+closest single drop to the manuscript's generator A value:
+  drop a_localsd  genA 0.122 (target 0.166), Medetec 0.366 (target 0.451)
+  spread of generator A scores across all 16 variants: 0.822
+
+  VERDICT: a single feature drop reproduces it. That feature
+  set is the likely original.
+
+saved /home/claude/wound-recovery/rebuild/results/feature_ablation.json

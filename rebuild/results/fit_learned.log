@@ -1,0 +1,32 @@
+loading FUSeg training images 0-250 (pixel classifiers)
+  250 images
+  pixel sample: 247,975 px x 15 features (47.6% lesion)
+  pixel classifiers fitted in 10.0 s
+loading FUSeg training images 0-393 (U-Net)
+  393 images
+/home/claude/wound-recovery/rebuild/woundbench/learned.py:208: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:820.)
+  tot += float(loss) * len(idx)
+  unet epoch 10/30  loss 0.3923
+  unet epoch 20/30  loss 0.3282
+  unet epoch 30/30  loss 0.2767
+  U-Net trained in 230 s (manuscript reports 470 s)
+sweeping decision threshold on FUSeg training images 250-400
+  150 held-out images
+    thr  meanDice
+   0.30     0.152
+   0.35     0.170
+   0.40     0.190
+   0.45     0.210
+   0.50     0.231
+   0.55     0.252
+   0.60     0.275
+   0.65     0.298
+   0.70     0.322
+   0.75     0.346
+   0.80     0.377
+   0.85     0.403
+   0.90     0.429
+   0.95     0.425
+  selected threshold 0.90 (Dice 0.429); manuscript reports 0.9
+saved /home/claude/wound-recovery/rebuild/results/models.pkl

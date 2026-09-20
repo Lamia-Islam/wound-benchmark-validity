@@ -1,0 +1,19 @@
+generator A
+  measured background texture 2.10
+generator B @ amp=40
+  measured background texture 4.40  (clinical 3.97-5.07)
+medetec
+fuseg
+
+========================================================================
+HEADLINE TEST
+========================================================================
+comparison                            rho        p    target
+generator_a vs generator_b          0.423    0.051    -0.526
+generator_a vs medetec              0.318    0.148    -0.121
+generator_a vs fuseg               -0.304    0.171    -0.466
+generator_b vs medetec              0.586    0.004     0.439
+generator_b vs fuseg                0.248    0.264     0.560
+medetec vs fuseg                    0.389    0.078     0.560
+
+saved /home/claude/wound-recovery/rebuild/results/headline_test.json

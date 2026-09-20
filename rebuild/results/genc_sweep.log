@@ -1,0 +1,50 @@
+clinical ceiling rho = +0.567
+0 done, 18 to go
+
+  amp   0.0 seed   2024  texture   2.34  mean rho +0.198
+  amp   0.0 seed      7  texture   2.41  mean rho +0.184
+  amp   0.0 seed    101  texture   2.35  mean rho +0.187
+  amp   2.0 seed   2024  texture   2.68  mean rho +0.173
+  amp   2.0 seed      7  texture   2.76  mean rho +0.173
+  amp   2.0 seed    101  texture   2.72  mean rho +0.167
+  amp   3.5 seed   2024  texture   3.24  mean rho +0.177
+  amp   3.5 seed      7  texture   3.37  mean rho +0.174
+  amp   3.5 seed    101  texture   3.33  mean rho +0.165
+  amp   5.0 seed   2024  texture   3.99  mean rho +0.173
+  amp   5.0 seed      7  texture   4.15  mean rho +0.178
+  amp   5.0 seed    101  texture   4.08  mean rho +0.182
+  amp   8.0 seed   2024  texture   5.67  mean rho +0.167
+  amp   8.0 seed      7  texture   5.87  mean rho +0.158
+  amp   8.0 seed    101  texture   5.77  mean rho +0.185
+  amp  12.0 seed   2024  texture   8.03  mean rho +0.203
+  amp  12.0 seed      7  texture   8.29  mean rho +0.210
+  amp  12.0 seed    101  texture   8.16  mean rho +0.199
+
+==================================================================
+GENERATOR C, seed-averaged
+==================================================================
+    amp   texture   n   mean rho      SD  % ceiling
+    0.0      2.37   3      0.189   0.007       33%
+    2.0      2.72   3      0.171   0.004       30%
+    3.5      3.32   3      0.172   0.006       30%
+    5.0      4.07   3      0.178   0.005       31%
+    8.0      5.77   3      0.170   0.014       30%
+   12.0      8.16   3      0.204   0.005       36%
+
+texture vs validity within generator C: Spearman +0.086, p 0.9171
+
+==================================================================
+DOES GENERATOR C FALL ON GENERATOR B's CURVE?
+==================================================================
+   texture   C observed   B curve here   difference
+      2.37        0.189          0.481       -0.292
+      2.72        0.171          0.519       -0.348
+      3.32        0.172          0.551       -0.379
+      4.07        0.178          0.566       -0.389
+      5.77        0.170          0.555       -0.385
+      8.16        0.204(outside B range)             
+
+mean absolute difference from B's curve: 0.358
+for scale, generator B's own seed SD is about 0.04
+
+saved /home/claude/wound-recovery/rebuild/results/generator_c.json

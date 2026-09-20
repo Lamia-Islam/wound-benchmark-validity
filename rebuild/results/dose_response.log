@@ -1,0 +1,49 @@
+22 methods, threshold 0.90
+scoring clinical reference rankings
+  clinical anchor: medetec vs fuseg rho +0.567
+
+### sweep contrast: lesion_sat_delta
+  lesion_sat_delta=  12.0  measured sat delta  +19.5  rho_med +0.573  rho_fuseg +0.238  mean +0.406
+  lesion_sat_delta=  22.0  measured sat delta  +28.4  rho_med +0.613  rho_fuseg +0.335  mean +0.474
+  lesion_sat_delta=  33.0  measured sat delta  +38.4  rho_med +0.605  rho_fuseg +0.387  mean +0.496
+  lesion_sat_delta=  45.0  measured sat delta  +49.4  rho_med +0.535  rho_fuseg +0.462  mean +0.499
+  lesion_sat_delta=  56.0  measured sat delta  +59.7  rho_med +0.518  rho_fuseg +0.486  mean +0.502
+  lesion_sat_delta=  70.0  measured sat delta  +72.7  rho_med +0.438  rho_fuseg +0.479  mean +0.458
+  lesion_sat_delta=  85.0  measured sat delta  +86.6  rho_med +0.434  rho_fuseg +0.504  mean +0.469
+
+### sweep texture: mottle_amplitude
+  mottle_amplitude=   0.0  measured sat delta  +38.5  rho_med +0.564  rho_fuseg +0.303  mean +0.434
+  mottle_amplitude=   2.0  measured sat delta  +38.5  rho_med +0.577  rho_fuseg +0.352  mean +0.464
+  mottle_amplitude=   5.0  measured sat delta  +38.5  rho_med +0.572  rho_fuseg +0.340  mean +0.456
+  mottle_amplitude=  11.0  measured sat delta  +38.4  rho_med +0.605  rho_fuseg +0.387  mean +0.496
+  mottle_amplitude=  18.0  measured sat delta  +38.2  rho_med +0.636  rho_fuseg +0.422  mean +0.529
+  mottle_amplitude=  28.0  measured sat delta  +37.9  rho_med +0.627  rho_fuseg +0.492  mean +0.560
+
+==========================================================================
+DOSE-RESPONSE TRENDS
+==========================================================================
+
+contrast sweep: measured saturation delta vs mean rank agreement
+    sat delta   mean rho   rho_med  rho_fuseg
+         19.5      0.406     0.573      0.238
+         28.4      0.474     0.613      0.335
+         38.4      0.496     0.605      0.387
+         49.4      0.499     0.535      0.462
+         59.7      0.502     0.518      0.486
+         72.7      0.458     0.438      0.479
+         86.6      0.469     0.434      0.504
+  monotone trend: Spearman +0.143, p 0.7805
+  (clinical measures ~33; generator A sits at ~56)
+
+texture sweep: mottling amplitude vs mean rank agreement
+    amplitude   mean rho   rho_med  rho_fuseg
+          0.0      0.434     0.564      0.303
+          2.0      0.464     0.577      0.352
+          5.0      0.456     0.572      0.340
+         11.0      0.496     0.605      0.387
+         18.0      0.529     0.636      0.422
+         28.0      0.560     0.627      0.492
+  monotone trend: Spearman +0.943, p 0.0165
+  (amplitude 0 is generator A's uniform-background assumption)
+
+saved /home/claude/wound-recovery/rebuild/results/dose_response.json

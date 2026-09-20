@@ -1,0 +1,36 @@
+22 methods, threshold 0.90
+
+scoring medetec
+scoring fuseg (0-120)
+ablation: none
+    rho_med +0.605  rho_fuseg +0.387  mean +0.496
+ablation: grade_independent_size
+    rho_med +0.553  rho_fuseg +0.132  mean +0.342
+ablation: off_centre_placement
+    rho_med +0.537  rho_fuseg +0.195  mean +0.366
+ablation: clutter
+    rho_med +0.573  rho_fuseg +0.237  mean +0.405
+ablation: irregular_shape
+    rho_med +0.597  rho_fuseg +0.305  mean +0.451
+ablation: textured_background
+    rho_med +0.415  rho_fuseg -0.056  mean +0.180
+
+============================================================================================
+Table 5: ablation of generator B   (rebuild vs manuscript target)
+============================================================================================
+ablated feature                    rho Med       rho FUSeg        mean rho          change
+                                 ours / ms       ours / ms       ours / ms       ours / ms
+--------------------------------------------------------------------------------------------
+none                       +0.605/ +0.356   +0.387/+0.510   +0.496/+0.433      -  /   -  
+grade_independent_size     +0.553/ +0.291   +0.132/+0.430   +0.342/+0.360   -0.154/-0.073
+off_centre_placement       +0.537/ +0.260   +0.195/+0.448   +0.366/+0.354   -0.130/-0.079
+clutter                    +0.573/ +0.303   +0.237/+0.436   +0.405/+0.369   -0.091/-0.064
+irregular_shape            +0.597/ +0.372   +0.305/+0.534   +0.451/+0.453   -0.045/+0.020
+textured_background        +0.415/ +0.070   -0.056/-0.268   +0.180/-0.099   -0.316/-0.532
+
+saved /home/claude/wound-recovery/rebuild/results/ablation.json
+
+--- the claim under test ---
+texture removal changes mean rho by -0.316 (manuscript: -0.532)
+sign of FUSeg correlation after removal: -0.056 (manuscript: -0.268, i.e. reversed)
+largest other single-feature effect: 0.154 (manuscript: 0.079)

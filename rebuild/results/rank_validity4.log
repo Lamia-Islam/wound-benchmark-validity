@@ -1,0 +1,58 @@
+loaded fitted models (threshold 0.90)
+22 methods
+
+generator A
+    generator_a: 25/45 (51s)
+generator B
+    generator_b: 25/45 (82s)
+medetec (152 clinical images)
+    medetec: 25/152 (16s)
+    medetec: 50/152 (32s)
+    medetec: 75/152 (50s)
+    medetec: 100/152 (67s)
+    medetec: 125/152 (83s)
+    medetec: 150/152 (99s)
+fuseg (validation images 0-120)
+    fuseg: 25/120 (79s)
+    fuseg: 50/120 (154s)
+    fuseg: 75/120 (229s)
+    fuseg: 100/120 (305s)
+
+==============================================================================
+method                    family                generator_agenerator_b   medetec     fuseg
+==============================================================================
+logreg_all                learned                    0.930     0.913     0.458     0.373
+grabcut_center            region/contour             0.938     0.859     0.442     0.057
+pct92_a                   colour-referenced          0.908     0.338     0.395     0.128
+canny_fill                region/contour             0.603     0.158     0.387     0.201
+gbm_all                   learned                    0.868     0.903     0.379     0.494
+watershed_a               region/contour             0.907     0.462     0.376     0.078
+otsu_a                    colour-referenced          0.914     0.475     0.375     0.073
+chanvese_a                region/contour             0.914     0.234     0.360     0.073
+kmeans_lab_k4_higha       clustering                 0.651     0.140     0.355     0.055
+meanshift_otsu_a          clustering                 0.895     0.759     0.351     0.068
+otsu_saturation           colour-referenced          0.948     0.539     0.286     0.054
+unet                      CNN                        0.042     0.596     0.272     0.626
+kmeans_lab_k5             clustering                 0.630     0.073     0.270     0.029
+kmeans_lab_k3             clustering                 0.936     0.062     0.266     0.031
+hsv_corner_distance       background-referenced      0.966     0.416     0.261     0.041
+adaptive_mean             background-referenced      0.209     0.173     0.259     0.067
+adaptive_gaussian         background-referenced      0.150     0.090     0.255     0.079
+bgr_corner_distance       background-referenced      0.763     0.146     0.210     0.029
+floodfill_a               region/contour             0.051     0.000     0.179     0.021
+otsu_gray                 background-referenced      0.150     0.072     0.172     0.029
+logreg_colour             learned                    0.803     0.503     0.133     0.292
+redness_ratio             colour-referenced          0.916     0.604     0.048     0.003
+
+==============================================================================
+rank agreement (Spearman, permutation test, n = 22 methods)
+==============================================================================
+comparison                              rho        p    target rho  target p
+generator_a vs generator_b            0.464    0.033        -0.526     0.014
+generator_a vs medetec                0.342    0.121        -0.121     0.588
+generator_a vs fuseg                 -0.099    0.663        -0.466     0.033
+generator_b vs medetec                0.443    0.038         0.439     0.040
+generator_b vs fuseg                  0.497    0.019         0.560     0.007
+medetec vs fuseg                      0.567    0.007         0.560     0.008
+
+saved /home/claude/wound-recovery/rebuild/results/rank_validity.json
