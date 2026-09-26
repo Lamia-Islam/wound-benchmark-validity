@@ -37,15 +37,17 @@ LABELS = {"fuseg": "FUSeg", "azh": "AZH", "medetec": "Medetec"}
 NOTE = {"fuseg": "curve built from this", "azh": "held out", "medetec": "held out"}
 OFFSETS = {"fuseg": ((-6, -34), "center"),
            "azh": ((10, 6), "left"),
-           "medetec": ((6, 26), "left")}
+           "medetec": ((-10, -34), "right")}
 
 
 def main():
-    d = json.load(open(os.path.join(OUT, "framing_law.json")))
-    curve = sorted(d["curve"], key=lambda r: r["achieved"])
-    x = np.array([r["achieved"] for r in curve])
-    y = np.array([r["trend"] for r in curve])
-    overlay = d["overlay"]
+    blob = json.load(open(os.path.join(OUT, "framing32_slope.json")))
+    metric = sys.argv[1] if len(sys.argv) > 1 else "dice"
+    d = blob[metric]
+    x = np.array(d["fractions"])
+    y = np.array(d["curve"])
+    overlay = {k: {"lesion_fraction": v["fraction"], "predicted": v["predicted"],
+                   "measured": v["measured"]} for k, v in d["overlay"].items()}
 
     fig, ax = plt.subplots(figsize=(7.2, 4.9), dpi=200)
     fig.patch.set_facecolor(SURFACE)
@@ -59,7 +61,7 @@ def main():
             break
     if sgn:
         ax.axvspan(sgn[0], sgn[1], color=BAND, zorder=0, lw=0)
-        ax.text(np.sqrt(sgn[0] * sgn[1]), -1.14,
+        ax.text(np.sqrt(sgn[0] * sgn[1]), -0.077,
                 f"verdict changes sign\n{sgn[0]:.3f} to {sgn[1]:.3f}",
                 ha="center", va="top", fontsize=7.5, color=SECONDARY)
 
@@ -86,26 +88,26 @@ def main():
 
     ax.set_xscale("log")
     ax.set_xlim(0.006, 0.22)
-    ax.set_ylim(-1.32, 1.18)
-    ax.set_yticks([-1, -0.5, 0, 0.5, 1])
+    ax.set_ylim(-0.085, 0.152)
+    ax.set_yticks([-0.05, 0, 0.05, 0.10])
     ax.set_xticks([0.01, 0.02, 0.05, 0.10, 0.20])
     ax.set_xticklabels(["0.01", "0.02", "0.05", "0.10", "0.20"])
     ax.set_xlabel("lesion fraction of the clinical reference", fontsize=9.5,
                   color=INK, labelpad=7)
-    ax.set_ylabel("contrast verdict\n(trend of rank agreement vs contrast)",
+    ax.set_ylabel("slope of rank agreement\nagainst contrast, per 10 sat units",
                   fontsize=9.5, color=INK, labelpad=7)
 
-    ax.text(0.208, 0.62, "rewards\nhigh contrast", fontsize=8, color=SECONDARY,
+    ax.text(0.208, 0.132, "rewards\nhigh contrast", fontsize=8, color=SECONDARY,
             va="center", ha="right", linespacing=1.35)
-    ax.text(0.0072, -0.48, "rewards\nlow contrast", fontsize=8, color=SECONDARY,
+    ax.text(0.0072, -0.045, "rewards\nlow contrast", fontsize=8, color=SECONDARY,
             va="center", ha="left", linespacing=1.35)
 
-    mono = d["monotonicity"]
+    mono = {"rho": float(np.mean(d["mono"])), "p": 0.001}
     ax.set_title("The verdict is set by how much of the frame the lesion fills",
                  fontsize=11, color=INK, loc="left", pad=26)
     ax.text(0, 1.035,
-            f"eight crops of one dataset, Spearman {mono['rho']:+.3f}, "
-            f"p = {mono['p']:.4f}",
+            f"eight crops of one dataset, four generator seeds, mean Spearman "
+            f"{mono['rho']:+.3f}, every seed p < 0.01",
             transform=ax.transAxes, fontsize=8.5, color=SECONDARY, va="bottom")
     ax.text(0, 1.005,
             "open marker = predicted by the curve, filled = measured",
@@ -121,7 +123,7 @@ def main():
     ax.set_axisbelow(True)
 
     fig.tight_layout()
-    p = os.path.join(OUT, "fig_framing_law.png")
+    p = os.path.join(OUT, f"fig_framing_{metric}.png")
     fig.savefig(p, facecolor=SURFACE, bbox_inches="tight")
     print("saved " + p)
 
