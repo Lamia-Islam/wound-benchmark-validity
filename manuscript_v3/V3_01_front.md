@@ -4,9 +4,8 @@
 
 ## Title
 
-**Benchmark validity is not a property of the benchmark: rank agreement in
-medical image segmentation depends jointly on the data, the reference, and the
-method pool**
+**Synthetic benchmark validity in medical image segmentation depends on the
+clinical reference and the method pool**
 
 Short title: What benchmark agreement actually measures
 

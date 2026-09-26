@@ -137,9 +137,8 @@ body.push(new Paragraph({
   alignment: AlignmentType.LEFT,
   spacing: { after: 150, line: 300 },
   children: [new TextRun({
-    text: "Benchmark validity is not a property of the benchmark: rank agreement "
-        + "in medical image segmentation depends jointly on the data, the "
-        + "reference, and the method pool",
+    text: "Synthetic benchmark validity in medical image segmentation depends "
+        + "on the clinical reference and the method pool",
     font: FONT, size: 30, bold: true, color: INK
   })]
 }));
@@ -792,7 +791,7 @@ body.push(p(
 
 const doc = new Document({
   creator: "Lamia Islam",
-  title: "Benchmark validity is not a property of the benchmark",
+  title: "Synthetic benchmark validity depends on the clinical reference and the method pool",
   styles: {
     default: {
       document: { run: { font: FONT, size: 22, color: INK } }
