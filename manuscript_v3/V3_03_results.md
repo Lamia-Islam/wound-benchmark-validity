@@ -113,66 +113,80 @@ A reference's contrast verdict is the slope of its rank agreement against the
 benchmark's measured lesion-to-surround saturation contrast, per 10 saturation
 units. Positive means the reference rewards high contrast.
 
-FUSeg was cropped around its own lesions to eight target lesion fractions.
-Every crop uses the same 120 frames and the same annotations, so lesion fraction
-is the only thing that differs between the eight references.
+The primary curve is built from AZH, the wound reference no method was trained
+on. AZH frames were cropped around their own lesions to seven target lesion
+fractions. Every crop uses the same 140 frames and the same annotations, so
+lesion fraction is the only thing that differs between the seven references.
 
 | lesion fraction | verdict, Dice | sd over 4 seeds | verdict, NSD | sd over 4 seeds |
 |---|---|---|---|---|
-| 0.0077 | +0.103 | 0.003 | +0.107 | 0.005 |
-| 0.0101 | +0.103 | 0.003 | +0.107 | 0.005 |
-| 0.0200 | +0.098 | 0.003 | +0.105 | 0.006 |
-| 0.0350 | +0.100 | 0.003 | +0.106 | 0.005 |
-| 0.0549 | +0.089 | 0.003 | +0.093 | 0.003 |
-| 0.0798 | +0.047 | 0.006 | +0.056 | 0.004 |
-| 0.1099 | +0.001 | 0.008 | +0.018 | 0.007 |
-| 0.1597 | -0.051 | 0.007 | -0.039 | 0.006 |
+| 0.0353 | +0.077 | 0.006 | +0.080 | 0.005 |
+| 0.0550 | +0.029 | 0.009 | +0.061 | 0.005 |
+| 0.0801 | -0.002 | 0.010 | +0.038 | 0.005 |
+| 0.1101 | -0.037 | 0.009 | +0.004 | 0.005 |
+| 0.1598 | -0.060 | 0.008 | -0.041 | 0.005 |
+| 0.2194 | -0.078 | 0.007 | -0.056 | 0.006 |
+| 0.2981 | -0.086 | 0.007 | -0.079 | 0.007 |
 
-Monotonicity of verdict against lesion fraction, per seed:
+**Monotonicity against lesion fraction is Spearman -1.000 at p = 0.0005 in every
+one of the four seeds, under both metrics.** Eight of eight seed and metric
+combinations are perfectly monotonic. Seed standard deviation never exceeds
+0.010 against a curve range of 0.163.
 
-| metric | seed 2024 | seed 7 | seed 101 | seed 555 |
-|---|---|---|---|---|
-| Dice | -0.952 (p 0.0010) | -0.952 (p 0.0010) | -0.976 (p 0.0002) | -0.952 (p 0.0010) |
-| NSD | -0.881 (p 0.0067) | -1.000 (<0.0001) | -1.000 (<0.0001) | -0.952 (p 0.0010) |
+The boundary metric is the load-bearing control. Dice is biased by region size
+and this experiment varies region size, so a Dice-only result would be
+confounded by construction. Normalised surface Dice gives the same monotonic
+relationship with the same sign.
 
-Eight of eight seed and metric combinations are monotonic decreasing at
-p < 0.01. Seed standard deviation never exceeds 0.008 against a curve range of
-0.154. The verdict changes sign between lesion fraction 0.110 and 0.160 under
-both metrics.
+### Replication on the contaminated reference
 
-The boundary metric is the load-bearing control here. Dice is biased by region
-size and this experiment varies region size, so a Dice-only result would be
-confounded by construction. Normalised surface Dice gives the same curve, the
-same monotonicity and the same sign-change interval.
+The same construction on FUSeg crops, spanning lesion fractions 0.008 to 0.160,
+gives monotonicity between -0.881 and -1.000 across the same eight seed and
+metric combinations. We report it as a replication rather than as the primary
+result because eleven of the 32 methods were trained on FUSeg training images.
+Removing that contamination sharpened the relationship rather than weakening it.
 
-### Held-out placement
+### The crossover is not a constant
 
-The curve is built entirely from cropped FUSeg. Medetec and AZH took no part in
-it.
+| curve | metric | sign change |
+|---|---|---|
+| AZH-built | Dice | 0.055 to 0.080 |
+| AZH-built | NSD | 0.110 to 0.160 |
+| FUSeg-built | Dice | 0.110 to 0.160 |
+| FUSeg-built | NSD | 0.110 to 0.160 |
 
-| metric | dataset | lesion fraction | predicted | measured | residual | as % of range |
-|---|---|---|---|---|---|---|
-| Dice | FUSeg | 0.0109 | +0.103 | +0.107 | +0.004 | 2.4% |
-| Dice | AZH | 0.0285 | +0.099 | +0.118 | +0.019 | 12.4% |
-| Dice | Medetec | 0.1024 | +0.012 | +0.038 | +0.026 | 16.6% |
-| NSD | FUSeg | 0.0109 | +0.107 | +0.121 | +0.015 | 10.0% |
-| NSD | AZH | 0.0285 | +0.105 | +0.114 | +0.008 | 5.5% |
-| NSD | Medetec | 0.1024 | +0.027 | +0.056 | +0.028 | 19.4% |
+Three of four agree. The crossover moves with the reference, with the metric,
+and, as the 22-method version of this experiment showed, with the method pool.
+The direction of the relationship moves with none of them. We report the
+crossover as an interval observed under stated conditions and not as a threshold
+for others to apply.
 
-FUSeg is not a check, since the curve is made from its crops. Medetec and AZH
-land with the correct sign and magnitude, at 5% to 19% of the curve's range.
-That supports the relationship. It does not support using the curve as a
-calibrated forecast, and we do not.
+### Held-out placement, and a systematic offset
 
-Both held-out datasets sit slightly above the curve under both metrics. A
-consistent one-directional offset across two independent datasets is more likely
-a property of the cropping construction than noise. We cannot explain it.
+Medetec, lesion fraction 0.1024, placed on the AZH-built curve:
 
-**The crossover is not a portable constant.** It sat in the 0.055 to 0.080
-interval over the 22-method pool with the rank-based statistic, and sits in the
-0.110 to 0.160 interval over the 32-method pool with the slope statistic. Its
-location is a property of the method pool as well as of the references, and
-should not be quoted as a threshold for others to apply.
+| metric | predicted | measured | sd over seeds | residual | as % of range |
+|---|---|---|---|---|---|
+| Dice | -0.028 | +0.038 | 0.004 | +0.066 | 40.6% |
+| NSD | +0.013 | +0.056 | 0.006 | +0.043 | 27.0% |
+
+The placement has the correct sign relative to the low-fraction end of the curve
+but overshoots it. On the FUSeg-built curve the corresponding residuals for
+Medetec and AZH were 12% to 19%.
+
+Across two independently built curves and three held-out datasets, **every real
+clinical dataset lands above the curve at its own lesion fraction**. Four of
+four placements in one direction is systematic, and the mechanism is visible: a
+crop taken to reach lesion fraction f is not the same object as a dataset
+natively framed at f. Cropping to a high lesion fraction discards the
+surrounding limb, background and clutter, whereas a natively framed dataset
+still contains whatever context the photographer chose to include. Crop series
+therefore overstate the framing effect, and real datasets fall short of the
+curve built from them.
+
+This restricts the claim rather than retracting it. The crop series establishes
+the direction and the ordering, which is what is claimed. It is not a calibrated
+predictor of a natively framed dataset's verdict.
 
 ## 7.5 Validity is not reducible to the measured texture statistic
 

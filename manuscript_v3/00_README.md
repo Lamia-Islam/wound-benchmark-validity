@@ -8,7 +8,7 @@
 | 4 | `V3_04_discussion.md` | Discussion, limitations, conclusions, declarations, figures, checklist |
 
 Figures: `fig1_hierarchy.png`, `fig2_composition.png`, `fig3_pool_dependence.png`,
-`fig_framing_dice.png`, `fig_framing_nsd.png`, `fig5_nonreducibility.png`.
+`fig4_framing_both.png`, `fig5_nonreducibility.png`.
 
 ## What changed from V2
 
@@ -42,8 +42,9 @@ reference, and the method pool.** Every result is an instance of that.
 - same modality mean +0.563, across modality mean -0.253 pooled,
   +0.108 classical only, +0.236 deep only
 - best generator B vs neutral references: +0.277 = 49% of ceiling
-- framing curve: monotonic in 8 of 8 seed-metric combinations at p < 0.01,
-  seed sd never above 0.008, sign change between 0.110 and 0.160
+- framing curve, built on AZH: Spearman -1.000 at p 0.0005 in all four seeds
+  under both metrics, seed sd never above 0.010
+- framing crossover moves with reference, metric and pool; direction does not
 - non-reducibility: C at 3.20 and B at 3.23 differ by 0.115
 
 ## Withdrawn from earlier versions
@@ -54,6 +55,8 @@ reference, and the method pool.** Every result is an instance of that.
   pool-specific and reference-specific
 - the framing crossover as a portable value: it moved by a factor of two
 - any use of the saturating rank-based verdict statistic
+- the framing curve built from FUSeg crops as the primary result; it is now the
+  replication, because eleven methods were trained on FUSeg
 
 ## Before submission
 
