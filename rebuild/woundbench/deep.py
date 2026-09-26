@@ -104,8 +104,15 @@ def train_one(name, arch, encoder, images, masks, ckpt_dir,
     if os.path.exists(path):
         blob = torch.load(path, map_location="cpu", weights_only=False)
         model.load_state_dict(blob["model"])
-        opt.load_state_dict(blob["opt"])
         start = blob["epoch"]
+        if "opt" in blob:
+            opt.load_state_dict(blob["opt"])
+        elif start < epochs:
+            # a finished checkpoint has had its optimiser state stripped; that is
+            # only safe once training is complete
+            raise RuntimeError(
+                f"{name}: checkpoint at epoch {start} has no optimiser state, "
+                "so training cannot be resumed from it. Delete it to restart.")
         if start >= epochs:
             model.eval()
             return model, start
