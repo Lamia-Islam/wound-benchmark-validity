@@ -4,8 +4,8 @@
 
 ## Title
 
-**Synthetic benchmark validity in medical image segmentation depends on the
-clinical reference and the method pool**
+**How the clinical reference and the method pool determine synthetic benchmark
+validity in medical image segmentation**
 
 Short title: What benchmark agreement actually measures
 

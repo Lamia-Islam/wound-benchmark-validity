@@ -137,29 +137,16 @@ body.push(new Paragraph({
   alignment: AlignmentType.LEFT,
   spacing: { after: 150, line: 300 },
   children: [new TextRun({
-    text: "Synthetic benchmark validity in medical image segmentation depends "
-        + "on the clinical reference and the method pool",
+    text: "How the clinical reference and the method pool determine synthetic "
+        + "benchmark validity in medical image segmentation",
     font: FONT, size: 30, bold: true, color: INK
   })]
 }));
-body.push(rich([{ t: "Lamia Islam" }], { align: AlignmentType.LEFT, after: 40 }));
-body.push(rich([{
-  t: "Department of Information and Communication Engineering, Pabna University "
-   + "of Science and Technology, Pabna, Bangladesh", size: 19, c: GREY
-}], { align: AlignmentType.LEFT, after: 30 }));
-body.push(rich([{ t: "ORCID 0009-0006-2866-5022", size: 19, c: GREY }],
-  { align: AlignmentType.LEFT, after: 60 }));
 body.push(new Paragraph({
-  spacing: { after: 260 },
+  spacing: { after: 300 },
   border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: RULE, space: 8 } },
   children: [new TextRun({ text: "", font: FONT, size: 2 })]
 }));
-body.push(rich([
-  { t: "Draft for supervisory review. ", b: true, size: 19 },
-  { t: "This document contains the introduction, methodology, results and "
-     + "discussion. Abstract, related work, references and declarations follow "
-     + "in the full submission draft.", size: 19, c: GREY }
-], { after: 260 }));
 
 // ------------------------------------------------------------ 1 introduction
 body.push(h1("1. Introduction"));
@@ -790,8 +777,8 @@ body.push(p(
 + "about the data."));
 
 const doc = new Document({
-  creator: "Lamia Islam",
-  title: "Synthetic benchmark validity depends on the clinical reference and the method pool",
+  creator: "",
+  title: "How the clinical reference and the method pool determine synthetic benchmark validity in medical image segmentation",
   styles: {
     default: {
       document: { run: { font: FONT, size: 22, color: INK } }
