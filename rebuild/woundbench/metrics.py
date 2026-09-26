@@ -106,3 +106,39 @@ def min_significant_rho(n: int, n_perm: int = 4000, seed: int = 0) -> float:
         den = np.sqrt((ac ** 2).sum() * (bc ** 2).sum())
         null.append(abs((ac * bc).sum() / den) if den > 0 else 0.0)
     return float(np.percentile(null, 95))
+
+
+def surface_distances(pred, gt):
+    """Distances from each boundary pixel of one mask to the other boundary."""
+    import cv2
+    p = (np.asarray(pred) > 0).astype(np.uint8)
+    g = (np.asarray(gt) > 0).astype(np.uint8)
+    if p.sum() == 0 and g.sum() == 0:
+        return np.zeros(0), np.zeros(0)
+    if p.sum() == 0 or g.sum() == 0:
+        return np.array([np.inf]), np.array([np.inf])
+    k = np.ones((3, 3), np.uint8)
+    pb = p - cv2.erode(p, k)
+    gb = g - cv2.erode(g, k)
+    if pb.sum() == 0:
+        pb = p
+    if gb.sum() == 0:
+        gb = g
+    # distance to the nearest zero, so invert the boundary to get a distance map
+    dg = cv2.distanceTransform(1 - gb, cv2.DIST_L2, 3)
+    dp = cv2.distanceTransform(1 - pb, cv2.DIST_L2, 3)
+    return dg[pb > 0], dp[gb > 0]
+
+
+def nsd(pred, gt, tau=2.0):
+    """Normalised surface Dice at tolerance tau pixels.
+
+    Boundary-sensitive counterpart to Dice. Two empty masks agree perfectly,
+    matching the Dice convention used throughout this project.
+    """
+    a, b = surface_distances(pred, gt)
+    if len(a) == 0 and len(b) == 0:
+        return 1.0
+    if not np.isfinite(a).all() or not np.isfinite(b).all():
+        return 0.0
+    return float(((a <= tau).sum() + (b <= tau).sum()) / (len(a) + len(b)))

@@ -1,4 +1,6 @@
 rebuild/data/
+rebuild/results/deep/
 rebuild/results/*.pkl
 __pycache__/
 *.pyc
+*.pt
