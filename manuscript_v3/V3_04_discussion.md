@@ -123,9 +123,13 @@ for varying one property in isolation, not proposed pipelines. The three real
 clinical datasets, which were curated without any oracle, land in the predicted
 places.
 
-**Unexplained offset.** Both held-out datasets sit above the framing curve under
-both metrics. A consistent one-directional offset across two independent
-datasets is unlikely to be noise and we have no explanation for it.
+**Crop series overstate the framing effect.** Every real clinical dataset placed
+on a crop-built curve lands above it, four of four placements across two
+independently built curves. Cropping to a target lesion fraction discards
+surrounding context that a natively framed dataset retains, so the two are not
+equivalent objects at the same fraction. The crop series establishes direction
+and ordering; it is not a calibrated predictor, and held-out residuals of 27% to
+41% of the curve range on the uncontaminated curve reflect that.
 
 **Generator independence.** The three generator families were written by the
 same authors. Generator C was built specifically to break shared implementation
@@ -135,9 +139,15 @@ assumptions cannot be excluded.
 **FUSeg as a reference.** Eleven of 32 methods were trained on FUSeg training
 images. Although the evaluation images are disjoint, the distribution is not,
 and Section 7.2 shows the resulting inflation is large. We report headline
-figures against Medetec and AZH for this reason. Results that necessarily
-involve FUSeg, in particular the framing curve which is built from FUSeg crops,
-inherit this caveat.
+figures against Medetec and AZH for this reason, and the primary framing curve
+is built from AZH crops. The FUSeg-built curve is reported alongside it as a
+replication and carries this caveat.
+
+**Coverage of the primary framing curve.** AZH is distributed as 224 px patches
+at a median lesion fraction of 0.029, and cropping can only raise a lesion
+fraction, so the AZH-built curve starts at 0.035. The low-fraction end, from
+0.008 to 0.035, exists only on the contaminated FUSeg curve. Only one held-out
+dataset, Medetec, falls inside the AZH curve's range.
 
 **Contrast sweep resolution.** The verdict slope is fitted over seven contrast
 levels.
@@ -212,11 +222,12 @@ agreement against the neutral references as a function of texture amplitude,
 plotted against the clinical ceiling, with the 22-method result shown for
 comparison. Source: `benchmark_quality32.json`.
 
-**Figure 4. The framing curve, under two metrics.** Verdict slope against
-reference lesion fraction on a log axis, eight crop levels, four seeds, with
-Medetec and AZH overlaid as open predicted and filled measured markers joined by
-a residual stem. Two panels, Dice and NSD. Files: `fig_framing_dice.png`,
-`fig_framing_nsd.png`.
+**Figure 4. The framing curve, from two references, under two metrics.** Verdict
+slope against reference lesion fraction on a log axis. Each panel shows the
+AZH-built curve, seven crop levels, and the FUSeg-built replication, eight crop
+levels, both over four seeds, with Medetec overlaid as open predicted and filled
+measured markers joined by a residual stem. Two panels, Dice and normalised
+surface Dice. File: `fig4_framing_both.png`.
 
 **Figure 5. Matched texture, different validity.** The four benchmarks of
 Table 7.5 plotted as validity against measured texture, with the two matched
@@ -230,7 +241,7 @@ pairs bracketed. Source: `nonreduce32.json`.
    The works are identified but several are cited descriptively.
 2. Push the repository so the Data Availability and Code Availability statements
    in Section 11 are true. They are not yet.
-3. Build Figures 1, 2, 3 and 5. Figure 4 exists.
+3. All five figures exist.
 4. Decide the target venue. The contribution is evaluation methodology rather
    than a wound-assessment application, so the framing of the title and abstract
    should follow the venue rather than the project's history.
