@@ -496,8 +496,8 @@ P("Two cautions apply to the percentage. It is not bounded by 100: a benchmark c
 + "reported earlier is a pool effect. Over all 32 methods, agreement with Medetec and "
 + "AZH rises from 0.133 to 0.236 to 0.272 across the three amplitudes; over the 18 "
 + "untrained methods it is flat at 0.480, 0.443 and 0.453.");
-add(figure("fig3_pool_dependence_v4.png", 500, 315));
-add(caption("Figure", 3, "Generator B agreement with clinical references against measured background texture, over all 32 methods (black line) and over the original 22 (open triangle). The two clinical-to-clinical values coincide and are drawn as one line."));
+add(figure("fig3_pool_dependence_v4.png", 600, 281));
+add(caption("Figure", 3, "Generator B agreement with two clinical references at three texture amplitudes, for each method pool (mean and standard deviation over three seeds). Each horizontal line is the clinical-to-clinical ceiling for the pool in the same shade, labelled with its value; the percentage marks the best amplitude as a share of that pool's own ceiling."));
 
 add(h2("4.4 Lesion fraction weakens a reference's preference for contrast"));
 P("AZH frames, from the reference no method was trained on, were cropped around their "

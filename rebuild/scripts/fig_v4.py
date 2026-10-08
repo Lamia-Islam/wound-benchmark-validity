@@ -183,50 +183,51 @@ def fig2(data, names):
 
 
 def fig3():
-    d = json.load(open(os.path.join(OUT, "benchmark_quality32.json")))
-    ceil_new = d["ceiling"]["rho"]                  # Medetec vs AZH, 32 methods
-    ceil_old = 0.567                                # Medetec vs FUSeg, 22 methods
-    old_best = 0.554                                # 22-method best, 98% of 0.567
-    rows = sorted(d["rows"], key=lambda r: r["texture"])
-    fig, ax = plt.subplots(figsize=(7.4, 4.7), dpi=200)
+    """Generator B agreement per pool and reference pair, each with its own ceiling."""
+    d = json.load(open(os.path.join(OUT, "pool_decomposition.json")))
+    amps = ["11.0", "28.0", "40.0"]
+    pools = [("all 32", "all 32 methods", INK, "o", "-"),
+             ("18 untrained", "18 untrained", SEC, "s", (0, (5, 2))),
+             ("original 22", "original 22", MUT, "^", (0, (1.5, 1.5)))]
+    pairs = ["Medetec + FUSeg", "Medetec + AZH"]
+    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.3), dpi=200, sharey=True)
     fig.patch.set_facecolor(SURF)
-    ax.set_facecolor(SURF)
-    x = [r["texture"] for r in rows]
-    y = [r["mean_rho"] for r in rows]
-
-    ax.axhline(ceil_new, color=INK, lw=1.2, ls=(0, (5, 3)))
-    ax.text(x[0], ceil_new + 0.035,
-            "clinical-to-clinical ceiling, one line because the two coincide:",
-            fontsize=8.2, color=INK, ha="left")
-    ax.text(x[0], ceil_new + 0.012,
-            f"Medetec vs AZH over 32 methods {ceil_new:+.3f};  "
-            f"Medetec vs FUSeg over 22 methods {ceil_old:+.3f}",
-            fontsize=8.2, color=SEC, ha="left")
-
-    ax.plot(x, y, "o-", color=INK, lw=2.2, ms=7, zorder=3,
-            markeredgecolor=SURF, markeredgewidth=1.5,
-            label="32 methods, against Medetec and AZH")
-    for xi, yi in zip(x, y):
-        ax.annotate(f"{yi / ceil_new:.0%}", (xi, yi), textcoords="offset points",
-                    xytext=(0, -17), ha="center", fontsize=8.5, color=SEC)
-    ax.plot([x[1]], [old_best], "^", ms=9, color=SURF, markeredgecolor=SEC,
-            markeredgewidth=1.5, zorder=3,
-            label="22 methods, against Medetec and FUSeg")
-    ax.annotate(f"{old_best / ceil_old:.0%}", (x[1], old_best),
-                textcoords="offset points", xytext=(11, -12),
-                fontsize=8.5, color=SEC)
-
-    ax.set_xlabel("measured background texture of the benchmark", fontsize=9.5,
-                  color=INK, labelpad=7)
-    ax.set_ylabel("agreement with clinical references", fontsize=9.5,
-                  color=INK)
-    ax.set_ylim(0, 0.70)
-    ax.legend(frameon=False, fontsize=8.3, loc="lower right")
-    ax.set_title("The same generator, measured over two method pools",
-                 fontsize=10.5, color=INK, loc="left", pad=12)
-    style(ax)
-    ax.grid(axis="y", color="#F1F1F1", lw=0.9)
-    fig.tight_layout()
+    x = np.arange(3)
+    for ax, rp in zip(axes, pairs):
+        ax.set_facecolor(SURF)
+        labels = []
+        for key, lab, col, mk, ls in pools:
+            r = d[f"{key} | {rp}"]
+            y = [r["per_amp"][a]["mean"] for a in amps]
+            e = [r["per_amp"][a]["sd"] for a in amps]
+            ax.errorbar(x, y, yerr=e, color=col, lw=2.0, ls="-", marker=mk, ms=6.5,
+                        mfc=SURF if mk == "^" else col, mec=col, mew=1.4, capsize=3,
+                        zorder=3, label=lab)
+            ax.hlines(r["ceiling"], -0.25, 2.25, color=col, lw=1.1, ls=ls, zorder=2)
+            labels.append((r["ceiling"], col, f"{r['ceiling']:.3f}"))
+            b = max(range(3), key=lambda i: y[i])
+            ax.annotate(f"{y[b] / r['ceiling']:.0%}", (x[b], y[b]),
+                        textcoords="offset points", xytext=(9, 4),
+                        fontsize=8, color=col)
+        labels.sort()
+        ys = [l[0] for l in labels]
+        for i in range(1, len(ys)):
+            ys[i] = max(ys[i], ys[i - 1] + 0.035)
+        for (v, col, t), yy in zip(labels, ys):
+            ax.text(2.3, yy, t, fontsize=8, color=col, va="center", ha="left")
+        ax.set_xticks(x)
+        ax.set_xticklabels(["11", "28", "40"])
+        ax.set_xlim(-0.35, 2.55)
+        ax.set_xlabel("texture amplitude of generator B", fontsize=9.5, color=INK,
+                      labelpad=6)
+        ax.set_title(f"references: {rp.replace(' + ', ' and ')}", fontsize=10,
+                     color=INK, loc="left", pad=8)
+        style(ax)
+        ax.grid(axis="y", color="#E4E4E4", lw=0.8)
+    axes[0].set_ylabel("agreement with clinical references", fontsize=9.5, color=INK)
+    axes[0].set_ylim(0, 0.8)
+    axes[0].legend(frameon=False, fontsize=8.3, loc="lower right")
+    fig.tight_layout(w_pad=2.5)
     p = os.path.join(OUT, "fig3_pool_dependence_v4.png")
     fig.savefig(p, facecolor=SURF, bbox_inches="tight")
     print("saved " + p)
