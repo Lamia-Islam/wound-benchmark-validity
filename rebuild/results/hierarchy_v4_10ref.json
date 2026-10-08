@@ -1,0 +1,2114 @@
+{
+ "dice_all": {
+  "pairs": [
+   {
+    "a": "medetec",
+    "b": "fuseg",
+    "level": "different source, same modality",
+    "rho": 0.4607771260997067,
+    "p": 0.008099595020248988,
+    "ci": [
+     0.08547683067856547,
+     0.7580418891092252
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "azh",
+    "level": "different source, same modality",
+    "rho": 0.5678152492668621,
+    "p": 0.0012499375031248437,
+    "ci": [
+     0.25560988946210855,
+     0.781130305455455
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.03225806451612903,
+    "p": 0.8588570571471427,
+    "ci": [
+     -0.3104345501004915,
+     0.3726827734346531
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.041788856304985335,
+    "p": 0.8185090745462726,
+    "ci": [
+     -0.3972454192472877,
+     0.33751323346054546
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": 0.027492668621700876,
+    "p": 0.8812059397030149,
+    "ci": [
+     -0.3130570974786741,
+     0.36536142906866836
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.06781524926686217,
+    "p": 0.712564371781411,
+    "ci": [
+     -0.3947375671865113,
+     0.29458518691795055
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.15799120234604103,
+    "p": 0.39238038098095096,
+    "ci": [
+     -0.47547281407586733,
+     0.21526546020950493
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.2382697947214076,
+    "p": 0.18774061296935154,
+    "ci": [
+     -0.5459066099915945,
+     0.1261236732218873
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.2950565786543969,
+    "p": 0.10384480775961202,
+    "ci": [
+     -0.5888793578736565,
+     0.05024148799565504
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "azh",
+    "level": "same source",
+    "rho": 0.6598240469208211,
+    "p": 0.00014999250037498125,
+    "ci": [
+     0.4296589624515892,
+     0.8036831399917622
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.48093841642228735,
+    "p": 0.0058497075146242685,
+    "ci": [
+     -0.705342026812757,
+     -0.1570804929677989
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.5520527859237535,
+    "p": 0.0010999450027498626,
+    "ci": [
+     -0.7408922130790876,
+     -0.22362718424483835
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.4600439882697947,
+    "p": 0.008499575021248937,
+    "ci": [
+     -0.6794284310053473,
+     -0.13733769274968047
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.5183284457478006,
+    "p": 0.002599870006499675,
+    "ci": [
+     -0.7455083862344659,
+     -0.16506736814482975
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.7327712609970675,
+    "p": 9.99950002499875e-05,
+    "ci": [
+     -0.8608057644088593,
+     -0.4886556643116786
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.7430351906158358,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     -0.8478868804594958,
+     -0.5256301697187493
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.5320326194285591,
+    "p": 0.002599870006499675,
+    "ci": [
+     -0.7221719639233506,
+     -0.24294722755126094
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.20307917888563048,
+    "p": 0.2679866006699665,
+    "ci": [
+     -0.5120641147766201,
+     0.15944892243763034
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.27675953079178883,
+    "p": 0.1288935553222339,
+    "ci": [
+     -0.5793732576608894,
+     0.08070286487236328
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.2313049853372434,
+    "p": 0.20463976801159942,
+    "ci": [
+     -0.5442148066866511,
+     0.14178289124556717
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.32954545454545453,
+    "p": 0.06389680515974201,
+    "ci": [
+     -0.6108048511576626,
+     0.010851772292844146
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.5087976539589443,
+    "p": 0.0036998150092495377,
+    "ci": [
+     -0.7202274101156758,
+     -0.21290038055269056
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.5252932551319648,
+    "p": 0.0018499075046247689,
+    "ci": [
+     -0.6895536695788306,
+     -0.25722741323854337
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.5391065310934595,
+    "p": 0.0022998850057497125,
+    "ci": [
+     -0.7875761001562688,
+     -0.1796392347209547
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "kvasir_sessile",
+    "level": "same source",
+    "rho": 0.9497800586510262,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8641846900529947,
+     0.9804936393282258
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.9497800586510262,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8515456218638427,
+     0.9841535993186138
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.9065249266862169,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.793785430781082,
+     0.9492474447779377
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.848973607038123,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6746921521779085,
+     0.9304395817553712
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5410557184750733,
+    "p": 0.0015499225038748063,
+    "ci": [
+     0.15540725544361392,
+     0.8223718701515803
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.18392170328740953,
+    "p": 0.31183440827958603,
+    "ci": [
+     -0.15662596861510075,
+     0.4944454673443806
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.9472140762463342,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8716649717796476,
+     0.9816143518218098
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.9307184750733138,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8352888123775187,
+     0.968755886962485
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8610703812316713,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6976361670567455,
+     0.9290962527553269
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6224340175953078,
+    "p": 0.00024998750062496874,
+    "ci": [
+     0.27831168747936613,
+     0.8389578931553233
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.24107146331699933,
+    "p": 0.18254087295635218,
+    "ci": [
+     -0.09268074562820852,
+     0.5392411030470751
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "cvc_colondb",
+    "level": "same source",
+    "rho": 0.9607771260997068,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.888083123831314,
+     0.9838208525014646
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.7969208211143693,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.5857245746640595,
+     0.9142444398674793
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5703812316715542,
+    "p": 0.0009499525023748813,
+    "ci": [
+     0.1954749225137274,
+     0.841170011299881
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.21761586148075074,
+    "p": 0.22998850057497125,
+    "ci": [
+     -0.14251995009240295,
+     0.5463676805778703
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8412756598240468,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6608266950427973,
+     0.9205474125966199
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6158357771260996,
+    "p": 0.00014999250037498125,
+    "ci": [
+     0.2516870449944252,
+     0.8639491487202615
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.24572535257022324,
+    "p": 0.17569121543922803,
+    "ci": [
+     -0.11085900623948822,
+     0.5545961605104465
+    ]
+   },
+   {
+    "a": "etis_larib",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.719941348973607,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.4108533506742326,
+     0.900980068219679
+    ]
+   },
+   {
+    "a": "etis_larib",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.3434570268879257,
+    "p": 0.05374731263436828,
+    "ci": [
+     0.02062213990065223,
+     0.5815714496352761
+    ]
+   },
+   {
+    "a": "ph2",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.16809847982644818,
+    "p": 0.35268236588170593,
+    "ci": [
+     -0.15507263896105902,
+     0.4669576633531755
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "azh_train_slice",
+    "level": "same dataset",
+    "rho": 0.94391495601173,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8351091281878144,
+     0.9841883425667564
+    ]
+   }
+  ],
+  "levels": {
+   "same dataset": [
+    0.94391495601173,
+    1
+   ],
+   "same source": [
+    0.8567937438905181,
+    3
+   ],
+   "different source, same modality": [
+    0.8111070381231672,
+    10
+   ],
+   "across modality": [
+    -0.09077257075293901,
+    32
+   ]
+  },
+  "subsets": {
+   "trained": {
+    "same dataset": [
+     0.9472527472527472,
+     1
+    ],
+    "same source": [
+     0.6483516483516484,
+     3
+    ],
+    "different source, same modality": [
+     0.7318681318681317,
+     10
+    ],
+    "across modality": [
+     0.039514165338685764,
+     32
+    ]
+   },
+   "untrained": {
+    "same dataset": [
+     0.9731682146542827,
+     1
+    ],
+    "same source": [
+     0.6890264877880976,
+     3
+    ],
+    "different source, same modality": [
+     0.7898864809081527,
+     10
+    ],
+    "across modality": [
+     0.020280450203933785,
+     32
+    ]
+   }
+  },
+  "modality_test": {
+   "all": [
+    0.9124226948224178,
+    0.0003968253968253968,
+    5040
+   ],
+   "untrained": [
+    0.746330647676514,
+    0.0003968253968253968,
+    5040
+   ],
+   "trained": [
+    0.6730809318717961,
+    0.003968253968253968,
+    5040
+   ]
+  }
+ },
+ "dice_noempty": {
+  "pairs": [
+   {
+    "a": "medetec",
+    "b": "fuseg",
+    "level": "different source, same modality",
+    "rho": 0.47837243401759527,
+    "p": 0.006749662516874156
+   },
+   {
+    "a": "medetec",
+    "b": "azh",
+    "level": "different source, same modality",
+    "rho": 0.5095307917888563,
+    "p": 0.0038498075096245186
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.03225806451612903,
+    "p": 0.8588570571471427
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.041788856304985335,
+    "p": 0.8185090745462726
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": 0.027492668621700876,
+    "p": 0.8812059397030149
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.06781524926686217,
+    "p": 0.712564371781411
+   },
+   {
+    "a": "medetec",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.15799120234604103,
+    "p": 0.39238038098095096
+   },
+   {
+    "a": "medetec",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.2382697947214076,
+    "p": 0.18774061296935154
+   },
+   {
+    "a": "medetec",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.2950565786543969,
+    "p": 0.10384480775961202
+   },
+   {
+    "a": "fuseg",
+    "b": "azh",
+    "level": "same source",
+    "rho": 0.3676686217008797,
+    "p": 0.04084795760211989
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.4761730205278592,
+    "p": 0.006149692515374231
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.5469208211143693,
+    "p": 0.0015999200039998
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.45161290322580644,
+    "p": 0.009449527523623819
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.5146627565982405,
+    "p": 0.0027498625068746564
+   },
+   {
+    "a": "fuseg",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.7331378299120234,
+    "p": 9.99950002499875e-05
+   },
+   {
+    "a": "fuseg",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.7452346041055719,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "fuseg",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.5305433748675275,
+    "p": 0.002849857507124644
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.02602639296187683,
+    "p": 0.8876056197190141
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.05058651026392961,
+    "p": 0.7814109294535273
+   },
+   {
+    "a": "azh",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.00439882697947214,
+    "p": 0.9802009899505024
+   },
+   {
+    "a": "azh",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.09347507331378298,
+    "p": 0.6091695415229239
+   },
+   {
+    "a": "azh",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.20527859237536655,
+    "p": 0.25463726813659315
+   },
+   {
+    "a": "azh",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.21151026392961875,
+    "p": 0.24343782810859457
+   },
+   {
+    "a": "azh",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.4464010571692389,
+    "p": 0.011749412529373532
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "kvasir_sessile",
+    "level": "same source",
+    "rho": 0.9497800586510262,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.9497800586510262,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.9065249266862169,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.848973607038123,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5410557184750733,
+    "p": 0.0015499225038748063
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.18392170328740953,
+    "p": 0.31183440827958603
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.9472140762463342,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.9307184750733138,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8610703812316713,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6224340175953078,
+    "p": 0.00024998750062496874
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.24107146331699933,
+    "p": 0.18254087295635218
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "cvc_colondb",
+    "level": "same source",
+    "rho": 0.9607771260997068,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.7969208211143693,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5703812316715542,
+    "p": 0.0009499525023748813
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.21761586148075074,
+    "p": 0.22998850057497125
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8412756598240468,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6158357771260996,
+    "p": 0.00014999250037498125
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.24572535257022324,
+    "p": 0.17569121543922803
+   },
+   {
+    "a": "etis_larib",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.719941348973607,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "etis_larib",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.3434570268879257,
+    "p": 0.05374731263436828
+   },
+   {
+    "a": "ph2",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.16809847982644818,
+    "p": 0.35268236588170593
+   },
+   {
+    "a": "azh",
+    "b": "azh_train_slice",
+    "level": "same dataset",
+    "rho": 0.9197214076246333,
+    "p": 4.999750012499375e-05
+   }
+  ],
+  "levels": {
+   "same dataset": [
+    0.9197214076246333,
+    1
+   ],
+   "same source": [
+    0.7594086021505375,
+    3
+   ],
+   "different source, same modality": [
+    0.8070381231671554,
+    10
+   ],
+   "across modality": [
+    -0.039235694011418576,
+    32
+   ]
+  },
+  "subsets": {
+   "trained": {
+    "same dataset": [
+     0.9428571428571428,
+     1
+    ],
+    "same source": [
+     0.6659340659340659,
+     3
+    ],
+    "different source, same modality": [
+     0.7406593406593407,
+     10
+    ],
+    "across modality": [
+     0.05714563298991299,
+     32
+    ]
+   },
+   "untrained": {
+    "same dataset": [
+     0.9731682146542827,
+     1
+    ],
+    "same source": [
+     0.6910904712762297,
+     3
+    ],
+    "different source, same modality": [
+     0.7882352941176471,
+     10
+    ],
+    "across modality": [
+     0.01561371106757449,
+     32
+    ]
+   }
+  },
+  "modality_test": {
+   "all": [
+    0.8352823892516621,
+    0.0003968253968253968,
+    5040
+   ],
+   "untrained": [
+    0.7502035470097455,
+    0.0003968253968253968,
+    5040
+   ],
+   "trained": [
+    0.6662694135020566,
+    0.0035714285714285713,
+    5040
+   ]
+  }
+ },
+ "nsd_all": {
+  "pairs": [
+   {
+    "a": "medetec",
+    "b": "fuseg",
+    "level": "different source, same modality",
+    "rho": 0.4607771260997067,
+    "p": 0.008699565021748913,
+    "ci": [
+     0.07411971565059476,
+     0.7573390689216524
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "azh",
+    "level": "different source, same modality",
+    "rho": 0.5799120234604105,
+    "p": 0.0007499625018749063,
+    "ci": [
+     0.23214191074899168,
+     0.8158435219788827
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.2657624633431085,
+    "p": 0.1391930403479826,
+    "ci": [
+     -0.0687227664893385,
+     0.5486667990322964
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": 0.35337243401759527,
+    "p": 0.046197690115494225,
+    "ci": [
+     0.0377221427469909,
+     0.6245289204859192
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": 0.13306451612903225,
+    "p": 0.46837658117094144,
+    "ci": [
+     -0.21419946108594162,
+     0.4658357883716397
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": 0.07184750733137829,
+    "p": 0.696015199240038,
+    "ci": [
+     -0.2716608970191488,
+     0.4051876755520406
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": 0.19904692082111436,
+    "p": 0.2792860356982151,
+    "ci": [
+     -0.13995746227174843,
+     0.49623007512069667
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.15951596232032222,
+    "p": 0.3830808459577021,
+    "ci": [
+     -0.4728420583769367,
+     0.2140387156961828
+    ]
+   },
+   {
+    "a": "medetec",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.1464905857370472,
+    "p": 0.42022898855057245,
+    "ci": [
+     -0.4737002109549988,
+     0.206103297043491
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "azh",
+    "level": "same source",
+    "rho": 0.7818914956011729,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.5334780507506415,
+     0.9311721978534593
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.28409090909090906,
+    "p": 0.11689415529223539,
+    "ci": [
+     -0.6284848584133212,
+     0.08202810056644941
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.13196480938416422,
+    "p": 0.4657767111644418,
+    "ci": [
+     -0.4774648837218366,
+     0.2376767899953018
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.40285923753665687,
+    "p": 0.02294885255737213,
+    "ci": [
+     -0.6823005445095849,
+     0.017871578768113208
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.3508064516129032,
+    "p": 0.049147542622868856,
+    "ci": [
+     -0.6300553594097273,
+     0.05664374285695393
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.3273460410557184,
+    "p": 0.06824658767061646,
+    "ci": [
+     -0.6516134579167714,
+     0.04409547062154959
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.6663000081287942,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     -0.8206060886271713,
+     -0.40499991330366164
+    ]
+   },
+   {
+    "a": "fuseg",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.4761409381389667,
+    "p": 0.005449727513624319,
+    "ci": [
+     -0.6690572882755453,
+     -0.18617589495192743
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.029325513196480937,
+    "p": 0.8764061796910154,
+    "ci": [
+     -0.35921133491747537,
+     0.27420444982232184
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": 0.08431085043988269,
+    "p": 0.6457177141142942,
+    "ci": [
+     -0.23998035455749855,
+     0.37272404951765353
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.24816715542521994,
+    "p": 0.16869156542172892,
+    "ci": [
+     -0.5383695861363499,
+     0.10892140478202941
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.24046920821114368,
+    "p": 0.184090795460227,
+    "ci": [
+     -0.5265361404310634,
+     0.10460061858374835
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.05498533724340175,
+    "p": 0.7695115244237788,
+    "ci": [
+     -0.40393649602452947,
+     0.293860223012822
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.47084711636619253,
+    "p": 0.007149642517874106,
+    "ci": [
+     -0.7004605732286308,
+     -0.15460827610863784
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.3028464841094991,
+    "p": 0.09514524273786311,
+    "ci": [
+     -0.6039170141205158,
+     0.08021260316556351
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "kvasir_sessile",
+    "level": "same source",
+    "rho": 0.9373167155425218,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8467474967630264,
+     0.9738734054168543
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.8614369501466275,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.7302526163729735,
+     0.9246254901756724
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.8258797653958944,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6498158030230261,
+     0.9186610352391112
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8200146627565982,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6073589327011829,
+     0.9168269349430386
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5621562534185149,
+    "p": 0.000999950002499875,
+    "ci": [
+     0.2155980804087847,
+     0.8134885947246812
+    ]
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.2855356525039776,
+    "p": 0.11289435528223589,
+    "ci": [
+     -0.09409399749622524,
+     0.60149188069532
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.8636363636363635,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.7147523509757738,
+     0.9345230157496992
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.8423753665689148,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6641935789443398,
+     0.9318600368324125
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.847140762463343,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6667266408316417,
+     0.9407916352294574
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.503117012191913,
+    "p": 0.004099795010249488,
+    "ci": [
+     0.16155454606686878,
+     0.7550483432356043
+    ]
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.15412224268141686,
+    "p": 0.39328033598320083,
+    "ci": [
+     -0.21439094996980812,
+     0.4764050046211735
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "cvc_colondb",
+    "level": "same source",
+    "rho": 0.9750733137829911,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.9291871518123963,
+     0.9863747673624633
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8339442815249266,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.6823272007252235,
+     0.9111733488128142
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.697103090507891,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.39413830838153335,
+     0.8593894631493867
+    ]
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.21759529190166224,
+    "p": 0.23018849057547122,
+    "ci": [
+     -0.1537490389988683,
+     0.5450615465052151
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.7943548387096774,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.5844428563889671,
+     0.9130290567254156
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6420975862595041,
+    "p": 0.000199990000499975,
+    "ci": [
+     0.31772915058944534,
+     0.8367506137052585
+    ]
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.2121972906483276,
+    "p": 0.2408879556022199,
+    "ci": [
+     -0.161498050446406,
+     0.5545580378150866
+    ]
+   },
+   {
+    "a": "etis_larib",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.7158049619523427,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.49631404929635525,
+     0.8324826470543708
+    ]
+   },
+   {
+    "a": "etis_larib",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.15300541483589936,
+    "p": 0.3976301184940753,
+    "ci": [
+     -0.23136267049988984,
+     0.5071445702169675
+    ]
+   },
+   {
+    "a": "ph2",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.05958599814045495,
+    "p": 0.7433128343582821,
+    "ci": [
+     -0.28947149145802353,
+     0.4111232329027891
+    ]
+   },
+   {
+    "a": "azh",
+    "b": "azh_train_slice",
+    "level": "same dataset",
+    "rho": 0.9604105571847507,
+    "p": 4.999750012499375e-05,
+    "ci": [
+     0.8900730241420892,
+     0.9819522009418002
+    ]
+   }
+  ],
+  "levels": {
+   "same dataset": [
+    0.9604105571847507,
+    1
+   ],
+   "same source": [
+    0.8980938416422286,
+    3
+   ],
+   "different source, same modality": [
+    0.7729472140762462,
+    10
+   ],
+   "across modality": [
+    0.03179905404895611,
+    32
+   ]
+  },
+  "subsets": {
+   "trained": {
+    "same dataset": [
+     0.9076923076923077,
+     1
+    ],
+    "same source": [
+     0.9267399267399267,
+     3
+    ],
+    "different source, same modality": [
+     0.7230769230769231,
+     10
+    ],
+    "across modality": [
+     0.0052136377821043,
+     32
+    ]
+   },
+   "untrained": {
+    "same dataset": [
+     0.9793601651186791,
+     1
+    ],
+    "same source": [
+     0.8548331613347093,
+     3
+    ],
+    "different source, same modality": [
+     0.7560371517027863,
+     10
+    ],
+    "across modality": [
+     0.2807641640276866,
+     32
+    ]
+   }
+  },
+  "modality_test": {
+   "all": [
+    0.7700281510040553,
+    0.0003968253968253968,
+    5040
+   ],
+   "untrained": [
+    0.49807206682092825,
+    0.0003968253968253968,
+    5040
+   ],
+   "trained": [
+    0.7648624399862813,
+    0.0003968253968253968,
+    5040
+   ]
+  }
+ },
+ "nsd_noempty": {
+  "pairs": [
+   {
+    "a": "medetec",
+    "b": "fuseg",
+    "level": "different source, same modality",
+    "rho": 0.4600439882697947,
+    "p": 0.0087995600219989
+   },
+   {
+    "a": "medetec",
+    "b": "azh",
+    "level": "different source, same modality",
+    "rho": 0.6312316715542521,
+    "p": 0.00024998750062496874
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.2657624633431085,
+    "p": 0.1391930403479826
+   },
+   {
+    "a": "medetec",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": 0.35337243401759527,
+    "p": 0.046197690115494225
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": 0.13306451612903225,
+    "p": 0.46837658117094144
+   },
+   {
+    "a": "medetec",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": 0.07184750733137829,
+    "p": 0.696015199240038
+   },
+   {
+    "a": "medetec",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": 0.19904692082111436,
+    "p": 0.2792860356982151
+   },
+   {
+    "a": "medetec",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.15951596232032222,
+    "p": 0.3830808459577021
+   },
+   {
+    "a": "medetec",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.1464905857370472,
+    "p": 0.42022898855057245
+   },
+   {
+    "a": "fuseg",
+    "b": "azh",
+    "level": "same source",
+    "rho": 0.7122434017595306,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": -0.281891495601173,
+    "p": 0.11954402279886006
+   },
+   {
+    "a": "fuseg",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": -0.13196480938416422,
+    "p": 0.4664766761661917
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.3933284457478005,
+    "p": 0.02654867256637168
+   },
+   {
+    "a": "fuseg",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.3420087976539589,
+    "p": 0.05529723513824309
+   },
+   {
+    "a": "fuseg",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": -0.3167155425219941,
+    "p": 0.0784460776961152
+   },
+   {
+    "a": "fuseg",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.6600660509806437,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "fuseg",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.468323143220344,
+    "p": 0.0074496275186240685
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_disjoint",
+    "level": "across modality",
+    "rho": 0.09457478005865103,
+    "p": 0.6095695215239239
+   },
+   {
+    "a": "azh",
+    "b": "kvasir_sessile",
+    "level": "across modality",
+    "rho": 0.21480938416422285,
+    "p": 0.23408829558522073
+   },
+   {
+    "a": "azh",
+    "b": "cvc_clinicdb",
+    "level": "across modality",
+    "rho": -0.09897360703812315,
+    "p": 0.5895205239738013
+   },
+   {
+    "a": "azh",
+    "b": "cvc_colondb",
+    "level": "across modality",
+    "rho": -0.10703812316715541,
+    "p": 0.5563221838908055
+   },
+   {
+    "a": "azh",
+    "b": "etis_larib",
+    "level": "across modality",
+    "rho": 0.07917888563049852,
+    "p": 0.6587670616469177
+   },
+   {
+    "a": "azh",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": -0.3619362179543863,
+    "p": 0.04439778011099445
+   },
+   {
+    "a": "azh",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": -0.2706446145637441,
+    "p": 0.13659317034148294
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "kvasir_sessile",
+    "level": "same source",
+    "rho": 0.9373167155425218,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.8614369501466275,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.8258797653958944,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8200146627565982,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.5621562534185149,
+    "p": 0.000999950002499875
+   },
+   {
+    "a": "kvasir_disjoint",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.2855356525039776,
+    "p": 0.11289435528223589
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_clinicdb",
+    "level": "different source, same modality",
+    "rho": 0.8636363636363635,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "cvc_colondb",
+    "level": "different source, same modality",
+    "rho": 0.8423753665689148,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.847140762463343,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.503117012191913,
+    "p": 0.004099795010249488
+   },
+   {
+    "a": "kvasir_sessile",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.15412224268141686,
+    "p": 0.39328033598320083
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "cvc_colondb",
+    "level": "same source",
+    "rho": 0.9750733137829911,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.8339442815249266,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.697103090507891,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_clinicdb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.21759529190166224,
+    "p": 0.23018849057547122
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "etis_larib",
+    "level": "different source, same modality",
+    "rho": 0.7943548387096774,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.6420975862595041,
+    "p": 0.000199990000499975
+   },
+   {
+    "a": "cvc_colondb",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.2121972906483276,
+    "p": 0.2408879556022199
+   },
+   {
+    "a": "etis_larib",
+    "b": "ph2",
+    "level": "across modality",
+    "rho": 0.7158049619523427,
+    "p": 4.999750012499375e-05
+   },
+   {
+    "a": "etis_larib",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.15300541483589936,
+    "p": 0.3976301184940753
+   },
+   {
+    "a": "ph2",
+    "b": "tn3k_test",
+    "level": "across modality",
+    "rho": 0.05958599814045495,
+    "p": 0.7433128343582821
+   },
+   {
+    "a": "azh",
+    "b": "azh_train_slice",
+    "level": "same dataset",
+    "rho": 0.9618768328445747,
+    "p": 4.999750012499375e-05
+   }
+  ],
+  "levels": {
+   "same dataset": [
+    0.9618768328445747,
+    1
+   ],
+   "same source": [
+    0.8748778103616811,
+    3
+   ],
+   "different source, same modality": [
+    0.7780058651026392,
+    10
+   ],
+   "across modality": [
+    0.05859625908270776,
+    32
+   ]
+  },
+  "subsets": {
+   "trained": {
+    "same dataset": [
+     0.9340659340659341,
+     1
+    ],
+    "same source": [
+     0.8915750915750916,
+     3
+    ],
+    "different source, same modality": [
+     0.7375824175824176,
+     10
+    ],
+    "across modality": [
+     0.029452531205402643,
+     32
+    ]
+   },
+   "untrained": {
+    "same dataset": [
+     0.9793601651186791,
+     1
+    ],
+    "same source": [
+     0.8624011007911937,
+     3
+    ],
+    "different source, same modality": [
+     0.7550051599587202,
+     10
+    ],
+    "across modality": [
+     0.28122009132981673,
+     32
+    ]
+   }
+  },
+  "modality_test": {
+   "all": [
+    0.7417646703104798,
+    0.0003968253968253968,
+    5040
+   ],
+   "untrained": [
+    0.4985687472825514,
+    0.0003968253968253968,
+    5040
+   ],
+   "trained": [
+    0.7436666572984014,
+    0.0003968253968253968,
+    5040
+   ]
+  }
+ },
+ "training_domain_split": {
+  "dice_all": {
+   "wound x wound": {
+    "n": 3,
+    "all": 0.5628054740957967,
+    "untrained": 0.45786033711730306,
+    "trained": 0.15750915750915748
+   },
+   "non-wound, same modality": {
+    "n": 10,
+    "all": 0.8993035190615835,
+    "untrained": 0.8592363261093912,
+    "trained": 0.879120879120879
+   },
+   "non-wound, across modality": {
+    "n": 11,
+    "all": 0.40632163465558174,
+    "untrained": 0.035392040726934366,
+    "trained": 0.1417276867781401
+   },
+   "wound x non-wound": {
+    "n": 21,
+    "all": -0.3511552497764499,
+    "untrained": 0.01236485516807633,
+    "trained": -0.014026250653409376
+   }
+  },
+  "dice_noempty": {
+   "wound x wound": {
+    "n": 3,
+    "all": 0.4518572825024438,
+    "untrained": 0.45442036463708296,
+    "trained": 0.20439560439560445
+   },
+   "non-wound, same modality": {
+    "n": 10,
+    "all": 0.8993035190615835,
+    "untrained": 0.8592363261093912,
+    "trained": 0.879120879120879
+   },
+   "non-wound, across modality": {
+    "n": 11,
+    "all": 0.40632163465558174,
+    "untrained": 0.035392040726934366,
+    "trained": 0.1417276867781401
+   },
+   "wound x non-wound": {
+    "n": 21,
+    "all": -0.27262286617032355,
+    "untrained": 0.005253633626957426,
+    "trained": 0.012840747672270217
+   }
+  },
+  "nsd_all": {
+   "wound x wound": {
+    "n": 3,
+    "all": 0.60752688172043,
+    "untrained": 0.7860337117303061,
+    "trained": 0.3963369963369963
+   },
+   "non-wound, same modality": {
+    "n": 10,
+    "all": 0.8601173020527858,
+    "untrained": 0.7766769865841072,
+    "trained": 0.8821978021978023
+   },
+   "non-wound, across modality": {
+    "n": 11,
+    "all": 0.3820291631856277,
+    "untrained": 0.07065526736282722,
+    "trained": 0.11928312828769903
+   },
+   "wound x non-wound": {
+    "n": 21,
+    "all": -0.15165481264168137,
+    "untrained": 0.39082120513785107,
+    "trained": -0.05453704772082628
+   }
+  },
+  "nsd_noempty": {
+   "wound x wound": {
+    "n": 3,
+    "all": 0.6011730205278591,
+    "untrained": 0.7901616787065703,
+    "trained": 0.40952380952380957
+   },
+   "non-wound, same modality": {
+    "n": 10,
+    "all": 0.8601173020527858,
+    "untrained": 0.7766769865841072,
+    "trained": 0.8821978021978023
+   },
+   "non-wound, across modality": {
+    "n": 11,
+    "all": 0.3820291631856277,
+    "untrained": 0.07065526736282722,
+    "trained": 0.11928312828769903
+   },
+   "wound x non-wound": {
+    "n": 21,
+    "all": -0.11082097639977409,
+    "untrained": 0.3915159515030017,
+    "trained": -0.01760159107580023
+   }
+  }
+ },
+ "composition": {
+  "medetec": {
+   "trained": 0.35595596889385256,
+   "untrained": 0.29154950101457433
+  },
+  "fuseg": {
+   "trained": 0.5425955909935408,
+   "untrained": 0.06196855942954967
+  },
+  "azh": {
+   "trained": 0.4196117599967839,
+   "untrained": 0.2972473153423731
+  },
+  "kvasir_disjoint": {
+   "trained": 0.12674950557777057,
+   "untrained": 0.2290917928015689
+  },
+  "kvasir_sessile": {
+   "trained": 0.0534925524605429,
+   "untrained": 0.11089232278606587
+  },
+  "cvc_clinicdb": {
+   "trained": 0.0891429546056787,
+   "untrained": 0.1795329516106206
+  },
+  "cvc_colondb": {
+   "trained": 0.05128160586456578,
+   "untrained": 0.12504690191756654
+  },
+  "etis_larib": {
+   "trained": 0.015097143348179133,
+   "untrained": 0.06726665032629042
+  },
+  "ph2": {
+   "trained": 0.08117743724896528,
+   "untrained": 0.4902943442785441
+  },
+  "tn3k_test": {
+   "trained": 0.0072477315806767,
+   "untrained": 0.10178138010814435
+  }
+ }
+}

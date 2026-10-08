@@ -27,30 +27,32 @@ P("**Background.** A synthetic benchmark for medical image segmentation is usual
 P("**Methods.** We scored 32 methods: 18 untrained classical algorithms and 14 methods "
 + "trained on chronic wound photographs (three pixel classifiers, a small U-Net, and "
 + "ten architectures trained from random initialisation). The clinical references are "
-+ "ten datasets from seven sources in four modalities (wound photography, "
++ "eleven datasets from eight sources in four modalities (wound photography, "
 + "colonoscopy, dermoscopy, thyroid ultrasound) plus a within-dataset control. The "
 + "synthetic benchmarks are parametric wound images from three generator families. "
 + "Agreement is the Spearman rank correlation of per-method mean scores, computed "
-+ "under Dice and under normalised surface Dice, over four generator seeds, with "
++ "under Dice and under normalised surface Dice, over up to four generator seeds, with "
 + "exact permutation tests at the level of references.");
 P("**Results.** Agreement between clinical references is organised by modality, not by "
-+ "source. Same-modality agreement exceeds across-modality agreement by 0.75 among "
-+ "untrained methods and by 0.67 among trained methods (exact p of 0.0004 and 0.004), "
++ "source. Same-modality agreement exceeds across-modality agreement by 0.60 among "
++ "untrained methods and by 0.47 among trained methods (exact p of 0.0001 and 0.004), "
 + "and colonoscopy datasets from three independent sources agree at 0.70 to 0.94 "
 + "among untrained methods. Pooling trained and untrained methods manufactures "
 + "structure in both directions: wound references appear anti-correlated with the "
-+ "other modalities (mean -0.35) and the non-wound modalities appear to agree with each "
-+ "other (+0.41), yet within either pool both effects are close to zero. The validity "
-+ "of a synthetic wound benchmark depends on the pool: with the references held fixed, "
-+ "its agreement with clinical data falls from 99 to 116 percent of the "
-+ "clinical-to-clinical agreement over the original 22 methods to 48 to 60 percent "
-+ "over all 32. Benchmarks matched to within 0.03 on a measured background-texture "
-+ "statistic differ by 0.176 in validity among untrained methods. Two effects found "
-+ "earlier in this work, a reversal of a reference's preference for lesion contrast "
-+ "and a texture dose-response, disappear within either pool. What remains, under the "
-+ "boundary metric, is a monotonic weakening of the contrast preference as the "
-+ "reference's lesion fraction rises, which holds in both pools and places a held-out "
-+ "dataset within 4 to 15 percent of the curve range.");
++ "other modalities (mean -0.26) and the non-wound modalities appear to agree with each "
++ "other (+0.41), yet within either pool both values lie between 0.04 and 0.14. The "
++ "validity of a synthetic wound benchmark depends on the pool and on the reference. "
++ "Adding the 14 trained methods to the untrained pool lowers the benchmark's agreement "
++ "with clinical data by 0.21 to 0.24 against each of three reference pairs, and over "
++ "all 32 methods the same benchmark retains 48, 60 or 96 percent of the "
++ "clinical-to-clinical agreement depending on which pair is used. The effect of "
++ "background texture also depends on the reference, and benchmarks matched to within "
++ "0.03 on a measured texture statistic differ by 0.176 in validity against one "
++ "reference pair and by 0.013 against another. A reversal of a reference's preference "
++ "for lesion contrast found earlier in this work disappears within either pool. What "
++ "remains, under the boundary metric, is a monotonic weakening of the contrast "
++ "preference as the reference's lesion fraction rises, which holds in both pools and "
++ "places a held-out dataset within 4 to 15 percent of the curve range.");
 P("**Conclusions.** A benchmark validity figure is a property of the benchmark, the "
 + "reference and the method pool together. Agreement should be reported as a matrix "
 + "over references, with the method pool named, trained and untrained methods "
@@ -76,23 +78,24 @@ P("Synthetic benchmarks add a further question. A parametric generator can produ
 + "Borsukiewicz et al., 2026). The resulting figure is treated as a property of the "
 + "benchmark.");
 P("This study measures how far that figure depends on things other than the benchmark. "
-+ "We score 32 segmentation methods on ten clinical references from seven sources in "
++ "We score 32 segmentation methods on eleven clinical references from eight sources in "
 + "four modalities and on synthetic wound benchmarks from three generator families. "
 + "Three dependences emerge, and a fourth effect that we originally reported turns out "
 + "to be an instance of one of them.");
 P("The first dependence is the clinical reference. Agreement between two clinical "
-+ "datasets about which method is better is high within a modality and absent across "
-+ "modalities, whichever method pool is used. Colonoscopy datasets collected at three "
++ "datasets about which method is better is high within a modality and much lower "
++ "across modalities, whichever method pool is used. Colonoscopy datasets collected at three "
 + "different centres agree with each other as strongly as two curations of one "
-+ "collection. Wound photography is the exception: its references agree only "
-+ "moderately with one another.");
++ "collection. Wound photography is the exception: its references, including three "
++ "independent sources, agree only moderately with one another.");
 P("The second dependence is the method pool, and it is the largest. When trained and "
 + "untrained methods are pooled, cross-domain rank correlations are dominated by which "
 + "methods had training matched to the domain. In our data this makes wound references "
 + "appear anti-correlated with the other modalities and makes those modalities "
 + "appear to agree with each other, although neither effect exists within a "
-+ "homogeneous pool. The same mechanism halves the measured validity of a synthetic "
-+ "wound benchmark when modern architectures join a mostly classical pool. The "
++ "homogeneous pool. The same mechanism lowers the measured validity of a synthetic "
++ "wound benchmark when trained methods join an untrained pool, by an amount that "
++ "depends on which clinical references are used. The "
 + "principle that benchmark agreement depends on the models compared is established "
 + "for language model benchmarks (Perlitz et al., 2024; Zhang et al., 2026) and for "
 + "in-distribution and out-of-distribution accuracy (Teney et al., 2023). We show it in "
@@ -103,31 +106,38 @@ P("That last point is the reason for a correction we report openly. In earlier s
 + "of this work we found that a reference's preference for high or low "
 + "lesion-to-surround contrast reversed as its lesion fraction increased, and that "
 + "background texture raised benchmark validity. Both effects were measured over the "
-+ "mixed pool. Within either homogeneous pool neither survives. What survives, under a "
++ "mixed pool. Within either homogeneous pool the reversal does not survive, and the "
++ "texture effect survives against some references and not others. What survives of "
++ "the reversal, under a "
 + "boundary-sensitive metric, is a smaller effect: the preference for contrast weakens "
 + "monotonically as lesion fraction rises, in both pools, and a held-out dataset falls "
 + "on the curve.");
 P("The third dependence concerns the benchmark images. A measured background-texture "
 + "statistic does not determine validity: benchmarks from different generators "
-+ "matched on it to within 0.03 differ substantially in how well they order methods. "
++ "matched on it to within 0.03 differ substantially in how well they order methods "
++ "against one reference pair, although against another they are indistinguishable. "
 + "This agrees with reports that a single fidelity statistic does not determine the "
 + "usefulness or ranking validity of synthetic data (Deo et al., 2025; Borsukiewicz "
 + "et al., 2026), and extends them with a controlled matching design.");
 
 add(h2("1.1 Contributions"));
 [
-  "A measured structure of rank agreement over ten clinical references in four "
+  "A measured structure of rank agreement over eleven clinical references from eight "
+  + "sources in four "
   + "modalities, with a within-dataset control, showing that agreement is organised by "
   + "modality rather than by source, with exact permutation tests that respect the "
   + "dependence between pairs.",
   "A demonstration in segmentation that pooling trained and untrained methods "
   + "manufactures cross-domain rank structure in both directions, traced to training "
   + "domain with per-reference evidence.",
-  "A decomposition showing that the measured validity of a synthetic benchmark depends "
-  + "on the method pool with the clinical references held fixed: 99 to 116 percent of "
-  + "clinical agreement over 22 methods against 48 to 60 percent over 32.",
+  "A decomposition over three method pools and three reference pairs showing that the "
+  + "measured validity of a synthetic benchmark depends on both: adding trained methods "
+  + "lowers its agreement with clinical data by 0.21 to 0.24 against every pair, and over "
+  + "one pool its validity ranges from 48 to 96 percent of clinical agreement with the "
+  + "pair.",
   "A matched-statistic test showing that synthetic benchmark validity is not "
-  + "determined by a measured background-texture statistic.",
+  + "determined by a measured background-texture statistic, and that the size of the "
+  + "difference between matched benchmarks itself depends on the reference.",
   "A within-pool, boundary-metric relationship between a reference's lesion fraction "
   + "and the strength of its contrast preference, together with the finding that the "
   + "stronger reversal reported earlier is a pool-composition effect."
@@ -217,7 +227,9 @@ P("Datasets carry signatures of how they were collected and framed (Torralba and
 + "datasets (Alajmi et al., 2026), and annotation conventions themselves change scores "
 + "(Kendrick et al., 2022). The wound datasets used here differ markedly in framing: "
 + "FUSeg and AZH come from one clinic (Wang et al., 2020, 2024) but are distributed at "
-+ "different crops, and Medetec is a separate archive (Medetec, 2014). Wound "
++ "different crops, Medetec is a separate archive (Medetec, 2014), and CO2Wounds-V2 "
++ "was photographed with smartphones at a leprosy clinic in Colombia (Sanchez et al., "
++ "2024). Wound "
 + "segmentation methods are surveyed by Zhang et al. (2022), and diabetic foot ulcer "
 + "segmentation has its own challenge series (Yap et al., 2024).");
 
@@ -276,6 +288,7 @@ add(table(
   ["Reference", "Modality", "Source", "n", "Empty GT", "Lesion fraction"],
   [
     ["Medetec", "Wound photography", "Medetec archive", "152", "0", "0.098"],
+    ["CO2Wounds-V2", "Wound photography", "Leprosy clinic, Colombia", "150", "0", "0.045"],
     ["FUSeg (validation)", "Wound photography", "AZH Wound Center", "120", "4", "0.008"],
     ["AZH (test)", "Wound photography", "AZH Wound Center", "150", "10", "0.019"],
     ["AZH train slice (control)", "Wound photography", "AZH Wound Center", "150", "8", "0.016"],
@@ -289,14 +302,17 @@ add(table(
   ],
   [2350, 1800, 1750, 650, 1050, 1760], { leftCols: 3 }
 ));
-P("The wound references are Medetec (Medetec, 2014), the FUSeg challenge validation "
+P("The wound references are Medetec (Medetec, 2014), CO2Wounds-V2 (Sanchez et al., "
++ "2024), the FUSeg challenge validation "
 + "set (Wang et al., 2024) and the AZH chronic wound dataset (Wang et al., 2020). FUSeg "
 + "was built from AZH Wound and Vascular Center images, so the two are treated as one "
 + "source. Template matching of 25 AZH patches against all 1,010 FUSeg frames at six "
 + "scales gave a maximum normalised cross-correlation of 0.927 with no exact match, so "
 + "they are distinct images under different crops. The AZH train slice is a disjoint "
 + "slice of the same dataset as AZH test and serves only as the within-dataset "
-+ "control.", { after: 100 });
++ "control. CO2Wounds-V2 holds 764 smartphone photographs of chronic wounds from 96 "
++ "leprosy patients at the Sanatorio de Contratación in Colombia (Sanchez et al., 2024). "
++ "It shares no source with any other reference, and no method was trained on it.", { after: 100 });
 P("The colonoscopy references are Kvasir-SEG (Jha et al., 2020) and its sessile "
 + "subset, CVC-ClinicDB (Bernal et al., 2015), CVC-ColonDB (Bernal et al., 2012) and "
 + "ETIS-LaribPolypDB (Silva et al., 2014). The sessile images are a subset of "
@@ -306,20 +322,22 @@ P("The colonoscopy references are Kvasir-SEG (Jha et al., 2020) and its sessile 
 + "(Mendonça et al., 2013) and the ultrasound reference is the TN3K test split (Gong "
 + "et al., 2021). Content comparison found no overlap between any colonoscopy set and "
 + "Kvasir-SEG.", { after: 100 });
-P("For the five new references, 150 pairs were taken evenly spaced over the sorted "
-+ "file list, with numeric frame names sorted numerically. The colonoscopy sets are "
+P("For CO2Wounds-V2 and the five non-wound references outside Kvasir, 150 pairs were taken evenly spaced "
++ "over the sorted file list, with numeric names sorted numerically; for CO2Wounds-V2 "
++ "the list is the 607 images with published masks. The colonoscopy sets are "
 + "video frames and consecutive frames are nearly identical, so taking the first 150 "
 + "would have covered only a few sequences. Masks are binarised on any non-zero value "
 + "for the wound sets, whose masks are 0 and 1 or 0 and 255, and above 127 for all other "
-+ "sets, whose masks are anti-aliased or JPEG-compressed. All non-wound images are "
-+ "resampled so the long side is at most 256 pixels.");
++ "sets, whose masks are anti-aliased or JPEG-compressed. Images in CO2Wounds-V2 and in "
++ "all seven non-wound references are resampled so the long side is at most 256 pixels.");
 
 add(h2("3.4 Synthetic benchmarks"));
 P("Three generator families produce wound images with ground-truth masks and expose "
 + "their design properties as explicit parameters. Parametric generators are used "
 + "rather than a learned generative model because the experiments require individual "
 + "properties to be switched off and swept independently. Generator A places a lesion "
-+ "on a uniform drape. Generator B renders textured skin with a shared luminance "
++ "on a uniform drape and reproduces the 45-image benchmark released with an earlier "
++ "system description (Islam, 2026). Generator B renders textured skin with a shared luminance "
 + "mottling field, a calibrated tissue palette and clutter such as hair and gauze; its "
 + "texture amplitude is a swept parameter. Generator C shares no code with generator B "
 + "and differs in every mechanism: spectral-filtered noise, a radial vignette, "
@@ -346,16 +364,17 @@ P("Every pair of references is assigned to one of four levels, defined once and 
 P("Pairs of references share references, so pair-level tests overstate the evidence "
 + "for differences between levels. The difference between mean same-modality "
 + "agreement and mean across-modality agreement is therefore tested by permuting the "
-+ "modality labels over the ten non-control references, exactly, over all 5,040 "
++ "modality labels over the eleven non-control references, exactly, over all 13,860 "
 + "distinct relabelings.", { after: 100 });
 P("Every result is computed under Dice and under normalised surface Dice at a "
 + "tolerance of 2 pixels (Nikolov et al., 2018). Both treat two empty masks as perfect "
-+ "agreement. Because 2.7 to 6.7 percent of images in three wound references have "
++ "agreement. Because 3.3 to 6.7 percent of images in three wound references have "
 + "empty ground truth (Table 2), every agreement is also recomputed with those images "
 + "excluded. Results are reported for the full pool and separately for the 18 "
 + "untrained and 14 trained methods. Synthetic benchmarks are built at four generator "
-+ "seeds for the framing analysis and three for the validity decomposition; single-seed "
-+ "results are not reported as findings.", { after: 100 });
++ "seeds for the framing analysis and three for the validity decomposition. The "
++ "matched-statistic comparison in Section 4.5 uses one seed per benchmark and is read "
++ "with that in mind.", { after: 100 });
 P("A reference's preference over lesion-to-surround contrast is the ordinary least "
 + "squares slope of its agreement with a synthetic benchmark against that benchmark's "
 + "measured saturation contrast, over seven contrast levels, per 10 saturation units. "
@@ -372,57 +391,62 @@ add(table(
   [
     ["Within dataset", "1", "+0.944", "+0.973", "+0.947", "+0.960", "+0.979", "+0.908"],
     ["Within source", "3", "+0.857", "+0.689", "+0.648", "+0.898", "+0.855", "+0.927"],
-    ["Within modality", "10", "+0.811", "+0.790", "+0.732", "+0.773", "+0.756", "+0.723"],
-    ["Across modality", "32", "-0.091", "+0.020", "+0.040", "+0.032", "+0.281", "+0.005"]
+    ["Within modality", "13", "+0.739", "+0.674", "+0.602", "+0.710", "+0.685", "+0.606"],
+    ["Across modality", "39", "-0.073", "+0.080", "+0.142", "+0.032", "+0.298", "+0.103"]
   ],
   [1800, 700, 1050, 1300, 1250, 1050, 1050, 1160]
 ));
 P("Agreement within a modality exceeds agreement across modalities in every pool and "
 + "under both metrics. The exact permutation test gives a same-modality minus "
-+ "across-modality difference under Dice of 0.912 for all 32 methods, 0.746 for the "
-+ "untrained pool and 0.673 for the trained pool (p of 0.0004, 0.0004 and 0.0040), and "
-+ "under NSD of 0.770, 0.498 and 0.765 (each p = 0.0004). Excluding images with empty "
-+ "ground truth leaves every difference significant (Dice: 0.835, 0.750 and 0.666, p "
-+ "at most 0.0036).");
++ "across-modality difference under Dice of 0.834 for all 32 methods, 0.597 for the "
++ "untrained pool and 0.468 for the trained pool (p of 0.0001, 0.0001 and 0.0045), and "
++ "under NSD of 0.713, 0.418 and 0.563 (each p = 0.0001). Excluding images with empty "
++ "ground truth leaves every difference significant (Dice: 0.761, 0.598 and 0.463, p "
++ "at most 0.0062).");
 P("The within-dataset control reproduces itself at 0.944, so values well below it "
 + "reflect disagreement between references rather than noise in the measurement. The "
 + "boundary that matters is modality, not source. Colonoscopy references from three "
 + "independent sources agree at 0.80 to 0.95 over all 32 methods and 0.70 to 0.94 over "
 + "the untrained pool, as high as two curations of one source (Kvasir and its sessile "
 + "subset, 0.950; the two CVC sets, 0.961).");
-P("Wound photography is the exception within modality. Among untrained methods the "
-+ "three wound references agree at 0.74 (Medetec and FUSeg), 0.49 (Medetec and AZH) "
-+ "and 0.15 (FUSeg and AZH), and among trained methods at -0.04, 0.48 and 0.03. Under "
-+ "NSD, wound-to-wound agreement among untrained methods rises to 0.79, close to the "
-+ "colonoscopy level, which points to the region-size sensitivity of Dice combined "
-+ "with very different lesion fractions (0.008 to 0.098) as a large part of the "
-+ "disagreement. Among trained methods, NSD agreement stays at 0.40. Notably, FUSeg and "
-+ "AZH come from one clinic yet are the least similar wound pair among untrained "
-+ "methods (0.15) and agree at only 0.03 among trained methods; their agreement of 0.66 "
-+ "over all 32 methods is produced by pooling, as Section 4.2 explains.");
+P("Wound photography is the exception within modality. CO2Wounds-V2, photographed at "
++ "a clinic with no connection to any other reference or to the training data, agrees "
++ "with Medetec, FUSeg and AZH at 0.50, 0.53 and 0.46 over all 32 methods (each p below "
++ "0.01). Independent wound sources therefore agree, but at little more than half the "
++ "level of independent colonoscopy sources. Within the pools wound agreement is "
++ "unstable: among untrained methods the five different-source wound pairs range from "
++ "0.07 (CO2Wounds-V2 and AZH) to 0.74 (Medetec and FUSeg), and among trained methods "
++ "from -0.13 to 0.48. Under NSD, mean wound-to-wound agreement among untrained methods "
++ "rises from 0.37 to 0.62, which points to the region-size sensitivity of Dice combined "
++ "with very different lesion fractions (0.008 to 0.098) as part of the disagreement; "
++ "among trained methods it rises only from 0.16 to 0.31. FUSeg and AZH come from one "
++ "clinic yet agree at only 0.15 among untrained methods and 0.03 among trained "
++ "methods; their agreement of 0.66 over all 32 methods is produced by pooling, as "
++ "Section 4.2 explains.");
 add(figure("fig1_matrix_print_dice.png", 620, 219));
-add(caption("Figure", 1, "Agreement between the ten clinical references under Dice, for the full pool and for each homogeneous pool. Black lines separate modalities (wound photography, colonoscopy, dermoscopy, thyroid ultrasound). Purple is positive and orange negative. Every value is listed in Appendix Table A1."));
+add(caption("Figure", 1, "Agreement between the eleven clinical references under Dice, for the full pool and for each homogeneous pool. Black lines separate modalities (wound photography, colonoscopy, dermoscopy, thyroid ultrasound). Purple is positive and orange negative. Every value is listed in Appendix Table A1."));
 
 add(h2("4.2 Mixing trained and untrained methods manufactures structure in both directions"));
 P("The across-modality pairs in Figure 1 are not homogeneous. Over all 32 methods, "
 + "FUSeg and AZH are negatively correlated with every non-wound reference (-0.20 to "
-+ "-0.74), Medetec is close to zero with most of them, and the non-wound modalities "
-+ "agree with each other. Table 4 splits the pairs by "
++ "-0.74), Medetec is close to zero with most of them, CO2Wounds-V2 ranges from -0.47 "
++ "(TN3K) to +0.23, and the "
++ "non-wound modalities agree with each other. Table 4 splits the pairs by "
 + "whether they cross the boundary of the trained methods' domain.");
 add(caption("Table", 4, "Mean agreement by category of pair, Dice, all images. NSD values follow in parentheses."));
 add(table(
   ["Category", "Pairs", "All 32", "18 untrained", "14 trained"],
   [
-    ["Wound with wound", "3", "+0.563 (+0.608)", "+0.458 (+0.786)", "+0.158 (+0.396)"],
+    ["Wound with wound", "6", "+0.530 (+0.553)", "+0.373 (+0.616)", "+0.163 (+0.305)"],
     ["Non-wound, same modality", "10", "+0.899 (+0.860)", "+0.859 (+0.777)", "+0.879 (+0.882)"],
     ["Non-wound, across modality", "11", "+0.406 (+0.382)", "+0.035 (+0.071)", "+0.142 (+0.119)"],
-    ["Wound with non-wound", "21", "-0.351 (-0.152)", "+0.012 (+0.391)", "-0.014 (-0.055)"]
+    ["Wound with non-wound", "28", "-0.262 (-0.106)", "+0.098 (+0.387)", "+0.142 (+0.096)"]
   ],
   [3000, 800, 1850, 1850, 1860]
 ));
 P("Both effects come from pooling. Under Dice, wound references appear anti-correlated "
-+ "with the other modalities at -0.351 over all 32 methods, but the same pairs agree "
-+ "at +0.012 among untrained methods and -0.014 among trained methods. Non-wound "
++ "with the other modalities at -0.262 over all 32 methods, but the same pairs agree "
++ "at +0.098 among untrained methods and +0.142 among trained methods. Non-wound "
 + "references from different modalities appear to agree at +0.406, but the same pairs "
 + "give +0.035 and +0.142 within the pools. The pooled values lie outside the range of "
 + "both pool-specific values, which is the signature of a composition effect.");
@@ -431,6 +455,7 @@ add(table(
   ["Reference", "14 trained", "18 untrained", "Difference"],
   [
     ["Medetec", "0.356", "0.292", "+0.064"],
+    ["CO2Wounds-V2", "0.277", "0.188", "+0.090"],
     ["FUSeg", "0.543", "0.062", "+0.481"],
     ["AZH", "0.420", "0.297", "+0.122"],
     ["Kvasir", "0.127", "0.229", "-0.102"],
@@ -443,7 +468,7 @@ add(table(
   ],
   [3360, 2000, 2000, 2000]
 ));
-P("Table 5 shows the mechanism. The trained methods lead on all three wound references, "
+P("Table 5 shows the mechanism. The trained methods lead on all four wound references, "
 + "most strongly on FUSeg, the distribution they were trained on, and fall below the "
 + "untrained methods on all seven non-wound references, where their mean Dice is "
 + "between 0.007 and 0.127. When two groups exchange places between domains, a pooled "
@@ -451,27 +476,32 @@ P("Table 5 shows the mechanism. The trained methods lead on all three wound refe
 + "negative, and correlations between references outside the domain become positive, "
 + "without any pair of methods inverting.");
 P("Two further observations follow. First, among trained methods the agreement between "
-+ "FUSeg and the other wound references is close to zero (-0.04 with Medetec, 0.03 with "
-+ "AZH), so a ranking measured on the training distribution did not predict the ranking "
++ "FUSeg and the other wound references is close to zero or negative (-0.04 with "
++ "Medetec, -0.13 with CO2Wounds-V2, 0.03 with AZH), so a ranking measured on the training distribution did not predict the ranking "
 + "on shifted data of the same modality. Second, the high agreement among trained "
 + "methods on non-wound references (0.879 within colonoscopy) is agreement about how "
 + "methods fail: their Dice there is near zero, and their ordering reflects which "
 + "methods predict some foreground rather than which segment well.");
 add(figure("fig2_composition_v4.png", 620, 237));
-add(caption("Figure", 2, "Left: mean agreement by category of pair for the mixed pool and for each homogeneous pool. Right: mean Dice of each pool on each reference; the shaded band is the trained methods' domain."));
+add(caption("Figure", 2, "Left: mean agreement by category of pair for the mixed pool and for each homogeneous pool. Right: mean Dice of each pool on each reference; the shaded band is wound photography, the trained methods' modality."));
 
-add(h2("4.3 The validity of a synthetic benchmark depends on the method pool"));
+add(h2("4.3 The validity of a synthetic benchmark depends on the pool and the reference"));
 P("Generator B was scored at three texture amplitudes and three seeds. Its validity is "
 + "the mean of its agreement with two clinical references, expressed as a percentage "
 + "of the agreement between those two references over the same pool, so that the "
 + "normaliser never changes underneath a comparison. Earlier drafts compared a figure "
-+ "computed over 22 methods against Medetec and FUSeg with one computed over 32 "
++ "computed over the original 22 methods (the 18 untrained methods, the three pixel "
++ "classifiers and the small U-Net) against Medetec and FUSeg with one computed over 32 "
 + "methods against Medetec and AZH, which changed two things at once. Table 6 "
-+ "separates them.");
++ "separates them and adds a third pair, Medetec and CO2Wounds-V2, neither of which "
++ "shares a source with the images the trained methods were fitted on.");
 add(caption("Table", 6, "Generator B validity by method pool and reference pair. Best configuration shown; mean over three seeds."));
 add(table(
   ["Method pool", "References", "Clinical agreement", "Benchmark agreement", "% of clinical"],
   [
+    ["Original 22", "Medetec and CO2Wounds-V2", "+0.529", "+0.712 (sd 0.009)", "135%"],
+    ["18 untrained", "Medetec and CO2Wounds-V2", "+0.540", "+0.698 (sd 0.006)", "129%"],
+    ["All 32", "Medetec and CO2Wounds-V2", "+0.502", "+0.484 (sd 0.025)", "96%"],
     ["Original 22", "Medetec and FUSeg", "+0.567", "+0.562 (sd 0.047)", "99%"],
     ["18 untrained", "Medetec and FUSeg", "+0.740", "+0.511 (sd 0.028)", "69%"],
     ["All 32", "Medetec and FUSeg", "+0.461", "+0.276 (sd 0.007)", "60%"],
@@ -479,28 +509,37 @@ add(table(
     ["18 untrained", "Medetec and AZH", "+0.486", "+0.480 (sd 0.003)", "99%"],
     ["All 32", "Medetec and AZH", "+0.568", "+0.272 (sd 0.006)", "48%"]
   ],
-  [1700, 2100, 1800, 2160, 1600], { leftCols: 2 }
+  [1500, 2500, 1700, 2060, 1600], { leftCols: 2, boldRows: [2, 5, 8] }
 ));
-P("With the references held fixed, validity falls as the pool changes: from 99 to 60 "
-+ "percent against Medetec and FUSeg, and from 116 to 48 percent against Medetec and "
-+ "AZH. In absolute terms the benchmark agrees with clinical data at about 0.5 over "
-+ "pools without the modern architectures and at about 0.27 over all 32, whichever "
-+ "reference pair is used. The clinical-to-clinical agreement over the full pool is "
-+ "0.568 against Medetec and AZH and 0.567 for the original 22-method comparison "
-+ "against Medetec and FUSeg, so the drop is not caused by a change in the "
-+ "normaliser (Figure 3).");
+P("With the references held fixed, adding the 14 trained methods to the untrained "
++ "pool lowers the benchmark's agreement with clinical data by a similar amount for "
++ "every pair: from 0.698 to 0.484 against Medetec and CO2Wounds-V2, from 0.511 to "
++ "0.276 against Medetec and FUSeg, and from 0.480 to 0.272 against Medetec and AZH, "
++ "a fall of 0.21 to 0.24. The percentage is less uniform. Over all 32 methods the same "
++ "benchmark retains 96 percent of clinical agreement against Medetec and CO2Wounds-V2, "
++ "but 60 and 48 percent against the two pairs that include the clinic whose images the "
++ "trained methods were fitted on. The clinical-to-clinical agreement over the full "
++ "pool is similar for the three pairs (0.461 to 0.568), so the difference lies in how "
++ "well the benchmark orders methods for each reference, not in the normaliser "
++ "(Figure 3). We do not have a mechanism for the difference between pairs. The gap "
++ "between the pools' mean Dice explains FUSeg, where trained methods lead by 0.48, but "
++ "not AZH, whose gap of 0.12 is close to that of CO2Wounds-V2 (0.09; Table 5).");
 P("Two cautions apply to the percentage. It is not bounded by 100: a benchmark can "
-+ "agree with each of two references more than they agree with each other, as the 116 "
-+ "percent shows when clinical agreement is low. The absolute agreement is therefore "
-+ "reported alongside it. Second, the increase of validity with background texture "
-+ "reported earlier is a pool effect. Over all 32 methods, agreement with Medetec and "
-+ "AZH rises from 0.133 to 0.236 to 0.272 across the three amplitudes; over the 18 "
-+ "untrained methods it is flat at 0.480, 0.443 and 0.453.");
-add(figure("fig3_pool_dependence_v4.png", 600, 281));
-add(caption("Figure", 3, "Generator B agreement with two clinical references at three texture amplitudes, for each method pool (mean and standard deviation over three seeds). Each horizontal line is the clinical-to-clinical ceiling for the pool in the same shade, labelled with its value; the percentage marks the best amplitude as a share of that pool's own ceiling."));
++ "agree with each of two references more than they agree with each other, as the "
++ "values from 116 to 135 percent show. The absolute agreement is therefore reported "
++ "alongside it. Second, the effect of background texture depends on the pool and on "
++ "the reference. Over all 32 methods, agreement rises with texture amplitude against "
++ "every pair, for example from 0.133 to 0.272 against Medetec and AZH. Within the "
++ "untrained pool it is flat against Medetec and AZH (0.480, 0.443 and 0.453) but "
++ "rises against Medetec and FUSeg (0.417 to 0.511) and against Medetec and "
++ "CO2Wounds-V2 (0.482 to 0.698). Earlier versions of this work reported texture first "
++ "as a general driver of validity and then as a pure pool effect; neither statement "
++ "holds across references.");
+add(figure("fig3_pool_dependence_v4.png", 640, 206));
+add(caption("Figure", 3, "Generator B agreement with three pairs of clinical references at three texture amplitudes, for each method pool (mean and standard deviation over three seeds). Each horizontal line is the clinical-to-clinical agreement for the pool in the same shade, labelled with its value. Percentages are given in Table 6."));
 
 add(h2("4.4 Lesion fraction weakens a reference's preference for contrast"));
-P("AZH frames, from the reference no method was trained on, were cropped around their "
+P("AZH frames, which no method was trained on, were cropped around their "
 + "lesions to seven target lesion fractions between 0.035 and 0.30. The crops use the "
 + "same 140 frames and annotations, so lesion fraction is the only thing that changes "
 + "between the seven references. For each crop we measured its preference over "
@@ -538,27 +577,34 @@ add(figure("fig4_framing_pools.png", 620, 259));
 add(caption("Figure", 4, "Contrast preference against the lesion fraction of AZH crops, for the mixed pool and each homogeneous pool. Stars mark held-out Medetec, measured. The reversal appears only in the mixed pool."));
 
 add(h2("4.5 Validity is not determined by the measured texture statistic"));
-add(caption("Table", 8, "Benchmarks from three generator families against Medetec and AZH."));
+add(caption("Table", 8, "Benchmarks from three generator families against two reference pairs, one seed each. M+A is Medetec and AZH, M+C is Medetec and CO2Wounds-V2; 32, 18 and 14 are the full, untrained and trained pools."));
 add(table(
-  ["Benchmark", "Texture", "All 32", "18 untrained", "14 trained"],
+  ["Benchmark", "Texture", "M+A, 32", "M+A, 18", "M+A, 14", "M+C, 32", "M+C, 18", "M+C, 14"],
   [
-    ["Generator A, uniform drape", "2.10", "-0.153", "+0.379", "+0.136"],
-    ["Generator C, no noise", "2.34", "+0.007", "+0.246", "+0.024"],
-    ["Generator C, noise 3.4", "3.20", "+0.017", "+0.232", "+0.112"],
-    ["Generator B, texture ablated", "3.23", "+0.132", "+0.409", "+0.138"]
+    ["Generator A, uniform drape", "2.10", "-0.153", "+0.379", "+0.136", "-0.039", "+0.424", "+0.154"],
+    ["Generator C, no noise", "2.34", "+0.007", "+0.246", "+0.024", "+0.235", "+0.389", "+0.266"],
+    ["Generator C, noise 3.4", "3.20", "+0.017", "+0.232", "+0.112", "+0.245", "+0.357", "+0.343"],
+    ["Generator B, texture ablated", "3.23", "+0.132", "+0.409", "+0.138", "+0.246", "+0.370", "+0.316"]
   ],
-  [3360, 1200, 1600, 1600, 1600]
+  [2560, 900, 980, 980, 980, 980, 980, 1000]
 ));
 P("If validity were a function of the texture statistic, benchmarks matched on it "
-+ "would agree. Generator C at 3.20 and generator B at 3.23 are matched to within 0.03 "
-+ "and differ in validity by 0.176 among untrained methods and by 0.115 over all 32. "
-+ "Generator A at 2.10 and generator C at 2.34 differ by 0.133 and 0.160. Among trained "
-+ "methods the closely matched pair differs by only 0.026, but every value in that pool "
-+ "is low. The result holds most clearly in the untrained pool, where the methods "
-+ "carry no dependence on wound data and where the spread between generators at fixed "
-+ "texture exceeds any effect of texture itself (Section 4.3).");
++ "would agree. Against Medetec and AZH they do not. Generator C at 3.20 and generator B "
++ "at 3.23 are matched to within 0.03 and differ in validity by 0.176 among untrained "
++ "methods and by 0.115 over all 32. Generator A at 2.10 and generator C at 2.34 differ by "
++ "0.133 and 0.160. Among trained methods the closely matched pair differs by only "
++ "0.026, but every value in that pool is low.");
+P("Against Medetec and CO2Wounds-V2 the picture is different. The matched pair differs "
++ "by 0.013 among untrained methods and by 0.001 over all 32, and the four benchmarks "
++ "lie within 0.07 of each other in the untrained pool across the whole texture range "
++ "from 2.10 to 3.23. Against this pair the four benchmarks are indistinguishable, even "
++ "though texture amplitude within generator B does raise agreement with it (Section "
++ "4.3). The texture statistic therefore does not determine validity, but whether two "
++ "benchmarks differ, and by how much, depends on the reference. Each benchmark here was "
++ "scored at one seed, and the seed-to-seed standard deviation of generator B in Table 6 "
++ "reaches 0.05, so differences of that size should not be read as real.");
 add(figure("fig5_nonreducibility_v4.png", 600, 239));
-add(caption("Figure", 5, "Validity against measured background texture for four benchmarks from three generator families, over all 32 methods and over the untrained pool. Bracketed pairs are matched on the statistic."));
+add(caption("Figure", 5, "Validity against Medetec and AZH as a function of measured background texture, for four benchmarks from three generator families, over all 32 methods and over the untrained pool. Bracketed pairs are matched on the statistic."));
 
 add(h2("4.6 Robustness"));
 P("**Empty ground truth.** On an empty-ground-truth image a method scores 1 if it "
@@ -567,15 +613,16 @@ P("**Empty ground truth.** On an empty-ground-truth image a method scores 1 if i
 + "never do, which shifts the trained methods' mean Dice on AZH by up to 0.067. The "
 + "empty images create no exact ties in any reference. Excluding them changes one pair "
 + "materially: FUSeg against AZH falls from 0.660 to 0.368 over all 32 methods under "
-+ "Dice, while the two Medetec pairs move from 0.461 to 0.478 and from 0.568 to 0.510, "
++ "Dice, while Medetec against FUSeg and against AZH moves from 0.461 to 0.478 and from "
++ "0.568 to 0.510 (Medetec and CO2Wounds-V2 have no empty masks), "
 + "and the control from 0.944 to 0.920. Under NSD, FUSeg against AZH moves from 0.782 "
 + "to 0.712. Every modality test remains significant.", { after: 100 });
 P("**Kvasir overlap.** An earlier draft scored the first 120 images of Kvasir-SEG and "
 + "of its sessile subset, which shared 31 images. With disjoint images the "
 + "within-source agreement changes from 0.952 to 0.950.", { after: 100 });
 P("**Metric.** Every main result is reported under both Dice and NSD above. The "
-+ "modality structure, the composition effect and the pool dependence of validity "
-+ "hold under both; the lesion-fraction relationship holds within pools only under "
++ "modality structure, the composition effect and the fall in benchmark agreement when "
++ "trained methods are added hold under both; the lesion-fraction relationship holds within pools only under "
 + "NSD.");
 
 // ------------------------------------------------------------- 5 discussion
@@ -583,11 +630,15 @@ add(h1("5. Discussion"));
 add(h2("5.1 What a validity figure measures"));
 P("A synthetic benchmark's validity is usually reported as a single correlation with "
 + "clinical data. Our results show that number depends on three things besides the "
-+ "benchmark. It depends on the clinical reference: within one modality, two "
-+ "references can agree at 0.95 in colonoscopy or at 0.15 in wound photography. It "
-+ "depends on the method pool, which with the references fixed moves validity from "
-+ "about 0.5 to about 0.27. And it is not determined by a natural image statistic of "
-+ "the benchmark. A figure that names none of the reference, the pool and the "
++ "benchmark. It depends on the clinical reference: within one modality, "
++ "independent sources agree at 0.80 to 0.95 in colonoscopy but at 0.46 to 0.57 in wound "
++ "photography over the same 32 methods, and the "
++ "same benchmark over the same pool retains 48 or 96 percent of clinical agreement "
++ "depending on which pair of references it is measured against. It depends on the "
++ "method pool: with the references fixed, adding trained methods lowers the "
++ "benchmark's agreement by about 0.2. And it is not determined by a natural image "
++ "statistic of the benchmark, while the effect of that statistic itself changes with "
++ "the reference. A figure that names none of the reference, the pool and the "
 + "composition of the pool does not transfer to another study.");
 P("Four practices follow and each is inexpensive. Report agreement as a matrix over "
 + "several references rather than as a single number. Name the method pool. Analyse "
@@ -606,23 +657,26 @@ P("That benchmark agreement depends on the models compared, and that task-matche
 + "well as spurious disagreement. It inflates agreement within a single clinic: FUSeg "
 + "and AZH agree at 0.66 over the full pool and at 0.15 and 0.03 within the pools. And "
 + "it produces apparent design-property effects inside a synthetic benchmark study, "
-+ "including two that we ourselves first reported as findings.");
++ "including a reversal of contrast preference that we ourselves first reported as a "
++ "finding.");
 
 add(h2("5.3 Why wound photography is the exception"));
 P("Colonoscopy references from three centres agree almost as well as two halves of one "
-+ "dataset, and wound references do not. Colonoscopy frames share an acquisition "
-+ "device class and a field of view, whereas wound photographs have no standard "
-+ "framing: the three wound references span a twelve-fold range of median lesion "
-+ "fraction and two of them are distributed at different crops of one clinic's images. "
-+ "Under NSD, untrained methods agree across wound references at 0.79, close to the "
-+ "colonoscopy level, which is consistent with Dice's region-size sensitivity "
-+ "interacting with these framing differences. We offer this as an interpretation "
-+ "rather than a tested mechanism, since three wound references are too few to test "
-+ "it. It is also consistent with Section 4.4, where lesion fraction changes what a "
-+ "reference rewards. A three-model study reported stable wound rankings across two "
-+ "external sets (Benfatah, 2026); with three trained models, its pool is close to our "
-+ "trained pool, in which agreement between FUSeg and Medetec is near zero, so the two "
-+ "results differ in pool and in datasets as well as in conclusion.");
++ "dataset, and wound references do not: the three independent wound sources agree at "
++ "0.46 to 0.57 over all 32 methods, against 0.80 to 0.95 for colonoscopy. Colonoscopy "
++ "frames share an acquisition device class and a field of view, whereas wound "
++ "photographs have no standard framing: the four wound references span a twelve-fold "
++ "range of median lesion fraction, two of them are distributed at different crops of "
++ "one clinic's images, and one was taken on smartphones in a leprosy programme. Under "
++ "NSD, mean wound agreement among untrained methods rises from 0.37 to 0.62, which is "
++ "consistent with Dice's region-size sensitivity interacting with these framing "
++ "differences. We offer this as an interpretation rather than a tested mechanism, "
++ "since four wound references are too few to test it. It is also consistent with "
++ "Section 4.4, where lesion fraction changes what a reference rewards. A three-model "
++ "study reported stable wound rankings across two external sets (Benfatah, 2026); "
++ "with three trained models, its pool is close to our trained pool, in which "
++ "agreement between FUSeg and Medetec is near zero, so the two results differ in pool "
++ "and in datasets as well as in conclusion.");
 
 add(h2("5.4 Matching rather than maximising"));
 P("The domain randomisation literature recommends maximising variation in synthetic "
@@ -638,9 +692,9 @@ P("The domain randomisation literature recommends maximising variation in synthe
 
 add(h2("5.5 Limitations"));
 [
-  "Wound photography has three references from two sources. Every statement about "
-  + "within-modality agreement for wounds rests on three pairs, and no independent "
-  + "third wound source could be obtained for this study.",
+  "Wound photography has four references from three sources, two of which share one "
+  + "clinic. Statements about within-modality agreement for wounds rest on five "
+  + "different-source pairs.",
   "All 14 trained methods were trained on one wound dataset. The composition effect is "
   + "shown for that configuration; pools trained on several domains, or pretrained "
   + "foundation models, were not tested.",
@@ -656,7 +710,8 @@ add(h2("5.5 Limitations"));
   + "proposed preprocessing. AZH patches start at a lesion fraction of about 0.02, so the "
   + "curve begins at 0.035, and only one held-out dataset falls in its range.",
   "The synthetic benchmarks contain 45 images each, the contrast preference is fitted "
-  + "over seven contrast levels, and the validity decomposition uses three seeds.",
+  + "over seven contrast levels, the validity decomposition uses three seeds, and the "
+  + "matched-statistic comparison uses one seed per benchmark.",
   "Both empty-mask conventions are reported, but other conventions, such as excluding "
   + "empty images only from the metric and not from ranking, were not explored.",
   "The three generator families were written by the same authors and may share "
@@ -668,10 +723,12 @@ P("The validity of a synthetic segmentation benchmark is a joint property of the
 + "benchmark, the clinical reference and the method pool. Agreement between clinical "
 + "references is organised by modality, with wound photography a weak exception. "
 + "Pooling trained and untrained methods manufactures cross-domain agreement and "
-+ "disagreement, halves the measured validity of a synthetic benchmark with the "
-+ "references fixed, and produced two apparent design effects in our own analysis "
-+ "that vanish within homogeneous pools. A measured background-texture statistic does "
-+ "not determine validity. Within a modality and under a boundary metric, a "
++ "disagreement, lowers a synthetic benchmark's agreement with clinical data by about "
++ "0.2 against every reference pair tested, and produced an apparent reversal of "
++ "contrast preference in our own analysis that vanishes within homogeneous pools. The "
++ "reference pair alone moves the same benchmark's validity from 48 to 96 percent, and "
++ "decides whether background texture matters and whether two benchmarks matched on a "
++ "texture statistic differ. That statistic does not determine validity. Within a modality and under a boundary metric, a "
 + "reference with larger lesions rewards contrast less. Reporting agreement as a "
 + "matrix over references, naming the pool, separating trained from untrained methods "
 + "and including a within-dataset control would make validity figures comparable "

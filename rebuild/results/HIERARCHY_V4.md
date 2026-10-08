@@ -1,12 +1,13 @@
-# The agreement hierarchy over eleven references
+# The agreement hierarchy over twelve references
 
-Ten references in four modalities plus a within-dataset control, 32 methods. Spearman of per-method mean score.
+Eleven references in four modalities plus a within-dataset control, 32 methods. Spearman of per-method mean score.
 
 ## References
 
 | reference | modality | source | n | empty GT | median lesion fraction |
 |---|---|---|---|---|---|
 | medetec | wound | Medetec | 152 | 0 | 0.098 |
+| co2wounds | wound | CO2Wounds | 150 | 0 | 0.045 |
 | fuseg | wound | AZH | 120 | 4 | 0.008 |
 | azh | wound | AZH | 150 | 10 | 0.019 |
 | kvasir_disjoint | colonoscopy | Kvasir | 120 | 0 | 0.128 |
@@ -24,10 +25,10 @@ Ten references in four modalities plus a within-dataset control, 32 methods. Spe
 |---|---|---|---|---|
 | same dataset | 1 | +0.944 | +0.973 | +0.947 |
 | same source | 3 | +0.857 | +0.689 | +0.648 |
-| different source, same modality | 10 | +0.811 | +0.790 | +0.732 |
-| across modality | 32 | -0.091 | +0.020 | +0.040 |
+| different source, same modality | 13 | +0.739 | +0.674 | +0.602 |
+| across modality | 39 | -0.073 | +0.080 | +0.142 |
 
-Modality permutation test (same-modality minus across-modality mean agreement, exact over 5040 relabelings): all 32 +0.912 (p 0.0004); 18 untrained +0.746 (p 0.0004); 14 trained +0.673 (p 0.0040).
+Modality permutation test (same-modality minus across-modality mean agreement, exact over 13860 relabelings): all 32 +0.834 (p 0.0001); 18 untrained +0.597 (p 0.0001); 14 trained +0.468 (p 0.0045).
 
 | pair | level | rho | p | 95% CI |
 |---|---|---|---|---|
@@ -44,7 +45,10 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | cvc_colondb vs etis_larib | different source, same modality | +0.841 | 0.0000 | [+0.661, +0.921] |
 | cvc_clinicdb vs etis_larib | different source, same modality | +0.797 | 0.0000 | [+0.586, +0.914] |
 | medetec vs azh | different source, same modality | +0.568 | 0.0012 | [+0.256, +0.781] |
+| co2wounds vs fuseg | different source, same modality | +0.533 | 0.0027 | [+0.258, +0.735] |
+| medetec vs co2wounds | different source, same modality | +0.502 | 0.0036 | [+0.166, +0.763] |
 | medetec vs fuseg | different source, same modality | +0.461 | 0.0081 | [+0.085, +0.758] |
+| co2wounds vs azh | different source, same modality | +0.459 | 0.0089 | [+0.062, +0.771] |
 | etis_larib vs ph2 | across modality | +0.720 | 0.0000 | [+0.411, +0.901] |
 | kvasir_sessile vs ph2 | across modality | +0.622 | 0.0002 | [+0.278, +0.839] |
 | cvc_colondb vs ph2 | across modality | +0.616 | 0.0001 | [+0.252, +0.864] |
@@ -53,13 +57,19 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | etis_larib vs tn3k_test | across modality | +0.343 | 0.0537 | [+0.021, +0.582] |
 | cvc_colondb vs tn3k_test | across modality | +0.246 | 0.1757 | [-0.111, +0.555] |
 | kvasir_sessile vs tn3k_test | across modality | +0.241 | 0.1825 | [-0.093, +0.539] |
+| co2wounds vs cvc_clinicdb | across modality | +0.227 | 0.2091 | [-0.103, +0.519] |
 | cvc_clinicdb vs tn3k_test | across modality | +0.218 | 0.2300 | [-0.143, +0.546] |
+| co2wounds vs kvasir_disjoint | across modality | +0.202 | 0.2625 | [-0.141, +0.512] |
 | kvasir_disjoint vs tn3k_test | across modality | +0.184 | 0.3118 | [-0.157, +0.494] |
 | ph2 vs tn3k_test | across modality | +0.168 | 0.3527 | [-0.155, +0.467] |
+| co2wounds vs kvasir_sessile | across modality | +0.144 | 0.4299 | [-0.206, +0.466] |
+| co2wounds vs cvc_colondb | across modality | +0.115 | 0.5287 | [-0.214, +0.425] |
 | medetec vs kvasir_disjoint | across modality | +0.032 | 0.8589 | [-0.310, +0.373] |
 | medetec vs cvc_clinicdb | across modality | +0.027 | 0.8812 | [-0.313, +0.365] |
 | medetec vs kvasir_sessile | across modality | -0.042 | 0.8185 | [-0.397, +0.338] |
+| co2wounds vs ph2 | across modality | -0.052 | 0.7818 | [-0.356, +0.272] |
 | medetec vs cvc_colondb | across modality | -0.068 | 0.7126 | [-0.395, +0.295] |
+| co2wounds vs etis_larib | across modality | -0.120 | 0.5108 | [-0.430, +0.229] |
 | medetec vs etis_larib | across modality | -0.158 | 0.3924 | [-0.475, +0.215] |
 | azh vs kvasir_disjoint | across modality | -0.203 | 0.2680 | [-0.512, +0.159] |
 | azh vs cvc_clinicdb | across modality | -0.231 | 0.2046 | [-0.544, +0.142] |
@@ -68,6 +78,7 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | medetec vs tn3k_test | across modality | -0.295 | 0.1038 | [-0.589, +0.050] |
 | azh vs cvc_colondb | across modality | -0.330 | 0.0639 | [-0.611, +0.011] |
 | fuseg vs cvc_clinicdb | across modality | -0.460 | 0.0085 | [-0.679, -0.137] |
+| co2wounds vs tn3k_test | across modality | -0.474 | 0.0080 | [-0.726, -0.152] |
 | fuseg vs kvasir_disjoint | across modality | -0.481 | 0.0058 | [-0.705, -0.157] |
 | azh vs etis_larib | across modality | -0.509 | 0.0037 | [-0.720, -0.213] |
 | fuseg vs cvc_colondb | across modality | -0.518 | 0.0026 | [-0.746, -0.165] |
@@ -84,10 +95,10 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 |---|---|---|---|---|
 | same dataset | 1 | +0.920 | +0.973 | +0.943 |
 | same source | 3 | +0.759 | +0.691 | +0.666 |
-| different source, same modality | 10 | +0.807 | +0.788 | +0.741 |
-| across modality | 32 | -0.039 | +0.016 | +0.057 |
+| different source, same modality | 13 | +0.723 | +0.671 | +0.608 |
+| across modality | 39 | -0.031 | +0.076 | +0.156 |
 
-Modality permutation test (same-modality minus across-modality mean agreement, exact over 5040 relabelings): all 32 +0.835 (p 0.0004); 18 untrained +0.750 (p 0.0004); 14 trained +0.666 (p 0.0036).
+Modality permutation test (same-modality minus across-modality mean agreement, exact over 13860 relabelings): all 32 +0.761 (p 0.0001); 18 untrained +0.598 (p 0.0001); 14 trained +0.463 (p 0.0062).
 
 ## NSD, all images
 
@@ -95,10 +106,10 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 |---|---|---|---|---|
 | same dataset | 1 | +0.960 | +0.979 | +0.908 |
 | same source | 3 | +0.898 | +0.855 | +0.927 |
-| different source, same modality | 10 | +0.773 | +0.756 | +0.723 |
-| across modality | 32 | +0.032 | +0.281 | +0.005 |
+| different source, same modality | 13 | +0.710 | +0.685 | +0.606 |
+| across modality | 39 | +0.032 | +0.298 | +0.103 |
 
-Modality permutation test (same-modality minus across-modality mean agreement, exact over 5040 relabelings): all 32 +0.770 (p 0.0004); 18 untrained +0.498 (p 0.0004); 14 trained +0.765 (p 0.0004).
+Modality permutation test (same-modality minus across-modality mean agreement, exact over 13860 relabelings): all 32 +0.713 (p 0.0001); 18 untrained +0.418 (p 0.0001); 14 trained +0.563 (p 0.0001).
 
 | pair | level | rho | p | 95% CI |
 |---|---|---|---|---|
@@ -114,8 +125,11 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | kvasir_disjoint vs cvc_colondb | different source, same modality | +0.826 | 0.0000 | [+0.650, +0.919] |
 | kvasir_disjoint vs etis_larib | different source, same modality | +0.820 | 0.0000 | [+0.607, +0.917] |
 | cvc_colondb vs etis_larib | different source, same modality | +0.794 | 0.0000 | [+0.584, +0.913] |
+| co2wounds vs fuseg | different source, same modality | +0.587 | 0.0006 | [+0.294, +0.793] |
 | medetec vs azh | different source, same modality | +0.580 | 0.0007 | [+0.232, +0.816] |
+| co2wounds vs azh | different source, same modality | +0.502 | 0.0041 | [+0.141, +0.768] |
 | medetec vs fuseg | different source, same modality | +0.461 | 0.0087 | [+0.074, +0.757] |
+| medetec vs co2wounds | different source, same modality | +0.408 | 0.0219 | [+0.038, +0.695] |
 | etis_larib vs ph2 | across modality | +0.716 | 0.0000 | [+0.496, +0.832] |
 | cvc_clinicdb vs ph2 | across modality | +0.697 | 0.0000 | [+0.394, +0.859] |
 | cvc_colondb vs ph2 | across modality | +0.642 | 0.0002 | [+0.318, +0.837] |
@@ -123,17 +137,23 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | kvasir_sessile vs ph2 | across modality | +0.503 | 0.0041 | [+0.162, +0.755] |
 | medetec vs kvasir_sessile | across modality | +0.353 | 0.0462 | [+0.038, +0.625] |
 | kvasir_disjoint vs tn3k_test | across modality | +0.286 | 0.1129 | [-0.094, +0.601] |
+| co2wounds vs kvasir_sessile | across modality | +0.274 | 0.1287 | [-0.046, +0.537] |
 | medetec vs kvasir_disjoint | across modality | +0.266 | 0.1392 | [-0.069, +0.549] |
 | cvc_clinicdb vs tn3k_test | across modality | +0.218 | 0.2302 | [-0.154, +0.545] |
 | cvc_colondb vs tn3k_test | across modality | +0.212 | 0.2409 | [-0.161, +0.555] |
 | medetec vs etis_larib | across modality | +0.199 | 0.2793 | [-0.140, +0.496] |
+| co2wounds vs etis_larib | across modality | +0.192 | 0.2865 | [-0.170, +0.512] |
 | kvasir_sessile vs tn3k_test | across modality | +0.154 | 0.3933 | [-0.214, +0.476] |
 | etis_larib vs tn3k_test | across modality | +0.153 | 0.3976 | [-0.231, +0.507] |
+| co2wounds vs cvc_colondb | across modality | +0.138 | 0.4478 | [-0.248, +0.482] |
 | medetec vs cvc_clinicdb | across modality | +0.133 | 0.4684 | [-0.214, +0.466] |
+| co2wounds vs cvc_clinicdb | across modality | +0.095 | 0.6085 | [-0.275, +0.432] |
 | azh vs kvasir_sessile | across modality | +0.084 | 0.6457 | [-0.240, +0.373] |
 | medetec vs cvc_colondb | across modality | +0.072 | 0.6960 | [-0.272, +0.405] |
+| co2wounds vs kvasir_disjoint | across modality | +0.064 | 0.7265 | [-0.269, +0.371] |
 | ph2 vs tn3k_test | across modality | +0.060 | 0.7433 | [-0.289, +0.411] |
 | azh vs kvasir_disjoint | across modality | -0.029 | 0.8764 | [-0.359, +0.274] |
+| co2wounds vs ph2 | across modality | -0.035 | 0.8510 | [-0.373, +0.303] |
 | azh vs etis_larib | across modality | -0.055 | 0.7695 | [-0.404, +0.294] |
 | fuseg vs kvasir_sessile | across modality | -0.132 | 0.4658 | [-0.477, +0.238] |
 | medetec vs tn3k_test | across modality | -0.146 | 0.4202 | [-0.474, +0.206] |
@@ -147,6 +167,7 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 | fuseg vs cvc_clinicdb | across modality | -0.403 | 0.0229 | [-0.682, +0.018] |
 | azh vs ph2 | across modality | -0.471 | 0.0071 | [-0.700, -0.155] |
 | fuseg vs tn3k_test | across modality | -0.476 | 0.0054 | [-0.669, -0.186] |
+| co2wounds vs tn3k_test | across modality | -0.505 | 0.0039 | [-0.712, -0.218] |
 | fuseg vs ph2 | across modality | -0.666 | 0.0000 | [-0.821, -0.405] |
 
 ## NSD, excluding empty ground truth
@@ -155,52 +176,53 @@ Modality permutation test (same-modality minus across-modality mean agreement, e
 |---|---|---|---|---|
 | same dataset | 1 | +0.962 | +0.979 | +0.934 |
 | same source | 3 | +0.875 | +0.862 | +0.892 |
-| different source, same modality | 10 | +0.778 | +0.755 | +0.738 |
-| across modality | 32 | +0.059 | +0.281 | +0.029 |
+| different source, same modality | 13 | +0.712 | +0.683 | +0.625 |
+| across modality | 39 | +0.054 | +0.298 | +0.122 |
 
-Modality permutation test (same-modality minus across-modality mean agreement, exact over 5040 relabelings): all 32 +0.742 (p 0.0004); 18 untrained +0.499 (p 0.0004); 14 trained +0.744 (p 0.0004).
+Modality permutation test (same-modality minus across-modality mean agreement, exact over 13860 relabelings): all 32 +0.689 (p 0.0001); 18 untrained +0.418 (p 0.0001); 14 trained +0.553 (p 0.0001).
 
 ## Pairs split by the training-domain boundary, DICE, all images
 
 | category | pairs | all 32 | 18 untrained | 14 trained |
 |---|---|---|---|---|
-| wound x wound | 3 | +0.563 | +0.458 | +0.158 |
+| wound x wound | 6 | +0.530 | +0.373 | +0.163 |
 | non-wound, same modality | 10 | +0.899 | +0.859 | +0.879 |
 | non-wound, across modality | 11 | +0.406 | +0.035 | +0.142 |
-| wound x non-wound | 21 | -0.351 | +0.012 | -0.014 |
+| wound x non-wound | 28 | -0.262 | +0.098 | +0.142 |
 
 ## Pairs split by the training-domain boundary, DICE, excluding empty ground truth
 
 | category | pairs | all 32 | 18 untrained | 14 trained |
 |---|---|---|---|---|
-| wound x wound | 3 | +0.452 | +0.454 | +0.204 |
+| wound x wound | 6 | +0.448 | +0.367 | +0.186 |
 | non-wound, same modality | 10 | +0.899 | +0.859 | +0.879 |
 | non-wound, across modality | 11 | +0.406 | +0.035 | +0.142 |
-| wound x non-wound | 21 | -0.273 | +0.005 | +0.013 |
+| wound x non-wound | 28 | -0.203 | +0.092 | +0.162 |
 
 ## Pairs split by the training-domain boundary, NSD, all images
 
 | category | pairs | all 32 | 18 untrained | 14 trained |
 |---|---|---|---|---|
-| wound x wound | 3 | +0.608 | +0.786 | +0.396 |
+| wound x wound | 6 | +0.553 | +0.616 | +0.305 |
 | non-wound, same modality | 10 | +0.860 | +0.777 | +0.882 |
 | non-wound, across modality | 11 | +0.382 | +0.071 | +0.119 |
-| wound x non-wound | 21 | -0.152 | +0.391 | -0.055 |
+| wound x non-wound | 28 | -0.106 | +0.387 | +0.096 |
 
 ## Pairs split by the training-domain boundary, NSD, excluding empty ground truth
 
 | category | pairs | all 32 | 18 untrained | 14 trained |
 |---|---|---|---|---|
-| wound x wound | 3 | +0.601 | +0.790 | +0.410 |
+| wound x wound | 6 | +0.547 | +0.617 | +0.330 |
 | non-wound, same modality | 10 | +0.860 | +0.777 | +0.882 |
 | non-wound, across modality | 11 | +0.382 | +0.071 | +0.119 |
-| wound x non-wound | 21 | -0.111 | +0.392 | -0.018 |
+| wound x non-wound | 28 | -0.075 | +0.388 | +0.124 |
 
 ## Mean Dice by subset on each reference
 
 | reference | modality | 14 trained | 18 untrained | gap |
 |---|---|---|---|---|
 | medetec | wound | 0.356 | 0.292 | +0.064 |
+| co2wounds | wound | 0.277 | 0.188 | +0.090 |
 | fuseg | wound | 0.543 | 0.062 | +0.481 |
 | azh | wound | 0.420 | 0.297 | +0.122 |
 | kvasir_disjoint | colonoscopy | 0.127 | 0.229 | -0.102 |
