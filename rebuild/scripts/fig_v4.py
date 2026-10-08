@@ -232,6 +232,51 @@ def fig3():
     print("saved " + p)
 
 
+def fig4():
+    """Framing curve built from AZH crops, within each method pool."""
+    d = json.load(open(os.path.join(OUT, "framing_azh_pools.json")))
+    frac = d["fractions"]
+    R = d["results"]
+    cache = json.load(open(os.path.join(OUT, "clinical_ranking_cache32.json")))
+    f0 = cache["medetec__lesion_fraction"]
+    fig, axes = plt.subplots(1, 2, figsize=(11.2, 4.5), dpi=200, sharey=True)
+    fig.patch.set_facecolor(SURF)
+    spec = [("all 32", "o-", INK, INK, 2.0, "all 32 (mixed)"),
+            ("18 untrained", "s--", SEC, SURF, 1.5, "18 untrained"),
+            ("14 trained", "D:", SEC, SURF, 1.5, "14 trained")]
+    for ax, metric, title in zip(axes, ("dice", "nsd"),
+                                 ("Dice", "normalised surface Dice, 2 px")):
+        ax.set_facecolor(SURF)
+        ax.axhline(0, color=MUT, lw=1.0, ls=(0, (4, 3)))
+        for pool, fmt, col, mfc, lw, lab in spec:
+            r = R[f"{metric}|{pool}"]
+            ax.plot(frac, r["curve"], fmt, color=col, lw=lw, ms=6, mfc=mfc,
+                    mec=col, mew=1.3, label=lab, zorder=3)
+            ax.plot([f0], [r["medetec_meas"]], "*", ms=10,
+                    color=col if pool != "all 32" else INK, zorder=4)
+        ax.set_xscale("log")
+        ax.set_xticks([0.035, 0.05, 0.1, 0.2, 0.3])
+        ax.set_xticklabels(["0.035", "0.05", "0.10", "0.20", "0.30"])
+        ax.set_xlabel("lesion fraction of the reference (AZH crops)",
+                      fontsize=9.5, color=INK, labelpad=6)
+        ax.set_title(title, fontsize=10, color=INK, loc="left", pad=8)
+        style(ax)
+        ax.grid(axis="y", color="#EFEFEF", lw=0.9)
+    axes[0].set_ylabel("slope of agreement against contrast\n"
+                       "(per 10 saturation units)", fontsize=9.5, color=INK)
+    axes[0].legend(frameon=False, fontsize=8.3, loc="lower left")
+    axes[1].text(0.98, 0.04, "stars: held-out Medetec, measured",
+                 transform=axes[1].transAxes, ha="right", fontsize=8,
+                 color=SEC)
+    fig.suptitle("The reversal exists only in the mixed pool; the attenuation "
+                 "survives within pools under NSD", fontsize=11, color=INK,
+                 x=0.012, ha="left", y=1.02)
+    fig.tight_layout()
+    p = os.path.join(OUT, "fig4_framing_pools.png")
+    fig.savefig(p, facecolor=SURF, bbox_inches="tight")
+    print("saved " + p)
+
+
 if __name__ == "__main__":
     data, names = H.load()
     want = sys.argv[1:] or ["1", "2", "3"]
@@ -242,3 +287,5 @@ if __name__ == "__main__":
         fig2(data, names)
     if "3" in want:
         fig3()
+    if "4" in want:
+        fig4()
