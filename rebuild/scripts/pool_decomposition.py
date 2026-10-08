@@ -95,7 +95,7 @@ def build(budget):
 
 def ref_vectors(names):
     out = {}
-    for k in ("medetec", "fuseg", "azh"):
+    for k in ("medetec", "fuseg", "azh", "co2wounds"):
         d = json.load(open(os.path.join(OUT, "perimage32", k + ".json")))
         assert d["names"] == names
         out[k] = np.asarray(d["dice"], float).mean(axis=0)
@@ -121,7 +121,8 @@ def main():
     }
     assert len(pools["original 22"]) == 22
     refpairs = {"Medetec + FUSeg": ("medetec", "fuseg"),
-                "Medetec + AZH": ("medetec", "azh")}
+                "Medetec + AZH": ("medetec", "azh"),
+                "Medetec + CO2Wounds": ("medetec", "co2wounds")}
 
     md = ["# What halves synthetic benchmark validity: pool or reference?\n",
           "Generator B, three texture amplitudes, three seeds each. Validity is "

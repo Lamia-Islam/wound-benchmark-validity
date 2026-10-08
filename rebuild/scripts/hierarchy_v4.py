@@ -52,6 +52,7 @@ OUT = os.path.join(ROOT, "results")
 REFS = {
     # name: (modality, source)
     "medetec": ("wound", "Medetec"),
+    "co2wounds": ("wound", "CO2Wounds"),
     "fuseg": ("wound", "AZH"),
     "azh": ("wound", "AZH"),
     "kvasir_disjoint": ("colonoscopy", "Kvasir"),
@@ -163,14 +164,9 @@ def label_permutation_test(vec, names_idx=None):
         return R[iu][same].mean() - R[iu][~same].mean()
 
     obs = stat(labels)
-    seen, vals = set(), []
-    for perm in itertools.permutations(range(len(keys))):
-        lab = tuple(labels[p] for p in perm)
-        if lab in seen:
-            continue
-        seen.add(lab)
-        vals.append(stat(lab))
-    vals = np.asarray(vals)
+    # every distinct assignment of the observed labels to references
+    from sympy.utilities.iterables import multiset_permutations
+    vals = np.asarray([stat(lab) for lab in multiset_permutations(labels)])
     p = float((np.sum(vals >= obs - 1e-12)) / len(vals))
     return float(obs), p, len(vals)
 
@@ -188,8 +184,8 @@ def main():
 
     results = {}
     md = []
-    md.append("# The agreement hierarchy over eleven references\n")
-    md.append("Ten references in four modalities plus a within-dataset control, "
+    md.append("# The agreement hierarchy over twelve references\n")
+    md.append("Eleven references in four modalities plus a within-dataset control, "
               "32 methods. Spearman of per-method mean score.\n")
 
     # reference summary

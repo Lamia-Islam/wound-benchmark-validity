@@ -118,12 +118,39 @@
 },
 {
 "metric": "dice",
+"a": "CO2Wounds",
+"b": "FUSeg",
+"level": "different source, same modality",
+"all": 0.532624633431085,
+"untrained": 0.2507739938080495,
+"trained": -0.1252747252747253
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "CO2Wounds",
+"level": "different source, same modality",
+"all": 0.5021994134897361,
+"untrained": 0.5397316821465429,
+"trained": 0.2967032967032967
+},
+{
+"metric": "dice",
 "a": "Medetec",
 "b": "FUSeg",
 "level": "different source, same modality",
 "all": 0.4607771260997067,
 "untrained": 0.739938080495356,
 "trained": -0.04175824175824176
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "AZH",
+"level": "different source, same modality",
+"all": 0.4593108504398827,
+"untrained": 0.07120743034055728,
+"trained": 0.3318681318681319
 },
 {
 "metric": "dice",
@@ -199,12 +226,30 @@
 },
 {
 "metric": "dice",
+"a": "CO2Wounds",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": 0.22690615835777125,
+"untrained": 0.5128998968008256,
+"trained": 0.8285714285714285
+},
+{
+"metric": "dice",
 "a": "CVC-ClinicDB",
 "b": "TN3K",
 "level": "across modality",
 "all": 0.21761586148075074,
 "untrained": 0.15368937977836672,
 "trained": -0.43463356032809364
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "Kvasir",
+"level": "across modality",
+"all": 0.20234604105571843,
+"untrained": 0.3828689370485036,
+"trained": 0.7582417582417583
 },
 {
 "metric": "dice",
@@ -223,6 +268,24 @@
 "all": 0.16809847982644818,
 "untrained": -0.4413377459851748,
 "trained": -0.5284229075567876
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": 0.14369501466275658,
+"untrained": 0.43653250773993807,
+"trained": 0.6923076923076923
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": 0.11546920821114366,
+"untrained": 0.4654282765737873,
+"trained": 0.7758241758241758
 },
 {
 "metric": "dice",
@@ -253,12 +316,30 @@
 },
 {
 "metric": "dice",
+"a": "CO2Wounds",
+"b": "PH2",
+"level": "across modality",
+"all": -0.052419354838709666,
+"untrained": 0.5913312693498451,
+"trained": 0.7934065934065934
+},
+{
+"metric": "dice",
 "a": "Medetec",
 "b": "CVC-ColonDB",
 "level": "across modality",
 "all": -0.06781524926686217,
 "untrained": 0.38080495356037153,
 "trained": 0.006593406593406593
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.11950146627565982,
+"untrained": 0.27347781217750256,
+"trained": 0.767032967032967
 },
 {
 "metric": "dice",
@@ -331,6 +412,15 @@
 "all": -0.4600439882697947,
 "untrained": 0.1042311661506708,
 "trained": -0.4593406593406593
+},
+{
+"metric": "dice",
+"a": "CO2Wounds",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.47432439268858245,
+"untrained": -0.18795795770192147,
+"trained": -0.3431317581537581
 },
 {
 "metric": "dice",
@@ -523,6 +613,15 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "FUSeg",
+"level": "different source, same modality",
+"all": 0.5872434017595308,
+"untrained": 0.3457172342621259,
+"trained": 0.0989010989010989
+},
+{
+"metric": "nsd",
 "a": "Medetec",
 "b": "AZH",
 "level": "different source, same modality",
@@ -532,12 +631,30 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "AZH",
+"level": "different source, same modality",
+"all": 0.50183284457478,
+"untrained": 0.4901960784313726,
+"trained": 0.26593406593406593
+},
+{
+"metric": "nsd",
 "a": "Medetec",
 "b": "FUSeg",
 "level": "different source, same modality",
 "all": 0.4607771260997067,
 "untrained": 0.8390092879256965,
 "trained": 0.09010989010989012
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "CO2Wounds",
+"level": "different source, same modality",
+"all": 0.40799120234604097,
+"untrained": 0.5025799793601652,
+"trained": 0.27912087912087913
 },
 {
 "metric": "nsd",
@@ -604,6 +721,15 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": 0.27382697947214074,
+"untrained": 0.5108359133126935,
+"trained": 0.7362637362637363
+},
+{
+"metric": "nsd",
 "a": "Medetec",
 "b": "Kvasir",
 "level": "across modality",
@@ -640,6 +766,15 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": 0.19244868035190613,
+"untrained": 0.5913312693498451,
+"trained": 0.6439560439560439
+},
+{
+"metric": "nsd",
 "a": "Kvasir-sessile",
 "b": "TN3K",
 "level": "across modality",
@@ -658,12 +793,30 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": 0.1378299120234604,
+"untrained": 0.3519091847265222,
+"trained": 0.7890109890109891
+},
+{
+"metric": "nsd",
 "a": "Medetec",
 "b": "CVC-ClinicDB",
 "level": "across modality",
 "all": 0.13306451612903225,
 "untrained": 0.5851393188854489,
 "trained": 0.11208791208791209
+},
+{
+"metric": "nsd",
+"a": "CO2Wounds",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": 0.09457478005865103,
+"untrained": 0.48813209494324045,
+"trained": 0.7142857142857143
 },
 {
 "metric": "nsd",
@@ -685,6 +838,15 @@
 },
 {
 "metric": "nsd",
+"a": "CO2Wounds",
+"b": "Kvasir",
+"level": "across modality",
+"all": 0.06414956011730204,
+"untrained": 0.42414860681114547,
+"trained": 0.7142857142857143
+},
+{
+"metric": "nsd",
 "a": "PH2",
 "b": "TN3K",
 "level": "across modality",
@@ -700,6 +862,15 @@
 "all": -0.029325513196480937,
 "untrained": 0.5479876160990712,
 "trained": 0.09010989010989012
+},
+{
+"metric": "nsd",
+"a": "CO2Wounds",
+"b": "PH2",
+"level": "across modality",
+"all": -0.034836819357311755,
+"untrained": 0.6367389060887513,
+"trained": 0.5143537988714469
 },
 {
 "metric": "nsd",
@@ -817,6 +988,15 @@
 "all": -0.4761409381389667,
 "untrained": 0.0031136988886030243,
 "trained": 0.21274169005533006
+},
+{
+"metric": "nsd",
+"a": "CO2Wounds",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.5048061861739161,
+"untrained": -0.3632648703370196,
+"trained": -0.2790804966317233
 },
 {
 "metric": "nsd",

@@ -32,14 +32,14 @@ INK, SEC, MUT, SURF = "#111111", "#444444", "#7A7A7A", "#FFFFFF"
 NEG, MID, POS = "#B35806", "#F4F4F2", "#6A4A9C"
 CMAP = LinearSegmentedColormap.from_list("po", [NEG, MID, POS])
 
-ORDER = ["medetec", "fuseg", "azh",
+ORDER = ["medetec", "co2wounds", "fuseg", "azh",
          "kvasir_disjoint", "kvasir_sessile", "cvc_clinicdb", "cvc_colondb",
          "etis_larib", "ph2", "tn3k_test"]
-LABEL = {"medetec": "Medetec", "fuseg": "FUSeg", "azh": "AZH",
+LABEL = {"medetec": "Medetec", "co2wounds": "CO2Wounds", "fuseg": "FUSeg", "azh": "AZH",
          "kvasir_disjoint": "Kvasir", "kvasir_sessile": "Kvasir-sessile",
          "cvc_clinicdb": "CVC-ClinicDB", "cvc_colondb": "CVC-ColonDB",
          "etis_larib": "ETIS-Larib", "ph2": "PH2", "tn3k_test": "TN3K"}
-BLOCKS = [("wound", 0, 3), ("colonoscopy", 3, 8), ("derm.", 8, 9), ("US", 9, 10)]
+BLOCKS = [("wound", 0, 4), ("colonoscopy", 4, 9), ("derm.", 9, 10), ("US", 10, 11)]
 
 
 def style(ax):
@@ -158,7 +158,7 @@ def fig2(data, names):
     xs = np.arange(len(ORDER))
     tr = [comp[k]["trained"] for k in ORDER]
     un = [comp[k]["untrained"] for k in ORDER]
-    ax.axvspan(-0.5, 2.5, color="#EDEDED", zorder=0, lw=0)
+    ax.axvspan(-0.5, 3.5, color="#EDEDED", zorder=0, lw=0)
     ax.plot(xs, tr, "D-", color=INK, lw=1.8, ms=6.5, mec=SURF, mew=1.2,
             label="14 trained on wound photographs", zorder=3)
     ax.plot(xs, un, "s--", color=SEC, lw=1.4, ms=6, mfc=SURF, mew=1.4,
@@ -167,7 +167,7 @@ def fig2(data, names):
     ax.set_xticklabels([LABEL[k] for k in ORDER], rotation=50, ha="right",
                        fontsize=8, color=INK)
     ax.set_ylabel("mean Dice", fontsize=9.5, color=INK)
-    ax.text(1.0, 0.62, "training\ndomain", ha="center", fontsize=8.3,
+    ax.text(1.5, 0.62, "wound\nphotography", ha="center", fontsize=8.3,
             color=SEC, linespacing=1.3)
     ax.set_ylim(-0.02, 0.68)
     ax.legend(frameon=False, fontsize=8.3, loc="upper right")
@@ -189,8 +189,8 @@ def fig3():
     pools = [("all 32", "all 32 methods", INK, "o", "-"),
              ("18 untrained", "18 untrained", SEC, "s", (0, (5, 2))),
              ("original 22", "original 22", MUT, "^", (0, (1.5, 1.5)))]
-    pairs = ["Medetec + FUSeg", "Medetec + AZH"]
-    fig, axes = plt.subplots(1, 2, figsize=(9.2, 4.3), dpi=200, sharey=True)
+    pairs = ["Medetec + CO2Wounds", "Medetec + FUSeg", "Medetec + AZH"]
+    fig, axes = plt.subplots(1, 3, figsize=(13.2, 4.3), dpi=200, sharey=True)
     fig.patch.set_facecolor(SURF)
     x = np.arange(3)
     for ax, rp in zip(axes, pairs):
@@ -205,10 +205,6 @@ def fig3():
                         zorder=3, label=lab)
             ax.hlines(r["ceiling"], -0.25, 2.25, color=col, lw=1.1, ls=ls, zorder=2)
             labels.append((r["ceiling"], col, f"{r['ceiling']:.3f}"))
-            b = max(range(3), key=lambda i: y[i])
-            ax.annotate(f"{y[b] / r['ceiling']:.0%}", (x[b], y[b]),
-                        textcoords="offset points", xytext=(9, 4),
-                        fontsize=8, color=col)
         labels.sort()
         ys = [l[0] for l in labels]
         for i in range(1, len(ys)):

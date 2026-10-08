@@ -12,13 +12,13 @@ const rows = [
    "They did: the sessile set is a subset of Kvasir-SEG, and the two 120-image samples shared 31 images. The Kvasir reference is now drawn only from images outside the sessile subset, so the two share none. Agreement between them changes from 0.952 to 0.950, so no conclusion moves.",
    "Sec. 3.3, Sec. 4.6"],
   ["3", "Sec. 2.3: empty ground-truth masks may inflate correlations.",
-   "Empty-mask counts are now a column of Table 2 (FUSeg 4, AZH 10, AZH train 8, all others 0). There are no exact ties in any reference. Every agreement was recomputed with those images excluded. One pair moves materially (FUSeg against AZH, 0.660 to 0.368 under Dice) and this is reported. Every modality test stays significant (p at most 0.0036).",
+   "Empty-mask counts are now a column of Table 2 (FUSeg 4, AZH 10, AZH train 8, all others 0). There are no exact ties in any reference. Every agreement was recomputed with those images excluded. One pair moves materially (FUSeg against AZH, 0.660 to 0.368 under Dice) and this is reported. Every modality test stays significant (p at most 0.0062).",
    "Table 2, Sec. 3.5, Sec. 4.6, Sec. 5.5"],
   ["4", "Table 3: \"same source\" and \"same dataset\" are undefined.",
    "Four levels are now defined once and used everywhere: within dataset (two disjoint slices of one dataset), within source (one clinic or group, no shared images), within modality (one modality, different sources) and across modality. Kvasir and its sessile subset are within source. FUSeg and AZH, both from the AZH Wound and Vascular Center, are also within source, not within modality as before.",
    "Sec. 3.5, Table 3, Appendix A"],
   ["5", "Sec. 3.3: the 98% and 49% figures use different ceilings.",
-   "The comparison has been redone as a full design: three method pools (original 22, 18 untrained, all 32) against both reference pairs, each normalised by its own ceiling over the same pool. With the references held fixed, validity falls from 99 to 60 percent (Medetec and FUSeg) and from 116 to 48 percent (Medetec and AZH) as the pool grows. The ceiling is therefore not what drives the drop. Absolute agreement is reported next to every percentage.",
+   "The comparison has been redone as a full design: three method pools (original 22, 18 untrained, all 32) against three reference pairs, each normalised by its own ceiling over the same pool. The third pair, Medetec and CO2Wounds-V2, is new and shares no source with the training data. With the references held fixed, validity falls from 99 to 60 percent (Medetec and FUSeg) and from 116 to 48 percent (Medetec and AZH) as the pool grows, so the shifted ceiling did not cause the drop. Against Medetec and CO2Wounds-V2 the full pool still reaches 96 percent. Adding the trained methods lowers absolute agreement by 0.21 to 0.24 for every pair, and absolute agreement is reported next to every percentage.",
    "Sec. 4.3, Table 6"],
   ["6", "Fig. 3: the two ceilings are not explicit.",
    "Figure 3 is redrawn with one panel per reference pair. Every pool has its own ceiling line, in the same shade as its curve and labelled with its value, so no point is read against the wrong line.",
@@ -29,11 +29,11 @@ const rows = [
 ];
 
 const other = [
-  "Clinical references grew from six sets in two modalities to eleven in four: CVC-ClinicDB, CVC-ColonDB and ETIS-LaribPolypDB (colonoscopy), PH2 (dermoscopy) and the TN3K test split (thyroid ultrasound) were added.",
+  "Clinical references grew from six sets in two modalities to eleven non-control sets from eight sources in four modalities. CO2Wounds-V2 (smartphone photographs from a leprosy clinic in Colombia) gives wound photography a third independent source; CVC-ClinicDB, CVC-ColonDB and ETIS-LaribPolypDB (colonoscopy), PH2 (dermoscopy) and the TN3K test split (thyroid ultrasound) were also added.",
   "Every result is reported for all 32 methods, for the 18 untrained methods and for the 14 trained methods separately. Because all trained methods were trained on FUSeg, this also separates the effect of training domain.",
   "Every result is computed under Dice and under normalised surface Dice.",
   "The modality test is an exact permutation over reference modality labels, so the dependence between pairs that share a reference is respected.",
-  "Effects that appear only when trained and untrained methods are pooled are reported as such. The earlier framing reversal and texture dose-response do not survive within pools; the weakening of the boundary-metric preference with lesion fraction does.",
+  "Effects that appear only when trained and untrained methods are pooled are reported as such. The earlier framing reversal does not survive within pools; the weakening of the boundary-metric preference with lesion fraction does. The texture effect and the matched-benchmark difference survive against some reference pairs and not others, and both outcomes are reported.",
 ];
 
 const kids = [
