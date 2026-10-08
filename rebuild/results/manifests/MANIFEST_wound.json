@@ -1,0 +1,40 @@
+{
+  "created": "2026-10-08",
+  "summary": "No independent wound segmentation dataset with >=80 expert image/mask pairs was reachable via github.com or PyPI. Nothing installed.",
+  "duplicate_check_method": {
+    "coarse": "24x24 grayscale zero-mean unit-norm NCC; candidate full image, horizontal flip, and 3x3 grid crops at 0.75/0.5 scale plus square centre crop, vs reference full images and reference grid crops",
+    "verify": "SIFT (800 features, image max side 384) + RANSAC partial-affine inliers against top-5 coarse matches per reference set; duplicate if inliers >= 25",
+    "calibration": "unrelated reference pairs (Medetec vs FUSeg/AZH): max 17 inliers; known duplicates (Medetec test vs train, FUSeg vs AZH): 42-452 inliers. NCC alone is not discriminative (unrelated wound photos reach 0.93-0.96 NCC with crop search).",
+    "reference_sets": {"medetec": 160, "fuseg": 1210, "azh": 1109}
+  },
+  "datasets": [],
+  "rejected": [
+    {"short_name": "dfutissue", "repo": "https://github.com/uwm-bigdata/DFUTissueSegNet", "commit": "d2f6e72",
+     "reason": "Same clinic as FUSeg/AZH (AZH Wound Center, Milwaukee) per its README; 110 labelled tissue images; also image-level overlap found",
+     "dup_check": {"n_images": 110,
+                   "medetec": {"max_ncc": 0.9054, "max_sift_inliers": 7, "n_match": 0},
+                   "fuseg": {"max_ncc": 0.9239, "max_sift_inliers": 251, "n_match": 7},
+                   "azh": {"max_ncc": 0.9142, "max_sift_inliers": 152, "n_match": 2}}},
+    {"short_name": "woundtissue", "repo": "https://github.com/akabircs/WoundTissue", "commit": "557d2f4",
+     "reason": "Only 13 of 147 images published on GitHub; images drawn from the DFU database and Medetec per the paper (arXiv 2502.10652); tissue-class masks",
+     "dup_check": {"n_images": 13,
+                   "medetec": {"max_ncc": 0.9026, "max_sift_inliers": 6, "n_match": 0},
+                   "fuseg": {"max_ncc": 0.8307, "max_sift_inliers": 7, "n_match": 0},
+                   "azh": {"max_ncc": 0.9165, "max_sift_inliers": 10, "n_match": 0}}},
+    {"short_name": "ulcer_pressure_br", "repo": "https://github.com/fellipeassuncao/ieee-ulcer-segmentation (copy of RodolfoHerman/ulcer-segmentation)", "commit": "57787b0",
+     "reason": "Pressure ulcer photos; only 21 test images have an expert binary ground truth; the 84 training images carry only GrabCut/SVM algorithm outputs and partial superpixel labels",
+     "dup_check": {"n_images": 21,
+                   "medetec": {"max_ncc": 0.832, "max_sift_inliers": 11, "n_match": 0},
+                   "fuseg": {"max_ncc": 0.8883, "max_sift_inliers": 14, "n_match": 0},
+                   "azh": {"max_ncc": 0.8328, "max_sift_inliers": 27, "n_match": 1, "note": "the single 27-inlier hit was inspected visually and is spurious"}}}
+  ],
+  "unreachable": [
+    {"name": "DFUC2022", "images": "2000 train with masks (+2000 test unlabeled)", "origin": "Lancashire Teaching Hospitals NHS, UK", "access": "Licence agreement via https://dfu-challenge.github.io (Apply for Datasets: http://www2.docm.mmu.ac.uk/STAFF/M.Yap/dataset.php); contact connah.kendrick@mmu.ac.uk; research use, licence terms on the application page"},
+    {"name": "CO2Wounds-V2", "images": "764 (485 train + 122 val with binary masks)", "origin": "Sanatorio de Contratacion ESE, Colombia (leprosy chronic wounds)", "access": "Open, CC BY-NC-ND: https://data.mendeley.com/datasets/s2w7rjwz49/2 (also IEEE DataPort; Kaggle mirror orvile/leprosy-chronic-wound-images-co2wounds-v2)"},
+    {"name": "PI-Net / MIPI (+PIID masks)", "images": "406 pressure injury photos with masks from six institutions, plus 980 masks for PIID images", "origin": "six institutions (country not stated in the repo README)", "access": "Open, CC BY-NC-SA 4.0: https://zenodo.org/records/22032032 ; PIID images: https://github.com/FU-MedicalAI/PIID (repo currently has no images in git)"},
+    {"name": "WSNet / WoundSeg", "images": "2686 at 384x384 with masks", "origin": "not stated (likely web-collected, may overlap Medetec)", "access": "https://huggingface.co/datasets/subbareddyoota/wseg_dataset"},
+    {"name": "EBIS burns", "images": "600 (316/76/208) burn images with pixel masks, web-collected", "origin": "web images from Google search, annotated with a burns expert", "access": "Sign commitment form at https://github.com/VEDAs-Lab/EBIS/tree/main/commitments and email vedas.cs@gmail.com"},
+    {"name": "SRRSH-DF", "images": "1600 DFU images with masks", "origin": "Sir Run Run Shaw Hospital, Hangzhou, China", "access": "Application form; GitHub https://github.com/Jiao0416/Download-SRRSH-DF- has only 10 samples; contact 231060040@hdu.edu.cn"},
+    {"name": "LUTSeg", "images": "longitudinal multi-expert ulcer tissue segmentation", "origin": "see arXiv 2608.25866", "access": "Hugging Face (blocked here)"}
+  ]
+}

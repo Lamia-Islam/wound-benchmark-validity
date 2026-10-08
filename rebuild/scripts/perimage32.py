@@ -99,7 +99,9 @@ def make_extra_loader(threshold):
         if m.shape[:2] != im.shape[:2]:
             m = cv2.resize(m, (im.shape[1], im.shape[0]),
                            interpolation=cv2.INTER_NEAREST)
-        if max(im.shape[:2]) > 512:
+        # same rule as the Kvasir references: long side above 256 is resampled
+        # to 256, so every non-wound reference is scored at one resolution
+        if max(im.shape[:2]) > 256:
             im, m = _resample(im, m, 256)
         return im, (m > threshold).astype(np.uint8)
     return load
@@ -177,7 +179,10 @@ def builtin_specs():
     return specs
 
 
-def extra_spec(name):
+def extra_spec(name, n=None):
+    """Pairs under data/extra/NAME. With n, take n pairs evenly spaced over the
+    sorted list. Polyp sets are video frames and consecutive frames are near
+    duplicates, so the first n would cover only a few sequences."""
     base = os.path.join(ROOT, "data", "extra", name)
     imgs = sorted(p for p in glob.glob(os.path.join(base, "images", "*"))
                   if p.lower().endswith(IMG_EXT))
@@ -187,9 +192,16 @@ def extra_spec(name):
     for p in masks:
         by.setdefault(stem(p), p)
     pi = [p for p in imgs if stem(p) in by]
+    if pi and all(stem(p).isdigit() for p in pi):
+        pi.sort(key=lambda p: int(stem(p)))      # frame order, not "1, 10, 100"
     if not pi:
         raise SystemExit(f"no image/mask pairs under {base}")
-    return {"images": pi, "masks": [by[stem(p)] for p in pi], "loader": "extra"}
+    pm = [by[stem(p)] for p in pi]
+    if n is not None and len(pi) > n:
+        idx = np.unique(np.round(np.linspace(0, len(pi) - 1, n)).astype(int))
+        pi = [pi[i] for i in idx]
+        pm = [pm[i] for i in idx]
+    return {"images": pi, "masks": pm, "loader": "extra"}
 
 
 # ---------------------------------------------------------------------------
@@ -277,13 +289,15 @@ def main():
                     help="score ROOT/data/extra/NAME instead of the built-ins")
     ap.add_argument("--mask-threshold", type=float, default=127,
                     help="with --extra: mask pixels > T are lesion")
+    ap.add_argument("--n", type=int, default=150,
+                    help="with --extra: number of evenly spaced pairs to score")
     ap.add_argument("--budget", type=float, default=None,
                     help="stop at the next checkpoint after this many seconds")
     args = ap.parse_args()
     os.makedirs(PER, exist_ok=True)
 
     if args.extra:
-        specs = {args.extra: extra_spec(args.extra)}
+        specs = {args.extra: extra_spec(args.extra, args.n)}
         loaders = {args.extra: make_extra_loader(args.mask_threshold)}
     else:
         specs = builtin_specs()
