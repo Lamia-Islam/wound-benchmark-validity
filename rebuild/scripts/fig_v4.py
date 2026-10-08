@@ -277,6 +277,84 @@ def fig4():
     print("saved " + p)
 
 
+def fig1_print(data, names, metric="dice"):
+    """Page-width version: no in-cell numbers (they are in Appendix Table A1)."""
+    vec = {k: H.means(data[k], metric) for k in ORDER}
+    P = pools(names)
+    fig, axes = plt.subplots(1, 3, figsize=(10.6, 4.0), dpi=220)
+    fig.patch.set_facecolor(SURF)
+    for ax, (title, idx) in zip(axes, P.items()):
+        M = matrix(vec, idx)
+        ax.imshow(M, cmap=CMAP, vmin=-1, vmax=1, interpolation="nearest")
+        for _, a, b in BLOCKS[1:]:
+            ax.axhline(a - 0.5, color=INK, lw=1.2)
+            ax.axvline(a - 0.5, color=INK, lw=1.2)
+        ax.set_xticks(range(len(ORDER)))
+        ax.set_yticks(range(len(ORDER)))
+        ax.set_xticklabels([LABEL[k] for k in ORDER], rotation=60, ha="right",
+                           fontsize=8.2, color=INK)
+        ax.set_yticklabels([LABEL[k] for k in ORDER] if ax is axes[0] else [],
+                           fontsize=8.2, color=INK)
+        ax.tick_params(length=0)
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        ax.set_title(title, fontsize=10, color=INK, loc="left", pad=6)
+    cax = fig.add_axes([0.925, 0.3, 0.012, 0.52])
+    sm = plt.cm.ScalarMappable(cmap=CMAP, norm=plt.Normalize(-1, 1))
+    cb = fig.colorbar(sm, cax=cax)
+    cb.outline.set_visible(False)
+    cb.ax.tick_params(labelsize=8, colors=SEC, length=2)
+    cb.set_label("Spearman", fontsize=8.5, color=SEC)
+    fig.subplots_adjust(left=0.1, right=0.91, bottom=0.27, top=0.9, wspace=0.08)
+    p = os.path.join(OUT, f"fig1_matrix_print_{metric}.png")
+    fig.savefig(p, facecolor=SURF, bbox_inches="tight")
+    print("saved " + p)
+
+
+def fig5():
+    d = json.load(open(os.path.join(OUT, "nonreduce32_pools.json")))
+    short = {"generator A, uniform drape": "A, uniform",
+             "generator C, no noise": "C, no noise",
+             "generator C, noise 3.4": "C, noise 3.4",
+             "generator B, texture ablated": "B, ablated"}
+    fig, axes = plt.subplots(1, 2, figsize=(10.4, 4.2), dpi=200, sharex=True)
+    fig.patch.set_facecolor(SURF)
+    for ax, pool in zip(axes, ("all 32", "18 untrained")):
+        ax.set_facecolor(SURF)
+        rows = {n: (t, v) for n, t, v in d[pool]["rows"]}
+        for n, (t, v) in rows.items():
+            ax.plot(t, v, "o", ms=9, color=INK, mec=SURF, mew=1.5, zorder=4)
+            ax.annotate(short[n], (t, v), textcoords="offset points",
+                        xytext=(9, -3), fontsize=8.3, color=INK)
+        for a, b, note in (("generator C, noise 3.4",
+                            "generator B, texture ablated", "0.03 apart"),
+                           ("generator A, uniform drape",
+                            "generator C, no noise", "0.24 apart")):
+            (xa, ya), (xb, yb) = rows[a], rows[b]
+            xm = (xa + xb) / 2
+            ax.plot([xm, xm], [ya, yb], color=SEC, lw=1.2, zorder=2)
+            ax.plot([xa, xm], [ya, ya], color=SEC, lw=0.9, ls=":", zorder=2)
+            ax.plot([xb, xm], [yb, yb], color=SEC, lw=0.9, ls=":", zorder=2)
+            ax.annotate(f"{note},\ndiffer by {abs(ya - yb):.3f}",
+                        (xm, (ya + yb) / 2), textcoords="offset points",
+                        xytext=(-10, 0), ha="right", va="center", fontsize=7.8,
+                        color=SEC, linespacing=1.3)
+        ax.axhline(0, color=MUT, lw=1.0, ls=(0, (4, 3)))
+        ax.set_xlim(1.75, 3.75)
+        ax.set_xlabel("measured background texture statistic", fontsize=9.5,
+                      color=INK)
+        ax.set_title(pool + " methods", fontsize=10, color=INK, loc="left",
+                     pad=8)
+        style(ax)
+        ax.grid(axis="y", color="#EFEFEF", lw=0.9)
+    axes[0].set_ylabel("agreement with Medetec and AZH", fontsize=9.5,
+                       color=INK)
+    fig.tight_layout()
+    p = os.path.join(OUT, "fig5_nonreducibility_v4.png")
+    fig.savefig(p, facecolor=SURF, bbox_inches="tight")
+    print("saved " + p)
+
+
 if __name__ == "__main__":
     data, names = H.load()
     want = sys.argv[1:] or ["1", "2", "3"]
@@ -289,3 +367,7 @@ if __name__ == "__main__":
         fig3()
     if "4" in want:
         fig4()
+    if "1p" in want:
+        fig1_print(data, names, "dice")
+    if "5" in want:
+        fig5()

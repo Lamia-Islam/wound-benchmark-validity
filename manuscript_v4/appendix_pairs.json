@@ -1,0 +1,830 @@
+[
+{
+"metric": "dice",
+"a": "AZH",
+"b": "AZH train slice",
+"level": "same dataset",
+"all": 0.94391495601173,
+"untrained": 0.9731682146542827,
+"trained": 0.9472527472527472
+},
+{
+"metric": "dice",
+"a": "CVC-ClinicDB",
+"b": "CVC-ColonDB",
+"level": "same source",
+"all": 0.9607771260997068,
+"untrained": 0.9731682146542827,
+"trained": 0.9428571428571428
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "Kvasir-sessile",
+"level": "same source",
+"all": 0.9497800586510262,
+"untrained": 0.9463364293085655,
+"trained": 0.9692307692307693
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "AZH",
+"level": "same source",
+"all": 0.6598240469208211,
+"untrained": 0.1475748194014448,
+"trained": 0.032967032967032975
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "CVC-ClinicDB",
+"level": "different source, same modality",
+"all": 0.9497800586510262,
+"untrained": 0.9009287925696594,
+"trained": 0.9428571428571428
+},
+{
+"metric": "dice",
+"a": "Kvasir-sessile",
+"b": "CVC-ClinicDB",
+"level": "different source, same modality",
+"all": 0.9472140762463342,
+"untrained": 0.9401444788441692,
+"trained": 0.9076923076923077
+},
+{
+"metric": "dice",
+"a": "Kvasir-sessile",
+"b": "CVC-ColonDB",
+"level": "different source, same modality",
+"all": 0.9307184750733138,
+"untrained": 0.8761609907120743,
+"trained": 0.8549450549450549
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "CVC-ColonDB",
+"level": "different source, same modality",
+"all": 0.9065249266862169,
+"untrained": 0.8534571723426212,
+"trained": 0.8681318681318682
+},
+{
+"metric": "dice",
+"a": "Kvasir-sessile",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.8610703812316713,
+"untrained": 0.8183694530443757,
+"trained": 0.767032967032967
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.848973607038123,
+"untrained": 0.869969040247678,
+"trained": 0.8197802197802198
+},
+{
+"metric": "dice",
+"a": "CVC-ColonDB",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.8412756598240468,
+"untrained": 0.6986584107327141,
+"trained": 0.8725274725274725
+},
+{
+"metric": "dice",
+"a": "CVC-ClinicDB",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.7969208211143693,
+"untrained": 0.7151702786377709,
+"trained": 0.8461538461538461
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "AZH",
+"level": "different source, same modality",
+"all": 0.5678152492668621,
+"untrained": 0.48606811145510836,
+"trained": 0.4813186813186813
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "FUSeg",
+"level": "different source, same modality",
+"all": 0.4607771260997067,
+"untrained": 0.739938080495356,
+"trained": -0.04175824175824176
+},
+{
+"metric": "dice",
+"a": "ETIS-Larib",
+"b": "PH2",
+"level": "across modality",
+"all": 0.719941348973607,
+"untrained": 0.06501547987616099,
+"trained": 0.9208791208791209
+},
+{
+"metric": "dice",
+"a": "Kvasir-sessile",
+"b": "PH2",
+"level": "across modality",
+"all": 0.6224340175953078,
+"untrained": 0.04231166150670795,
+"trained": 0.7846153846153847
+},
+{
+"metric": "dice",
+"a": "CVC-ColonDB",
+"b": "PH2",
+"level": "across modality",
+"all": 0.6158357771260996,
+"untrained": 0.03611971104231166,
+"trained": 0.8989010989010989
+},
+{
+"metric": "dice",
+"a": "CVC-ClinicDB",
+"b": "PH2",
+"level": "across modality",
+"all": 0.5703812316715542,
+"untrained": 0.054695562435500514,
+"trained": 0.8813186813186813
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "PH2",
+"level": "across modality",
+"all": 0.5410557184750733,
+"untrained": -0.01547987616099071,
+"trained": 0.8549450549450549
+},
+{
+"metric": "dice",
+"a": "ETIS-Larib",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.3434570268879257,
+"untrained": 0.08619066568651647,
+"trained": -0.5215602723937125
+},
+{
+"metric": "dice",
+"a": "CVC-ColonDB",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.24572535257022324,
+"untrained": 0.0986519667496273,
+"trained": -0.3888826592409259
+},
+{
+"metric": "dice",
+"a": "Kvasir-sessile",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.24107146331699933,
+"untrained": 0.19626549174399535,
+"trained": -0.4552214658173191
+},
+{
+"metric": "dice",
+"a": "CVC-ClinicDB",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.21761586148075074,
+"untrained": 0.15368937977836672,
+"trained": -0.43463356032809364
+},
+{
+"metric": "dice",
+"a": "Kvasir",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.18392170328740953,
+"untrained": 0.11319015132325659,
+"trained": -0.45293392076296074
+},
+{
+"metric": "dice",
+"a": "PH2",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.16809847982644818,
+"untrained": -0.4413377459851748,
+"trained": -0.5284229075567876
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "Kvasir",
+"level": "across modality",
+"all": 0.03225806451612903,
+"untrained": 0.2549019607843137,
+"trained": 0.1912087912087912
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": 0.027492668621700876,
+"untrained": 0.38493292053663575,
+"trained": 0.15164835164835166
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": -0.041788856304985335,
+"untrained": 0.37048503611971106,
+"trained": 0.12087912087912088
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": -0.06781524926686217,
+"untrained": 0.38080495356037153,
+"trained": 0.006593406593406593
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.15799120234604103,
+"untrained": 0.21568627450980388,
+"trained": -0.05054945054945055
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "Kvasir",
+"level": "across modality",
+"all": -0.20307917888563048,
+"untrained": -0.06914344685242517,
+"trained": 0.5428571428571429
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": -0.2313049853372434,
+"untrained": -0.10835913312693499,
+"trained": 0.4813186813186813
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "PH2",
+"level": "across modality",
+"all": -0.2382697947214076,
+"untrained": 0.19091847265221878,
+"trained": -0.05054945054945055
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": -0.27675953079178883,
+"untrained": -0.09184726522187822,
+"trained": 0.48571428571428577
+},
+{
+"metric": "dice",
+"a": "Medetec",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.2950565786543969,
+"untrained": -0.3260707111513997,
+"trained": 0.20816659994661327
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": -0.32954545454545453,
+"untrained": -0.07739938080495357,
+"trained": 0.3186813186813187
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": -0.4600439882697947,
+"untrained": 0.1042311661506708,
+"trained": -0.4593406593406593
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "Kvasir",
+"level": "across modality",
+"all": -0.48093841642228735,
+"untrained": -0.08771929824561403,
+"trained": -0.45054945054945056
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.5087976539589443,
+"untrained": -0.0629514963880289,
+"trained": 0.13406593406593406
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": -0.5183284457478006,
+"untrained": 0.12487100103199174,
+"trained": -0.5340659340659341
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "PH2",
+"level": "across modality",
+"all": -0.5252932551319648,
+"untrained": 0.08978328173374613,
+"trained": 0.2351648351648352
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.5320326194285591,
+"untrained": -0.185881074191403,
+"trained": 0.038888265924092585
+},
+{
+"metric": "dice",
+"a": "AZH",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.5391065310934595,
+"untrained": -0.5493356885321352,
+"trained": -0.30424349222966557
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": -0.5520527859237535,
+"untrained": 0.03611971104231166,
+"trained": -0.5516483516483517
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.7327712609970675,
+"untrained": -0.20330237358101136,
+"trained": -0.44175824175824174
+},
+{
+"metric": "dice",
+"a": "FUSeg",
+"b": "PH2",
+"level": "across modality",
+"all": -0.7430351906158358,
+"untrained": -0.13106295149638802,
+"trained": -0.367032967032967
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "AZH train slice",
+"level": "same dataset",
+"all": 0.9604105571847507,
+"untrained": 0.9793601651186791,
+"trained": 0.9076923076923077
+},
+{
+"metric": "nsd",
+"a": "CVC-ClinicDB",
+"b": "CVC-ColonDB",
+"level": "same source",
+"all": 0.9750733137829911,
+"untrained": 0.9525283797729618,
+"trained": 0.9604395604395607
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "Kvasir-sessile",
+"level": "same source",
+"all": 0.9373167155425218,
+"untrained": 0.8864809081527348,
+"trained": 0.9956043956043955
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "AZH",
+"level": "same source",
+"all": 0.7818914956011729,
+"untrained": 0.7254901960784313,
+"trained": 0.8241758241758241
+},
+{
+"metric": "nsd",
+"a": "Kvasir-sessile",
+"b": "CVC-ClinicDB",
+"level": "different source, same modality",
+"all": 0.8636363636363635,
+"untrained": 0.8596491228070176,
+"trained": 0.8681318681318682
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "CVC-ClinicDB",
+"level": "different source, same modality",
+"all": 0.8614369501466275,
+"untrained": 0.8121775025799793,
+"trained": 0.8637362637362638
+},
+{
+"metric": "nsd",
+"a": "Kvasir-sessile",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.847140762463343,
+"untrained": 0.762641898864809,
+"trained": 0.8241758241758241
+},
+{
+"metric": "nsd",
+"a": "Kvasir-sessile",
+"b": "CVC-ColonDB",
+"level": "different source, same modality",
+"all": 0.8423753665689148,
+"untrained": 0.7688338493292053,
+"trained": 0.9340659340659341
+},
+{
+"metric": "nsd",
+"a": "CVC-ClinicDB",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.8339442815249266,
+"untrained": 0.6305469556243549,
+"trained": 0.7934065934065934
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "CVC-ColonDB",
+"level": "different source, same modality",
+"all": 0.8258797653958944,
+"untrained": 0.7440660474716203,
+"trained": 0.9164835164835166
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.8200146627565982,
+"untrained": 0.8142414860681115,
+"trained": 0.8153846153846154
+},
+{
+"metric": "nsd",
+"a": "CVC-ColonDB",
+"b": "ETIS-Larib",
+"level": "different source, same modality",
+"all": 0.7943548387096774,
+"untrained": 0.5356037151702786,
+"trained": 0.8505494505494505
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "AZH",
+"level": "different source, same modality",
+"all": 0.5799120234604105,
+"untrained": 0.7936016511867906,
+"trained": 0.27472527472527475
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "FUSeg",
+"level": "different source, same modality",
+"all": 0.4607771260997067,
+"untrained": 0.8390092879256965,
+"trained": 0.09010989010989012
+},
+{
+"metric": "nsd",
+"a": "ETIS-Larib",
+"b": "PH2",
+"level": "across modality",
+"all": 0.7158049619523427,
+"untrained": 0.40144478844169246,
+"trained": 0.6953710156416559
+},
+{
+"metric": "nsd",
+"a": "CVC-ClinicDB",
+"b": "PH2",
+"level": "across modality",
+"all": 0.697103090507891,
+"untrained": 0.10835913312693499,
+"trained": 0.6644656371686934
+},
+{
+"metric": "nsd",
+"a": "CVC-ColonDB",
+"b": "PH2",
+"level": "across modality",
+"all": 0.6420975862595041,
+"untrained": -0.007223942208462332,
+"trained": 0.770426934790279
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "PH2",
+"level": "across modality",
+"all": 0.5621562534185149,
+"untrained": 0.17853457172342618,
+"trained": 0.6600505831011273
+},
+{
+"metric": "nsd",
+"a": "Kvasir-sessile",
+"b": "PH2",
+"level": "across modality",
+"all": 0.503117012191913,
+"untrained": 0.07533539731682146,
+"trained": 0.699786069709222
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": 0.35337243401759527,
+"untrained": 0.7337461300309597,
+"trained": 0.0989010989010989
+},
+{
+"metric": "nsd",
+"a": "Kvasir",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.2855356525039776,
+"untrained": 0.12143425665551795,
+"trained": -0.31568121750145756
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "Kvasir",
+"level": "across modality",
+"all": 0.2657624633431085,
+"untrained": 0.6181630546955624,
+"trained": 0.12967032967032965
+},
+{
+"metric": "nsd",
+"a": "CVC-ClinicDB",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.21759529190166224,
+"untrained": 0.09860046480576246,
+"trained": -0.3888826592409259
+},
+{
+"metric": "nsd",
+"a": "CVC-ColonDB",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.2121972906483276,
+"untrained": 0.23456531627476118,
+"trained": -0.377444933969134
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": 0.19904692082111436,
+"untrained": 0.48813209494324045,
+"trained": 0.2043956043956044
+},
+{
+"metric": "nsd",
+"a": "Kvasir-sessile",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.15412224268141686,
+"untrained": 0.0373643866632363,
+"trained": -0.3294064878276078
+},
+{
+"metric": "nsd",
+"a": "ETIS-Larib",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.15300541483589936,
+"untrained": 0.02906118962696156,
+"trained": -0.19215378456610455
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": 0.13306451612903225,
+"untrained": 0.5851393188854489,
+"trained": 0.11208791208791209
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": 0.08431085043988269,
+"untrained": 0.651186790505676,
+"trained": 0.0945054945054945
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": 0.07184750733137829,
+"untrained": 0.45098039215686275,
+"trained": 0.06813186813186813
+},
+{
+"metric": "nsd",
+"a": "PH2",
+"b": "TN3K",
+"level": "across modality",
+"all": 0.05958599814045495,
+"untrained": -0.5002676214355526,
+"trained": -0.5744167461410585
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "Kvasir",
+"level": "across modality",
+"all": -0.029325513196480937,
+"untrained": 0.5479876160990712,
+"trained": 0.09010989010989012
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.05498533724340175,
+"untrained": 0.5830753353973168,
+"trained": -0.02857142857142857
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "Kvasir-sessile",
+"level": "across modality",
+"all": -0.13196480938416422,
+"untrained": 0.6800825593395253,
+"trained": -0.178021978021978
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.1464905857370472,
+"untrained": -0.07057717480833522,
+"trained": 0.19672887467482134
+},
+{
+"metric": "nsd",
+"a": "Medetec",
+"b": "PH2",
+"level": "across modality",
+"all": -0.15951596232032222,
+"untrained": 0.12899896800825592,
+"trained": -0.3642419605742007
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": -0.24046920821114368,
+"untrained": 0.347781217750258,
+"trained": -0.01978021978021978
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": -0.24816715542521994,
+"untrained": 0.48606811145510836,
+"trained": -0.15604395604395604
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "Kvasir",
+"level": "across modality",
+"all": -0.28409090909090906,
+"untrained": 0.48606811145510836,
+"trained": -0.18681318681318684
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.3028464841094991,
+"untrained": -0.14634384776434217,
+"trained": -0.04803844614152614
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "ETIS-Larib",
+"level": "across modality",
+"all": -0.3273460410557184,
+"untrained": 0.3333333333333333,
+"trained": -0.2087912087912088
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "CVC-ColonDB",
+"level": "across modality",
+"all": -0.3508064516129032,
+"untrained": 0.6284829721362228,
+"trained": -0.2879120879120879
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "CVC-ClinicDB",
+"level": "across modality",
+"all": -0.40285923753665687,
+"untrained": 0.7151702786377709,
+"trained": -0.46373626373626364
+},
+{
+"metric": "nsd",
+"a": "AZH",
+"b": "PH2",
+"level": "across modality",
+"all": -0.47084711636619253,
+"untrained": 0.06914344685242517,
+"trained": -0.17439463566885974
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "TN3K",
+"level": "across modality",
+"all": -0.4761409381389667,
+"untrained": 0.0031136988886030243,
+"trained": 0.21274169005533006
+},
+{
+"metric": "nsd",
+"a": "FUSeg",
+"b": "PH2",
+"level": "across modality",
+"all": -0.6663000081287942,
+"untrained": -0.11248710010319916,
+"trained": -0.2362053926147847
+}
+]
