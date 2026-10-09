@@ -1,0 +1,281 @@
+{
+ "fuseg": [
+  [
+   24,
+   "0096.png",
+   "byte-identical to FUSeg train 0983.png"
+  ],
+  [
+   41,
+   "0201.png",
+   "byte-identical to FUSeg train 0803.png"
+  ],
+  [
+   51,
+   "0256.png",
+   "byte-identical to FUSeg train 0997.png"
+  ],
+  [
+   56,
+   "0284.png",
+   "byte-identical to FUSeg train 0121.png"
+  ],
+  [
+   66,
+   "0339.png",
+   "byte-identical to evaluation image 0303.png"
+  ],
+  [
+   70,
+   "0356.png",
+   "byte-identical to FUSeg train 0636.png"
+  ],
+  [
+   96,
+   "0485.png",
+   "byte-identical to FUSeg train 0980.png"
+  ],
+  [
+   109,
+   "0545.png",
+   "byte-identical to FUSeg train 0569.png"
+  ]
+ ],
+ "azh_train_slice": [
+  [
+   1,
+   "002985bcbd572241a950bf39b4188d70_0.png",
+   "crop of FUSeg validation 0002.png (45 SIFT inliers)"
+  ],
+  [
+   2,
+   "00437234527092743faeb39bc59bd7ee_0.png",
+   "crop of FUSeg validation 0003.png (30 SIFT inliers)"
+  ],
+  [
+   6,
+   "01289b5d0d3f47b0de56c003ec81614a_0.png",
+   "crop of FUSeg validation 0007.png (75 SIFT inliers)"
+  ],
+  [
+   14,
+   "0301eae58a63514483f1f05436437ac2_0.png",
+   "crop of FUSeg train 0014.png (96 SIFT inliers)"
+  ],
+  [
+   15,
+   "0301eae58a63514483f1f05436437ac2_1.png",
+   "crop of FUSeg train 0014.png (72 SIFT inliers)"
+  ],
+  [
+   17,
+   "035b9aff921b413432a9b2b6d68e4c50_1.png",
+   "crop of FUSeg train 0016.png (35 SIFT inliers)"
+  ],
+  [
+   18,
+   "035b9aff921b413432a9b2b6d68e4c50_2.png",
+   "crop of FUSeg train 0016.png (44 SIFT inliers)"
+  ],
+  [
+   19,
+   "03722f11a500f35511add8b2ecf54e61_0.png",
+   "crop of FUSeg train 0017.png (31 SIFT inliers)"
+  ],
+  [
+   20,
+   "03a29338d44c41efd1856034029cb9cb_0.png",
+   "crop of FUSeg train 0018.png (28 SIFT inliers)"
+  ],
+  [
+   23,
+   "03b7f4b22ab4357bbf58da1540daf836_0.png",
+   "crop of FUSeg train 0019.png (31 SIFT inliers)"
+  ],
+  [
+   25,
+   "045069bee69b9a6b457a69c564589895_0.png",
+   "crop of FUSeg train 0021.png (36 SIFT inliers)"
+  ],
+  [
+   30,
+   "04ff12bacbf32cde2df83fc1199518d8_1.png",
+   "crop of FUSeg train 0026.png (51 SIFT inliers)"
+  ],
+  [
+   34,
+   "05bf122b0e8bf667fc2aeedd8b70d9f3_0.png",
+   "crop of FUSeg validation 0030.png (26 SIFT inliers)"
+  ],
+  [
+   36,
+   "06d5643601a23d986ce7a24ca4bb2152_0.png",
+   "crop of FUSeg train 0032.png (40 SIFT inliers)"
+  ],
+  [
+   39,
+   "07a31c50fc96dcf841177d2c832767b9_0.png",
+   "crop of FUSeg train 0035.png (26 SIFT inliers)"
+  ],
+  [
+   41,
+   "07cd49d4077e7392d36501f291706ddb_1.png",
+   "crop of FUSeg train 0036.png (62 SIFT inliers)"
+  ],
+  [
+   42,
+   "08b680ecad190d66a8295c5255550bbf_0.png",
+   "crop of FUSeg train 0037.png (51 SIFT inliers)"
+  ],
+  [
+   46,
+   "095919973cde59672f21c88850a4aa09_0.png",
+   "crop of FUSeg train 0041.png (25 SIFT inliers)"
+  ],
+  [
+   51,
+   "0a5a3ada2bb75c4af2daf8e4726bf099_2.png",
+   "crop of FUSeg validation 0046.png (36 SIFT inliers)"
+  ],
+  [
+   52,
+   "0abb9eba5adac0db89364735c88860e4_0.png",
+   "crop of FUSeg validation 0047.png (41 SIFT inliers)"
+  ],
+  [
+   53,
+   "0ac40b1b34bdfebeab8fdad265e76554_0.png",
+   "crop of FUSeg train 0048.png (27 SIFT inliers)"
+  ],
+  [
+   55,
+   "0b1e2ebd480a39038df6a4a8b273ded2_0.png",
+   "crop of FUSeg train 0051.png (28 SIFT inliers)"
+  ],
+  [
+   61,
+   "0bc5e8bfd852b40e2a2af5cd933e00bb_0.png",
+   "crop of FUSeg train 0056.png (58 SIFT inliers)"
+  ],
+  [
+   62,
+   "0c2ef774c755a57b93845eed12e8029f_0.png",
+   "crop of FUSeg validation 0057.png (33 SIFT inliers)"
+  ],
+  [
+   68,
+   "0dac4ad9e961452a81183370848d3ec3_0.png",
+   "crop of FUSeg train 0063.png (42 SIFT inliers)"
+  ],
+  [
+   75,
+   "0e3efb99f7529906a52c26558d37af9c_0.png",
+   "crop of FUSeg train 0070.png (30 SIFT inliers)"
+  ],
+  [
+   77,
+   "0f06905655751ee938d3c71e516f3084_0.png",
+   "crop of FUSeg train 0072.png (26 SIFT inliers)"
+  ],
+  [
+   78,
+   "0f42ca66d0a67e868683aab958c70b70_0.png",
+   "crop of FUSeg train 0073.png (35 SIFT inliers)"
+  ],
+  [
+   79,
+   "0f9e59822589ead1b752065cf09d4b87_0.png",
+   "crop of FUSeg train 0074.png (40 SIFT inliers)"
+  ],
+  [
+   81,
+   "100e9e226ad344e054a1a36191308da1_0.png",
+   "crop of FUSeg train 0076.png (33 SIFT inliers)"
+  ],
+  [
+   87,
+   "11c4368cd336af0da7ff5681c6146ccf_0.png",
+   "crop of FUSeg train 0081.png (35 SIFT inliers)"
+  ],
+  [
+   94,
+   "15ee4679bf92307b89e2d818e8fbccd7_0.png",
+   "crop of FUSeg validation 0089.png (37 SIFT inliers)"
+  ],
+  [
+   95,
+   "160fcc9963c057d0a4754c8a39f87f1c_0.png",
+   "crop of FUSeg train 0090.png (25 SIFT inliers)"
+  ],
+  [
+   98,
+   "16180f16e73ffb069b756f56859aec57_0.png",
+   "crop of FUSeg train 0091.png (40 SIFT inliers)"
+  ],
+  [
+   100,
+   "16489f399948a5dfc46c056f1d26da40_0.png",
+   "crop of FUSeg train 0093.png (46 SIFT inliers)"
+  ],
+  [
+   105,
+   "18d60d8c820b5487f59dce1237f31f47_0.png",
+   "crop of FUSeg train 0099.png (26 SIFT inliers)"
+  ],
+  [
+   109,
+   "19d43ee6c12f70035f87d57ff561a41b_1.png",
+   "crop of FUSeg train 0104.png (49 SIFT inliers)"
+  ],
+  [
+   113,
+   "1a4b3982e17b4f019481ebcba701fc24_0.png",
+   "crop of FUSeg validation 0108.png (36 SIFT inliers)"
+  ],
+  [
+   117,
+   "1ad97384d93aa85123fe2173047c3dce_0.png",
+   "crop of FUSeg train 0112.png (33 SIFT inliers)"
+  ],
+  [
+   120,
+   "1b68ab7a408b0c74157999bd480962a6_0.png",
+   "crop of FUSeg train 0117.png (26 SIFT inliers)"
+  ],
+  [
+   122,
+   "1c1864fe796dc3d59999950a2c697756_1.png",
+   "crop of FUSeg train 0119.png (72 SIFT inliers)"
+  ],
+  [
+   125,
+   "1c58fc115fbca1fff4e83c069493625b_0.png",
+   "crop of FUSeg validation 0124.png (51 SIFT inliers)"
+  ],
+  [
+   126,
+   "1c700b5e74caa409d88eb73957906b05_0.png",
+   "crop of FUSeg train 0125.png (37 SIFT inliers)"
+  ],
+  [
+   137,
+   "1d87e42d6146a984a037cf13a150eec0_0.png",
+   "crop of FUSeg validation 0133.png (26 SIFT inliers)"
+  ],
+  [
+   141,
+   "1dbb00d92741863fcc6451afd48daf31_0.png",
+   "crop of FUSeg validation 0136.png (29 SIFT inliers)"
+  ],
+  [
+   147,
+   "1e172e50acdceb692355ba080e2146cc_0.png",
+   "crop of FUSeg train 0140.png (26 SIFT inliers)"
+  ],
+  [
+   148,
+   "1e172e50acdceb692355ba080e2146cc_1.png",
+   "crop of FUSeg train 0140.png (42 SIFT inliers)"
+  ]
+ ]
+}

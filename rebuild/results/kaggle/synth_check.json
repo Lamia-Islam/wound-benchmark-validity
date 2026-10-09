@@ -1,0 +1,86 @@
+{
+ "genB_amp11_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp11_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp11_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp28_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp28_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp28_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp40_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp40_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "genB_amp40_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrA_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrB0_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC0_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC34_s2024": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrA_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrB0_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC0_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC34_s7": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrA_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrB0_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC0_s101": {
+  "n": 45,
+  "identical": 45
+ },
+ "nrC34_s101": {
+  "n": 45,
+  "identical": 45
+ }
+}
