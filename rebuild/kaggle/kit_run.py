@@ -327,10 +327,13 @@ class nnUNetTrainer_WB(nnUNetTrainer):
 
 def stage_nnunet():
     import nnunetv2
+    # checkpoints go to OUT (kept across a Colab disconnect); the bulky raw,
+    # preprocessed and prediction folders go to fast local disk
     base = os.path.join(OUT, "nnunet")
+    work = os.environ.get("NNUNET_WORK", base)
     env = dict(os.environ,
-               nnUNet_raw=os.path.join(base, "raw"),
-               nnUNet_preprocessed=os.path.join(base, "preprocessed"),
+               nnUNet_raw=os.path.join(work, "raw"),
+               nnUNet_preprocessed=os.path.join(work, "preprocessed"),
                nnUNet_results=os.path.join(base, "results"),
                NNUNET_EPOCHS="1" if DRY else os.environ.get("NNUNET_EPOCHS", "100"))
     if DRY:
@@ -346,7 +349,8 @@ def stage_nnunet():
     dev = ["-device", "cuda" if DEV.type == "cuda" else "cpu"]
     model_dir = os.path.join(env["nnUNet_results"], NN_NAME,
                              f"{TRAINER}__nnUNetPlans__2d", "fold_all")
-    if not os.path.exists(os.path.join(model_dir, "checkpoint_final.pth")):
+    if not os.path.exists(os.path.join(model_dir, "checkpoint_final.pth")) and \
+            not os.path.exists(os.path.join(env["nnUNet_preprocessed"], NN_NAME)):
         _, _, tr = fuseg_split()
         os.makedirs(os.path.join(raw, "imagesTr"), exist_ok=True)
         os.makedirs(os.path.join(raw, "labelsTr"), exist_ok=True)
@@ -365,11 +369,14 @@ def stage_nnunet():
         run(["nnUNetv2_plan_and_preprocess", "-d", str(NN_ID), "-c", "2d",
              "--verify_dataset_integrity", "-npfp", "1" if DRY else "4",
              "-np", "1" if DRY else "4"], env)
-        run(["nnUNetv2_train", str(NN_ID), "2d", "all", "-tr", TRAINER] + dev, env)
+    if not os.path.exists(os.path.join(model_dir, "checkpoint_final.pth")):
+        resume = os.path.exists(os.path.join(model_dir, "checkpoint_latest.pth"))
+        run(["nnUNetv2_train", str(NN_ID), "2d", "all", "-tr", TRAINER] + dev
+            + (["--c"] if resume else []), env)
 
     # predict every evaluation image once, with probabilities
-    pin = os.path.join(base, "pred_in")
-    pout = os.path.join(base, "pred_out")
+    pin = os.path.join(work, "pred_in")
+    pout = os.path.join(work, "pred_out")
     os.makedirs(pin, exist_ok=True)
     keys = []
     for kind, name, d in eval_sets():
@@ -614,7 +621,9 @@ def stage_pack():
     dst = os.path.join(os.path.dirname(OUT.rstrip("/")), "wb_results.zip")
     with zipfile.ZipFile(dst, "w", zipfile.ZIP_DEFLATED) as z:
         for root, dirs, files in os.walk(OUT):
-            dirs[:] = [d for d in dirs if not d.startswith(("ckpt", "nnunet", "synth"))]
+            if root == OUT.rstrip("/"):
+                # skip only the bulky top-level work folders, never scores/<group>
+                dirs[:] = [d for d in dirs if not d.startswith(("ckpt", "nnunet", "synth"))]
             for f in files:
                 if f.endswith((".json", ".txt")) or f.startswith("DONE_"):
                     p = os.path.join(root, f)
