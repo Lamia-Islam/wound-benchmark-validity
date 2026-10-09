@@ -1,0 +1,32 @@
+{
+ "unet_r18_in": {
+  "sweep_dice": 0.8273178234248274
+ },
+ "unetpp_r18_in": {
+  "sweep_dice": 0.835437771532821
+ },
+ "deeplabv3p_r18_in": {
+  "sweep_dice": 0.8080097196041042
+ },
+ "fpn_r18_in": {
+  "sweep_dice": 0.8075793265910545
+ },
+ "pspnet_r18_in": {
+  "sweep_dice": 0.7477299935687816
+ },
+ "linknet_r18_in": {
+  "sweep_dice": 0.8057075973090272
+ },
+ "manet_r18_in": {
+  "sweep_dice": 0.8434361370627087
+ },
+ "segformer_mitb0_in": {
+  "sweep_dice": 0.7778514647079241
+ },
+ "unet_mbv2_in": {
+  "sweep_dice": 0.8162026515479802
+ },
+ "unet_effb0_in": {
+  "sweep_dice": 0.8063559336144427
+ }
+}

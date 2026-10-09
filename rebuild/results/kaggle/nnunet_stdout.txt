@@ -1,0 +1,1889 @@
+nnUNetv2_plan_and_preprocess -d 501 -c 2d --verify_dataset_integrity -npfp 4 -np 4
+Fingerprint extraction...
+Dataset501_FUSeg
+Using <class 'nnunetv2.imageio.natural_image_reader_writer.NaturalImage2DIO'> as reader/writer
+
+####################
+verify_dataset_integrity Done. 
+If you didn't see any error messages then your dataset is most likely OK!
+####################
+
+Using <class 'nnunetv2.imageio.natural_image_reader_writer.NaturalImage2DIO'> as reader/writer
+Experiment planning...
+
+############################
+INFO: You are using the old nnU-Net default planner. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+2D U-Net configuration:
+{'data_identifier': 'nnUNetPlans_2d', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 16, 'patch_size': (np.int64(512), np.int64(384)), 'median_image_size_in_voxels': array([512., 384.]), 'spacing': array([1., 1.]), 'normalization_schemes': ['ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization'], 'use_mask_for_norm': [False, False, False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 7, 'features_per_stage': (32, 64, 128, 256, 512, 512, 512), 'conv_op': 'torch.nn.modules.conv.Conv2d', 'kernel_sizes': ((3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3), (3, 3)), 'strides': ((1, 1), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2), (2, 2)), 'n_conv_per_stage': (2, 2, 2, 2, 2, 2, 2), 'n_conv_per_stage_decoder': (2, 2, 2, 2, 2, 2), 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm2d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ('conv_op', 'norm_op', 'dropout_op', 'nonlin')}, 'batch_dice': True}
+
+Using <class 'nnunetv2.imageio.natural_image_reader_writer.NaturalImage2DIO'> as reader/writer
+Plans were saved to /kaggle/working/out/nnunet/preprocessed/Dataset501_FUSeg/nnUNetPlans.json
+Preprocessing...
+Preprocessing dataset Dataset501_FUSeg
+Configuration: 2d...
+{'data_identifier': 'nnUNetPlans_2d', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 16, 'patch_size': [512, 384], 'median_image_size_in_voxels': [512.0, 384.0], 'spacing': [1.0, 1.0], 'normalization_schemes': ['ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization'], 'use_mask_for_norm': [False, False, False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 7, 'features_per_stage': [32, 64, 128, 256, 512, 512, 512], 'conv_op': 'torch.nn.modules.conv.Conv2d', 'kernel_sizes': [[3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]], 'strides': [[1, 1], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2], [2, 2]], 'n_conv_per_stage': [2, 2, 2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2, 2, 2], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm2d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': True}
+
+
+Extracting dataset fingerprint:   0%|          | 0/392 [00:00<?, ?it/s]
+Extracting dataset fingerprint:   0%|          | 1/392 [00:04<28:49,  4.42s/it]
+Extracting dataset fingerprint:   1%|          | 3/392 [00:04<07:40,  1.18s/it]
+Extracting dataset fingerprint:   3%|▎         | 10/392 [00:04<01:40,  3.80it/s]
+Extracting dataset fingerprint:   4%|▍         | 15/392 [00:04<00:58,  6.46it/s]
+Extracting dataset fingerprint:   5%|▌         | 20/392 [00:04<00:38,  9.74it/s]
+Extracting dataset fingerprint:   6%|▋         | 25/392 [00:04<00:26, 13.63it/s]
+Extracting dataset fingerprint:   8%|▊         | 32/392 [00:05<00:17, 20.50it/s]
+Extracting dataset fingerprint:  10%|▉         | 38/392 [00:05<00:13, 26.34it/s]
+Extracting dataset fingerprint:  11%|█         | 44/392 [00:05<00:10, 32.06it/s]
+Extracting dataset fingerprint:  13%|█▎        | 50/392 [00:05<00:09, 37.40it/s]
+Extracting dataset fingerprint:  14%|█▍        | 56/392 [00:05<00:07, 42.32it/s]
+Extracting dataset fingerprint:  16%|█▌        | 62/392 [00:05<00:07, 46.28it/s]
+Extracting dataset fingerprint:  17%|█▋        | 68/392 [00:05<00:06, 49.65it/s]
+Extracting dataset fingerprint:  19%|█▉        | 74/392 [00:05<00:06, 51.90it/s]
+Extracting dataset fingerprint:  20%|██        | 80/392 [00:05<00:07, 42.01it/s]
+Extracting dataset fingerprint:  22%|██▏       | 85/392 [00:06<00:07, 43.67it/s]
+Extracting dataset fingerprint:  23%|██▎       | 91/392 [00:06<00:06, 47.65it/s]
+Extracting dataset fingerprint:  25%|██▍       | 97/392 [00:06<00:05, 50.62it/s]
+Extracting dataset fingerprint:  26%|██▋       | 103/392 [00:06<00:05, 53.00it/s]
+Extracting dataset fingerprint:  28%|██▊       | 109/392 [00:06<00:05, 54.87it/s]
+Extracting dataset fingerprint:  29%|██▉       | 115/392 [00:06<00:04, 56.16it/s]
+Extracting dataset fingerprint:  31%|███       | 121/392 [00:06<00:04, 57.16it/s]
+Extracting dataset fingerprint:  32%|███▏      | 127/392 [00:06<00:04, 57.60it/s]
+Extracting dataset fingerprint:  34%|███▍      | 133/392 [00:06<00:05, 45.04it/s]
+Extracting dataset fingerprint:  35%|███▌      | 138/392 [00:07<00:05, 45.47it/s]
+Extracting dataset fingerprint:  37%|███▋      | 144/392 [00:07<00:05, 49.12it/s]
+Extracting dataset fingerprint:  38%|███▊      | 150/392 [00:07<00:04, 51.79it/s]
+Extracting dataset fingerprint:  40%|███▉      | 156/392 [00:07<00:04, 53.95it/s]
+Extracting dataset fingerprint:  41%|████▏     | 162/392 [00:07<00:04, 55.52it/s]
+Extracting dataset fingerprint:  43%|████▎     | 168/392 [00:07<00:03, 56.44it/s]
+Extracting dataset fingerprint:  44%|████▍     | 174/392 [00:07<00:04, 44.51it/s]
+Extracting dataset fingerprint:  46%|████▌     | 179/392 [00:07<00:04, 45.69it/s]
+Extracting dataset fingerprint:  47%|████▋     | 184/392 [00:07<00:04, 46.48it/s]
+Extracting dataset fingerprint:  48%|████▊     | 189/392 [00:08<00:04, 47.37it/s]
+Extracting dataset fingerprint:  49%|████▉     | 194/392 [00:08<00:04, 47.87it/s]
+Extracting dataset fingerprint:  51%|█████     | 199/392 [00:08<00:04, 47.61it/s]
+Extracting dataset fingerprint:  52%|█████▏    | 205/392 [00:08<00:03, 50.68it/s]
+Extracting dataset fingerprint:  54%|█████▍    | 211/392 [00:08<00:03, 53.28it/s]
+Extracting dataset fingerprint:  55%|█████▌    | 217/392 [00:08<00:03, 55.14it/s]
+Extracting dataset fingerprint:  57%|█████▋    | 223/392 [00:08<00:02, 56.49it/s]
+Extracting dataset fingerprint:  58%|█████▊    | 229/392 [00:08<00:02, 57.27it/s]
+Extracting dataset fingerprint:  60%|█████▉    | 235/392 [00:08<00:02, 57.94it/s]
+Extracting dataset fingerprint:  61%|██████▏   | 241/392 [00:09<00:03, 44.85it/s]
+Extracting dataset fingerprint:  63%|██████▎   | 246/392 [00:09<00:03, 45.57it/s]
+Extracting dataset fingerprint:  64%|██████▍   | 251/392 [00:09<00:03, 46.60it/s]
+Extracting dataset fingerprint:  66%|██████▌   | 257/392 [00:09<00:02, 50.11it/s]
+Extracting dataset fingerprint:  67%|██████▋   | 263/392 [00:09<00:02, 52.29it/s]
+Extracting dataset fingerprint:  69%|██████▊   | 269/392 [00:09<00:02, 54.39it/s]
+Extracting dataset fingerprint:  70%|███████   | 275/392 [00:09<00:02, 55.92it/s]
+Extracting dataset fingerprint:  72%|███████▏  | 281/392 [00:09<00:01, 56.93it/s]
+Extracting dataset fingerprint:  73%|███████▎  | 287/392 [00:09<00:01, 57.53it/s]
+Extracting dataset fingerprint:  75%|███████▍  | 293/392 [00:10<00:01, 58.18it/s]
+Extracting dataset fingerprint:  76%|███████▋  | 299/392 [00:10<00:01, 58.65it/s]
+Extracting dataset fingerprint:  78%|███████▊  | 305/392 [00:10<00:01, 45.41it/s]
+Extracting dataset fingerprint:  79%|███████▉  | 311/392 [00:10<00:01, 48.93it/s]
+Extracting dataset fingerprint:  81%|████████  | 317/392 [00:10<00:01, 51.73it/s]
+Extracting dataset fingerprint:  82%|████████▏ | 323/392 [00:10<00:01, 53.90it/s]
+Extracting dataset fingerprint:  84%|████████▍ | 329/392 [00:10<00:01, 43.35it/s]
+Extracting dataset fingerprint:  85%|████████▌ | 334/392 [00:10<00:01, 44.35it/s]
+Extracting dataset fingerprint:  86%|████████▋ | 339/392 [00:11<00:01, 45.54it/s]
+Extracting dataset fingerprint:  88%|████████▊ | 344/392 [00:11<00:01, 46.45it/s]
+Extracting dataset fingerprint:  89%|████████▉ | 349/392 [00:11<00:00, 47.33it/s]
+Extracting dataset fingerprint:  90%|█████████ | 354/392 [00:11<00:00, 47.62it/s]
+Extracting dataset fingerprint:  92%|█████████▏| 359/392 [00:11<00:00, 48.20it/s]
+Extracting dataset fingerprint:  93%|█████████▎| 364/392 [00:11<00:00, 48.38it/s]
+Extracting dataset fingerprint:  94%|█████████▍| 369/392 [00:11<00:00, 48.68it/s]
+Extracting dataset fingerprint:  95%|█████████▌| 374/392 [00:11<00:00, 48.65it/s]
+Extracting dataset fingerprint:  97%|█████████▋| 380/392 [00:11<00:00, 51.91it/s]
+Extracting dataset fingerprint:  98%|█████████▊| 386/392 [00:11<00:00, 54.19it/s]
+Extracting dataset fingerprint: 100%|██████████| 392/392 [00:12<00:00, 55.83it/s]
+Extracting dataset fingerprint: 100%|██████████| 392/392 [00:12<00:00, 32.29it/s]
+
+Preprocessing cases:   0%|          | 0/392 [00:00<?, ?it/s]
+Preprocessing cases:   0%|          | 1/392 [00:04<30:08,  4.63s/it]
+Preprocessing cases:   1%|          | 3/392 [00:04<08:01,  1.24s/it]
+Preprocessing cases:   1%|▏         | 5/392 [00:04<04:02,  1.59it/s]
+Preprocessing cases:   2%|▏         | 7/392 [00:04<02:27,  2.61it/s]
+Preprocessing cases:   2%|▏         | 9/392 [00:05<01:38,  3.88it/s]
+Preprocessing cases:   3%|▎         | 11/392 [00:05<01:10,  5.40it/s]
+Preprocessing cases:   4%|▎         | 14/392 [00:05<00:45,  8.32it/s]
+Preprocessing cases:   4%|▍         | 17/392 [00:05<00:32, 11.45it/s]
+Preprocessing cases:   5%|▌         | 20/392 [00:05<00:29, 12.46it/s]
+Preprocessing cases:   6%|▌         | 23/392 [00:05<00:23, 15.48it/s]
+Preprocessing cases:   7%|▋         | 26/392 [00:05<00:23, 15.26it/s]
+Preprocessing cases:   7%|▋         | 29/392 [00:05<00:20, 18.04it/s]
+Preprocessing cases:   8%|▊         | 32/392 [00:06<00:21, 16.67it/s]
+Preprocessing cases:   9%|▉         | 35/392 [00:06<00:18, 19.29it/s]
+Preprocessing cases:  10%|▉         | 38/392 [00:06<00:16, 21.63it/s]
+Preprocessing cases:  10%|█         | 41/392 [00:06<00:18, 19.01it/s]
+Preprocessing cases:  11%|█         | 44/392 [00:06<00:16, 21.13it/s]
+Preprocessing cases:  12%|█▏        | 47/392 [00:06<00:18, 18.70it/s]
+Preprocessing cases:  13%|█▎        | 50/392 [00:07<00:19, 17.20it/s]
+Preprocessing cases:  14%|█▎        | 53/392 [00:07<00:17, 19.71it/s]
+Preprocessing cases:  14%|█▍        | 56/392 [00:07<00:15, 21.95it/s]
+Preprocessing cases:  15%|█▌        | 59/392 [00:07<00:17, 19.02it/s]
+Preprocessing cases:  16%|█▌        | 62/392 [00:07<00:15, 21.35it/s]
+Preprocessing cases:  17%|█▋        | 65/392 [00:07<00:17, 18.88it/s]
+Preprocessing cases:  17%|█▋        | 68/392 [00:07<00:15, 21.06it/s]
+Preprocessing cases:  18%|█▊        | 71/392 [00:07<00:13, 23.10it/s]
+Preprocessing cases:  19%|█▉        | 74/392 [00:08<00:16, 19.78it/s]
+Preprocessing cases:  20%|█▉        | 77/392 [00:08<00:14, 22.01it/s]
+Preprocessing cases:  20%|██        | 80/392 [00:08<00:16, 19.07it/s]
+Preprocessing cases:  21%|██        | 83/392 [00:08<00:17, 17.30it/s]
+Preprocessing cases:  22%|██▏       | 85/392 [00:08<00:20, 14.77it/s]
+Preprocessing cases:  23%|██▎       | 89/392 [00:09<00:18, 16.39it/s]
+Preprocessing cases:  23%|██▎       | 92/392 [00:09<00:16, 18.69it/s]
+Preprocessing cases:  24%|██▍       | 95/392 [00:09<00:14, 20.78it/s]
+Preprocessing cases:  25%|██▌       | 98/392 [00:09<00:15, 18.44it/s]
+Preprocessing cases:  26%|██▌       | 101/392 [00:09<00:14, 20.70it/s]
+Preprocessing cases:  27%|██▋       | 104/392 [00:09<00:15, 18.56it/s]
+Preprocessing cases:  27%|██▋       | 107/392 [00:09<00:13, 20.93it/s]
+Preprocessing cases:  28%|██▊       | 110/392 [00:10<00:12, 22.99it/s]
+Preprocessing cases:  29%|██▉       | 113/392 [00:10<00:14, 19.67it/s]
+Preprocessing cases:  30%|██▉       | 116/392 [00:10<00:12, 21.79it/s]
+Preprocessing cases:  30%|███       | 119/392 [00:10<00:14, 18.86it/s]
+Preprocessing cases:  31%|███       | 122/392 [00:10<00:12, 21.11it/s]
+Preprocessing cases:  32%|███▏      | 125/392 [00:10<00:11, 23.15it/s]
+Preprocessing cases:  33%|███▎      | 128/392 [00:10<00:13, 19.88it/s]
+Preprocessing cases:  33%|███▎      | 131/392 [00:11<00:11, 22.10it/s]
+Preprocessing cases:  34%|███▍      | 134/392 [00:11<00:13, 18.98it/s]
+Preprocessing cases:  35%|███▍      | 137/392 [00:11<00:11, 21.31it/s]
+Preprocessing cases:  36%|███▌      | 140/392 [00:11<00:13, 18.90it/s]
+Preprocessing cases:  36%|███▋      | 143/392 [00:11<00:11, 21.24it/s]
+Preprocessing cases:  37%|███▋      | 146/392 [00:11<00:13, 18.69it/s]
+Preprocessing cases:  38%|███▊      | 149/392 [00:11<00:11, 20.92it/s]
+Preprocessing cases:  39%|███▉      | 152/392 [00:12<00:12, 18.68it/s]
+Preprocessing cases:  40%|███▉      | 155/392 [00:12<00:11, 21.03it/s]
+Preprocessing cases:  40%|████      | 158/392 [00:12<00:12, 18.66it/s]
+Preprocessing cases:  41%|████      | 161/392 [00:12<00:10, 21.00it/s]
+Preprocessing cases:  42%|████▏     | 164/392 [00:12<00:09, 23.06it/s]
+Preprocessing cases:  43%|████▎     | 167/392 [00:12<00:11, 19.60it/s]
+Preprocessing cases:  43%|████▎     | 170/392 [00:12<00:10, 21.64it/s]
+Preprocessing cases:  44%|████▍     | 173/392 [00:13<00:11, 19.03it/s]
+Preprocessing cases:  45%|████▍     | 176/392 [00:13<00:10, 21.36it/s]
+Preprocessing cases:  46%|████▌     | 179/392 [00:13<00:11, 18.92it/s]
+Preprocessing cases:  46%|████▋     | 182/392 [00:13<00:09, 21.20it/s]
+Preprocessing cases:  47%|████▋     | 185/392 [00:13<00:11, 18.74it/s]
+Preprocessing cases:  48%|████▊     | 188/392 [00:13<00:09, 21.10it/s]
+Preprocessing cases:  49%|████▊     | 191/392 [00:14<00:08, 23.14it/s]
+Preprocessing cases:  49%|████▉     | 194/392 [00:14<00:10, 19.71it/s]
+Preprocessing cases:  50%|█████     | 197/392 [00:14<00:10, 17.81it/s]
+Preprocessing cases:  51%|█████     | 200/392 [00:14<00:09, 20.13it/s]
+Preprocessing cases:  52%|█████▏    | 203/392 [00:14<00:08, 22.19it/s]
+Preprocessing cases:  53%|█████▎    | 206/392 [00:14<00:09, 19.20it/s]
+Preprocessing cases:  53%|█████▎    | 209/392 [00:15<00:10, 17.68it/s]
+Preprocessing cases:  54%|█████▍    | 212/392 [00:15<00:08, 20.14it/s]
+Preprocessing cases:  55%|█████▍    | 215/392 [00:15<00:07, 22.27it/s]
+Preprocessing cases:  56%|█████▌    | 218/392 [00:15<00:08, 19.34it/s]
+Preprocessing cases:  56%|█████▋    | 221/392 [00:15<00:07, 21.63it/s]
+Preprocessing cases:  57%|█████▋    | 224/392 [00:15<00:08, 18.96it/s]
+Preprocessing cases:  58%|█████▊    | 227/392 [00:15<00:07, 21.30it/s]
+Preprocessing cases:  59%|█████▊    | 230/392 [00:16<00:08, 18.82it/s]
+Preprocessing cases:  59%|█████▉    | 233/392 [00:16<00:07, 20.98it/s]
+Preprocessing cases:  60%|██████    | 236/392 [00:16<00:06, 23.03it/s]
+Preprocessing cases:  61%|██████    | 239/392 [00:16<00:07, 19.82it/s]
+Preprocessing cases:  62%|██████▏   | 242/392 [00:16<00:08, 18.06it/s]
+Preprocessing cases:  62%|██████▎   | 245/392 [00:16<00:07, 20.25it/s]
+Preprocessing cases:  63%|██████▎   | 248/392 [00:16<00:07, 18.19it/s]
+Preprocessing cases:  64%|██████▍   | 251/392 [00:17<00:06, 20.60it/s]
+Preprocessing cases:  65%|██████▍   | 254/392 [00:17<00:06, 22.63it/s]
+Preprocessing cases:  66%|██████▌   | 257/392 [00:17<00:06, 19.61it/s]
+Preprocessing cases:  66%|██████▋   | 260/392 [00:17<00:06, 21.86it/s]
+Preprocessing cases:  67%|██████▋   | 263/392 [00:17<00:06, 18.99it/s]
+Preprocessing cases:  68%|██████▊   | 266/392 [00:17<00:05, 21.26it/s]
+Preprocessing cases:  69%|██████▊   | 269/392 [00:17<00:05, 23.13it/s]
+Preprocessing cases:  69%|██████▉   | 272/392 [00:18<00:06, 19.70it/s]
+Preprocessing cases:  70%|███████   | 275/392 [00:18<00:05, 21.95it/s]
+Preprocessing cases:  71%|███████   | 278/392 [00:18<00:05, 19.17it/s]
+Preprocessing cases:  72%|███████▏  | 281/392 [00:18<00:05, 21.27it/s]
+Preprocessing cases:  72%|███████▏  | 284/392 [00:18<00:04, 23.12it/s]
+Preprocessing cases:  73%|███████▎  | 287/392 [00:18<00:06, 16.49it/s]
+Preprocessing cases:  74%|███████▍  | 290/392 [00:18<00:05, 19.03it/s]
+Preprocessing cases:  75%|███████▍  | 293/392 [00:19<00:04, 21.28it/s]
+Preprocessing cases:  76%|███████▌  | 296/392 [00:19<00:05, 18.86it/s]
+Preprocessing cases:  76%|███████▋  | 299/392 [00:19<00:04, 21.21it/s]
+Preprocessing cases:  77%|███████▋  | 302/392 [00:19<00:04, 18.79it/s]
+Preprocessing cases:  78%|███████▊  | 305/392 [00:19<00:04, 21.15it/s]
+Preprocessing cases:  79%|███████▊  | 308/392 [00:19<00:04, 18.81it/s]
+Preprocessing cases:  79%|███████▉  | 311/392 [00:19<00:03, 21.16it/s]
+Preprocessing cases:  80%|████████  | 314/392 [00:20<00:04, 18.63it/s]
+Preprocessing cases:  81%|████████  | 317/392 [00:20<00:03, 21.00it/s]
+Preprocessing cases:  82%|████████▏ | 320/392 [00:20<00:03, 18.62it/s]
+Preprocessing cases:  82%|████████▏ | 323/392 [00:20<00:03, 20.86it/s]
+Preprocessing cases:  83%|████████▎ | 326/392 [00:20<00:03, 18.59it/s]
+Preprocessing cases:  84%|████████▍ | 329/392 [00:20<00:03, 20.97it/s]
+Preprocessing cases:  85%|████████▍ | 332/392 [00:21<00:03, 18.44it/s]
+Preprocessing cases:  85%|████████▌ | 335/392 [00:21<00:02, 20.64it/s]
+Preprocessing cases:  86%|████████▌ | 338/392 [00:21<00:02, 18.34it/s]
+Preprocessing cases:  87%|████████▋ | 341/392 [00:21<00:02, 20.64it/s]
+Preprocessing cases:  88%|████████▊ | 344/392 [00:21<00:02, 18.53it/s]
+Preprocessing cases:  89%|████████▊ | 347/392 [00:21<00:02, 20.90it/s]
+Preprocessing cases:  89%|████████▉ | 350/392 [00:21<00:01, 22.97it/s]
+Preprocessing cases:  90%|█████████ | 353/392 [00:22<00:01, 19.68it/s]
+Preprocessing cases:  91%|█████████ | 356/392 [00:22<00:02, 17.93it/s]
+Preprocessing cases:  92%|█████████▏| 360/392 [00:22<00:01, 18.60it/s]
+Preprocessing cases:  93%|█████████▎| 364/392 [00:22<00:01, 19.04it/s]
+Preprocessing cases:  94%|█████████▍| 368/392 [00:22<00:01, 19.18it/s]
+Preprocessing cases:  95%|█████████▍| 372/392 [00:23<00:01, 19.34it/s]
+Preprocessing cases:  96%|█████████▌| 376/392 [00:23<00:00, 22.95it/s]
+Preprocessing cases:  97%|█████████▋| 379/392 [00:23<00:00, 24.37it/s]
+Preprocessing cases:  97%|█████████▋| 382/392 [00:23<00:00, 20.78it/s]
+Preprocessing cases:  98%|█████████▊| 385/392 [00:23<00:00, 22.67it/s]
+Preprocessing cases:  99%|█████████▉| 388/392 [00:23<00:00, 24.32it/s]
+Preprocessing cases: 100%|█████████▉| 391/392 [00:23<00:00, 20.62it/s]
+Preprocessing cases: 100%|██████████| 392/392 [00:24<00:00, 16.29it/s]
+nnUNetv2_train 501 2d all -tr nnUNetTrainer_WB -device cuda
+4.307029: fuseg_0243, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.352227: predicting fuseg_0244
+2026-10-09 16:56:54.355503: fuseg_0244, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.397303: predicting fuseg_0245
+2026-10-09 16:56:54.399669: fuseg_0245, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.442748: predicting fuseg_0246
+2026-10-09 16:56:54.445510: fuseg_0246, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.491464: predicting fuseg_0247
+2026-10-09 16:56:54.494200: fuseg_0247, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.539264: predicting fuseg_0248
+2026-10-09 16:56:54.542107: fuseg_0248, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.585711: predicting fuseg_0249
+2026-10-09 16:56:54.589043: fuseg_0249, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.631474: predicting fuseg_0250
+2026-10-09 16:56:54.634960: fuseg_0250, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.676918: predicting fuseg_0251
+2026-10-09 16:56:54.680433: fuseg_0251, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.723584: predicting fuseg_0252
+2026-10-09 16:56:54.726822: fuseg_0252, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.772676: predicting fuseg_0253
+2026-10-09 16:56:54.775750: fuseg_0253, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.822016: predicting fuseg_0254
+2026-10-09 16:56:54.824950: fuseg_0254, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.871618: predicting fuseg_0255
+2026-10-09 16:56:54.874770: fuseg_0255, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.917698: predicting fuseg_0256
+2026-10-09 16:56:54.921258: fuseg_0256, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:54.965257: predicting fuseg_0257
+2026-10-09 16:56:54.968906: fuseg_0257, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.013147: predicting fuseg_0258
+2026-10-09 16:56:55.016314: fuseg_0258, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.058341: predicting fuseg_0259
+2026-10-09 16:56:55.061776: fuseg_0259, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.104427: predicting fuseg_0260
+2026-10-09 16:56:55.107220: fuseg_0260, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.153318: predicting fuseg_0261
+2026-10-09 16:56:55.155954: fuseg_0261, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.197326: predicting fuseg_0262
+2026-10-09 16:56:55.200630: fuseg_0262, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.245774: predicting fuseg_0263
+2026-10-09 16:56:55.248646: fuseg_0263, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.292377: predicting fuseg_0264
+2026-10-09 16:56:55.295072: fuseg_0264, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.338238: predicting fuseg_0265
+2026-10-09 16:56:55.341214: fuseg_0265, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.386555: predicting fuseg_0266
+2026-10-09 16:56:55.389520: fuseg_0266, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.430713: predicting fuseg_0267
+2026-10-09 16:56:55.434307: fuseg_0267, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.477893: predicting fuseg_0268
+2026-10-09 16:56:55.481360: fuseg_0268, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.523715: predicting fuseg_0269
+2026-10-09 16:56:55.526698: fuseg_0269, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.568975: predicting fuseg_0270
+2026-10-09 16:56:55.571942: fuseg_0270, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.617044: predicting fuseg_0271
+2026-10-09 16:56:55.619937: fuseg_0271, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.662515: predicting fuseg_0272
+2026-10-09 16:56:55.666198: fuseg_0272, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:56:55.743372: predicting fuseg_0273
+2026-10-09 16:56:55.746830: fuseg_0273, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:56:55.826598: predicting fuseg_0274
+2026-10-09 16:56:55.829793: fuseg_0274, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.873212: predicting fuseg_0275
+2026-10-09 16:56:55.876724: fuseg_0275, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.919712: predicting fuseg_0276
+2026-10-09 16:56:55.923163: fuseg_0276, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:55.969912: predicting fuseg_0277
+2026-10-09 16:56:55.973527: fuseg_0277, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.016067: predicting fuseg_0278
+2026-10-09 16:56:56.019778: fuseg_0278, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.062422: predicting fuseg_0279
+2026-10-09 16:56:56.065892: fuseg_0279, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.110102: predicting fuseg_0280
+2026-10-09 16:56:56.113617: fuseg_0280, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.154606: predicting fuseg_0281
+2026-10-09 16:56:56.157927: fuseg_0281, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.199412: predicting fuseg_0282
+2026-10-09 16:56:56.202937: fuseg_0282, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.245263: predicting fuseg_0283
+2026-10-09 16:56:56.248960: fuseg_0283, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:56.326722: predicting fuseg_0284
+2026-10-09 16:56:56.330463: fuseg_0284, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.378484: predicting fuseg_0285
+2026-10-09 16:56:56.381960: fuseg_0285, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.423267: predicting fuseg_0286
+2026-10-09 16:56:56.426945: fuseg_0286, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:56.504798: predicting fuseg_0287
+2026-10-09 16:56:56.508363: fuseg_0287, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.553320: predicting fuseg_0288
+2026-10-09 16:56:56.556000: fuseg_0288, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.601989: predicting fuseg_0289
+2026-10-09 16:56:56.604749: fuseg_0289, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.647494: predicting fuseg_0290
+2026-10-09 16:56:56.650754: fuseg_0290, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.693016: predicting fuseg_0291
+2026-10-09 16:56:56.696230: fuseg_0291, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.738551: predicting fuseg_0292
+2026-10-09 16:56:56.741953: fuseg_0292, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.782601: predicting fuseg_0293
+2026-10-09 16:56:56.785829: fuseg_0293, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:56.863405: predicting fuseg_0294
+2026-10-09 16:56:56.867213: fuseg_0294, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.911909: predicting fuseg_0295
+2026-10-09 16:56:56.915498: fuseg_0295, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:56.959318: predicting fuseg_0296
+2026-10-09 16:56:56.963173: fuseg_0296, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.005856: predicting fuseg_0297
+2026-10-09 16:56:57.009299: fuseg_0297, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.052483: predicting fuseg_0298
+2026-10-09 16:56:57.055991: fuseg_0298, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.098767: predicting fuseg_0299
+2026-10-09 16:56:57.102885: fuseg_0299, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:57.181617: predicting fuseg_0300
+2026-10-09 16:56:57.184698: fuseg_0300, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.232984: predicting fuseg_0301
+2026-10-09 16:56:57.236165: fuseg_0301, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.277893: predicting fuseg_0302
+2026-10-09 16:56:57.281386: fuseg_0302, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.324283: predicting fuseg_0303
+2026-10-09 16:56:57.327335: fuseg_0303, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.370592: predicting fuseg_0304
+2026-10-09 16:56:57.373374: fuseg_0304, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.414638: predicting fuseg_0305
+2026-10-09 16:56:57.418053: fuseg_0305, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:57.497638: predicting fuseg_0306
+2026-10-09 16:56:57.501673: fuseg_0306, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.545475: predicting fuseg_0307
+2026-10-09 16:56:57.548561: fuseg_0307, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.591996: predicting fuseg_0308
+2026-10-09 16:56:57.594987: fuseg_0308, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.638482: predicting fuseg_0309
+2026-10-09 16:56:57.641413: fuseg_0309, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.682462: predicting fuseg_0310
+2026-10-09 16:56:57.685549: fuseg_0310, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.731033: predicting fuseg_0311
+2026-10-09 16:56:57.733782: fuseg_0311, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.775771: predicting fuseg_0312
+2026-10-09 16:56:57.779951: fuseg_0312, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:56:57.856923: predicting fuseg_0313
+2026-10-09 16:56:57.860416: fuseg_0313, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.907123: predicting fuseg_0314
+2026-10-09 16:56:57.910481: fuseg_0314, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:57.953033: predicting fuseg_0315
+2026-10-09 16:56:57.956415: fuseg_0315, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:58.036848: predicting fuseg_0316
+2026-10-09 16:56:58.039953: fuseg_0316, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.086207: predicting fuseg_0317
+2026-10-09 16:56:58.089292: fuseg_0317, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.134936: predicting fuseg_0318
+2026-10-09 16:56:58.138470: fuseg_0318, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.185397: predicting fuseg_0319
+2026-10-09 16:56:58.188989: fuseg_0319, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.231886: predicting fuseg_0320
+2026-10-09 16:56:58.234779: fuseg_0320, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.279420: predicting fuseg_0321
+2026-10-09 16:56:58.283059: fuseg_0321, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:58.361240: predicting fuseg_0322
+2026-10-09 16:56:58.364348: fuseg_0322, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.408440: predicting fuseg_0323
+2026-10-09 16:56:58.411275: fuseg_0323, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.456841: predicting fuseg_0324
+2026-10-09 16:56:58.460319: fuseg_0324, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.505873: predicting fuseg_0325
+2026-10-09 16:56:58.508820: fuseg_0325, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.552198: predicting fuseg_0326
+2026-10-09 16:56:58.556299: fuseg_0326, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:58.633390: predicting fuseg_0327
+2026-10-09 16:56:58.637046: fuseg_0327, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.683310: predicting fuseg_0328
+2026-10-09 16:56:58.686072: fuseg_0328, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.732154: predicting fuseg_0329
+2026-10-09 16:56:58.734868: fuseg_0329, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.776944: predicting fuseg_0330
+2026-10-09 16:56:58.779556: fuseg_0330, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.825445: predicting fuseg_0331
+2026-10-09 16:56:58.828268: fuseg_0331, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.874750: predicting fuseg_0332
+2026-10-09 16:56:58.877653: fuseg_0332, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:58.919416: predicting fuseg_0333
+2026-10-09 16:56:58.923286: fuseg_0333, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:59.004787: predicting fuseg_0334
+2026-10-09 16:56:59.008370: fuseg_0334, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.057333: predicting fuseg_0335
+2026-10-09 16:56:59.060395: fuseg_0335, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.101855: predicting fuseg_0336
+2026-10-09 16:56:59.104957: fuseg_0336, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.147027: predicting fuseg_0337
+2026-10-09 16:56:59.150239: fuseg_0337, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.193516: predicting fuseg_0338
+2026-10-09 16:56:59.196505: fuseg_0338, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.239919: predicting fuseg_0339
+2026-10-09 16:56:59.242907: fuseg_0339, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:56:59.320171: predicting fuseg_0340
+2026-10-09 16:56:59.323596: fuseg_0340, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:59.403525: predicting fuseg_0341
+2026-10-09 16:56:59.407250: fuseg_0341, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.453909: predicting fuseg_0342
+2026-10-09 16:56:59.456757: fuseg_0342, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.499550: predicting fuseg_0343
+2026-10-09 16:56:59.503324: fuseg_0343, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:59.584943: predicting fuseg_0344
+2026-10-09 16:56:59.588458: fuseg_0344, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.632407: predicting fuseg_0345
+2026-10-09 16:56:59.635309: fuseg_0345, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.681331: predicting fuseg_0346
+2026-10-09 16:56:59.684046: fuseg_0346, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.729840: predicting fuseg_0347
+2026-10-09 16:56:59.733139: fuseg_0347, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.778066: predicting fuseg_0348
+2026-10-09 16:56:59.781131: fuseg_0348, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.826607: predicting fuseg_0349
+2026-10-09 16:56:59.830532: fuseg_0349, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:56:59.912001: predicting fuseg_0350
+2026-10-09 16:56:59.915449: fuseg_0350, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:56:59.959653: predicting fuseg_0351
+2026-10-09 16:56:59.962905: fuseg_0351, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.009177: predicting fuseg_0352
+2026-10-09 16:57:00.012471: fuseg_0352, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.054777: predicting fuseg_0353
+2026-10-09 16:57:00.057813: fuseg_0353, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.104136: predicting fuseg_0354
+2026-10-09 16:57:00.106833: fuseg_0354, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.152543: predicting fuseg_0355
+2026-10-09 16:57:00.155321: fuseg_0355, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.197429: predicting fuseg_0356
+2026-10-09 16:57:00.200181: fuseg_0356, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.246312: predicting fuseg_0357
+2026-10-09 16:57:00.248859: fuseg_0357, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.294355: predicting fuseg_0358
+2026-10-09 16:57:00.297012: fuseg_0358, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.339776: predicting fuseg_0359
+2026-10-09 16:57:00.342912: fuseg_0359, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.385448: predicting fuseg_0360
+2026-10-09 16:57:00.388135: fuseg_0360, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.430105: predicting fuseg_0361
+2026-10-09 16:57:00.433644: fuseg_0361, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:57:00.512904: predicting fuseg_0362
+2026-10-09 16:57:00.516199: fuseg_0362, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.560970: predicting fuseg_0363
+2026-10-09 16:57:00.563605: fuseg_0363, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.605989: predicting fuseg_0364
+2026-10-09 16:57:00.609323: fuseg_0364, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.654282: predicting fuseg_0365
+2026-10-09 16:57:00.657471: fuseg_0365, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.703339: predicting fuseg_0366
+2026-10-09 16:57:00.706017: fuseg_0366, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.751472: predicting fuseg_0367
+2026-10-09 16:57:00.754689: fuseg_0367, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:57:00.832747: predicting fuseg_0368
+2026-10-09 16:57:00.835799: fuseg_0368, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.882146: predicting fuseg_0369
+2026-10-09 16:57:00.885403: fuseg_0369, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.930691: predicting fuseg_0370
+2026-10-09 16:57:00.934031: fuseg_0370, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:00.979470: predicting fuseg_0371
+2026-10-09 16:57:00.983056: fuseg_0371, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.028264: predicting fuseg_0372
+2026-10-09 16:57:01.031799: fuseg_0372, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.077538: predicting fuseg_0373
+2026-10-09 16:57:01.080362: fuseg_0373, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.126567: predicting fuseg_0374
+2026-10-09 16:57:01.129778: fuseg_0374, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.173250: predicting fuseg_0375
+2026-10-09 16:57:01.176862: fuseg_0375, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:57:01.254503: predicting fuseg_0376
+2026-10-09 16:57:01.257934: fuseg_0376, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.301621: predicting fuseg_0377
+2026-10-09 16:57:01.304451: fuseg_0377, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.349621: predicting fuseg_0378
+2026-10-09 16:57:01.352923: fuseg_0378, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.398151: predicting fuseg_0379
+2026-10-09 16:57:01.400609: fuseg_0379, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.446722: predicting fuseg_0380
+2026-10-09 16:57:01.449600: fuseg_0380, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.497021: predicting fuseg_0381
+2026-10-09 16:57:01.501637: fuseg_0381, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.547803: predicting fuseg_0382
+2026-10-09 16:57:01.550911: fuseg_0382, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.594639: predicting fuseg_0383
+2026-10-09 16:57:01.597726: fuseg_0383, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.640408: predicting fuseg_0384
+2026-10-09 16:57:01.643543: fuseg_0384, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.688432: predicting fuseg_0385
+2026-10-09 16:57:01.691552: fuseg_0385, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.734603: predicting fuseg_0386
+2026-10-09 16:57:01.737842: fuseg_0386, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.784467: predicting fuseg_0387
+2026-10-09 16:57:01.788946: fuseg_0387, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.839132: predicting fuseg_0388
+2026-10-09 16:57:01.843537: fuseg_0388, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:57:01.924834: predicting fuseg_0389
+2026-10-09 16:57:01.927948: fuseg_0389, shape torch.Size([3, 1, 512, 384]), rank 0
+2026-10-09 16:57:01.974669: predicting fuseg_0390
+2026-10-09 16:57:01.978089: fuseg_0390, shape torch.Size([3, 1, 386, 512]), rank 0
+2026-10-09 16:57:02.057302: predicting fuseg_0391
+2026-10-09 16:57:02.061086: fuseg_0391, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:57:02.142203: predicting fuseg_0392
+2026-10-09 16:57:02.146175: fuseg_0392, shape torch.Size([3, 1, 385, 512]), rank 0
+2026-10-09 16:57:21.370597: Validation complete
+2026-10-09 16:57:21.370902: Mean Validation Dice:  0.9752628722300497
+
+W1009 13:15:48.019000 4948 torch/_inductor/utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode
+/usr/local/lib/python3.13/dist-packages/torch/_inductor/lowering.py:7836: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/usr/local/lib/python3.13/dist-packages/torch/_inductor/lowering.py:7836: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/usr/local/lib/python3.13/dist-packages/torch/_inductor/lowering.py:7836: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+nnUNetv2_predict -i /kaggle/working/out/nnunet/pred_in -o /kaggle/working/out/nnunet/pred_out -d 501 -c 2d -f all -tr nnUNetTrainer_WB --save_probabilities -device cuda
+resampling and export
+done with tn3k_test__0025
+
+Predicting tn3k_test__0026:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0026
+
+Predicting tn3k_test__0027:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0027
+
+Predicting tn3k_test__0028:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0028
+
+Predicting tn3k_test__0029:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0029
+
+Predicting tn3k_test__0030:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0030
+
+Predicting tn3k_test__0031:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0031
+
+Predicting tn3k_test__0032:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0032
+
+Predicting tn3k_test__0033:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0033
+
+Predicting tn3k_test__0034:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0034
+
+Predicting tn3k_test__0035:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0035
+
+Predicting tn3k_test__0036:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0036
+
+Predicting tn3k_test__0037:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0037
+
+Predicting tn3k_test__0038:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0038
+
+Predicting tn3k_test__0039:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0039
+
+Predicting tn3k_test__0040:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0040
+
+Predicting tn3k_test__0041:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0041
+
+Predicting tn3k_test__0042:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0042
+
+Predicting tn3k_test__0043:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0043
+
+Predicting tn3k_test__0044:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0044
+
+Predicting tn3k_test__0045:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0045
+
+Predicting tn3k_test__0046:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0046
+
+Predicting tn3k_test__0047:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0047
+
+Predicting tn3k_test__0048:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0048
+
+Predicting tn3k_test__0049:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0049
+
+Predicting tn3k_test__0050:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0050
+
+Predicting tn3k_test__0051:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0051
+
+Predicting tn3k_test__0052:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0052
+
+Predicting tn3k_test__0053:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0053
+
+Predicting tn3k_test__0054:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0054
+
+Predicting tn3k_test__0055:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0055
+
+Predicting tn3k_test__0056:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0056
+
+Predicting tn3k_test__0057:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0057
+
+Predicting tn3k_test__0058:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0058
+
+Predicting tn3k_test__0059:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0059
+
+Predicting tn3k_test__0060:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0060
+
+Predicting tn3k_test__0061:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0061
+
+Predicting tn3k_test__0062:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0062
+
+Predicting tn3k_test__0063:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0063
+
+Predicting tn3k_test__0064:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0064
+
+Predicting tn3k_test__0065:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0065
+
+Predicting tn3k_test__0066:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0066
+
+Predicting tn3k_test__0067:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0067
+
+Predicting tn3k_test__0068:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0068
+
+Predicting tn3k_test__0069:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0069
+
+Predicting tn3k_test__0070:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0070
+
+Predicting tn3k_test__0071:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0071
+
+Predicting tn3k_test__0072:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0072
+
+Predicting tn3k_test__0073:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0073
+
+Predicting tn3k_test__0074:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0074
+
+Predicting tn3k_test__0075:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0075
+
+Predicting tn3k_test__0076:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0076
+
+Predicting tn3k_test__0077:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0077
+
+Predicting tn3k_test__0078:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0078
+
+Predicting tn3k_test__0079:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0079
+
+Predicting tn3k_test__0080:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0080
+
+Predicting tn3k_test__0081:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0081
+
+Predicting tn3k_test__0082:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0082
+
+Predicting tn3k_test__0083:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0083
+
+Predicting tn3k_test__0084:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0084
+
+Predicting tn3k_test__0085:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0085
+
+Predicting tn3k_test__0086:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0086
+
+Predicting tn3k_test__0087:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0087
+
+Predicting tn3k_test__0088:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0088
+
+Predicting tn3k_test__0089:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0089
+
+Predicting tn3k_test__0090:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0090
+
+Predicting tn3k_test__0091:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0091
+
+Predicting tn3k_test__0092:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0092
+
+Predicting tn3k_test__0093:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0093
+
+Predicting tn3k_test__0094:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0094
+
+Predicting tn3k_test__0095:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0095
+
+Predicting tn3k_test__0096:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0096
+
+Predicting tn3k_test__0097:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0097
+
+Predicting tn3k_test__0098:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0098
+
+Predicting tn3k_test__0099:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0099
+
+Predicting tn3k_test__0100:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0100
+
+Predicting tn3k_test__0101:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0101
+
+Predicting tn3k_test__0102:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0102
+
+Predicting tn3k_test__0103:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0103
+
+Predicting tn3k_test__0104:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0104
+
+Predicting tn3k_test__0105:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0105
+
+Predicting tn3k_test__0106:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0106
+
+Predicting tn3k_test__0107:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0107
+
+Predicting tn3k_test__0108:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0108
+
+Predicting tn3k_test__0109:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0109
+
+Predicting tn3k_test__0110:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0110
+
+Predicting tn3k_test__0111:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0111
+
+Predicting tn3k_test__0112:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0112
+
+Predicting tn3k_test__0113:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0113
+
+Predicting tn3k_test__0114:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0114
+
+Predicting tn3k_test__0115:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0115
+
+Predicting tn3k_test__0116:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0116
+
+Predicting tn3k_test__0117:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0117
+
+Predicting tn3k_test__0118:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0118
+
+Predicting tn3k_test__0119:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0119
+
+Predicting tn3k_test__0120:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0120
+
+Predicting tn3k_test__0121:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0121
+
+Predicting tn3k_test__0122:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0122
+
+Predicting tn3k_test__0123:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0123
+
+Predicting tn3k_test__0124:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0124
+
+Predicting tn3k_test__0125:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0125
+
+Predicting tn3k_test__0126:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0126
+
+Predicting tn3k_test__0127:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0127
+
+Predicting tn3k_test__0128:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0128
+
+Predicting tn3k_test__0129:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0129
+
+Predicting tn3k_test__0130:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0130
+
+Predicting tn3k_test__0131:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0131
+
+Predicting tn3k_test__0132:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0132
+
+Predicting tn3k_test__0133:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0133
+
+Predicting tn3k_test__0134:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0134
+
+Predicting tn3k_test__0135:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0135
+
+Predicting tn3k_test__0136:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0136
+
+Predicting tn3k_test__0137:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0137
+
+Predicting tn3k_test__0138:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0138
+
+Predicting tn3k_test__0139:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0139
+
+Predicting tn3k_test__0140:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0140
+
+Predicting tn3k_test__0141:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0141
+
+Predicting tn3k_test__0142:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0142
+
+Predicting tn3k_test__0143:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0143
+
+Predicting tn3k_test__0144:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0144
+
+Predicting tn3k_test__0145:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0145
+
+Predicting tn3k_test__0146:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0146
+
+Predicting tn3k_test__0147:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0147
+
+Predicting tn3k_test__0148:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0148
+
+Predicting tn3k_test__0149:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0149
+GPU prediction completed. Waiting for remaining segmentation exports to finish...
+Segmentation export complete.
+
+<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.69it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.30it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.40it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.24it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.14it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.62it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.05it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.68it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.79it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.95it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.01it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.41it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.62it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.71it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.76it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.73it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.55it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.73it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.36it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.64it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.39it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.45it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.75it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.04it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.50it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.29it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.07it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.68it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.79it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.89it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.17it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.00it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.38it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.04it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.43it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.56it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.57it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.51it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.95it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.55it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.44it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.35it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 25.05it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.76it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.32it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.96it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.25it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.79it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.78it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.07it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.78it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.48it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.80it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.81it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.96it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.10it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.79it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.47it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.33it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.73it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.47it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.38it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.70it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.04it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.00it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.33it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.76it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.01it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.94it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.47it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.24it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.46it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.10it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.52it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.24it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.30it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.51it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.52it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.56it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.55it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.76it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.95it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.85it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.52it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.55it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.79it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.26it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.57it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.39it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.81it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.70it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.68it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.52it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.40it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.81it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.93it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.10it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.17it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.63it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.63it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.83it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.33it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.97it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.83it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.35it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.78it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.66it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.97it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.63it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.73it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.76it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.01it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.33it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.50it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.06it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.78it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.31it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.31it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.73it/s]
+
+Collecting results:   0%|          | 0/2657 [00:00<?, ?it/s]
+Collecting results: 100%|██████████| 2657/2657 [00:00<00:00, 110993.14it/s]

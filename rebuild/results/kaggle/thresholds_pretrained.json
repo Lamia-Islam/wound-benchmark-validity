@@ -1,0 +1,12 @@
+{
+ "unet_r18_in": 0.35,
+ "unetpp_r18_in": 0.4,
+ "deeplabv3p_r18_in": 0.35,
+ "fpn_r18_in": 0.3,
+ "pspnet_r18_in": 0.15,
+ "linknet_r18_in": 0.65,
+ "manet_r18_in": 0.4,
+ "segformer_mitb0_in": 0.35,
+ "unet_mbv2_in": 0.4,
+ "unet_effb0_in": 0.35
+}

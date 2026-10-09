@@ -1,0 +1,182 @@
+[11:17:08] stage sam on cuda
+[11:17:27]   loaded sam_vitb_box from facebook/sam-vit-base
+[11:17:31]   loaded medsam_vitb_box from wanglab/medsam-vit-base
+[11:19:12]   synthetic sets regenerated: 945 of 945 identical to the local images
+[11:21:16]   sam/medetec: 152 images, 124s, mean Dice 0.376 to 0.885
+[11:23:20]   sam/co2wounds: 150 images, 124s, mean Dice 0.552 to 0.792
+[11:24:59]   sam/fuseg: 120 images, 98s, mean Dice 0.751 to 0.898
+[11:26:54]   sam/azh: 150 images, 115s, mean Dice 0.585 to 0.908
+[11:28:50]   sam/azh_train_slice: 150 images, 116s, mean Dice 0.579 to 0.895
+[11:30:32]   sam/kvasir_disjoint: 120 images, 101s, mean Dice 0.792 to 0.932
+[11:32:14]   sam/kvasir_sessile: 120 images, 102s, mean Dice 0.719 to 0.885
+[11:34:18]   sam/cvc_clinicdb: 150 images, 123s, mean Dice 0.736 to 0.904
+[11:36:25]   sam/cvc_colondb: 150 images, 127s, mean Dice 0.675 to 0.887
+[11:38:28]   sam/etis_larib: 150 images, 123s, mean Dice 0.798 to 0.896
+[11:40:32]   sam/ph2: 150 images, 123s, mean Dice 0.813 to 0.887
+[11:42:36]   sam/tn3k_test: 150 images, 124s, mean Dice 0.747 to 0.764
+[11:43:14]   sam/genB_amp11_s2024: 45 images, 38s, mean Dice 0.643 to 0.990
+[11:43:52]   sam/genB_amp11_s7: 45 images, 38s, mean Dice 0.625 to 0.992
+[11:44:30]   sam/genB_amp11_s101: 45 images, 38s, mean Dice 0.628 to 0.990
+[11:45:08]   sam/genB_amp28_s2024: 45 images, 38s, mean Dice 0.798 to 0.991
+[11:45:46]   sam/genB_amp28_s7: 45 images, 38s, mean Dice 0.726 to 0.993
+[11:46:24]   sam/genB_amp28_s101: 45 images, 38s, mean Dice 0.791 to 0.991
+[11:47:02]   sam/genB_amp40_s2024: 45 images, 38s, mean Dice 0.863 to 0.991
+[11:47:40]   sam/genB_amp40_s7: 45 images, 38s, mean Dice 0.797 to 0.993
+[11:48:18]   sam/genB_amp40_s101: 45 images, 38s, mean Dice 0.864 to 0.993
+[11:48:56]   sam/nrA_s2024: 45 images, 38s, mean Dice 0.663 to 0.988
+[11:49:34]   sam/nrB0_s2024: 45 images, 38s, mean Dice 0.529 to 0.990
+[11:50:12]   sam/nrC0_s2024: 45 images, 38s, mean Dice 0.860 to 0.888
+[11:50:50]   sam/nrC34_s2024: 45 images, 38s, mean Dice 0.828 to 0.888
+[11:51:28]   sam/nrA_s7: 45 images, 38s, mean Dice 0.695 to 0.989
+[11:52:06]   sam/nrB0_s7: 45 images, 38s, mean Dice 0.554 to 0.991
+[11:52:44]   sam/nrC0_s7: 45 images, 38s, mean Dice 0.851 to 0.891
+[11:53:22]   sam/nrC34_s7: 45 images, 38s, mean Dice 0.824 to 0.890
+[11:54:00]   sam/nrA_s101: 45 images, 38s, mean Dice 0.674 to 0.986
+[11:54:38]   sam/nrB0_s101: 45 images, 38s, mean Dice 0.517 to 0.989
+[11:55:16]   sam/nrC0_s101: 45 images, 38s, mean Dice 0.802 to 0.888
+[11:55:54]   sam/nrC34_s101: 45 images, 38s, mean Dice 0.768 to 0.884
+[11:55:54] stage sam done in 2325s
+[11:56:01] stage pretrained on cuda
+[11:57:49]   unet_r18_in: trained 40 epochs in 98s
+[11:57:59]   unet_r18_in: threshold 0.35, held-out Dice 0.827
+[12:01:46]   unetpp_r18_in: trained 40 epochs in 227s
+[12:01:56]   unetpp_r18_in: threshold 0.40, held-out Dice 0.835
+[12:03:07]   deeplabv3p_r18_in: trained 40 epochs in 71s
+[12:03:17]   deeplabv3p_r18_in: threshold 0.35, held-out Dice 0.808
+[12:04:26]   fpn_r18_in: trained 40 epochs in 69s
+[12:04:36]   fpn_r18_in: threshold 0.30, held-out Dice 0.808
+[12:05:11]   pspnet_r18_in: trained 40 epochs in 35s
+[12:05:20]   pspnet_r18_in: threshold 0.15, held-out Dice 0.748
+[12:06:24]   linknet_r18_in: trained 40 epochs in 64s
+[12:06:35]   linknet_r18_in: threshold 0.65, held-out Dice 0.806
+[12:08:25]   manet_r18_in: trained 40 epochs in 110s
+[12:08:36]   manet_r18_in: threshold 0.40, held-out Dice 0.843
+[12:10:00]   segformer_mitb0_in: trained 40 epochs in 84s
+[12:10:11]   segformer_mitb0_in: threshold 0.35, held-out Dice 0.778
+[12:12:09]   unet_mbv2_in: trained 40 epochs in 117s
+[12:12:19]   unet_mbv2_in: threshold 0.40, held-out Dice 0.816
+[12:14:36]   unet_effb0_in: trained 40 epochs in 136s
+[12:14:47]   unet_effb0_in: threshold 0.35, held-out Dice 0.806
+[12:15:07]   pretrained/medetec: 152 images, 20s, mean Dice 0.634 to 0.771
+[12:15:26]   pretrained/co2wounds: 150 images, 19s, mean Dice 0.399 to 0.486
+[12:15:52]   pretrained/fuseg: 120 images, 25s, mean Dice 0.725 to 0.830
+[12:16:09]   pretrained/azh: 150 images, 17s, mean Dice 0.505 to 0.620
+[12:16:26]   pretrained/azh_train_slice: 150 images, 17s, mean Dice 0.537 to 0.667
+[12:16:40]   pretrained/kvasir_disjoint: 120 images, 14s, mean Dice 0.024 to 0.143
+[12:16:54]   pretrained/kvasir_sessile: 120 images, 13s, mean Dice 0.003 to 0.070
+[12:17:10]   pretrained/cvc_clinicdb: 150 images, 16s, mean Dice 0.058 to 0.118
+[12:17:25]   pretrained/cvc_colondb: 150 images, 15s, mean Dice 0.001 to 0.031
+[12:17:41]   pretrained/etis_larib: 150 images, 16s, mean Dice 0.013 to 0.031
+[12:17:57]   pretrained/ph2: 150 images, 15s, mean Dice 0.004 to 0.079
+[12:18:11]   pretrained/tn3k_test: 150 images, 14s, mean Dice 0.000 to 0.020
+[12:18:19]   pretrained/genB_amp11_s2024: 45 images, 8s, mean Dice 0.140 to 0.555
+[12:18:27]   pretrained/genB_amp11_s7: 45 images, 8s, mean Dice 0.174 to 0.588
+[12:18:36]   pretrained/genB_amp11_s101: 45 images, 8s, mean Dice 0.159 to 0.604
+[12:18:44]   pretrained/genB_amp28_s2024: 45 images, 8s, mean Dice 0.173 to 0.570
+[12:18:52]   pretrained/genB_amp28_s7: 45 images, 8s, mean Dice 0.175 to 0.634
+[12:19:01]   pretrained/genB_amp28_s101: 45 images, 8s, mean Dice 0.175 to 0.638
+[12:19:09]   pretrained/genB_amp40_s2024: 45 images, 8s, mean Dice 0.155 to 0.566
+[12:19:17]   pretrained/genB_amp40_s7: 45 images, 8s, mean Dice 0.090 to 0.633
+[12:19:26]   pretrained/genB_amp40_s101: 45 images, 8s, mean Dice 0.137 to 0.598
+[12:19:32]   pretrained/nrA_s2024: 45 images, 6s, mean Dice 0.000 to 0.043
+[12:19:40]   pretrained/nrB0_s2024: 45 images, 7s, mean Dice 0.128 to 0.560
+[12:19:46]   pretrained/nrC0_s2024: 45 images, 6s, mean Dice 0.089 to 0.316
+[12:19:53]   pretrained/nrC34_s2024: 45 images, 6s, mean Dice 0.080 to 0.284
+[12:19:59]   pretrained/nrA_s7: 45 images, 6s, mean Dice 0.000 to 0.057
+[12:20:07]   pretrained/nrB0_s7: 45 images, 8s, mean Dice 0.156 to 0.567
+[12:20:14]   pretrained/nrC0_s7: 45 images, 7s, mean Dice 0.067 to 0.380
+[12:20:20]   pretrained/nrC34_s7: 45 images, 6s, mean Dice 0.071 to 0.355
+[12:20:27]   pretrained/nrA_s101: 45 images, 6s, mean Dice 0.000 to 0.055
+[12:20:34]   pretrained/nrB0_s101: 45 images, 8s, mean Dice 0.113 to 0.553
+[12:20:41]   pretrained/nrC0_s101: 45 images, 6s, mean Dice 0.080 to 0.348
+[12:20:48]   pretrained/nrC34_s101: 45 images, 6s, mean Dice 0.101 to 0.336
+[12:20:48] stage pretrained done in 1487s
+[12:20:52] stage kvasir on cuda
+[12:20:58]   pixel sample: 264,000 px x 15 features (50.0% lesion)
+[12:22:33]   unet epoch 10/30  loss 0.9290
+[12:23:58]   unet epoch 20/30  loss 0.8222
+[12:25:23]   unet epoch 30/30  loss 0.7253
+[12:25:28]   kvasir pixel classifiers and small U-Net fitted in 272s; pixel threshold 0.60 (Dice 0.455)
+[12:26:32]   unet_r18_kv: threshold 0.55, held-out Dice 0.773
+[12:28:30]   unetpp_r18_kv: threshold 0.35, held-out Dice 0.800
+[12:29:26]   deeplabv3p_r18_kv: threshold 0.45, held-out Dice 0.805
+[12:30:15]   fpn_r18_kv: threshold 0.10, held-out Dice 0.796
+[12:30:35]   pspnet_r18_kv: threshold 0.15, held-out Dice 0.743
+[12:31:19]   linknet_r18_kv: threshold 0.55, held-out Dice 0.802
+[12:32:38]   manet_r18_kv: threshold 0.40, held-out Dice 0.794
+[12:33:34]   segformer_mitb0_kv: threshold 0.55, held-out Dice 0.744
+[12:34:43]   unet_mbv2_kv: threshold 0.10, held-out Dice 0.664
+[12:36:09]   unet_effb0_kv: threshold 0.35, held-out Dice 0.745
+[12:37:14]   kvasir/medetec: 152 images, 64s, mean Dice 0.007 to 0.356
+[12:38:17]   kvasir/co2wounds: 150 images, 64s, mean Dice 0.081 to 0.361
+[12:41:05]   kvasir/fuseg: 120 images, 167s, mean Dice 0.050 to 0.100
+[12:41:59]   kvasir/azh: 150 images, 54s, mean Dice 0.119 to 0.300
+[12:42:54]   kvasir/azh_train_slice: 150 images, 54s, mean Dice 0.120 to 0.268
+[12:43:53]   kvasir/kvasir_disjoint: 120 images, 59s, mean Dice 0.426 to 0.750
+[12:44:52]   kvasir/kvasir_sessile: 120 images, 59s, mean Dice 0.222 to 0.458
+[12:45:55]   kvasir/cvc_clinicdb: 150 images, 62s, mean Dice 0.174 to 0.550
+[12:47:08]   kvasir/cvc_colondb: 150 images, 73s, mean Dice 0.107 to 0.404
+[12:48:19]   kvasir/etis_larib: 150 images, 70s, mean Dice 0.093 to 0.293
+[12:49:21]   kvasir/ph2: 150 images, 62s, mean Dice 0.016 to 0.419
+[12:50:23]   kvasir/tn3k_test: 150 images, 61s, mean Dice 0.000 to 0.189
+[12:51:31]   kvasir/genB_amp11_s2024: 45 images, 68s, mean Dice 0.001 to 0.609
+[12:52:39]   kvasir/genB_amp11_s7: 45 images, 68s, mean Dice 0.000 to 0.683
+[12:53:48]   kvasir/genB_amp11_s101: 45 images, 68s, mean Dice 0.000 to 0.606
+[12:54:56]   kvasir/genB_amp28_s2024: 45 images, 68s, mean Dice 0.003 to 0.427
+[12:56:05]   kvasir/genB_amp28_s7: 45 images, 68s, mean Dice 0.000 to 0.455
+[12:57:14]   kvasir/genB_amp28_s101: 45 images, 69s, mean Dice 0.000 to 0.389
+[12:58:23]   kvasir/genB_amp40_s2024: 45 images, 69s, mean Dice 0.003 to 0.293
+[12:59:33]   kvasir/genB_amp40_s7: 45 images, 69s, mean Dice 0.000 to 0.294
+[13:00:41]   kvasir/genB_amp40_s101: 45 images, 68s, mean Dice 0.000 to 0.248
+[13:01:50]   kvasir/nrA_s2024: 45 images, 69s, mean Dice 0.550 to 0.935
+[13:02:58]   kvasir/nrB0_s2024: 45 images, 68s, mean Dice 0.002 to 0.611
+[13:04:03]   kvasir/nrC0_s2024: 45 images, 64s, mean Dice 0.000 to 0.414
+[13:05:11]   kvasir/nrC34_s2024: 45 images, 68s, mean Dice 0.000 to 0.412
+[13:06:20]   kvasir/nrA_s7: 45 images, 69s, mean Dice 0.552 to 0.938
+[13:07:28]   kvasir/nrB0_s7: 45 images, 68s, mean Dice 0.000 to 0.682
+[13:08:33]   kvasir/nrC0_s7: 45 images, 65s, mean Dice 0.000 to 0.368
+[13:09:41]   kvasir/nrC34_s7: 45 images, 67s, mean Dice 0.000 to 0.368
+[13:10:50]   kvasir/nrA_s101: 45 images, 69s, mean Dice 0.535 to 0.936
+[13:11:58]   kvasir/nrB0_s101: 45 images, 68s, mean Dice 0.000 to 0.614
+[13:13:03]   kvasir/nrC0_s101: 45 images, 64s, mean Dice 0.000 to 0.392
+[13:14:10]   kvasir/nrC34_s101: 45 images, 67s, mean Dice 0.000 to 0.395
+[13:14:10] stage kvasir done in 3198s
+[13:14:14] stage nnunet on cuda
+[13:14:19]   $ nnUNetv2_plan_and_preprocess -d 501 -c 2d --verify_dataset_integrity -npfp 4 -np 4
+[13:15:18]   $ nnUNetv2_train 501 2d all -tr nnUNetTrainer_WB -device cuda
+[16:57:25]   $ nnUNetv2_predict -i /kaggle/working/out/nnunet/pred_in -o /kaggle/working/out/nnunet/pred_out -d 501 -c 2d -f all -tr nnUNetTrainer_WB --save_probabilities -device cuda
+[17:06:52]   nnunet/medetec: 152 images, mean Dice [0.764]
+[17:06:53]   nnunet/co2wounds: 150 images, mean Dice [0.474]
+[17:06:56]   nnunet/fuseg: 120 images, mean Dice [0.796]
+[17:06:56]   nnunet/azh: 150 images, mean Dice [0.631]
+[17:06:57]   nnunet/azh_train_slice: 150 images, mean Dice [0.601]
+[17:06:58]   nnunet/kvasir_disjoint: 120 images, mean Dice [0.044]
+[17:06:59]   nnunet/kvasir_sessile: 120 images, mean Dice [0.01]
+[17:06:59]   nnunet/cvc_clinicdb: 150 images, mean Dice [0.056]
+[17:07:00]   nnunet/cvc_colondb: 150 images, mean Dice [0.003]
+[17:07:01]   nnunet/etis_larib: 150 images, mean Dice [0.02]
+[17:07:02]   nnunet/ph2: 150 images, mean Dice [0.44]
+[17:07:03]   nnunet/tn3k_test: 150 images, mean Dice [0.14]
+[17:07:04]   nnunet/genB_amp11_s2024: 45 images, mean Dice [0.845]
+[17:07:05]   nnunet/genB_amp11_s7: 45 images, mean Dice [0.793]
+[17:07:06]   nnunet/genB_amp11_s101: 45 images, mean Dice [0.798]
+[17:07:08]   nnunet/genB_amp28_s2024: 45 images, mean Dice [0.852]
+[17:07:09]   nnunet/genB_amp28_s7: 45 images, mean Dice [0.808]
+[17:07:10]   nnunet/genB_amp28_s101: 45 images, mean Dice [0.844]
+[17:07:11]   nnunet/genB_amp40_s2024: 45 images, mean Dice [0.812]
+[17:07:12]   nnunet/genB_amp40_s7: 45 images, mean Dice [0.752]
+[17:07:13]   nnunet/genB_amp40_s101: 45 images, mean Dice [0.805]
+[17:07:14]   nnunet/nrA_s2024: 45 images, mean Dice [0.061]
+[17:07:15]   nnunet/nrB0_s2024: 45 images, mean Dice [0.583]
+[17:07:16]   nnunet/nrC0_s2024: 45 images, mean Dice [0.39]
+[17:07:17]   nnunet/nrC34_s2024: 45 images, mean Dice [0.382]
+[17:07:18]   nnunet/nrA_s7: 45 images, mean Dice [0.062]
+[17:07:19]   nnunet/nrB0_s7: 45 images, mean Dice [0.526]
+[17:07:20]   nnunet/nrC0_s7: 45 images, mean Dice [0.33]
+[17:07:21]   nnunet/nrC34_s7: 45 images, mean Dice [0.33]
+[17:07:22]   nnunet/nrA_s101: 45 images, mean Dice [0.062]
+[17:07:23]   nnunet/nrB0_s101: 45 images, mean Dice [0.469]
+[17:07:24]   nnunet/nrC0_s101: 45 images, mean Dice [0.348]
+[17:07:25]   nnunet/nrC34_s101: 45 images, mean Dice [0.36]
+[17:07:26] stage nnunet done in 13992s
+[17:07:29] stage pack on cuda
