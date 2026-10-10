@@ -38,6 +38,6 @@ def run(groups, B=2000):
     return obs, lo, hi
 
 lab = ["wound x wound", "benchmark x wound (amp 40)", "wound x non-wound"]
-for groups in (["U"], ["F"], ["P"], ["K"], ["U", "F"], ["U", "P"]):
+for groups in (["U"], ["F"], ["P"], ["P", "N"], ["K"], ["U", "F"], ["U", "P"], ["U", "P", "N"]):
     obs, lo, hi = run(groups)
     print("+".join(groups).ljust(5), "  ".join(f"{l}: {o:+.2f} [{a:+.2f}, {b:+.2f}]" for l, o, a, b in zip(lab, obs, lo, hi)))
