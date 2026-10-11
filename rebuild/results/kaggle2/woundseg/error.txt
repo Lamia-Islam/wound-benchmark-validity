@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_woundseg.py", line 718, in stage_woundseg
+    cands, counts = _check_all(pairs)
+                    ~~~~~~~~~~^^^^^^^
+  File "/kaggle/working/kit/k2_woundseg.py", line 387, in _check_all
+    raise RuntimeError(f"woundseg: {n_diff} of {len(ok)} masks differ in size from "
+                       f"their image (> {MAX_RESIZE_FRAC:.0%}); pairing is suspect")
+RuntimeError: woundseg: 322 of 2686 masks differ in size from their image (> 5%); pairing is suspect

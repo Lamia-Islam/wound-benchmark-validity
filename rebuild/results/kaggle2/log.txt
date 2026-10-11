@@ -1,0 +1,863 @@
+[17:16:52] stage restore on cuda
+[17:16:52]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[17:17:15]   restored from /kaggle/input/notebooks/lami991/notebook05db8dd833/out: ckpt_pretrained=True, ckpt_kvasir=True, kvasir_learned.pkl=True, thresholds_pretrained.json=True, thresholds_kvasir.json=True, nnunet/results=True
+[17:17:15] stage restore done in 23s
+[17:17:20] stage woundseg on cuda
+[17:17:22]   downloaded subbareddyoota/wseg_dataset/wseg_dataset.zip -> /root/.cache/huggingface/hub/datasets--subbareddyoota--wseg_dataset/snapshots/bdcc1e1cef607bfd7a4f98fc28f31a638a0e0ca9/wseg_dataset.zip (50.3 MB)
+[17:17:23]   extracted 5375 members to /kaggle/working/out/woundseg/raw
+[17:17:23]   tree.txt: 4 directories; extensions .jpg 5372
+[17:17:23]   image files: 2686 classed image, 2686 classed mask, 0 unclassified
+[17:17:23]   pairing by cleaned path key: 2686 pairs, 0 ambiguous keys
+[17:17:28]   woundseg FAILED: RuntimeError: woundseg: 322 of 2686 masks differ in size from their image (> 5%); pairing is suspect
+[17:17:28] stage woundseg FAILED:
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_run.py", line 100, in <module>
+    STAGES[st]()
+    ~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_run.py", line 33, in stage_woundseg
+    k2_woundseg.stage_woundseg()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_woundseg.py", line 718, in stage_woundseg
+    cands, counts = _check_all(pairs)
+                    ~~~~~~~~~~^^^^^^^
+  File "/kaggle/working/kit/k2_woundseg.py", line 387, in _check_all
+    raise RuntimeError(f"woundseg: {n_diff} of {len(ok)} masks differ in size from "
+                       f"their image (> {MAX_RESIZE_FRAC:.0%}); pairing is suspect")
+RuntimeError: woundseg: 322 of 2686 masks differ in size from their image (> 5%); pairing is suspect
+
+[17:17:31] stage pack on cuda
+[17:17:31]   wrote /kaggle/working/wb_results2.zip: 6 files, 0.0 MB
+[17:17:31] stage pack done in 0s
+[17:17:34] stage seeds on cuda
+[17:17:36]   protocol: {'epochs': 40, 'weights': 'imagenet'}, batch 16, seeds [1, 2], versions {'torch': '2.11.0+cu128', 'smp': '0.5.0', 'timm': '1.0.22'}
+[17:17:36]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[17:17:36]   restored from /kaggle/input/notebooks/lami991/notebook05db8dd833/out: ckpt_pretrained=True, ckpt_kvasir=True, kvasir_learned.pkl=True, thresholds_pretrained.json=True, thresholds_kvasir.json=True, nnunet/results=True
+[17:17:41]   training data: 392 FUSeg images, 148 sweep images
+[17:18:08]   unet_r18_in_s1: epoch 10/40 mean loss 0.36877367258071897
+[17:18:32]   unet_r18_in_s1: epoch 20/40 mean loss 0.16577958047389985
+[17:18:55]   unet_r18_in_s1: epoch 30/40 mean loss 0.11411383211612701
+[17:19:19]   unet_r18_in_s1: epoch 40/40 mean loss 0.1080184605717659
+[17:19:19]   unet_r18_in_s1: trained 40 epochs in 96s (19.0 GB free in OUT)
+[17:19:30]   unet_r18_in_s1: threshold 0.30, held-out Dice 0.831
+[17:20:29]   unetpp_r18_in_s1: epoch 10/40 mean loss 0.7767058205604553
+[17:21:27]   unetpp_r18_in_s1: epoch 20/40 mean loss 0.23571769893169403
+[17:22:25]   unetpp_r18_in_s1: epoch 30/40 mean loss 0.14158565759658814
+[17:23:23]   unetpp_r18_in_s1: epoch 40/40 mean loss 0.12952602237462998
+[17:23:23]   unetpp_r18_in_s1: trained 40 epochs in 233s (19.0 GB free in OUT)
+[17:23:34]   unetpp_r18_in_s1: threshold 0.30, held-out Dice 0.838
+[17:23:57]   deeplabv3p_r18_in_s1: epoch 10/40 mean loss 0.2434941691160202
+[17:24:14]   deeplabv3p_r18_in_s1: epoch 20/40 mean loss 0.15030175924301148
+[17:24:31]   deeplabv3p_r18_in_s1: epoch 30/40 mean loss 0.11615280658006669
+[17:24:48]   deeplabv3p_r18_in_s1: epoch 40/40 mean loss 0.11091235101222992
+[17:24:48]   deeplabv3p_r18_in_s1: trained 40 epochs in 74s (18.9 GB free in OUT)
+[17:24:58]   deeplabv3p_r18_in_s1: threshold 0.30, held-out Dice 0.800
+[17:25:17]   fpn_r18_in_s1: epoch 10/40 mean loss 0.1614785212278366
+[17:25:34]   fpn_r18_in_s1: epoch 20/40 mean loss 0.12381570875644683
+[17:25:52]   fpn_r18_in_s1: epoch 30/40 mean loss 0.09772034287452698
+[17:26:10]   fpn_r18_in_s1: epoch 40/40 mean loss 0.0941384807229042
+[17:26:10]   fpn_r18_in_s1: trained 40 epochs in 72s (18.9 GB free in OUT)
+[17:26:20]   fpn_r18_in_s1: threshold 0.35, held-out Dice 0.798
+[17:26:30]   pspnet_r18_in_s1: epoch 10/40 mean loss 0.1916923713684082
+[17:26:39]   pspnet_r18_in_s1: epoch 20/40 mean loss 0.14904440224170684
+[17:26:48]   pspnet_r18_in_s1: epoch 30/40 mean loss 0.13000425696372986
+[17:26:57]   pspnet_r18_in_s1: epoch 40/40 mean loss 0.12914962142705919
+[17:26:57]   pspnet_r18_in_s1: trained 40 epochs in 36s (18.8 GB free in OUT)
+[17:27:07]   pspnet_r18_in_s1: threshold 0.20, held-out Dice 0.748
+[17:27:24]   linknet_r18_in_s1: epoch 10/40 mean loss 0.8082242965698242
+[17:27:40]   linknet_r18_in_s1: epoch 20/40 mean loss 0.4819216251373291
+[17:27:57]   linknet_r18_in_s1: epoch 30/40 mean loss 0.32682563960552213
+[17:28:13]   linknet_r18_in_s1: epoch 40/40 mean loss 0.3063880133628845
+[17:28:13]   linknet_r18_in_s1: trained 40 epochs in 66s (18.8 GB free in OUT)
+[17:28:23]   linknet_r18_in_s1: threshold 0.45, held-out Dice 0.809
+[17:28:52]   manet_r18_in_s1: epoch 10/40 mean loss 0.27669200122356413
+[17:29:21]   manet_r18_in_s1: epoch 20/40 mean loss 0.15423495560884476
+[17:29:49]   manet_r18_in_s1: epoch 30/40 mean loss 0.11985002666711807
+[17:30:17]   manet_r18_in_s1: epoch 40/40 mean loss 0.11224050104618072
+[17:30:18]   manet_r18_in_s1: trained 40 epochs in 113s (18.7 GB free in OUT)
+[17:30:28]   manet_r18_in_s1: threshold 0.25, held-out Dice 0.812
+[17:30:55]   segformer_mitb0_in_s1: epoch 10/40 mean loss 0.22451892614364624
+[17:31:14]   segformer_mitb0_in_s1: epoch 20/40 mean loss 0.15332521855831147
+[17:31:33]   segformer_mitb0_in_s1: epoch 30/40 mean loss 0.12003758579492568
+[17:31:51]   segformer_mitb0_in_s1: epoch 40/40 mean loss 0.11435093700885773
+[17:31:52]   segformer_mitb0_in_s1: trained 40 epochs in 83s (18.7 GB free in OUT)
+[17:32:02]   segformer_mitb0_in_s1: threshold 0.40, held-out Dice 0.781
+[17:32:45]   unet_mbv2_in_s1: epoch 10/40 mean loss 0.4044251549243927
+[17:33:11]   unet_mbv2_in_s1: epoch 20/40 mean loss 0.16420768558979035
+[17:33:36]   unet_mbv2_in_s1: epoch 30/40 mean loss 0.12000080049037934
+[17:34:02]   unet_mbv2_in_s1: epoch 40/40 mean loss 0.11198407232761383
+[17:34:02]   unet_mbv2_in_s1: trained 40 epochs in 119s (18.7 GB free in OUT)
+[17:34:13]   unet_mbv2_in_s1: threshold 0.35, held-out Dice 0.819
+[17:35:03]   unet_effb0_in_s1: epoch 10/40 mean loss 0.6313246738910675
+[17:35:33]   unet_effb0_in_s1: epoch 20/40 mean loss 0.17209983944892884
+[17:36:02]   unet_effb0_in_s1: epoch 30/40 mean loss 0.11806853502988815
+[17:36:31]   unet_effb0_in_s1: epoch 40/40 mean loss 0.11091194719076157
+[17:36:31]   unet_effb0_in_s1: trained 40 epochs in 138s (18.6 GB free in OUT)
+[17:36:42]   unet_effb0_in_s1: threshold 0.35, held-out Dice 0.812
+[17:37:07]   unet_r18_in_s2: epoch 10/40 mean loss 0.3579103660583496
+[17:37:32]   unet_r18_in_s2: epoch 20/40 mean loss 0.14059755116701125
+[17:37:57]   unet_r18_in_s2: epoch 30/40 mean loss 0.11096932232379914
+[17:38:21]   unet_r18_in_s2: epoch 40/40 mean loss 0.1046665544807911
+[17:38:21]   unet_r18_in_s2: trained 40 epochs in 98s (18.6 GB free in OUT)
+[17:38:31]   unet_r18_in_s2: threshold 0.35, held-out Dice 0.835
+[17:39:30]   unetpp_r18_in_s2: epoch 10/40 mean loss 0.32624338507652284
+[17:40:28]   unetpp_r18_in_s2: epoch 20/40 mean loss 0.13567207813262938
+[17:41:26]   unetpp_r18_in_s2: epoch 30/40 mean loss 0.10772983372211456
+[17:42:24]   unetpp_r18_in_s2: epoch 40/40 mean loss 0.0993400889635086
+[17:42:24]   unetpp_r18_in_s2: trained 40 epochs in 233s (18.5 GB free in OUT)
+[17:42:35]   unetpp_r18_in_s2: threshold 0.35, held-out Dice 0.837
+[17:42:52]   deeplabv3p_r18_in_s2: epoch 10/40 mean loss 0.2650485789775848
+[17:43:09]   deeplabv3p_r18_in_s2: epoch 20/40 mean loss 0.15303042709827422
+[17:43:26]   deeplabv3p_r18_in_s2: epoch 30/40 mean loss 0.12157350957393646
+[17:43:43]   deeplabv3p_r18_in_s2: epoch 40/40 mean loss 0.11738596111536026
+[17:43:43]   deeplabv3p_r18_in_s2: trained 40 epochs in 67s (18.5 GB free in OUT)
+[17:43:52]   deeplabv3p_r18_in_s2: threshold 0.30, held-out Dice 0.794
+[17:44:10]   fpn_r18_in_s2: epoch 10/40 mean loss 0.15848256021738052
+[17:44:28]   fpn_r18_in_s2: epoch 20/40 mean loss 0.1141126823425293
+[17:44:46]   fpn_r18_in_s2: epoch 30/40 mean loss 0.0974188956618309
+[17:45:04]   fpn_r18_in_s2: epoch 40/40 mean loss 0.09377655401825905
+[17:45:04]   fpn_r18_in_s2: trained 40 epochs in 71s (18.4 GB free in OUT)
+[17:45:14]   fpn_r18_in_s2: threshold 0.30, held-out Dice 0.819
+[17:45:23]   pspnet_r18_in_s2: epoch 10/40 mean loss 0.20332491338253023
+[17:45:32]   pspnet_r18_in_s2: epoch 20/40 mean loss 0.14873145371675492
+[17:45:41]   pspnet_r18_in_s2: epoch 30/40 mean loss 0.13210763394832611
+[17:45:50]   pspnet_r18_in_s2: epoch 40/40 mean loss 0.13050360530614852
+[17:45:50]   pspnet_r18_in_s2: trained 40 epochs in 36s (18.4 GB free in OUT)
+[17:46:00]   pspnet_r18_in_s2: threshold 0.30, held-out Dice 0.754
+[17:46:17]   linknet_r18_in_s2: epoch 10/40 mean loss 0.9574590659141541
+[17:46:33]   linknet_r18_in_s2: epoch 20/40 mean loss 0.6810345864295959
+[17:46:50]   linknet_r18_in_s2: epoch 30/40 mean loss 0.522442775964737
+[17:47:06]   linknet_r18_in_s2: epoch 40/40 mean loss 0.48979487776756286
+[17:47:06]   linknet_r18_in_s2: trained 40 epochs in 66s (18.3 GB free in OUT)
+[17:47:16]   linknet_r18_in_s2: threshold 0.55, held-out Dice 0.818
+[17:47:45]   manet_r18_in_s2: epoch 10/40 mean loss 0.6688396668434143
+[17:48:14]   manet_r18_in_s2: epoch 20/40 mean loss 0.20506503701210022, 1 non-finite losses so far
+[17:48:42]   manet_r18_in_s2: epoch 30/40 mean loss 0.14446909517049789, 4 non-finite losses so far
+[17:49:10]   manet_r18_in_s2: epoch 40/40 mean loss 0.139900758266449, 4 non-finite losses so far
+[17:49:10]   manet_r18_in_s2: FAILED
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_train.py", line 289, in train_all
+    if train_model(name, arch, enc, kw, seed, ck_dir, thr_file):
+       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/kit/k2_train.py", line 250, in train_model
+    raise RuntimeError(f"{name}: non-finite weights after training "
+                       f"({len(bad)} tensors, e.g. {bad[:3]}); not saved")
+RuntimeError: manet_r18_in_s2: non-finite weights after training (36 tensors, e.g. ['decoder.blocks.0.hl_conv.0.1.running_mean', 'decoder.blocks.0.hl_conv.0.1.running_var', 'decoder.blocks.0.hl_conv.1.1.running_mean']); not saved
+
+[17:49:29]   segformer_mitb0_in_s2: epoch 10/40 mean loss 0.19910278767347336
+[17:49:48]   segformer_mitb0_in_s2: epoch 20/40 mean loss 0.1414644104242325
+[17:50:06]   segformer_mitb0_in_s2: epoch 30/40 mean loss 0.11678620129823684
+[17:50:25]   segformer_mitb0_in_s2: epoch 40/40 mean loss 0.11609926164150237
+[17:50:25]   segformer_mitb0_in_s2: trained 40 epochs in 75s (18.3 GB free in OUT)
+[17:50:35]   segformer_mitb0_in_s2: threshold 0.35, held-out Dice 0.783
+[17:51:02]   unet_mbv2_in_s2: epoch 10/40 mean loss 0.5834296703338623
+[17:51:28]   unet_mbv2_in_s2: epoch 20/40 mean loss 0.177100727558136
+[17:51:53]   unet_mbv2_in_s2: epoch 30/40 mean loss 0.12640665203332901
+[17:52:19]   unet_mbv2_in_s2: epoch 40/40 mean loss 0.11855497866868973
+[17:52:19]   unet_mbv2_in_s2: trained 40 epochs in 103s (18.3 GB free in OUT)
+[17:52:29]   unet_mbv2_in_s2: threshold 0.40, held-out Dice 0.817
+[17:52:59]   unet_effb0_in_s2: epoch 10/40 mean loss 0.5599022257328033
+[17:53:28]   unet_effb0_in_s2: epoch 20/40 mean loss 0.15500119388103484
+[17:53:58]   unet_effb0_in_s2: epoch 30/40 mean loss 0.11299998968839646
+[17:54:27]   unet_effb0_in_s2: epoch 40/40 mean loss 0.1068715015053749
+[17:54:27]   unet_effb0_in_s2: trained 40 epochs in 118s (18.3 GB free in OUT)
+[17:54:38]   unet_effb0_in_s2: threshold 0.35, held-out Dice 0.818
+[17:56:20]   synthetic sets regenerated: 945 of 945 identical to the local images
+[17:56:38]   pretrained_s1/medetec: 152 images, 18s, mean Dice 0.542 to 0.791
+[17:56:55]   pretrained_s1/co2wounds: 150 images, 17s, mean Dice 0.412 to 0.507
+[17:57:19]   pretrained_s1/fuseg: 120 images, 23s, mean Dice 0.742 to 0.818
+[17:57:35]   pretrained_s1/azh: 150 images, 16s, mean Dice 0.511 to 0.619
+[17:57:52]   pretrained_s1/azh_train_slice: 150 images, 16s, mean Dice 0.509 to 0.652
+[17:58:05]   pretrained_s1/kvasir_disjoint: 120 images, 13s, mean Dice 0.007 to 0.152
+[17:58:17]   pretrained_s1/kvasir_sessile: 120 images, 12s, mean Dice 0.000 to 0.034
+[17:58:32]   pretrained_s1/cvc_clinicdb: 150 images, 15s, mean Dice 0.052 to 0.084
+[17:58:46]   pretrained_s1/cvc_colondb: 150 images, 14s, mean Dice 0.000 to 0.008
+[17:59:02]   pretrained_s1/etis_larib: 150 images, 15s, mean Dice 0.015 to 0.029
+[17:59:17]   pretrained_s1/ph2: 150 images, 14s, mean Dice 0.006 to 0.035
+[17:59:30]   pretrained_s1/tn3k_test: 150 images, 14s, mean Dice 0.000 to 0.011
+[17:59:45]   pretrained_s1/fuseg_r256: 120 images, 14s, mean Dice 0.724 to 0.807
+[17:59:52]   pretrained_s1/genB_amp11_s2024: 45 images, 7s, mean Dice 0.053 to 0.560
+[17:59:59]   pretrained_s1/genB_amp11_s7: 45 images, 7s, mean Dice 0.054 to 0.513
+[18:00:07]   pretrained_s1/genB_amp11_s101: 45 images, 7s, mean Dice 0.037 to 0.503
+[18:00:15]   pretrained_s1/genB_amp28_s2024: 45 images, 8s, mean Dice 0.035 to 0.573
+[18:00:23]   pretrained_s1/genB_amp28_s7: 45 images, 8s, mean Dice 0.052 to 0.564
+[18:00:31]   pretrained_s1/genB_amp28_s101: 45 images, 7s, mean Dice 0.042 to 0.538
+[18:00:39]   pretrained_s1/genB_amp40_s2024: 45 images, 8s, mean Dice 0.035 to 0.583
+[18:00:47]   pretrained_s1/genB_amp40_s7: 45 images, 8s, mean Dice 0.042 to 0.569
+[18:00:55]   pretrained_s1/genB_amp40_s101: 45 images, 8s, mean Dice 0.051 to 0.531
+[18:01:01]   pretrained_s1/nrA_s2024: 45 images, 6s, mean Dice 0.000 to 0.032
+[18:01:08]   pretrained_s1/nrB0_s2024: 45 images, 7s, mean Dice 0.059 to 0.556
+[18:01:14]   pretrained_s1/nrC0_s2024: 45 images, 6s, mean Dice 0.011 to 0.294
+[18:01:21]   pretrained_s1/nrC34_s2024: 45 images, 6s, mean Dice 0.012 to 0.294
+[18:01:27]   pretrained_s1/nrA_s7: 45 images, 6s, mean Dice 0.000 to 0.028
+[18:01:34]   pretrained_s1/nrB0_s7: 45 images, 7s, mean Dice 0.053 to 0.495
+[18:01:40]   pretrained_s1/nrC0_s7: 45 images, 6s, mean Dice 0.001 to 0.317
+[18:01:47]   pretrained_s1/nrC34_s7: 45 images, 6s, mean Dice 0.002 to 0.323
+[18:01:52]   pretrained_s1/nrA_s101: 45 images, 6s, mean Dice 0.000 to 0.036
+[18:02:00]   pretrained_s1/nrB0_s101: 45 images, 7s, mean Dice 0.032 to 0.483
+[18:02:06]   pretrained_s1/nrC0_s101: 45 images, 6s, mean Dice 0.000 to 0.302
+[18:02:12]   pretrained_s1/nrC34_s101: 45 images, 6s, mean Dice 0.000 to 0.305
+[18:02:14]   pretrained_s2: manet_r18_in_s2 missing (checkpoint or threshold), skipped
+[18:02:15]   pretrained_s2: scoring 9 of 10 models; missing ['manet_r18_in_s2']
+[18:02:31]   pretrained_s2/medetec: 152 images, 16s, mean Dice 0.528 to 0.769
+[18:02:46]   pretrained_s2/co2wounds: 150 images, 15s, mean Dice 0.366 to 0.462
+[18:03:07]   pretrained_s2/fuseg: 120 images, 20s, mean Dice 0.747 to 0.818
+[18:03:22]   pretrained_s2/azh: 150 images, 15s, mean Dice 0.501 to 0.607
+[18:03:37]   pretrained_s2/azh_train_slice: 150 images, 15s, mean Dice 0.475 to 0.665
+[18:03:48]   pretrained_s2/kvasir_disjoint: 120 images, 11s, mean Dice 0.009 to 0.138
+[18:04:00]   pretrained_s2/kvasir_sessile: 120 images, 11s, mean Dice 0.000 to 0.050
+[18:04:13]   pretrained_s2/cvc_clinicdb: 150 images, 13s, mean Dice 0.053 to 0.089
+[18:04:26]   pretrained_s2/cvc_colondb: 150 images, 13s, mean Dice 0.000 to 0.017
+[18:04:40]   pretrained_s2/etis_larib: 150 images, 14s, mean Dice 0.010 to 0.029
+[18:04:53]   pretrained_s2/ph2: 150 images, 13s, mean Dice 0.008 to 0.055
+[18:05:05]   pretrained_s2/tn3k_test: 150 images, 12s, mean Dice 0.000 to 0.017
+[18:05:18]   pretrained_s2/fuseg_r256: 120 images, 13s, mean Dice 0.740 to 0.811
+[18:05:25]   pretrained_s2/genB_amp11_s2024: 45 images, 6s, mean Dice 0.048 to 0.549
+[18:05:32]   pretrained_s2/genB_amp11_s7: 45 images, 7s, mean Dice 0.052 to 0.510
+[18:05:38]   pretrained_s2/genB_amp11_s101: 45 images, 7s, mean Dice 0.039 to 0.536
+[18:05:45]   pretrained_s2/genB_amp28_s2024: 45 images, 7s, mean Dice 0.040 to 0.595
+[18:05:53]   pretrained_s2/genB_amp28_s7: 45 images, 7s, mean Dice 0.031 to 0.549
+[18:06:00]   pretrained_s2/genB_amp28_s101: 45 images, 7s, mean Dice 0.045 to 0.568
+[18:06:07]   pretrained_s2/genB_amp40_s2024: 45 images, 7s, mean Dice 0.017 to 0.599
+[18:06:14]   pretrained_s2/genB_amp40_s7: 45 images, 7s, mean Dice 0.023 to 0.554
+[18:06:21]   pretrained_s2/genB_amp40_s101: 45 images, 7s, mean Dice 0.023 to 0.572
+[18:06:26]   pretrained_s2/nrA_s2024: 45 images, 5s, mean Dice 0.000 to 0.046
+[18:06:32]   pretrained_s2/nrB0_s2024: 45 images, 6s, mean Dice 0.053 to 0.528
+[18:06:38]   pretrained_s2/nrC0_s2024: 45 images, 5s, mean Dice 0.009 to 0.261
+[18:06:43]   pretrained_s2/nrC34_s2024: 45 images, 5s, mean Dice 0.025 to 0.244
+[18:06:48]   pretrained_s2/nrA_s7: 45 images, 5s, mean Dice 0.000 to 0.049
+[18:06:55]   pretrained_s2/nrB0_s7: 45 images, 6s, mean Dice 0.044 to 0.443
+[18:07:01]   pretrained_s2/nrC0_s7: 45 images, 5s, mean Dice 0.011 to 0.294
+[18:07:06]   pretrained_s2/nrC34_s7: 45 images, 5s, mean Dice 0.017 to 0.289
+[18:07:12]   pretrained_s2/nrA_s101: 45 images, 5s, mean Dice 0.000 to 0.054
+[18:07:18]   pretrained_s2/nrB0_s101: 45 images, 6s, mean Dice 0.041 to 0.434
+[18:07:24]   pretrained_s2/nrC0_s101: 45 images, 5s, mean Dice 0.003 to 0.306
+[18:07:30]   pretrained_s2/nrC34_s101: 45 images, 5s, mean Dice 0.016 to 0.294
+[18:07:30] stage seeds FAILED:
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_run.py", line 100, in <module>
+    STAGES[st]()
+    ~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_run.py", line 38, in stage_seeds
+    k2_train.stage_seeds()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_train.py", line 448, in stage_seeds
+    raise RuntimeError("stage seeds incomplete: " + "; ".join(problems))
+RuntimeError: stage seeds incomplete: training failed: ['manet_r18_in_s2']; pretrained_s2 missing ['manet_r18_in_s2']
+
+[18:07:34] stage pack on cuda
+[18:07:34]   wrote /kaggle/working/wb_results2.zip: 78 files, 0.5 MB
+[18:07:34] stage pack done in 0s
+[18:07:37] stage rescore on cuda
+[18:07:39]   NSD self-test: 1800 comparisons with woundbench.metrics.nsd, all equal
+[18:07:39]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:07:39]   restored from /kaggle/input/notebooks/lami991/notebook05db8dd833/out: ckpt_pretrained=True, ckpt_kvasir=True, kvasir_learned.pkl=True, thresholds_pretrained.json=True, thresholds_kvasir.json=True, nnunet/results=True
+[18:07:39]   rescore sets: medetec, co2wounds, fuseg, azh, azh_train_slice, kvasir_disjoint, kvasir_sessile, cvc_clinicdb, cvc_colondb, etis_larib, ph2, tn3k_test, fuseg_r256
+[18:07:43]   rescore pretrained_s0: 10 models
+[18:08:40]   rescore pretrained_s0/medetec: 152 images x 10 models, 57s, mean Dice P0/P1/P2 0.714/0.701/0.700
+[18:09:32]   rescore pretrained_s0/co2wounds: 150 images x 10 models, 51s, mean Dice P0/P1/P2 0.442/0.431/0.435
+[18:11:26]   rescore pretrained_s0/fuseg: 120 images x 10 models, 114s, mean Dice P0/P1/P2 0.793/0.793/0.796
+[18:12:12]   rescore pretrained_s0/azh: 150 images x 10 models, 45s, mean Dice P0/P1/P2 0.572/0.566/0.569
+[18:12:58]   rescore pretrained_s0/azh_train_slice: 150 images x 10 models, 46s, mean Dice P0/P1/P2 0.598/0.592/0.595
+[18:13:39]   rescore pretrained_s0/kvasir_disjoint: 120 images x 10 models, 40s, mean Dice P0/P1/P2 0.090/0.088/0.089
+[18:14:16]   rescore pretrained_s0/kvasir_sessile: 120 images x 10 models, 37s, mean Dice P0/P1/P2 0.037/0.037/0.038
+[18:14:55]   rescore pretrained_s0/cvc_clinicdb: 150 images x 10 models, 39s, mean Dice P0/P1/P2 0.079/0.077/0.078
+[18:15:30]   rescore pretrained_s0/cvc_colondb: 150 images x 10 models, 35s, mean Dice P0/P1/P2 0.013/0.012/0.013
+[18:16:15]   rescore pretrained_s0/etis_larib: 150 images x 10 models, 44s, mean Dice P0/P1/P2 0.024/0.024/0.024
+[18:16:50]   rescore pretrained_s0/ph2: 150 images x 10 models, 35s, mean Dice P0/P1/P2 0.042/0.042/0.042
+[18:17:15]   rescore pretrained_s0/tn3k_test: 150 images x 10 models, 26s, mean Dice P0/P1/P2 0.004/0.005/0.005
+[18:18:04]   rescore pretrained_s0/fuseg_r256: 120 images x 10 models, 48s, mean Dice P0/P1/P2 0.781/0.785/0.794
+[18:18:06]   rescore pretrained_s1: 10 models
+[18:19:03]   rescore pretrained_s1/medetec: 152 images x 10 models, 56s, mean Dice P0/P1/P2 0.704/0.683/0.683
+[18:19:53]   rescore pretrained_s1/co2wounds: 150 images x 10 models, 50s, mean Dice P0/P1/P2 0.445/0.428/0.432
+[18:21:46]   rescore pretrained_s1/fuseg: 120 images x 10 models, 112s, mean Dice P0/P1/P2 0.797/0.800/0.801
+[18:22:31]   rescore pretrained_s1/azh: 150 images x 10 models, 45s, mean Dice P0/P1/P2 0.565/0.554/0.557
+[18:23:17]   rescore pretrained_s1/azh_train_slice: 150 images x 10 models, 46s, mean Dice P0/P1/P2 0.583/0.573/0.577
+[18:23:54]   rescore pretrained_s1/kvasir_disjoint: 120 images x 10 models, 37s, mean Dice P0/P1/P2 0.063/0.060/0.061
+[18:24:26]   rescore pretrained_s1/kvasir_sessile: 120 images x 10 models, 32s, mean Dice P0/P1/P2 0.018/0.017/0.018
+[18:25:02]   rescore pretrained_s1/cvc_clinicdb: 150 images x 10 models, 36s, mean Dice P0/P1/P2 0.063/0.061/0.061
+[18:25:34]   rescore pretrained_s1/cvc_colondb: 150 images x 10 models, 31s, mean Dice P0/P1/P2 0.004/0.003/0.004
+[18:26:15]   rescore pretrained_s1/etis_larib: 150 images x 10 models, 41s, mean Dice P0/P1/P2 0.023/0.022/0.022
+[18:26:47]   rescore pretrained_s1/ph2: 150 images x 10 models, 32s, mean Dice P0/P1/P2 0.020/0.019/0.020
+[18:27:12]   rescore pretrained_s1/tn3k_test: 150 images x 10 models, 24s, mean Dice P0/P1/P2 0.003/0.002/0.002
+[18:28:00]   rescore pretrained_s1/fuseg_r256: 120 images x 10 models, 48s, mean Dice P0/P1/P2 0.782/0.791/0.798
+[18:28:02]   pretrained_s2: manet_r18_in_s2 missing (checkpoint or threshold), skipped
+[18:28:02]   rescore pretrained_s2: 9 models
+[18:28:54]   rescore pretrained_s2/medetec: 152 images x 9 models, 51s, mean Dice P0/P1/P2 0.701/0.685/0.685
+[18:29:39]   rescore pretrained_s2/co2wounds: 150 images x 9 models, 45s, mean Dice P0/P1/P2 0.433/0.420/0.425
+[18:31:20]   rescore pretrained_s2/fuseg: 120 images x 9 models, 101s, mean Dice P0/P1/P2 0.796/0.797/0.798
+[18:32:00]   rescore pretrained_s2/azh: 150 images x 9 models, 40s, mean Dice P0/P1/P2 0.558/0.549/0.552
+[18:32:42]   rescore pretrained_s2/azh_train_slice: 150 images x 9 models, 41s, mean Dice P0/P1/P2 0.574/0.568/0.570
+[18:33:15]   rescore pretrained_s2/kvasir_disjoint: 120 images x 9 models, 33s, mean Dice P0/P1/P2 0.079/0.077/0.078
+[18:33:44]   rescore pretrained_s2/kvasir_sessile: 120 images x 9 models, 29s, mean Dice P0/P1/P2 0.027/0.026/0.027
+[18:34:17]   rescore pretrained_s2/cvc_clinicdb: 150 images x 9 models, 33s, mean Dice P0/P1/P2 0.073/0.071/0.072
+[18:34:46]   rescore pretrained_s2/cvc_colondb: 150 images x 9 models, 28s, mean Dice P0/P1/P2 0.007/0.007/0.007
+[18:35:23]   rescore pretrained_s2/etis_larib: 150 images x 9 models, 37s, mean Dice P0/P1/P2 0.023/0.022/0.023
+[18:35:51]   rescore pretrained_s2/ph2: 150 images x 9 models, 28s, mean Dice P0/P1/P2 0.026/0.025/0.026
+[18:36:14]   rescore pretrained_s2/tn3k_test: 150 images x 9 models, 23s, mean Dice P0/P1/P2 0.004/0.004/0.004
+[18:36:57]   rescore pretrained_s2/fuseg_r256: 120 images x 9 models, 44s, mean Dice P0/P1/P2 0.784/0.787/0.795
+[18:36:57]   modern2_s0: unet_r50_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: deeplabv3p_r50_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: upernet_convnext_t_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: unet_swin_t_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: segformer_mitb2_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: unet_effb3_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: fpn_regnety016_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s0: manet_r50_s0 missing (checkpoint or threshold), skipped
+[18:36:57]   rescore modern2_s0: no model could be loaded, skipped
+[18:36:57]   modern2_s1: unet_r50_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: deeplabv3p_r50_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: upernet_convnext_t_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: unet_swin_t_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: segformer_mitb2_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: unet_effb3_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: fpn_regnety016_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s1: manet_r50_s1 missing (checkpoint or threshold), skipped
+[18:36:57]   rescore modern2_s1: no model could be loaded, skipped
+[18:36:57]   modern2_s2: unet_r50_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: deeplabv3p_r50_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: upernet_convnext_t_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: unet_swin_t_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: segformer_mitb2_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: unet_effb3_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: fpn_regnety016_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   modern2_s2: manet_r50_s2 missing (checkpoint or threshold), skipped
+[18:36:57]   rescore modern2_s2: no model could be loaded, skipped
+[18:37:00]   rescore kvasir_nets: 10 models
+[18:37:51]   rescore kvasir_nets/medetec: 152 images x 10 models, 51s, mean Dice P0/P1/P2 0.314/0.314/0.314
+[18:38:41]   rescore kvasir_nets/co2wounds: 150 images x 10 models, 50s, mean Dice P0/P1/P2 0.287/0.287/0.287
+[18:40:32]   rescore kvasir_nets/fuseg: 120 images x 10 models, 110s, mean Dice P0/P1/P2 0.081/0.081/0.081
+[18:41:05]   rescore kvasir_nets/azh: 150 images x 10 models, 33s, mean Dice P0/P1/P2 0.177/0.176/0.176
+[18:41:38]   rescore kvasir_nets/azh_train_slice: 150 images x 10 models, 33s, mean Dice P0/P1/P2 0.169/0.170/0.169
+[18:42:22]   rescore kvasir_nets/kvasir_disjoint: 120 images x 10 models, 43s, mean Dice P0/P1/P2 0.699/0.702/0.702
+[18:43:01]   rescore kvasir_nets/kvasir_sessile: 120 images x 10 models, 40s, mean Dice P0/P1/P2 0.396/0.397/0.398
+[18:43:48]   rescore kvasir_nets/cvc_clinicdb: 150 images x 10 models, 46s, mean Dice P0/P1/P2 0.462/0.464/0.464
+[18:44:36]   rescore kvasir_nets/cvc_colondb: 150 images x 10 models, 48s, mean Dice P0/P1/P2 0.339/0.340/0.340
+[18:45:17]   rescore kvasir_nets/etis_larib: 150 images x 10 models, 40s, mean Dice P0/P1/P2 0.242/0.243/0.244
+[18:45:50]   rescore kvasir_nets/ph2: 150 images x 10 models, 33s, mean Dice P0/P1/P2 0.090/0.090/0.090
+[18:46:34]   rescore kvasir_nets/tn3k_test: 150 images x 10 models, 44s, mean Dice P0/P1/P2 0.101/0.101/0.101
+[18:47:20]   rescore kvasir_nets/fuseg_r256: 120 images x 10 models, 45s, mean Dice P0/P1/P2 0.081/0.082/0.082
+[18:47:22]   rescore kvasir_unet: unet_kv, threshold 0.50
+[18:47:28]   rescore kvasir_unet/medetec: 152 images x 1 models, 6s, mean Dice P0/P1/P2 0.263/0.269/0.267
+[18:47:34]   rescore kvasir_unet/co2wounds: 150 images x 1 models, 6s, mean Dice P0/P1/P2 0.272/0.273/0.272
+[18:47:48]   rescore kvasir_unet/fuseg: 120 images x 1 models, 13s, mean Dice P0/P1/P2 0.071/0.071/0.071
+[18:47:52]   rescore kvasir_unet/azh: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.261/0.263/0.265
+[18:47:56]   rescore kvasir_unet/azh_train_slice: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.247/0.249/0.248
+[18:48:02]   rescore kvasir_unet/kvasir_disjoint: 120 images x 1 models, 5s, mean Dice P0/P1/P2 0.573/0.575/0.574
+[18:48:07]   rescore kvasir_unet/kvasir_sessile: 120 images x 1 models, 5s, mean Dice P0/P1/P2 0.256/0.258/0.258
+[18:48:12]   rescore kvasir_unet/cvc_clinicdb: 150 images x 1 models, 5s, mean Dice P0/P1/P2 0.325/0.329/0.329
+[18:48:17]   rescore kvasir_unet/cvc_colondb: 150 images x 1 models, 5s, mean Dice P0/P1/P2 0.107/0.109/0.110
+[18:48:23]   rescore kvasir_unet/etis_larib: 150 images x 1 models, 5s, mean Dice P0/P1/P2 0.190/0.191/0.191
+[18:48:29]   rescore kvasir_unet/ph2: 150 images x 1 models, 5s, mean Dice P0/P1/P2 0.085/0.089/0.089
+[18:48:33]   rescore kvasir_unet/tn3k_test: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.005/0.006/0.006
+[18:48:39]   rescore kvasir_unet/fuseg_r256: 120 images x 1 models, 5s, mean Dice P0/P1/P2 0.074/0.074/0.074
+[18:48:44]   $ nnUNetv2_predict -i /kaggle/working/out/nnunet/rescore_pred_in -o /kaggle/working/out/nnunet/rescore_pred_out -d 501 -c 2d -f all -tr nnUNetTrainer_WB --save_probabilities -device cuda
+[18:55:04]   nnU-Net predicted 1980 images in 380s
+[18:55:05]   nnU-Net held-out FUSeg (148 images): mean Dice 0.8328
+[18:55:10]   rescore nnunet/medetec: 152 images x 1 models, 4s, mean Dice P0/P1/P2 0.764/0.765/0.765
+[18:55:14]   rescore nnunet/co2wounds: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.474/0.476/0.478
+[18:55:26]   rescore nnunet/fuseg: 120 images x 1 models, 11s, mean Dice P0/P1/P2 0.796/0.805/0.805
+[18:55:30]   rescore nnunet/azh: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.631/0.626/0.627
+[18:55:34]   rescore nnunet/azh_train_slice: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.601/0.597/0.597
+[18:55:37]   rescore nnunet/kvasir_disjoint: 120 images x 1 models, 2s, mean Dice P0/P1/P2 0.044/0.045/0.046
+[18:55:39]   rescore nnunet/kvasir_sessile: 120 images x 1 models, 2s, mean Dice P0/P1/P2 0.010/0.010/0.011
+[18:55:42]   rescore nnunet/cvc_clinicdb: 150 images x 1 models, 3s, mean Dice P0/P1/P2 0.056/0.057/0.058
+[18:55:45]   rescore nnunet/cvc_colondb: 150 images x 1 models, 2s, mean Dice P0/P1/P2 0.003/0.004/0.005
+[18:55:48]   rescore nnunet/etis_larib: 150 images x 1 models, 3s, mean Dice P0/P1/P2 0.020/0.020/0.020
+[18:55:52]   rescore nnunet/ph2: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.440/0.442/0.442
+[18:55:56]   rescore nnunet/tn3k_test: 150 images x 1 models, 4s, mean Dice P0/P1/P2 0.140/0.145/0.146
+[18:56:00]   rescore nnunet/fuseg_r256: 120 images x 1 models, 4s, mean Dice P0/P1/P2 0.726/0.727/0.728
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   check pretrained_s0 vs run-1 pretrained (17120 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:00]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   check kvasir_nets vs run-1 kvasir (17120 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   check kvasir_unet vs run-1 kvasir (1712 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[18:56:01]   check nnunet vs run-1 nnunet (1712 image-model pairs, 12 sets): max |dDice| 3.38e-03, max |dNSD2| 5.40e-03  <-- LARGE, check for a bug
+[18:56:01]   rescore stage finished in 2904s
+[18:56:01] stage rescore done in 2904s
+[18:56:05] stage pack on cuda
+[18:56:06]   wrote /kaggle/working/wb_results2.zip: 160 files, 4.7 MB
+[18:56:06] stage pack done in 1s
+[18:56:09] stage sam2 on cuda
+[18:56:19]   loaded sam from facebook/sam-vit-base
+[18:56:22]   loaded medsam from wanglab/medsam-vit-base
+[18:56:22]   sam_v2_oracle: methods ['medsam_fixed_gtbox']
+[18:56:22]   sam_v2_nnbox: methods ['sam_nnbox', 'medsam_fixed_nnbox']
+[19:02:42]   sam_v2_oracle/medetec: 152 images, 380s, mean Dice 0.728 to 0.728
+[19:03:49]   sam_v2_nnbox/medetec: 152 images, 67s, mean Dice 0.589 to 0.762
+[19:09:56]   sam_v2_oracle/co2wounds: 150 images, 366s, mean Dice 0.659 to 0.659
+[19:10:59]   sam_v2_nnbox/co2wounds: 150 images, 63s, mean Dice 0.360 to 0.460
+[19:15:43]   sam_v2_oracle/fuseg: 120 images, 283s, mean Dice 0.726 to 0.726
+[19:16:43]   sam_v2_nnbox/fuseg: 120 images, 59s, mean Dice 0.652 to 0.801
+[19:22:21]   sam_v2_oracle/azh: 150 images, 338s, mean Dice 0.664 to 0.664
+[19:23:52]   sam_v2_nnbox/azh: 150 images, 90s, mean Dice 0.518 to 0.641
+[19:29:35]   sam_v2_oracle/azh_train_slice: 150 images, 343s, mean Dice 0.646 to 0.646
+[19:31:00]   sam_v2_nnbox/azh_train_slice: 150 images, 85s, mean Dice 0.520 to 0.599
+[19:35:51]   sam_v2_oracle/kvasir_disjoint: 120 images, 290s, mean Dice 0.839 to 0.839
+[19:36:11]   sam_v2_nnbox/kvasir_disjoint: 120 images, 20s, mean Dice 0.041 to 0.042
+[19:41:02]   sam_v2_oracle/kvasir_sessile: 120 images, 291s, mean Dice 0.752 to 0.752
+[19:41:20]   sam_v2_nnbox/kvasir_sessile: 120 images, 18s, mean Dice 0.013 to 0.014
+[19:47:22]   sam_v2_oracle/cvc_clinicdb: 150 images, 362s, mean Dice 0.724 to 0.724
+[19:47:57]   sam_v2_nnbox/cvc_clinicdb: 150 images, 35s, mean Dice 0.037 to 0.055
+[19:53:43]   sam_v2_oracle/cvc_colondb: 150 images, 345s, mean Dice 0.686 to 0.686
+[19:53:51]   sam_v2_nnbox/cvc_colondb: 150 images, 8s, mean Dice 0.003 to 0.009
+[19:59:49]   sam_v2_oracle/etis_larib: 150 images, 357s, mean Dice 0.750 to 0.750
+[20:00:21]   sam_v2_nnbox/etis_larib: 150 images, 31s, mean Dice 0.021 to 0.021
+[20:06:24]   sam_v2_oracle/ph2: 150 images, 363s, mean Dice 0.561 to 0.561
+[20:07:26]   sam_v2_nnbox/ph2: 150 images, 61s, mean Dice 0.283 to 0.471
+[20:13:31]   sam_v2_oracle/tn3k_test: 150 images, 365s, mean Dice 0.698 to 0.698
+[20:14:17]   sam_v2_nnbox/tn3k_test: 150 images, 46s, mean Dice 0.109 to 0.131
+[20:18:57]   sam_v2_oracle/fuseg_r256: 120 images, 280s, mean Dice 0.712 to 0.712
+[20:19:49]   sam_v2_nnbox/fuseg_r256: 120 images, 53s, mean Dice 0.622 to 0.754
+[20:19:49] stage sam2 done in 5021s
+[20:19:53] stage pack on cuda
+[20:19:54]   wrote /kaggle/working/wb_results2.zip: 187 files, 4.9 MB
+[20:19:54] stage pack done in 1s
+[20:19:57] stage modern2 on cuda
+[20:19:59]   protocol: {'epochs': 40, 'weights': 'imagenet'}, batch 16, seeds [0, 1, 2], versions {'torch': '2.11.0+cu128', 'smp': '0.5.0', 'timm': '1.0.22'}
+[20:20:04]   training data: 392 FUSeg images, 148 sweep images
+[20:20:49]   unet_r50_s0: epoch 10/40 mean loss 0.28833337903022765
+[20:21:32]   unet_r50_s0: epoch 20/40 mean loss 0.12764001488685608
+[20:22:14]   unet_r50_s0: epoch 30/40 mean loss 0.10539976686239243
+[20:22:56]   unet_r50_s0: epoch 40/40 mean loss 0.09394359469413757
+[20:22:56]   unet_r50_s0: trained 40 epochs in 170s (17.7 GB free in OUT)
+[20:23:06]   unet_r50_s0: threshold 0.45, held-out Dice 0.811
+[20:23:47]   deeplabv3p_r50_s0: epoch 10/40 mean loss 0.28491278648376467
+[20:24:22]   deeplabv3p_r50_s0: epoch 20/40 mean loss 0.14890866816043855
+[20:24:56]   deeplabv3p_r50_s0: epoch 30/40 mean loss 0.1249042159318924
+[20:25:31]   deeplabv3p_r50_s0: epoch 40/40 mean loss 0.11305836111307144
+[20:25:31]   deeplabv3p_r50_s0: trained 40 epochs in 144s (17.5 GB free in OUT)
+[20:25:42]   deeplabv3p_r50_s0: threshold 0.30, held-out Dice 0.800
+[20:26:58]   upernet_convnext_t_s0: epoch 10/40 mean loss 0.1591184589266777
+[20:27:48]   upernet_convnext_t_s0: epoch 20/40 mean loss 0.1020262250304222
+[20:28:39]   upernet_convnext_t_s0: epoch 30/40 mean loss 0.08362894088029861
+[20:29:30]   upernet_convnext_t_s0: epoch 40/40 mean loss 0.07706960171461105
+[20:29:30]   upernet_convnext_t_s0: trained 40 epochs in 227s (17.4 GB free in OUT)
+[20:29:43]   upernet_convnext_t_s0: threshold 0.50, held-out Dice 0.809
+[20:30:44]   unet_swin_t_s0: epoch 10/40 mean loss 0.331296609044075
+[20:31:42]   unet_swin_t_s0: epoch 20/40 mean loss 0.12571979314088821
+[20:32:40]   unet_swin_t_s0: epoch 30/40 mean loss 0.09894325196743012
+[20:33:38]   unet_swin_t_s0: epoch 40/40 mean loss 0.08778403341770172
+[20:33:38]   unet_swin_t_s0: trained 40 epochs in 233s (17.3 GB free in OUT)
+[20:33:49]   unet_swin_t_s0: threshold 0.40, held-out Dice 0.838
+[20:34:37]   segformer_mitb2_s0: epoch 10/40 mean loss 0.16837116181850434
+[20:35:15]   segformer_mitb2_s0: epoch 20/40 mean loss 0.10920685350894928
+[20:35:52]   segformer_mitb2_s0: epoch 30/40 mean loss 0.09800579249858857
+[20:36:30]   segformer_mitb2_s0: epoch 40/40 mean loss 0.08974885940551758
+[20:36:30]   segformer_mitb2_s0: trained 40 epochs in 159s (17.2 GB free in OUT)
+[20:36:42]   segformer_mitb2_s0: threshold 0.40, held-out Dice 0.820
+[20:37:45]   unet_effb3_s0: epoch 10/40 mean loss 0.6417247188091278
+[20:38:26]   unet_effb3_s0: epoch 20/40 mean loss 0.1747361296415329
+[20:39:06]   unet_effb3_s0: epoch 30/40 mean loss 0.12345385611057282
+[20:39:46]   unet_effb3_s0: epoch 40/40 mean loss 0.10886127173900605
+[20:39:46]   unet_effb3_s0: trained 40 epochs in 183s (17.1 GB free in OUT)
+[20:39:58]   unet_effb3_s0: threshold 0.20, held-out Dice 0.805
+[20:40:31]   fpn_regnety016_s0: epoch 10/40 mean loss 0.14101484417915344
+[20:41:01]   fpn_regnety016_s0: epoch 20/40 mean loss 0.10463057011365891
+[20:41:32]   fpn_regnety016_s0: epoch 30/40 mean loss 0.09531879335641862
+[20:42:03]   fpn_regnety016_s0: epoch 40/40 mean loss 0.08781196862459183
+[20:42:03]   fpn_regnety016_s0: trained 40 epochs in 123s (17.1 GB free in OUT)
+[20:42:15]   fpn_regnety016_s0: threshold 0.35, held-out Dice 0.789
+[20:43:28]   manet_r50_s0: epoch 10/40 mean loss 0.4492020261287689
+[20:44:38]   manet_r50_s0: epoch 20/40 mean loss 0.17614252058168253, 2 non-finite losses so far
+[20:45:39]   manet_r50_s0: epoch 30/40 mean loss 0.3446035099526246, 134 non-finite losses so far
+[20:46:33]   manet_r50_s0: epoch 40/40 mean loss None, 367 non-finite losses so far
+[20:46:33]   manet_r50_s0: FAILED
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_train.py", line 289, in train_all
+    if train_model(name, arch, enc, kw, seed, ck_dir, thr_file):
+       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/kit/k2_train.py", line 250, in train_model
+    raise RuntimeError(f"{name}: non-finite weights after training "
+                       f"({len(bad)} tensors, e.g. {bad[:3]}); not saved")
+RuntimeError: manet_r50_s0: non-finite weights after training (397 tensors, e.g. ['encoder.conv1.weight', 'encoder.bn1.weight', 'encoder.bn1.bias']); not saved
+
+[20:47:16]   unet_r50_s1: epoch 10/40 mean loss 0.9549070811271667
+[20:47:58]   unet_r50_s1: epoch 20/40 mean loss 0.44822893738746644
+[20:48:40]   unet_r50_s1: epoch 30/40 mean loss 0.22030049920082093
+[20:49:22]   unet_r50_s1: epoch 40/40 mean loss 0.19677881836891176
+[20:49:22]   unet_r50_s1: trained 40 epochs in 168s (16.9 GB free in OUT)
+[20:49:32]   unet_r50_s1: threshold 0.50, held-out Dice 0.815
+[20:50:08]   deeplabv3p_r50_s1: epoch 10/40 mean loss 0.25738075613975525
+[20:50:42]   deeplabv3p_r50_s1: epoch 20/40 mean loss 0.13740892499685287
+[20:51:17]   deeplabv3p_r50_s1: epoch 30/40 mean loss 0.11138292849063873
+[20:51:52]   deeplabv3p_r50_s1: epoch 40/40 mean loss 0.10428767383098603
+[20:51:52]   deeplabv3p_r50_s1: trained 40 epochs in 139s (16.8 GB free in OUT)
+[20:52:02]   deeplabv3p_r50_s1: threshold 0.30, held-out Dice 0.804
+[20:52:55]   upernet_convnext_t_s1: epoch 10/40 mean loss 0.15017227023839952
+[20:53:46]   upernet_convnext_t_s1: epoch 20/40 mean loss 0.09758781731128692
+[20:54:37]   upernet_convnext_t_s1: epoch 30/40 mean loss 0.0760570476949215
+[20:55:28]   upernet_convnext_t_s1: epoch 40/40 mean loss 0.07323681086301803
+[20:55:28]   upernet_convnext_t_s1: trained 40 epochs in 205s (16.7 GB free in OUT)
+[20:55:39]   upernet_convnext_t_s1: threshold 0.40, held-out Dice 0.814
+[20:56:39]   unet_swin_t_s1: epoch 10/40 mean loss 0.3085141122341156
+[20:57:37]   unet_swin_t_s1: epoch 20/40 mean loss 0.12401446610689164
+[20:58:35]   unet_swin_t_s1: epoch 30/40 mean loss 0.0932690280675888
+[20:59:33]   unet_swin_t_s1: epoch 40/40 mean loss 0.08846091002225875
+[20:59:33]   unet_swin_t_s1: trained 40 epochs in 233s (16.6 GB free in OUT)
+[20:59:45]   unet_swin_t_s1: threshold 0.25, held-out Dice 0.827
+[21:00:24]   segformer_mitb2_s1: epoch 10/40 mean loss 0.21729405641555785
+[21:01:02]   segformer_mitb2_s1: epoch 20/40 mean loss 0.11887457937002183
+[21:01:40]   segformer_mitb2_s1: epoch 30/40 mean loss 0.09779961198568345
+[21:02:18]   segformer_mitb2_s1: epoch 40/40 mean loss 0.09313697665929795
+[21:02:18]   segformer_mitb2_s1: trained 40 epochs in 152s (16.5 GB free in OUT)
+[21:02:30]   segformer_mitb2_s1: threshold 0.30, held-out Dice 0.803
+[21:03:12]   unet_effb3_s1: epoch 10/40 mean loss 0.3747228097915649
+[21:03:52]   unet_effb3_s1: epoch 20/40 mean loss 0.12351692587137222
+[21:04:32]   unet_effb3_s1: epoch 30/40 mean loss 0.09253887802362443
+[21:05:13]   unet_effb3_s1: epoch 40/40 mean loss 0.08851315140724182
+[21:05:13]   unet_effb3_s1: trained 40 epochs in 162s (16.4 GB free in OUT)
+[21:05:25]   unet_effb3_s1: threshold 0.40, held-out Dice 0.807
+[21:05:56]   fpn_regnety016_s1: epoch 10/40 mean loss 0.1349830397963524
+[21:06:27]   fpn_regnety016_s1: epoch 20/40 mean loss 0.10251429677009583
+[21:06:58]   fpn_regnety016_s1: epoch 30/40 mean loss 0.08359547436237336
+[21:07:29]   fpn_regnety016_s1: epoch 40/40 mean loss 0.08048409044742584
+[21:07:29]   fpn_regnety016_s1: trained 40 epochs in 124s (16.4 GB free in OUT)
+[21:07:42]   fpn_regnety016_s1: threshold 0.35, held-out Dice 0.811
+[21:08:55]   manet_r50_s1: epoch 10/40 mean loss 0.2882196605205536
+[21:10:05]   manet_r50_s1: epoch 20/40 mean loss 0.14484483361244202
+[21:11:16]   manet_r50_s1: epoch 30/40 mean loss 0.10930268794298172
+[21:12:26]   manet_r50_s1: epoch 40/40 mean loss 0.10292787045240402
+[21:12:27]   manet_r50_s1: trained 40 epochs in 281s (15.8 GB free in OUT)
+[21:12:39]   manet_r50_s1: threshold 0.40, held-out Dice 0.826
+[21:13:23]   unet_r50_s2: epoch 10/40 mean loss 0.6546567654609681
+[21:14:05]   unet_r50_s2: epoch 20/40 mean loss 0.18974050581455232
+[21:14:47]   unet_r50_s2: epoch 30/40 mean loss 0.1342943000793457
+[21:15:29]   unet_r50_s2: epoch 40/40 mean loss 0.12618504345417023
+[21:15:29]   unet_r50_s2: trained 40 epochs in 169s (15.6 GB free in OUT)
+[21:15:40]   unet_r50_s2: threshold 0.35, held-out Dice 0.818
+[21:16:16]   deeplabv3p_r50_s2: epoch 10/40 mean loss 0.30541935086250305
+[21:16:50]   deeplabv3p_r50_s2: epoch 20/40 mean loss 0.1509879532456398
+[21:17:25]   deeplabv3p_r50_s2: epoch 30/40 mean loss 0.12072078317403794
+[21:17:59]   deeplabv3p_r50_s2: epoch 40/40 mean loss 0.11411326140165329
+[21:18:00]   deeplabv3p_r50_s2: trained 40 epochs in 139s (15.5 GB free in OUT)
+[21:18:10]   deeplabv3p_r50_s2: threshold 0.25, held-out Dice 0.799
+[21:19:03]   upernet_convnext_t_s2: epoch 10/40 mean loss 0.13485119372606277
+[21:19:54]   upernet_convnext_t_s2: epoch 20/40 mean loss 0.09114435687661171
+[21:20:45]   upernet_convnext_t_s2: epoch 30/40 mean loss 0.07595184788107873
+[21:21:36]   upernet_convnext_t_s2: epoch 40/40 mean loss 0.07131327852606774
+[21:21:36]   upernet_convnext_t_s2: trained 40 epochs in 205s (15.4 GB free in OUT)
+[21:21:48]   upernet_convnext_t_s2: threshold 0.40, held-out Dice 0.826
+[21:22:48]   unet_swin_t_s2: epoch 10/40 mean loss 0.3790761089324951
+[21:23:46]   unet_swin_t_s2: epoch 20/40 mean loss 0.13822163343429567
+[21:24:44]   unet_swin_t_s2: epoch 30/40 mean loss 0.10574921607971191
+[21:25:42]   unet_swin_t_s2: epoch 40/40 mean loss 0.09896472334861756
+[21:25:42]   unet_swin_t_s2: trained 40 epochs in 233s (15.3 GB free in OUT)
+[21:25:53]   unet_swin_t_s2: threshold 0.50, held-out Dice 0.830
+[21:26:33]   segformer_mitb2_s2: epoch 10/40 mean loss 0.18416132271289826
+[21:27:10]   segformer_mitb2_s2: epoch 20/40 mean loss 0.1133350309729576
+[21:27:48]   segformer_mitb2_s2: epoch 30/40 mean loss 0.0969154730439186
+[21:28:26]   segformer_mitb2_s2: epoch 40/40 mean loss 0.09211725458502769
+[21:28:26]   segformer_mitb2_s2: trained 40 epochs in 152s (15.2 GB free in OUT)
+[21:28:38]   segformer_mitb2_s2: threshold 0.40, held-out Dice 0.808
+[21:29:19]   unet_effb3_s2: epoch 10/40 mean loss 0.6642126321792603
+[21:29:59]   unet_effb3_s2: epoch 20/40 mean loss 0.18271749794483186
+[21:30:40]   unet_effb3_s2: epoch 30/40 mean loss 0.12306163012981415
+[21:31:20]   unet_effb3_s2: epoch 40/40 mean loss 0.11632899641990661
+[21:31:20]   unet_effb3_s2: trained 40 epochs in 161s (15.1 GB free in OUT)
+[21:31:32]   unet_effb3_s2: threshold 0.25, held-out Dice 0.807
+[21:32:03]   fpn_regnety016_s2: epoch 10/40 mean loss 0.14102206617593765
+[21:32:34]   fpn_regnety016_s2: epoch 20/40 mean loss 0.10209179073572158
+[21:33:05]   fpn_regnety016_s2: epoch 30/40 mean loss 0.08578127384185791
+[21:33:35]   fpn_regnety016_s2: epoch 40/40 mean loss 0.08294779792428017
+[21:33:35]   fpn_regnety016_s2: trained 40 epochs in 123s (15.1 GB free in OUT)
+[21:33:48]   fpn_regnety016_s2: threshold 0.20, held-out Dice 0.811
+[21:34:58]   manet_r50_s2: epoch 10/40 mean loss 0.8103719438825335, 41 non-finite losses so far
+[21:35:54]   manet_r50_s2: epoch 20/40 mean loss None, 247 non-finite losses so far
+[21:36:46]   manet_r50_s2: epoch 30/40 mean loss None, 497 non-finite losses so far
+[21:37:38]   manet_r50_s2: epoch 40/40 mean loss None, 747 non-finite losses so far
+[21:37:38]   manet_r50_s2: FAILED
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_train.py", line 289, in train_all
+    if train_model(name, arch, enc, kw, seed, ck_dir, thr_file):
+       ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/kaggle/working/kit/k2_train.py", line 250, in train_model
+    raise RuntimeError(f"{name}: non-finite weights after training "
+                       f"({len(bad)} tensors, e.g. {bad[:3]}); not saved")
+RuntimeError: manet_r50_s2: non-finite weights after training (397 tensors, e.g. ['encoder.conv1.weight', 'encoder.bn1.weight', 'encoder.bn1.bias']); not saved
+
+[21:37:43]   modern2_s0: manet_r50_s0 missing (checkpoint or threshold), skipped
+[21:37:43]   modern2_s0: scoring 7 of 8 models; missing ['manet_r50_s0']
+[21:38:04]   modern2_s0/medetec: 152 images, 21s, mean Dice 0.681 to 0.747
+[21:38:24]   modern2_s0/co2wounds: 150 images, 20s, mean Dice 0.389 to 0.483
+[21:38:47]   modern2_s0/fuseg: 120 images, 22s, mean Dice 0.788 to 0.815
+[21:39:07]   modern2_s0/azh: 150 images, 20s, mean Dice 0.535 to 0.700
+[21:39:28]   modern2_s0/azh_train_slice: 150 images, 21s, mean Dice 0.549 to 0.736
+[21:39:44]   modern2_s0/kvasir_disjoint: 120 images, 15s, mean Dice 0.014 to 0.069
+[21:39:59]   modern2_s0/kvasir_sessile: 120 images, 15s, mean Dice 0.005 to 0.026
+[21:40:18]   modern2_s0/cvc_clinicdb: 150 images, 19s, mean Dice 0.042 to 0.087
+[21:40:37]   modern2_s0/cvc_colondb: 150 images, 19s, mean Dice 0.001 to 0.007
+[21:40:56]   modern2_s0/etis_larib: 150 images, 19s, mean Dice 0.012 to 0.029
+[21:41:15]   modern2_s0/ph2: 150 images, 18s, mean Dice 0.002 to 0.043
+[21:41:33]   modern2_s0/tn3k_test: 150 images, 18s, mean Dice 0.000 to 0.010
+[21:41:49]   modern2_s0/fuseg_r256: 120 images, 16s, mean Dice 0.760 to 0.811
+[21:41:57]   modern2_s0/genB_amp11_s2024: 45 images, 7s, mean Dice 0.039 to 0.843
+[21:42:05]   modern2_s0/genB_amp11_s7: 45 images, 7s, mean Dice 0.035 to 0.857
+[21:42:13]   modern2_s0/genB_amp11_s101: 45 images, 7s, mean Dice 0.043 to 0.827
+[21:42:20]   modern2_s0/genB_amp28_s2024: 45 images, 8s, mean Dice 0.074 to 0.849
+[21:42:28]   modern2_s0/genB_amp28_s7: 45 images, 8s, mean Dice 0.063 to 0.878
+[21:42:36]   modern2_s0/genB_amp28_s101: 45 images, 8s, mean Dice 0.072 to 0.854
+[21:42:44]   modern2_s0/genB_amp40_s2024: 45 images, 8s, mean Dice 0.094 to 0.804
+[21:42:52]   modern2_s0/genB_amp40_s7: 45 images, 8s, mean Dice 0.080 to 0.814
+[21:43:00]   modern2_s0/genB_amp40_s101: 45 images, 8s, mean Dice 0.080 to 0.777
+[21:43:07]   modern2_s0/nrA_s2024: 45 images, 6s, mean Dice 0.000 to 0.252
+[21:43:14]   modern2_s0/nrB0_s2024: 45 images, 7s, mean Dice 0.058 to 0.764
+[21:43:21]   modern2_s0/nrC0_s2024: 45 images, 7s, mean Dice 0.051 to 0.248
+[21:43:28]   modern2_s0/nrC34_s2024: 45 images, 6s, mean Dice 0.056 to 0.234
+[21:43:35]   modern2_s0/nrA_s7: 45 images, 6s, mean Dice 0.000 to 0.263
+[21:43:42]   modern2_s0/nrB0_s7: 45 images, 7s, mean Dice 0.029 to 0.780
+[21:43:49]   modern2_s0/nrC0_s7: 45 images, 7s, mean Dice 0.096 to 0.260
+[21:43:56]   modern2_s0/nrC34_s7: 45 images, 7s, mean Dice 0.093 to 0.258
+[21:44:03]   modern2_s0/nrA_s101: 45 images, 6s, mean Dice 0.000 to 0.269
+[21:44:10]   modern2_s0/nrB0_s101: 45 images, 7s, mean Dice 0.035 to 0.752
+[21:44:17]   modern2_s0/nrC0_s101: 45 images, 7s, mean Dice 0.078 to 0.235
+[21:44:24]   modern2_s0/nrC34_s101: 45 images, 7s, mean Dice 0.084 to 0.238
+[21:44:55]   modern2_s1/medetec: 152 images, 24s, mean Dice 0.627 to 0.735
+[21:45:19]   modern2_s1/co2wounds: 150 images, 23s, mean Dice 0.384 to 0.473
+[21:45:45]   modern2_s1/fuseg: 120 images, 25s, mean Dice 0.794 to 0.829
+[21:46:08]   modern2_s1/azh: 150 images, 23s, mean Dice 0.519 to 0.741
+[21:46:31]   modern2_s1/azh_train_slice: 150 images, 23s, mean Dice 0.556 to 0.748
+[21:46:49]   modern2_s1/kvasir_disjoint: 120 images, 18s, mean Dice 0.017 to 0.072
+[21:47:07]   modern2_s1/kvasir_sessile: 120 images, 18s, mean Dice 0.004 to 0.023
+[21:47:29]   modern2_s1/cvc_clinicdb: 150 images, 22s, mean Dice 0.045 to 0.085
+[21:47:51]   modern2_s1/cvc_colondb: 150 images, 22s, mean Dice 0.000 to 0.018
+[21:48:14]   modern2_s1/etis_larib: 150 images, 22s, mean Dice 0.007 to 0.030
+[21:48:36]   modern2_s1/ph2: 150 images, 22s, mean Dice 0.002 to 0.058
+[21:48:57]   modern2_s1/tn3k_test: 150 images, 21s, mean Dice 0.003 to 0.041
+[21:49:17]   modern2_s1/fuseg_r256: 120 images, 19s, mean Dice 0.773 to 0.824
+[21:49:26]   modern2_s1/genB_amp11_s2024: 45 images, 9s, mean Dice 0.212 to 0.742
+[21:49:35]   modern2_s1/genB_amp11_s7: 45 images, 9s, mean Dice 0.165 to 0.751
+[21:49:43]   modern2_s1/genB_amp11_s101: 45 images, 9s, mean Dice 0.170 to 0.676
+[21:49:53]   modern2_s1/genB_amp28_s2024: 45 images, 9s, mean Dice 0.205 to 0.773
+[21:50:01]   modern2_s1/genB_amp28_s7: 45 images, 9s, mean Dice 0.145 to 0.736
+[21:50:10]   modern2_s1/genB_amp28_s101: 45 images, 9s, mean Dice 0.178 to 0.675
+[21:50:19]   modern2_s1/genB_amp40_s2024: 45 images, 9s, mean Dice 0.180 to 0.705
+[21:50:29]   modern2_s1/genB_amp40_s7: 45 images, 9s, mean Dice 0.147 to 0.691
+[21:50:38]   modern2_s1/genB_amp40_s101: 45 images, 9s, mean Dice 0.155 to 0.628
+[21:50:46]   modern2_s1/nrA_s2024: 45 images, 8s, mean Dice 0.000 to 0.326
+[21:50:55]   modern2_s1/nrB0_s2024: 45 images, 9s, mean Dice 0.176 to 0.644
+[21:51:03]   modern2_s1/nrC0_s2024: 45 images, 8s, mean Dice 0.017 to 0.422
+[21:51:11]   modern2_s1/nrC34_s2024: 45 images, 8s, mean Dice 0.020 to 0.397
+[21:51:19]   modern2_s1/nrA_s7: 45 images, 7s, mean Dice 0.000 to 0.329
+[21:51:28]   modern2_s1/nrB0_s7: 45 images, 9s, mean Dice 0.141 to 0.663
+[21:51:36]   modern2_s1/nrC0_s7: 45 images, 8s, mean Dice 0.016 to 0.446
+[21:51:44]   modern2_s1/nrC34_s7: 45 images, 8s, mean Dice 0.016 to 0.433
+[21:51:52]   modern2_s1/nrA_s101: 45 images, 7s, mean Dice 0.000 to 0.332
+[21:52:00]   modern2_s1/nrB0_s101: 45 images, 8s, mean Dice 0.132 to 0.606
+[21:52:08]   modern2_s1/nrC0_s101: 45 images, 8s, mean Dice 0.009 to 0.413
+[21:52:16]   modern2_s1/nrC34_s101: 45 images, 8s, mean Dice 0.007 to 0.391
+[21:52:21]   modern2_s2: manet_r50_s2 missing (checkpoint or threshold), skipped
+[21:52:21]   modern2_s2: scoring 7 of 8 models; missing ['manet_r50_s2']
+[21:52:41]   modern2_s2/medetec: 152 images, 20s, mean Dice 0.640 to 0.754
+[21:53:01]   modern2_s2/co2wounds: 150 images, 19s, mean Dice 0.410 to 0.467
+[21:53:23]   modern2_s2/fuseg: 120 images, 21s, mean Dice 0.785 to 0.815
+[21:53:42]   modern2_s2/azh: 150 images, 19s, mean Dice 0.515 to 0.698
+[21:54:02]   modern2_s2/azh_train_slice: 150 images, 19s, mean Dice 0.502 to 0.731
+[21:54:17]   modern2_s2/kvasir_disjoint: 120 images, 15s, mean Dice 0.034 to 0.086
+[21:54:32]   modern2_s2/kvasir_sessile: 120 images, 15s, mean Dice 0.006 to 0.029
+[21:54:50]   modern2_s2/cvc_clinicdb: 150 images, 18s, mean Dice 0.050 to 0.116
+[21:55:09]   modern2_s2/cvc_colondb: 150 images, 18s, mean Dice 0.001 to 0.021
+[21:55:28]   modern2_s2/etis_larib: 150 images, 19s, mean Dice 0.018 to 0.033
+[21:55:46]   modern2_s2/ph2: 150 images, 18s, mean Dice 0.006 to 0.048
+[21:56:04]   modern2_s2/tn3k_test: 150 images, 18s, mean Dice 0.000 to 0.047
+[21:56:20]   modern2_s2/fuseg_r256: 120 images, 16s, mean Dice 0.765 to 0.811
+[21:56:28]   modern2_s2/genB_amp11_s2024: 45 images, 7s, mean Dice 0.067 to 0.684
+[21:56:36]   modern2_s2/genB_amp11_s7: 45 images, 7s, mean Dice 0.080 to 0.675
+[21:56:43]   modern2_s2/genB_amp11_s101: 45 images, 7s, mean Dice 0.114 to 0.693
+[21:56:51]   modern2_s2/genB_amp28_s2024: 45 images, 7s, mean Dice 0.066 to 0.727
+[21:56:59]   modern2_s2/genB_amp28_s7: 45 images, 7s, mean Dice 0.064 to 0.688
+[21:57:06]   modern2_s2/genB_amp28_s101: 45 images, 7s, mean Dice 0.106 to 0.712
+[21:57:14]   modern2_s2/genB_amp40_s2024: 45 images, 8s, mean Dice 0.064 to 0.729
+[21:57:22]   modern2_s2/genB_amp40_s7: 45 images, 8s, mean Dice 0.075 to 0.675
+[21:57:30]   modern2_s2/genB_amp40_s101: 45 images, 7s, mean Dice 0.115 to 0.719
+[21:57:37]   modern2_s2/nrA_s2024: 45 images, 7s, mean Dice 0.000 to 0.338
+[21:57:44]   modern2_s2/nrB0_s2024: 45 images, 7s, mean Dice 0.056 to 0.657
+[21:57:51]   modern2_s2/nrC0_s2024: 45 images, 7s, mean Dice 0.010 to 0.403
+[21:57:58]   modern2_s2/nrC34_s2024: 45 images, 6s, mean Dice 0.016 to 0.406
+[21:58:05]   modern2_s2/nrA_s7: 45 images, 6s, mean Dice 0.000 to 0.350
+[21:58:12]   modern2_s2/nrB0_s7: 45 images, 7s, mean Dice 0.062 to 0.665
+[21:58:19]   modern2_s2/nrC0_s7: 45 images, 7s, mean Dice 0.013 to 0.430
+[21:58:26]   modern2_s2/nrC34_s7: 45 images, 7s, mean Dice 0.025 to 0.436
+[21:58:33]   modern2_s2/nrA_s101: 45 images, 6s, mean Dice 0.000 to 0.362
+[21:58:40]   modern2_s2/nrB0_s101: 45 images, 7s, mean Dice 0.068 to 0.662
+[21:58:47]   modern2_s2/nrC0_s101: 45 images, 6s, mean Dice 0.027 to 0.368
+[21:58:54]   modern2_s2/nrC34_s101: 45 images, 6s, mean Dice 0.006 to 0.378
+[21:58:54] stage modern2 FAILED:
+Traceback (most recent call last):
+  File "/kaggle/working/kit/k2_run.py", line 100, in <module>
+    STAGES[st]()
+    ~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_run.py", line 43, in stage_modern2
+    k2_train.stage_modern2()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/kaggle/working/kit/k2_train.py", line 459, in stage_modern2
+    raise RuntimeError("stage modern2 incomplete: " + "; ".join(problems))
+RuntimeError: stage modern2 incomplete: training failed: ['manet_r50_s0', 'manet_r50_s2']; modern2_s0 missing ['manet_r50_s0']; modern2_s2 missing ['manet_r50_s2']
+
+[21:58:58] stage pack on cuda
+[21:58:59]   wrote /kaggle/working/wb_results2.zip: 290 files, 5.5 MB
+[21:58:59] stage pack done in 1s
+[21:59:02] stage rescore on cuda
+[21:59:03]   NSD self-test: 1800 comparisons with woundbench.metrics.nsd, all equal
+[21:59:03]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[21:59:03]   restored from /kaggle/input/notebooks/lami991/notebook05db8dd833/out: ckpt_pretrained=True, ckpt_kvasir=True, kvasir_learned.pkl=True, thresholds_pretrained.json=True, thresholds_kvasir.json=True, nnunet/results=True
+[21:59:03]   rescore sets: medetec, co2wounds, fuseg, azh, azh_train_slice, kvasir_disjoint, kvasir_sessile, cvc_clinicdb, cvc_colondb, etis_larib, ph2, tn3k_test, fuseg_r256
+[21:59:08]   rescore pretrained_s0: 10 models
+[21:59:10]   rescore pretrained_s1: 10 models
+[21:59:12]   pretrained_s2: manet_r18_in_s2 missing (checkpoint or threshold), skipped
+[21:59:12]   rescore pretrained_s2: 9 models
+[21:59:17]   modern2_s0: manet_r50_s0 missing (checkpoint or threshold), skipped
+[21:59:17]   rescore modern2_s0: 7 models
+[22:00:04]   rescore modern2_s0/medetec: 152 images x 7 models, 47s, mean Dice P0/P1/P2 0.713/0.698/0.698
+[22:00:45]   rescore modern2_s0/co2wounds: 150 images x 7 models, 40s, mean Dice P0/P1/P2 0.436/0.423/0.428
+[22:02:07]   rescore modern2_s0/fuseg: 120 images x 7 models, 81s, mean Dice P0/P1/P2 0.802/0.804/0.804
+[22:02:45]   rescore modern2_s0/azh: 150 images x 7 models, 38s, mean Dice P0/P1/P2 0.615/0.610/0.613
+[22:03:24]   rescore modern2_s0/azh_train_slice: 150 images x 7 models, 39s, mean Dice P0/P1/P2 0.646/0.641/0.645
+[22:03:52]   rescore modern2_s0/kvasir_disjoint: 120 images x 7 models, 27s, mean Dice P0/P1/P2 0.041/0.039/0.040
+[22:04:16]   rescore modern2_s0/kvasir_sessile: 120 images x 7 models, 25s, mean Dice P0/P1/P2 0.016/0.015/0.015
+[22:04:46]   rescore modern2_s0/cvc_clinicdb: 150 images x 7 models, 29s, mean Dice P0/P1/P2 0.060/0.058/0.059
+[22:05:12]   rescore modern2_s0/cvc_colondb: 150 images x 7 models, 26s, mean Dice P0/P1/P2 0.003/0.003/0.003
+[22:05:43]   rescore modern2_s0/etis_larib: 150 images x 7 models, 31s, mean Dice P0/P1/P2 0.020/0.020/0.020
+[22:06:09]   rescore modern2_s0/ph2: 150 images x 7 models, 26s, mean Dice P0/P1/P2 0.017/0.016/0.017
+[22:06:33]   rescore modern2_s0/tn3k_test: 150 images x 7 models, 24s, mean Dice P0/P1/P2 0.005/0.005/0.005
+[22:07:10]   rescore modern2_s0/fuseg_r256: 120 images x 7 models, 37s, mean Dice P0/P1/P2 0.787/0.798/0.801
+[22:07:17]   rescore modern2_s1: 8 models
+[22:08:08]   rescore modern2_s1/medetec: 152 images x 8 models, 50s, mean Dice P0/P1/P2 0.691/0.676/0.676
+[22:08:53]   rescore modern2_s1/co2wounds: 150 images x 8 models, 45s, mean Dice P0/P1/P2 0.427/0.413/0.417
+[22:10:25]   rescore modern2_s1/fuseg: 120 images x 8 models, 91s, mean Dice P0/P1/P2 0.807/0.809/0.809
+[22:11:08]   rescore modern2_s1/azh: 150 images x 8 models, 43s, mean Dice P0/P1/P2 0.616/0.609/0.610
+[22:11:54]   rescore modern2_s1/azh_train_slice: 150 images x 8 models, 46s, mean Dice P0/P1/P2 0.631/0.625/0.630
+[22:12:28]   rescore modern2_s1/kvasir_disjoint: 120 images x 8 models, 34s, mean Dice P0/P1/P2 0.047/0.045/0.046
+[22:12:59]   rescore modern2_s1/kvasir_sessile: 120 images x 8 models, 31s, mean Dice P0/P1/P2 0.016/0.016/0.016
+[22:13:35]   rescore modern2_s1/cvc_clinicdb: 150 images x 8 models, 36s, mean Dice P0/P1/P2 0.065/0.063/0.063
+[22:14:07]   rescore modern2_s1/cvc_colondb: 150 images x 8 models, 32s, mean Dice P0/P1/P2 0.006/0.006/0.006
+[22:14:46]   rescore modern2_s1/etis_larib: 150 images x 8 models, 39s, mean Dice P0/P1/P2 0.021/0.021/0.021
+[22:15:18]   rescore modern2_s1/ph2: 150 images x 8 models, 32s, mean Dice P0/P1/P2 0.025/0.024/0.024
+[22:15:49]   rescore modern2_s1/tn3k_test: 150 images x 8 models, 30s, mean Dice P0/P1/P2 0.016/0.016/0.016
+[22:16:32]   rescore modern2_s1/fuseg_r256: 120 images x 8 models, 43s, mean Dice P0/P1/P2 0.793/0.800/0.807
+[22:16:37]   modern2_s2: manet_r50_s2 missing (checkpoint or threshold), skipped
+[22:16:37]   rescore modern2_s2: 7 models
+[22:17:22]   rescore modern2_s2/medetec: 152 images x 7 models, 45s, mean Dice P0/P1/P2 0.720/0.699/0.699
+[22:18:02]   rescore modern2_s2/co2wounds: 150 images x 7 models, 40s, mean Dice P0/P1/P2 0.436/0.419/0.424
+[22:19:26]   rescore modern2_s2/fuseg: 120 images x 7 models, 83s, mean Dice P0/P1/P2 0.804/0.808/0.808
+[22:20:04]   rescore modern2_s2/azh: 150 images x 7 models, 38s, mean Dice P0/P1/P2 0.598/0.584/0.587
+[22:20:43]   rescore modern2_s2/azh_train_slice: 150 images x 7 models, 38s, mean Dice P0/P1/P2 0.621/0.611/0.612
+[22:21:11]   rescore modern2_s2/kvasir_disjoint: 120 images x 7 models, 28s, mean Dice P0/P1/P2 0.059/0.056/0.057
+[22:21:36]   rescore modern2_s2/kvasir_sessile: 120 images x 7 models, 25s, mean Dice P0/P1/P2 0.018/0.017/0.017
+[22:22:07]   rescore modern2_s2/cvc_clinicdb: 150 images x 7 models, 30s, mean Dice P0/P1/P2 0.072/0.069/0.070
+[22:22:35]   rescore modern2_s2/cvc_colondb: 150 images x 7 models, 28s, mean Dice P0/P1/P2 0.008/0.008/0.008
+[22:23:10]   rescore modern2_s2/etis_larib: 150 images x 7 models, 35s, mean Dice P0/P1/P2 0.025/0.024/0.024
+[22:23:37]   rescore modern2_s2/ph2: 150 images x 7 models, 27s, mean Dice P0/P1/P2 0.027/0.026/0.026
+[22:24:03]   rescore modern2_s2/tn3k_test: 150 images x 7 models, 26s, mean Dice P0/P1/P2 0.016/0.016/0.016
+[22:24:41]   rescore modern2_s2/fuseg_r256: 120 images x 7 models, 38s, mean Dice P0/P1/P2 0.789/0.800/0.806
+[22:24:44]   rescore kvasir_nets: 10 models
+[22:24:44]   rescore kvasir_unet: all sets done
+[22:24:44]   rescore nnunet: all sets, masks and held-out score done
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   check pretrained_s0 vs run-1 pretrained (17120 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   check kvasir_nets vs run-1 kvasir (17120 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:44]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   check kvasir_unet vs run-1 kvasir (1712 image-model pairs, 12 sets): max |dDice| 5.00e-06, max |dNSD2| 5.00e-06
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   run-1 output candidates: ['/kaggle/input/notebooks/lami991/notebook05db8dd833/out']
+[22:24:45]   check nnunet vs run-1 nnunet (1712 image-model pairs, 12 sets): max |dDice| 3.38e-03, max |dNSD2| 5.40e-03  <-- LARGE, check for a bug
+[22:24:45]   rescore stage finished in 1543s
+[22:24:45] stage rescore done in 1543s
+[22:24:48] stage pack on cuda

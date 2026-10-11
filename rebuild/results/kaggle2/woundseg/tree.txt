@@ -1,0 +1,6 @@
+./  0 files
+wseg_dataset/  0 files
+wseg_dataset/mask/  2686 files: 42463520.jpg, 42795613.jpg, 42925587.jpg, 42960140.jpg, 43079279.jpg
+wseg_dataset/sample/  2686 files: 42463520.jpg, 42795613.jpg, 42925587.jpg, 42960140.jpg, 43079279.jpg
+
+extensions: .jpg 5372
