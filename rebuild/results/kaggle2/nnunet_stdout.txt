@@ -1,0 +1,1330 @@
+nnUNetv2_predict -i /kaggle/working/out/nnunet/rescore_pred_in -o /kaggle/working/out/nnunet/rescore_pred_out -d 501 -c 2d -f all -tr nnUNetTrainer_WB --save_probabilities -device cuda
+resampling and export
+done with tn3k_test__0025
+
+Predicting tn3k_test__0026:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0026
+
+Predicting tn3k_test__0027:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0027
+
+Predicting tn3k_test__0028:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0028
+
+Predicting tn3k_test__0029:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0029
+
+Predicting tn3k_test__0030:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0030
+
+Predicting tn3k_test__0031:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0031
+
+Predicting tn3k_test__0032:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0032
+
+Predicting tn3k_test__0033:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0033
+
+Predicting tn3k_test__0034:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0034
+
+Predicting tn3k_test__0035:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0035
+
+Predicting tn3k_test__0036:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0036
+
+Predicting tn3k_test__0037:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0037
+
+Predicting tn3k_test__0038:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0038
+
+Predicting tn3k_test__0039:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0039
+
+Predicting tn3k_test__0040:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0040
+
+Predicting tn3k_test__0041:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0041
+
+Predicting tn3k_test__0042:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0042
+
+Predicting tn3k_test__0043:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0043
+
+Predicting tn3k_test__0044:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0044
+
+Predicting tn3k_test__0045:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0045
+
+Predicting tn3k_test__0046:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0046
+
+Predicting tn3k_test__0047:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0047
+
+Predicting tn3k_test__0048:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0048
+
+Predicting tn3k_test__0049:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0049
+
+Predicting tn3k_test__0050:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0050
+
+Predicting tn3k_test__0051:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0051
+
+Predicting tn3k_test__0052:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0052
+
+Predicting tn3k_test__0053:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0053
+
+Predicting tn3k_test__0054:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0054
+
+Predicting tn3k_test__0055:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0055
+
+Predicting tn3k_test__0056:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0056
+
+Predicting tn3k_test__0057:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0057
+
+Predicting tn3k_test__0058:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0058
+
+Predicting tn3k_test__0059:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0059
+
+Predicting tn3k_test__0060:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0060
+
+Predicting tn3k_test__0061:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0061
+
+Predicting tn3k_test__0062:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0062
+
+Predicting tn3k_test__0063:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0063
+
+Predicting tn3k_test__0064:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0064
+
+Predicting tn3k_test__0065:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0065
+
+Predicting tn3k_test__0066:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0066
+
+Predicting tn3k_test__0067:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0067
+
+Predicting tn3k_test__0068:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0068
+
+Predicting tn3k_test__0069:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0069
+
+Predicting tn3k_test__0070:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0070
+
+Predicting tn3k_test__0071:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0071
+
+Predicting tn3k_test__0072:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0072
+
+Predicting tn3k_test__0073:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0073
+
+Predicting tn3k_test__0074:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0074
+
+Predicting tn3k_test__0075:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0075
+
+Predicting tn3k_test__0076:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0076
+
+Predicting tn3k_test__0077:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0077
+
+Predicting tn3k_test__0078:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0078
+
+Predicting tn3k_test__0079:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0079
+
+Predicting tn3k_test__0080:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0080
+
+Predicting tn3k_test__0081:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0081
+
+Predicting tn3k_test__0082:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0082
+
+Predicting tn3k_test__0083:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0083
+
+Predicting tn3k_test__0084:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0084
+
+Predicting tn3k_test__0085:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0085
+
+Predicting tn3k_test__0086:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0086
+
+Predicting tn3k_test__0087:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0087
+
+Predicting tn3k_test__0088:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0088
+
+Predicting tn3k_test__0089:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0089
+
+Predicting tn3k_test__0090:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0090
+
+Predicting tn3k_test__0091:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0091
+
+Predicting tn3k_test__0092:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0092
+
+Predicting tn3k_test__0093:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0093
+
+Predicting tn3k_test__0094:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0094
+
+Predicting tn3k_test__0095:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0095
+
+Predicting tn3k_test__0096:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0096
+
+Predicting tn3k_test__0097:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0097
+
+Predicting tn3k_test__0098:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0098
+
+Predicting tn3k_test__0099:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0099
+
+Predicting tn3k_test__0100:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0100
+
+Predicting tn3k_test__0101:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0101
+
+Predicting tn3k_test__0102:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0102
+
+Predicting tn3k_test__0103:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0103
+
+Predicting tn3k_test__0104:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0104
+
+Predicting tn3k_test__0105:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0105
+
+Predicting tn3k_test__0106:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0106
+
+Predicting tn3k_test__0107:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0107
+
+Predicting tn3k_test__0108:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0108
+
+Predicting tn3k_test__0109:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0109
+
+Predicting tn3k_test__0110:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0110
+
+Predicting tn3k_test__0111:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0111
+
+Predicting tn3k_test__0112:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0112
+
+Predicting tn3k_test__0113:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0113
+
+Predicting tn3k_test__0114:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0114
+
+Predicting tn3k_test__0115:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0115
+
+Predicting tn3k_test__0116:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0116
+
+Predicting tn3k_test__0117:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0117
+
+Predicting tn3k_test__0118:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0118
+
+Predicting tn3k_test__0119:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0119
+
+Predicting tn3k_test__0120:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0120
+
+Predicting tn3k_test__0121:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0121
+
+Predicting tn3k_test__0122:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0122
+
+Predicting tn3k_test__0123:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0123
+
+Predicting tn3k_test__0124:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0124
+
+Predicting tn3k_test__0125:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0125
+
+Predicting tn3k_test__0126:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0126
+
+Predicting tn3k_test__0127:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0127
+
+Predicting tn3k_test__0128:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0128
+
+Predicting tn3k_test__0129:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0129
+
+Predicting tn3k_test__0130:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0130
+
+Predicting tn3k_test__0131:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0131
+
+Predicting tn3k_test__0132:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0132
+
+Predicting tn3k_test__0133:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0133
+
+Predicting tn3k_test__0134:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0134
+
+Predicting tn3k_test__0135:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0135
+
+Predicting tn3k_test__0136:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0136
+
+Predicting tn3k_test__0137:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0137
+
+Predicting tn3k_test__0138:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0138
+
+Predicting tn3k_test__0139:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0139
+
+Predicting tn3k_test__0140:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0140
+
+Predicting tn3k_test__0141:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0141
+
+Predicting tn3k_test__0142:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0142
+
+Predicting tn3k_test__0143:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0143
+
+Predicting tn3k_test__0144:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0144
+
+Predicting tn3k_test__0145:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0145
+
+Predicting tn3k_test__0146:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0146
+
+Predicting tn3k_test__0147:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0147
+
+Predicting tn3k_test__0148:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0148
+
+Predicting tn3k_test__0149:
+perform_everything_on_device: True
+sending off prediction to background worker for resampling and export
+done with tn3k_test__0149
+GPU prediction completed. Waiting for remaining segmentation exports to finish...
+Segmentation export complete.
+
+<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.29it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.04it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.02it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.01it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.22it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.66it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.80it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.51it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.94it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.51it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.70it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.41it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.38it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 24.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.93it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.22it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.17it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.41it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.45it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.10it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.11it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.99it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.60it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.44it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.40it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.80it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.89it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.99it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.66it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.71it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.24it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.36it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.48it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.80it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.01it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.17it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.09it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 16.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.05it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.14it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.40it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.25it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.72it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.46it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.05it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.23it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.63it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.72it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.63it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.94it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.97it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.96it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.58it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.24it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.09it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.70it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.89it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.66it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.41it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.05it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.52it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.65it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.30it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.13it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.65it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.41it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.57it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 23.36it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.91it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.71it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.47it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 16.33it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.88it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.68it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.15it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.47it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.25it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.80it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 25.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.39it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.34it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.64it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.25it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.94it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.62it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.14it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.09it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.57it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.62it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.68it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.37it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.70it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.93it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.96it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.60it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.81it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.67it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.64it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.81it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.18it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.85it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.31it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.88it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.45it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.32it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.18it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.32it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.59it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.06it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.75it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.35it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.64it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.51it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.31it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.78it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.98it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.32it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.55it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.82it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.48it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.31it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.95it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.04it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.49it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.29it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.90it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.99it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.64it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.71it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.16it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.12it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.36it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 19.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.92it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.72it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.03it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.45it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.02it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.10it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.77it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.61it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.53it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.26it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.20it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.72it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.42it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.27it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.86it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.96it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.32it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 20.43it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.08it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.54it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.56it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 21.19it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 22.00it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 16.84it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.87it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.74it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 18.28it/s]
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 17.81it/s]
+
+Collecting results:   0%|          | 0/1980 [00:00<?, ?it/s]
+Collecting results: 100%|██████████| 1980/1980 [00:00<00:00, 109014.46it/s]
