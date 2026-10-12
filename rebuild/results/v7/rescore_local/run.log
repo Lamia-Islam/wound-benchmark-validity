@@ -1,0 +1,178 @@
+[10:28:50] NSD self-test: 1800 comparisons with woundbench.metrics.nsd, all equal
+/usr/local/lib/python3.11/dist-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+[10:28:55] 32 methods: 14 probability-output, 18 binary; thresholds {'logreg_all': 0.9, 'gbm_all': 0.9, 'logreg_colour': 0.9, 'unet': 0.5, 'unet_r18': 0.1, 'unetpp_r18': 0.2, 'deeplabv3p_r18': 0.4, 'fpn_r18': 0.45, 'pspnet_r18': 0.1, 'linknet_r18': 0.2, 'manet_r18': 0.1, 'segformer_mitb0': 0.35000000000000003, 'unet_mbv2': 0.1, 'unet_effb0': 0.35000000000000003}; torch threads 2
+[10:28:59] medetec: 152 images, checks {'kit_identical_pairs': 152, 'kit_n': 152, 'kaggle_rescore_n': 152, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[10:31:42]   medetec: 15/152 (163s, 10.9 s/img)
+[10:35:01]   medetec: 30/152 (362s, 12.1 s/img)
+[10:38:40]   medetec: 45/152 (581s, 12.9 s/img)
+[10:43:07]   medetec: 60/152 (848s, 14.1 s/img)
+[10:46:35]   medetec: 75/152 (1056s, 14.1 s/img)
+[10:49:01]   medetec: 90/152 (1202s, 13.4 s/img)
+[10:50:49]   medetec: 105/152 (1310s, 12.5 s/img)
+[10:51:11]   medetec: 120/152 (1332s, 11.1 s/img)
+[10:51:33]   medetec: 135/152 (1354s, 10.0 s/img)
+[10:51:56]   medetec: 150/152 (1377s, 9.2 s/img)
+[10:51:59] medetec: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/medetec.json (1380s this run); mean Dice P0/P1/P2 0.3197/0.3210/0.3139; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1536 comparisons); failures {}
+[10:51:59] medetec: 1384s; total 1384s
+[10:52:04] co2wounds: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[10:52:28]   co2wounds: 15/150 (24s, 1.6 s/img)
+[10:52:51]   co2wounds: 30/150 (47s, 1.6 s/img)
+[10:53:14]   co2wounds: 45/150 (69s, 1.5 s/img)
+[10:53:39]   co2wounds: 60/150 (94s, 1.6 s/img)
+[10:54:02]   co2wounds: 75/150 (118s, 1.6 s/img)
+[10:54:25]   co2wounds: 90/150 (141s, 1.6 s/img)
+[10:54:49]   co2wounds: 105/150 (165s, 1.6 s/img)
+[10:55:13]   co2wounds: 120/150 (188s, 1.6 s/img)
+[10:55:38]   co2wounds: 135/150 (214s, 1.6 s/img)
+[10:56:01]   co2wounds: 150/150 (237s, 1.6 s/img)
+[10:56:01] co2wounds: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/co2wounds.json (237s this run); mean Dice P0/P1/P2 0.2269/0.2248/0.2236; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[10:56:01] co2wounds: 242s; total 1627s
+[10:56:03] fuseg: 120 images, checks {'kit_identical_pairs': 120, 'kit_n': 120, 'kaggle_rescore_n': 120, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[10:57:30]   fuseg: 15/120 (87s, 5.8 s/img)
+[10:58:53]   fuseg: 30/120 (170s, 5.7 s/img)
+[11:00:16]   fuseg: 45/120 (252s, 5.6 s/img)
+[11:01:36]   fuseg: 60/120 (333s, 5.5 s/img)
+[11:03:00]   fuseg: 75/120 (416s, 5.6 s/img)
+[11:04:24]   fuseg: 90/120 (501s, 5.6 s/img)
+[11:05:46]   fuseg: 105/120 (583s, 5.6 s/img)
+[11:07:07]   fuseg: 120/120 (663s, 5.5 s/img)
+[11:07:07] fuseg: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/fuseg.json (663s this run); mean Dice P0/P1/P2 0.2722/0.2723/0.2693; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1152 comparisons); failures {}
+[11:07:07] fuseg: 665s; total 2292s
+[11:07:07] azh: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[11:07:33]   azh: 15/150 (26s, 1.7 s/img)
+[23:42:58] NSD self-test: 1800 comparisons with woundbench.metrics.nsd, all equal
+/usr/local/lib/python3.11/dist-packages/torch/jit/_script.py:1643: FutureWarning: `torch.jit.interface` is deprecated. Please use `torch.compile` instead.
+  warnings.warn(
+[23:43:46] 32 methods: 14 probability-output, 18 binary; thresholds {'logreg_all': 0.9, 'gbm_all': 0.9, 'logreg_colour': 0.9, 'unet': 0.5, 'unet_r18': 0.1, 'unetpp_r18': 0.2, 'deeplabv3p_r18': 0.4, 'fpn_r18': 0.45, 'pspnet_r18': 0.1, 'linknet_r18': 0.2, 'manet_r18': 0.1, 'segformer_mitb0': 0.35000000000000003, 'unet_mbv2': 0.1, 'unet_effb0': 0.35000000000000003}; torch threads 2
+[23:43:46] medetec: done already
+[23:43:46] medetec: 0s; total 0s
+[23:43:46] co2wounds: done already
+[23:43:46] co2wounds: 0s; total 0s
+[23:43:46] fuseg: done already
+[23:43:46] fuseg: 0s; total 0s
+[23:43:47] azh: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[23:43:47] azh: resuming at 15/150
+[23:44:14]   azh: 30/150 (27s, 1.8 s/img)
+[23:44:40]   azh: 45/150 (53s, 1.8 s/img)
+[23:45:04]   azh: 60/150 (76s, 1.7 s/img)
+[23:45:25]   azh: 75/150 (98s, 1.6 s/img)
+[23:45:48]   azh: 90/150 (121s, 1.6 s/img)
+[23:46:12]   azh: 105/150 (144s, 1.6 s/img)
+[23:46:34]   azh: 120/150 (166s, 1.6 s/img)
+[23:46:57]   azh: 135/150 (190s, 1.6 s/img)
+[23:47:19]   azh: 150/150 (211s, 1.6 s/img)
+[23:47:19] azh: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/azh.json (212s this run); mean Dice P0/P1/P2 0.3508/0.3478/0.3441; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[23:47:19] azh: 213s; total 213s
+[23:47:22] kvasir_disjoint: 120 images, checks {'kit_identical_pairs': 120, 'kit_n': 120, 'kaggle_rescore_n': 120, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[23:47:50]   kvasir_disjoint: 15/120 (28s, 1.9 s/img)
+[23:48:17]   kvasir_disjoint: 30/120 (55s, 1.8 s/img)
+[23:48:45]   kvasir_disjoint: 45/120 (84s, 1.9 s/img)
+[23:49:12]   kvasir_disjoint: 60/120 (111s, 1.8 s/img)
+[23:49:39]   kvasir_disjoint: 75/120 (137s, 1.8 s/img)
+[23:50:08]   kvasir_disjoint: 90/120 (166s, 1.8 s/img)
+[23:50:34]   kvasir_disjoint: 105/120 (192s, 1.8 s/img)
+[23:51:00]   kvasir_disjoint: 120/120 (218s, 1.8 s/img)
+[23:51:00] kvasir_disjoint: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/kvasir_disjoint.json (218s this run); mean Dice P0/P1/P2 0.1843/0.1830/0.1838; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1152 comparisons); failures {}
+[23:51:00] kvasir_disjoint: 221s; total 434s
+[23:51:03] kvasir_sessile: 120 images, checks {'kit_identical_pairs': 120, 'kit_n': 120, 'kaggle_rescore_n': 120, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[23:51:31]   kvasir_sessile: 15/120 (28s, 1.8 s/img)
+[23:51:57]   kvasir_sessile: 30/120 (54s, 1.8 s/img)
+[23:52:27]   kvasir_sessile: 45/120 (84s, 1.9 s/img)
+[23:52:56]   kvasir_sessile: 60/120 (113s, 1.9 s/img)
+[23:53:25]   kvasir_sessile: 75/120 (142s, 1.9 s/img)
+[23:53:55]   kvasir_sessile: 90/120 (172s, 1.9 s/img)
+[23:54:24]   kvasir_sessile: 105/120 (201s, 1.9 s/img)
+[23:54:51]   kvasir_sessile: 120/120 (228s, 1.9 s/img)
+[23:54:51] kvasir_sessile: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/kvasir_sessile.json (228s this run); mean Dice P0/P1/P2 0.0858/0.0853/0.0863; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1152 comparisons); failures {}
+[23:54:51] kvasir_sessile: 232s; total 666s
+[23:54:58] cvc_clinicdb: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[23:55:18]   cvc_clinicdb: 15/150 (20s, 1.3 s/img)
+[23:55:36]   cvc_clinicdb: 30/150 (38s, 1.3 s/img)
+[23:55:57]   cvc_clinicdb: 45/150 (59s, 1.3 s/img)
+[23:56:18]   cvc_clinicdb: 60/150 (80s, 1.3 s/img)
+[23:56:39]   cvc_clinicdb: 75/150 (101s, 1.3 s/img)
+[23:57:01]   cvc_clinicdb: 90/150 (123s, 1.4 s/img)
+[23:57:21]   cvc_clinicdb: 105/150 (143s, 1.4 s/img)
+[23:57:39]   cvc_clinicdb: 120/150 (162s, 1.3 s/img)
+[23:58:00]   cvc_clinicdb: 135/150 (182s, 1.3 s/img)
+[23:58:20]   cvc_clinicdb: 150/150 (202s, 1.3 s/img)
+[23:58:20] cvc_clinicdb: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/cvc_clinicdb.json (202s this run); mean Dice P0/P1/P2 0.1400/0.1401/0.1397; P0 check: max|dDice| 9.00e-06, max|dNSD2| 4.04e-05; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[23:58:20] cvc_clinicdb: 209s; total 874s
+[23:58:29] cvc_colondb: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[23:59:00]   cvc_colondb: 15/150 (31s, 2.1 s/img)
+[23:59:30]   cvc_colondb: 30/150 (61s, 2.0 s/img)
+[00:00:00]   cvc_colondb: 45/150 (91s, 2.0 s/img)
+[00:00:28]   cvc_colondb: 60/150 (119s, 2.0 s/img)
+[00:00:51]   cvc_colondb: 75/150 (142s, 1.9 s/img)
+[00:01:15]   cvc_colondb: 90/150 (166s, 1.8 s/img)
+[00:01:42]   cvc_colondb: 105/150 (193s, 1.8 s/img)
+[00:02:09]   cvc_colondb: 120/150 (220s, 1.8 s/img)
+[00:02:37]   cvc_colondb: 135/150 (248s, 1.8 s/img)
+[00:03:03]   cvc_colondb: 150/150 (273s, 1.8 s/img)
+[00:03:03] cvc_colondb: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/cvc_colondb.json (273s this run); mean Dice P0/P1/P2 0.0928/0.0934/0.0929; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[00:03:03] cvc_colondb: 283s; total 1157s
+[00:03:21] etis_larib: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[00:03:44]   etis_larib: 15/150 (23s, 1.5 s/img)
+[00:04:08]   etis_larib: 30/150 (47s, 1.6 s/img)
+[00:04:37]   etis_larib: 45/150 (76s, 1.7 s/img)
+[00:05:00]   etis_larib: 60/150 (99s, 1.6 s/img)
+[00:05:24]   etis_larib: 75/150 (123s, 1.6 s/img)
+[00:05:48]   etis_larib: 90/150 (147s, 1.6 s/img)
+[00:06:10]   etis_larib: 105/150 (169s, 1.6 s/img)
+[00:06:31]   etis_larib: 120/150 (190s, 1.6 s/img)
+[00:06:55]   etis_larib: 135/150 (214s, 1.6 s/img)
+[00:07:19]   etis_larib: 150/150 (238s, 1.6 s/img)
+[00:07:19] etis_larib: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/etis_larib.json (238s this run); mean Dice P0/P1/P2 0.0444/0.0446/0.0454; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[00:07:19] etis_larib: 256s; total 1413s
+[00:07:33] ph2: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[00:07:52]   ph2: 15/150 (19s, 1.3 s/img)
+[00:08:13]   ph2: 30/150 (40s, 1.3 s/img)
+[00:08:32]   ph2: 45/150 (59s, 1.3 s/img)
+[00:08:53]   ph2: 60/150 (80s, 1.3 s/img)
+[00:09:14]   ph2: 75/150 (100s, 1.3 s/img)
+[00:09:34]   ph2: 90/150 (121s, 1.3 s/img)
+[00:09:55]   ph2: 105/150 (142s, 1.3 s/img)
+[00:10:15]   ph2: 120/150 (162s, 1.4 s/img)
+[00:10:35]   ph2: 135/150 (182s, 1.3 s/img)
+[00:10:55]   ph2: 150/150 (202s, 1.3 s/img)
+[00:10:55] ph2: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/ph2.json (202s this run); mean Dice P0/P1/P2 0.3113/0.3157/0.3065; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[00:10:55] ph2: 216s; total 1629s
+[00:10:59] tn3k_test: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[00:11:20]   tn3k_test: 15/150 (21s, 1.4 s/img)
+[00:11:40]   tn3k_test: 30/150 (41s, 1.4 s/img)
+[00:11:58]   tn3k_test: 45/150 (59s, 1.3 s/img)
+[00:12:18]   tn3k_test: 60/150 (78s, 1.3 s/img)
+[00:12:38]   tn3k_test: 75/150 (99s, 1.3 s/img)
+[00:12:55]   tn3k_test: 90/150 (116s, 1.3 s/img)
+[00:13:12]   tn3k_test: 105/150 (133s, 1.3 s/img)
+[00:13:30]   tn3k_test: 120/150 (151s, 1.3 s/img)
+[00:13:47]   tn3k_test: 135/150 (168s, 1.2 s/img)
+[00:14:06]   tn3k_test: 150/150 (186s, 1.2 s/img)
+[00:14:06] tn3k_test: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/tn3k_test.json (186s this run); mean Dice P0/P1/P2 0.0604/0.0602/0.0592; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[00:14:06] tn3k_test: 191s; total 1820s
+[00:14:07] azh_train_slice: 150 images, checks {'kit_identical_pairs': 150, 'kit_n': 150, 'kaggle_rescore_n': 150, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[00:14:29]   azh_train_slice: 15/150 (22s, 1.4 s/img)
+[00:14:51]   azh_train_slice: 30/150 (44s, 1.5 s/img)
+[00:15:12]   azh_train_slice: 45/150 (65s, 1.4 s/img)
+[00:15:41]   azh_train_slice: 60/150 (94s, 1.6 s/img)
+[00:16:03]   azh_train_slice: 75/150 (116s, 1.5 s/img)
+[00:16:26]   azh_train_slice: 90/150 (139s, 1.5 s/img)
+[00:16:49]   azh_train_slice: 105/150 (162s, 1.5 s/img)
+[00:17:10]   azh_train_slice: 120/150 (183s, 1.5 s/img)
+[00:17:33]   azh_train_slice: 135/150 (206s, 1.5 s/img)
+[00:17:53]   azh_train_slice: 150/150 (226s, 1.5 s/img)
+[00:17:53] azh_train_slice: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/azh_train_slice.json (226s this run); mean Dice P0/P1/P2 0.3015/0.2988/0.2962; P0 check: max|dDice| 0.00e+00, max|dNSD2| 0.00e+00; nsd direct max diff 0.0e+00 (1440 comparisons); failures {}
+[00:17:53] azh_train_slice: 228s; total 2048s
+[00:17:59] fuseg_r256: 120 images, checks {'kit_identical_pairs': 120, 'kit_n': 120, 'kaggle_rescore_n': 120, 'kaggle_gt_fraction_max_abs_diff': 0.0}
+[00:18:24]   fuseg_r256: 15/120 (25s, 1.7 s/img)
+[00:18:49]   fuseg_r256: 30/120 (50s, 1.7 s/img)
+[00:19:13]   fuseg_r256: 45/120 (74s, 1.6 s/img)
+[00:19:36]   fuseg_r256: 60/120 (97s, 1.6 s/img)
+[00:20:00]   fuseg_r256: 75/120 (121s, 1.6 s/img)
+[00:20:24]   fuseg_r256: 90/120 (145s, 1.6 s/img)
+[00:20:48]   fuseg_r256: 105/120 (169s, 1.6 s/img)
+[00:21:12]   fuseg_r256: 120/120 (193s, 1.6 s/img)
+[00:21:13] fuseg_r256: saved /home/claude/wound-recovery/rebuild/results/v7/rescore_local/fuseg_r256.json (193s this run); mean Dice P0/P1/P2 0.2570/0.2603/0.2577; P0 check: perimage32 has no fuseg_r256 set; nsd direct max diff 0.0e+00 (1152 comparisons); failures {}
+[00:21:13] fuseg_r256: 199s; total 2247s
+[00:21:13] all requested sets done
