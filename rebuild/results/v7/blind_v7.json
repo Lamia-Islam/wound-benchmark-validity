@@ -114,7 +114,7 @@
    "etis_larib": 150,
    "ph2": 150,
    "tn3k_test": 150,
-   "azh_train_slice": 77
+   "azh_train_slice": 78
   },
   "synthetic_images": {
    "genB_amp40_s2024": 45,
@@ -579,7 +579,7 @@
     "co2wounds": 0.26372549019607844,
     "fuseg": 0.5892156862745098,
     "azh": 0.5745098039215686,
-    "azh_train_slice": 0.8392156862745098
+    "azh_train_slice": 0.8323529411764706
    },
    "same_dataset_diff_seed": 0.44019607843137254,
    "single_seed": [

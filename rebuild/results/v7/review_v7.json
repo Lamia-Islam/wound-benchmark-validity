@@ -1,0 +1,3092 @@
+{
+ "exclusions": "exclusions_v6.json",
+ "n_images": {
+  "medetec": 152,
+  "co2wounds": 150,
+  "fuseg": 112,
+  "azh": 146,
+  "kvasir_disjoint": 120,
+  "kvasir_sessile": 120,
+  "cvc_clinicdb": 150,
+  "cvc_colondb": 150,
+  "etis_larib": 150,
+  "ph2": 150,
+  "tn3k_test": 150,
+  "azh_train_slice": 78
+ },
+ "n_units": {
+  "medetec": 38,
+  "co2wounds": 150,
+  "fuseg": 112,
+  "azh": 118,
+  "kvasir_disjoint": 120,
+  "kvasir_sessile": 120,
+  "cvc_clinicdb": 150,
+  "cvc_colondb": 150,
+  "etis_larib": 150,
+  "ph2": 150,
+  "tn3k_test": 150,
+  "azh_train_slice": 71
+ },
+ "R3_M3_seed_gap_subgroups": {
+  "point": {
+   "P9": {
+    "same_dataset_cross_seed": 0.5541666666666666,
+    "cross_dataset_cross_seed": 0.05879629629629627,
+    "gap": 0.4953703703703703
+   },
+   "N7": {
+    "same_dataset_cross_seed": 0.2678571428571429,
+    "cross_dataset_cross_seed": 0.189484126984127,
+    "gap": 0.0783730158730159
+   },
+   "C16": {
+    "same_dataset_cross_seed": 0.44019607843137254,
+    "cross_dataset_cross_seed": 0.0897058823529412,
+    "gap": 0.35049019607843135
+   }
+  },
+  "gap_P9_minus_N7": {
+   "est": 0.4169973544973544,
+   "ci95": [
+    -0.06596109240553717,
+    0.8277678342883018
+   ],
+   "share_draws_le0": 0.0475,
+   "B": 2000,
+   "rng": 31001,
+   "resampling": "architectures of P9 and of N7 resampled independently with replacement; Dice; wound datasets"
+  },
+  "gap_P9_draws_ci95": [
+   0.07295161762553067,
+   0.8582058860920414
+  ],
+  "gap_N7_draws_ci95": [
+   -0.12093035130718956,
+   0.32003376906318065
+  ],
+  "same_session_P9_11_refs": {
+   "mean_r12": 0.5417638536806515,
+   "mean_r01": 0.3490350257818621,
+   "mean_r02": 0.34554983842061054,
+   "mean_r01_r02": 0.3472924321012363,
+   "n_datasets_r12_gt_both_r01_r02": 8,
+   "n_datasets": 11,
+   "per_dataset": {
+    "medetec": {
+     "r01": 0.4499999999999999,
+     "r02": 0.7333333333333332,
+     "r12": 0.7499999999999999
+    },
+    "co2wounds": {
+     "r01": 0.5166666666666666,
+     "r02": 0.08333333333333331,
+     "r12": 0.3999999999999999
+    },
+    "fuseg": {
+     "r01": 0.33333333333333326,
+     "r02": 0.6333333333333333,
+     "r12": 0.7833333333333332
+    },
+    "azh": {
+     "r01": 0.6999999999999998,
+     "r02": 0.7833333333333332,
+     "r12": 0.4833333333333332
+    },
+    "kvasir_disjoint": {
+     "r01": 0.23333333333333325,
+     "r02": 0.36666666666666653,
+     "r12": 0.4833333333333332
+    },
+    "kvasir_sessile": {
+     "r01": 0.43333333333333324,
+     "r02": 0.6499999999999999,
+     "r12": 0.6333333333333332
+    },
+    "cvc_clinicdb": {
+     "r01": -0.4166666666666665,
+     "r02": -0.033333333333333326,
+     "r12": 0.30000000000000004
+    },
+    "cvc_colondb": {
+     "r01": 0.23333333333333323,
+     "r02": -0.24999999999999997,
+     "r12": 0.25
+    },
+    "etis_larib": {
+     "r01": 0.39999999999999997,
+     "r02": 0.3999999999999999,
+     "r12": 0.6166666666666666
+    },
+    "ph2": {
+     "r01": 0.6666666666666666,
+     "r02": 0.18333333333333335,
+     "r12": 0.7
+    },
+    "tn3k_test": {
+     "r01": 0.2893852836004831,
+     "r02": 0.2510482226267169,
+     "r12": 0.5594023904871684
+    }
+   }
+  }
+ },
+ "R3_M4_shared_images": {
+  "half_splits": {
+   "P9": {
+    "shared_halves": 0.5460925925925925,
+    "independent_halves": 0.48702083333333324,
+    "shared_minus_independent": 0.05907175925925923,
+    "per_dataset": {
+     "medetec": {
+      "shared": 0.6412129629629628,
+      "independent": 0.5958148148148147
+     },
+     "co2wounds": {
+      "shared": 0.32106481481481475,
+      "independent": 0.2619537037037037
+     },
+     "fuseg": {
+      "shared": 0.5983148148148147,
+      "independent": 0.5613148148148147
+     },
+     "azh": {
+      "shared": 0.6237777777777777,
+      "independent": 0.5289999999999999
+     }
+    }
+   },
+   "N7": {
+    "shared_halves": 0.2951388888888889,
+    "independent_halves": 0.17661210317460319,
+    "shared_minus_independent": 0.11852678571428571,
+    "per_dataset": {
+     "medetec": {
+      "shared": -0.07549603174603173,
+      "independent": -0.2618849206349206
+     },
+     "co2wounds": {
+      "shared": 0.18970238095238098,
+      "independent": 0.05742063492063496
+     },
+     "fuseg": {
+      "shared": 0.5673412698412698,
+      "independent": 0.4226587301587301
+     },
+     "azh": {
+      "shared": 0.49900793650793657,
+      "independent": 0.4882539682539683
+     }
+    }
+   },
+   "C16": {
+    "shared_halves": 0.45382516339869283,
+    "independent_halves": 0.3564191176470588,
+    "shared_minus_independent": 0.09740604575163403,
+    "per_dataset": {
+     "medetec": {
+      "shared": 0.38477941176470587,
+      "independent": 0.2548529411764706
+     },
+     "co2wounds": {
+      "shared": 0.280390522875817,
+      "independent": 0.18947385620915036
+     },
+     "fuseg": {
+      "shared": 0.5848300653594772,
+      "independent": 0.46833169934640523
+     },
+     "azh": {
+      "shared": 0.5653006535947712,
+      "independent": 0.5130179738562092
+     }
+    }
+   }
+  },
+  "half_splits_setup": {
+   "n_splits_per_dataset": 300,
+   "rng": 31002,
+   "metric": "dice",
+   "datasets": [
+    "medetec",
+    "co2wounds",
+    "fuseg",
+    "azh"
+   ]
+  },
+  "units_only_bootstrap_gap": {
+   "P9": {
+    "est": 0.4953703703703703,
+    "mean_of_draws": 0.47086018518518513,
+    "median_of_draws": 0.4696759259259259,
+    "mean_minus_est": -0.024510185185185163,
+    "ci95": [
+     0.3268171296296296,
+     0.6138888888888888
+    ]
+   },
+   "N7": {
+    "est": 0.0783730158730159,
+    "mean_of_draws": 0.12989087301587302,
+    "median_of_draws": 0.12847222222222224,
+    "mean_minus_est": 0.051517857142857115,
+    "ci95": [
+     -0.04474206349206349,
+     0.304563492063492
+    ]
+   },
+   "C16": {
+    "est": 0.35049019607843135,
+    "mean_of_draws": 0.36096364379084966,
+    "median_of_draws": 0.3608660130718955,
+    "mean_minus_est": 0.010473447712418316,
+    "ci95": [
+     0.2423182189542484,
+     0.4828553921568628
+    ]
+   }
+  },
+  "units_only_setup": {
+   "B": 1000,
+   "rng": 6060,
+   "what": "units resampled within every dataset (stats_v7 section-3 draws), architectures fixed"
+  }
+ },
+ "R3_M5_selection": {
+  "M19": {
+   "n_candidates": 19,
+   "chooser_loss": 0.047639330925014635,
+   "random_loss": 0.06332797983377873,
+   "chooser_minus_random": -0.015688648908764098,
+   "chosen_on": {
+    "medetec": "manet_r18_in@seeds",
+    "co2wounds": "segformer_mitb2@seeds",
+    "fuseg": "manet_r50@seeds",
+    "azh": "segformer_mitb2@seeds"
+   },
+   "choose_on_fuseg_mean_loss_other3": 0.1006678584802343,
+   "choose_on_fuseg_loss": {
+    "medetec": 0.11339349014543698,
+    "co2wounds": 0.06914479327166123,
+    "azh": 0.11946529202360467
+   },
+   "row_mean_loss_other3": {
+    "medetec": 0.049799335806746316,
+    "co2wounds": 0.020045064706538957,
+    "fuseg": 0.1006678584802343,
+    "azh": 0.020045064706538957
+   },
+   "unit_bootstrap": {
+    "B": 2000,
+    "rng": "practical_v7 unit draws default_rng([20261010, k])",
+    "chooser_loss": {
+     "est": 0.047639330925014635,
+     "ci95": [
+      0.03161412227115699,
+      0.07301185798120978
+     ]
+    },
+    "random_loss": {
+     "est": 0.06332797983377873,
+     "ci95": [
+      0.05510963954255226,
+      0.08083594758153315
+     ]
+    },
+    "chooser_minus_random": {
+     "est": -0.015688648908764098,
+     "ci95": [
+      -0.03289356372996421,
+      0.002837835303282045
+     ],
+     "share_draws_ge0": 0.0475
+    }
+   },
+   "candidate_bootstrap": {
+    "B": 2000,
+    "rng": 31003,
+    "chooser_loss": {
+     "est": 0.047639330925014635,
+     "ci95": [
+      0.02065592062445101,
+      0.0538308906916602
+     ]
+    },
+    "random_loss": {
+     "est": 0.06332797983377873,
+     "ci95": [
+      0.037822679026111417,
+      0.06916718179083967
+     ]
+    },
+    "chooser_minus_random": {
+     "est": -0.015688648908764098,
+     "ci95": [
+      -0.0319966242587396,
+      0.0019470285553993692
+     ],
+     "share_draws_ge0": 0.0445
+    }
+   },
+   "half_split_same_dataset": {
+    "n_splits": 500,
+    "rng": 31004,
+    "per_dataset": {
+     "medetec": {
+      "loss_mean": 0.02226901606589419,
+      "loss_A_to_B_mean": 0.022191149765950952,
+      "loss_B_to_A_mean": 0.02234688236583742,
+      "share_same_pick_both_halves": 0.14
+     },
+     "co2wounds": {
+      "loss_mean": 0.02358770836553694,
+      "loss_A_to_B_mean": 0.02371469163559291,
+      "loss_B_to_A_mean": 0.023460725095480972,
+      "share_same_pick_both_halves": 0.0
+     },
+     "fuseg": {
+      "loss_mean": 0.006289040554701211,
+      "loss_A_to_B_mean": 0.00698601999472609,
+      "loss_B_to_A_mean": 0.0055920611146763315,
+      "share_same_pick_both_halves": 0.61
+     },
+     "azh": {
+      "loss_mean": 0.0012912493682882707,
+      "loss_A_to_B_mean": 0.0011469484424701023,
+      "loss_B_to_A_mean": 0.001435550294106439,
+      "share_same_pick_both_halves": 0.986
+     }
+    },
+    "range": [
+     0.0012912493682882707,
+     0.02358770836553694
+    ]
+   }
+  },
+  "M19_s0": {
+   "n_candidates": 18,
+   "chooser_loss": 0.05871638389957007,
+   "random_loss": 0.059837769058550316,
+   "chooser_minus_random": -0.0011213851589802482,
+   "chosen_on": {
+    "medetec": "deeplabv3p_r18_in",
+    "co2wounds": "segformer_mitb0_in",
+    "fuseg": "manet_r18_in",
+    "azh": "segformer_mitb2_s0"
+   }
+  },
+  "M19_s1": {
+   "n_candidates": 19,
+   "chooser_loss": 0.07707460057334178,
+   "random_loss": 0.08467132100388457,
+   "chooser_minus_random": -0.007596720430542783,
+   "chosen_on": {
+    "medetec": "manet_r18_in_s1",
+    "co2wounds": "unet_r18_in_s1",
+    "fuseg": "manet_r50_s1",
+    "azh": "segformer_mitb2_s1"
+   }
+  },
+  "M19_s2": {
+   "n_candidates": 17,
+   "chooser_loss": 0.0533844378439779,
+   "random_loss": 0.05881069487794435,
+   "chooser_minus_random": -0.0054262570339664515,
+   "chosen_on": {
+    "medetec": "deeplabv3p_r18_in_s2",
+    "co2wounds": "nnunet_2d",
+    "fuseg": "unetpp_r18_in_s2",
+    "azh": "segformer_mitb2_s2"
+   }
+  },
+  "single_seed_advantage_range": [
+   0.0011213851589802482,
+   0.007596720430542783
+  ]
+ },
+ "R3_m7_per_reference_benchmark_differences": {
+  "setup": "bench_v7 definitions: generator B amp 40, agreement per reference = mean over synthetic seeds 2024, 7, 101; paired method bootstrap bench_v7.method_takes(pool, 0), B 2000; U from pools_v5 means, K and M19 per-image",
+  "U": {
+   "minuend": "co2wounds",
+   "subtrahend": "azh",
+   "bench_minuend": {
+    "est": 0.8046095631234951,
+    "ci95": [
+     0.5567333669842098,
+     0.9077523413111341
+    ]
+   },
+   "bench_subtrahend": {
+    "est": 0.31750945992432056,
+    "ci95": [
+     -0.2286853971557406,
+     0.7300067403367254
+    ]
+   },
+   "difference": {
+    "est": 0.4871001031991745,
+    "ci95": [
+     -0.03388574079597061,
+     1.051621898581322
+    ]
+   }
+  },
+  "K": {
+   "minuend": "azh",
+   "subtrahend": "fuseg",
+   "bench_minuend": {
+    "est": 0.5589743589743591,
+    "ci95": [
+     -0.027746302645078994,
+     0.8817923877835481
+    ]
+   },
+   "bench_subtrahend": {
+    "est": -0.3377289377289377,
+    "ci95": [
+     -0.834871702059202,
+     0.27193397708646494
+    ]
+   },
+   "difference": {
+    "est": 0.8967032967032968,
+    "ci95": [
+     0.15659833440102494,
+     1.5034014417101662
+    ]
+   }
+  },
+  "M19": {
+   "minuend": "co2wounds",
+   "subtrahend": "fuseg",
+   "bench_minuend": {
+    "est": 0.4719298245614034,
+    "ci95": [
+     -0.006517863951803565,
+     0.8376076641891165
+    ]
+   },
+   "bench_subtrahend": {
+    "est": 0.045614035087719294,
+    "ci95": [
+     -0.4020485361221327,
+     0.46621199224402005
+    ]
+   },
+   "difference": {
+    "est": 0.42631578947368415,
+    "ci95": [
+     -0.16065839976380275,
+     0.9496313453593486
+    ]
+   }
+  }
+ },
+ "R3_m9_azh_miss_original_minus_new": {
+  "P10_archmean": 0.311764705882353,
+  "N8_archmean": 0.25520833333333337,
+  "difference_units_only": {
+   "est": 0.05655637254901963,
+   "ci95": [
+    0.033628853785103774,
+    0.07984264365468413
+   ],
+   "B": 2000,
+   "rng": "practical_v7 AZH unit draws default_rng([20261010, 3])"
+  },
+  "difference_units_and_architectures": {
+   "est": 0.05655637254901963,
+   "ci95": [
+    -0.007826666666666671,
+    0.12950922184567254
+   ],
+   "B": 2000,
+   "rng": "unit draws as above; architectures default_rng(31005), 10 original and 8 new resampled independently, one architecture draw per unit draw"
+  },
+  "definition": "miss = Dice < 0.1 on a non-empty reference; per-model miss rate = misses / non-empty images; architecture mean over its available seeds; group = mean over architectures"
+ },
+ "R3_m17_synthetic_reliability": {
+  "between_synthetic_seeds_mean_spearman": 0.9345029239766083,
+  "between_synthetic_seeds_pairs": {
+   "genB_amp40_s2024~genB_amp40_s7": 0.9140350877192982,
+   "genB_amp40_s2024~genB_amp40_s101": 0.9473684210526316,
+   "genB_amp40_s7~genB_amp40_s101": 0.9421052631578948
+  },
+  "pooled_135_images_vs_wound_mean": 0.21666666666666662,
+  "pooled_135_images_vs_wound": {
+   "medetec": 0.09824561403508772,
+   "co2wounds": 0.47017543859649114,
+   "fuseg": 0.07017543859649124,
+   "azh": 0.22807017543859648
+  },
+  "mean_over_seeds_vs_wound_mean": 0.20526315789473681,
+  "n_methods": 19,
+  "n_images_pooled": 135
+ },
+ "R3_M1_holm": {
+  "raw_p": {
+   "U": 0.0002886002886002886,
+   "F": 0.004617604617604618,
+   "K": 0.0005772005772005772,
+   "M19": 0.006060606060606061,
+   "U+F": 0.0001443001443001443,
+   "U+K": 0.0001443001443001443,
+   "U+M19": 0.0001443001443001443
+  },
+  "holm_adjusted_p": {
+   "U+F": 0.00101010101010101,
+   "U+K": 0.00101010101010101,
+   "U+M19": 0.00101010101010101,
+   "U": 0.0011544011544011544,
+   "K": 0.0017316017316017316,
+   "F": 0.009235209235209235,
+   "M19": 0.009235209235209235
+  },
+  "largest_adjusted_p": 0.009235209235209235,
+  "largest_adjusted_set": "F",
+  "n_tests": 7,
+  "source": "stats_v7.json exact/dice|<set>/full_55/p (exact relabelling test, 55 pairs, Dice, modality difference)",
+  "all_below_0.05": true
+ },
+ "R3_m16_different_source_wound_pairs": {
+  "U": {
+   "six_pairs": 0.35053319573443414,
+   "five_different_source_pairs": 0.4014447884416924,
+   "five_minus_six": 0.05091159270725826
+  },
+  "F": {
+   "six_pairs": 0.1641025641025641,
+   "five_different_source_pairs": 0.18417582417582418,
+   "five_minus_six": 0.020073260073260074
+  },
+  "K": {
+   "six_pairs": 0.3626373626373627,
+   "five_different_source_pairs": 0.44263736263736264,
+   "five_minus_six": 0.07999999999999996
+  },
+  "M19": {
+   "six_pairs": 0.20584795321637425,
+   "five_different_source_pairs": 0.20491228070175435,
+   "five_minus_six": -0.0009356725146199008
+  },
+  "U+F": {
+   "six_pairs": 0.5233382209188661,
+   "five_different_source_pairs": 0.49794721407624626,
+   "five_minus_six": -0.0253910068426198
+  },
+  "U+K": {
+   "six_pairs": 0.2701612903225807,
+   "five_different_source_pairs": 0.36151026392961877,
+   "five_minus_six": 0.09134897360703809
+  },
+  "U+M19": {
+   "six_pairs": 0.8180812391338709,
+   "five_different_source_pairs": 0.8238027501185398,
+   "five_minus_six": 0.005721510984668887
+  }
+ },
+ "R3_m2_split_half_reliability": {
+  "source": "stats_v7.json reliability/dice|<set>/<dataset>/spearman_brown_median (recomputed here and verified)",
+  "definition": "500 random half splits of units (default_rng(1), stats_v7 stream); Spearman between the two halves' method means; Spearman-Brown 2r/(1+r); median over splits",
+  "U": {
+   "per_dataset": {
+    "medetec": 0.9375,
+    "co2wounds": 0.9778481012658228,
+    "fuseg": 0.9789251844046364,
+    "azh": 0.9669509594882729,
+    "kvasir_disjoint": 0.9767687434002112,
+    "kvasir_sessile": 0.9535637149028079,
+    "cvc_clinicdb": 0.9937694704049844,
+    "cvc_colondb": 0.9937694704049844,
+    "etis_larib": 0.9647435897435896,
+    "ph2": 0.9895724713242962,
+    "tn3k_test": 0.9909978866676298
+   },
+   "range_11_clinical": [
+    0.9375,
+    0.9937694704049844
+   ],
+   "range_4_wound": [
+    0.9375,
+    0.9789251844046364
+   ]
+  },
+  "F": {
+   "per_dataset": {
+    "medetec": 0.9705882352941176,
+    "co2wounds": 0.9635535307517085,
+    "fuseg": 0.8451776649746192,
+    "azh": 0.9467592592592593,
+    "kvasir_disjoint": 0.9933628318584071,
+    "kvasir_sessile": 0.9702801044850478,
+    "cvc_clinicdb": 0.9866369710467705,
+    "cvc_colondb": 0.9775280898876404,
+    "etis_larib": 0.9393939393939394,
+    "ph2": 0.9843750000000002,
+    "tn3k_test": 0.9097937864032103
+   },
+   "range_11_clinical": [
+    0.8451776649746192,
+    0.9933628318584071
+   ],
+   "range_4_wound": [
+    0.8451776649746192,
+    0.9705882352941176
+   ]
+  },
+  "K": {
+   "per_dataset": {
+    "medetec": 0.8596491228070176,
+    "co2wounds": 0.9540229885057472,
+    "fuseg": 0.8392857142857142,
+    "azh": 0.9418604651162791,
+    "kvasir_disjoint": 0.895631067961165,
+    "kvasir_sessile": 0.9491916859122402,
+    "cvc_clinicdb": 0.9752252252252253,
+    "cvc_colondb": 0.9491916859122402,
+    "etis_larib": 0.9418604651162791,
+    "ph2": 0.9729119638826185,
+    "tn3k_test": 0.9883141589467528
+   },
+   "range_11_clinical": [
+    0.8392857142857142,
+    0.9883141589467528
+   ],
+   "range_4_wound": [
+    0.8392857142857142,
+    0.9540229885057472
+   ]
+  },
+  "M19": {
+   "per_dataset": {
+    "medetec": 0.8735177865612648,
+    "co2wounds": 0.8662354232812082,
+    "fuseg": 0.8223140495867767,
+    "azh": 0.9245283018867924,
+    "kvasir_disjoint": 0.9214758751182592,
+    "kvasir_sessile": 0.9038461538461537,
+    "cvc_clinicdb": 0.8259526261585992,
+    "cvc_colondb": 0.5696361355081556,
+    "etis_larib": 0.8050314465408804,
+    "ph2": 0.9385474860335195,
+    "tn3k_test": 0.9000477588395617
+   },
+   "range_11_clinical": [
+    0.5696361355081556,
+    0.9385474860335195
+   ],
+   "range_4_wound": [
+    0.8223140495867767,
+    0.9245283018867924
+   ]
+  },
+  "U_F_K_pooled_range_11_clinical": [
+   0.8392857142857142,
+   0.9937694704049844
+  ]
+ },
+ "R3_m1_stratification_identity": {
+  "dice|U+M19": {
+   "max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng": 0.0016028634112643042,
+   "pair_of_max": "azh~tn3k_test",
+   "wound_pair_mean_diff": 0.0,
+   "max_abs_wound_single_pair_diff": 5.551115123125783e-17,
+   "mean_over_55_pairs_diff": 3.82492255679357e-05,
+   "pearson_on_percentiles_wound_pairs": 0.2762239010116769,
+   "weighted_avg_ng_minus_1_over_ng_wound_pairs": 0.2762239010116769,
+   "weighted_avg_ng_wound_pairs_stats_v7": 0.2762353684954304,
+   "weights_ng_minus_1_over_ng": {
+    "U": 17.944444444444443,
+    "M19": 18.94736842105263
+   },
+   "max_abs_pair_diff_ng_vs_ng_minus_1_over_ng": 8.162454177769972e-05
+  },
+  "nsd|U+M19": {
+   "max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng": 0.0009458607967199294,
+   "pair_of_max": "co2wounds~tn3k_test",
+   "wound_pair_mean_diff": 0.0,
+   "max_abs_wound_single_pair_diff": 1.1102230246251565e-16,
+   "mean_over_55_pairs_diff": 1.5897899375606067e-05,
+   "pearson_on_percentiles_wound_pairs": 0.5481859386782985,
+   "weighted_avg_ng_minus_1_over_ng_wound_pairs": 0.5481859386782985,
+   "weighted_avg_ng_wound_pairs_stats_v7": 0.5481972684759062,
+   "weights_ng_minus_1_over_ng": {
+    "U": 17.944444444444443,
+    "M19": 18.94736842105263
+   },
+   "max_abs_pair_diff_ng_vs_ng_minus_1_over_ng": 6.250678376912289e-05
+  },
+  "dice|U+F": {
+   "max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng": 0.0054157784557322675,
+   "pair_of_max": "kvasir_sessile~tn3k_test",
+   "wound_pair_mean_diff": 0.0,
+   "max_abs_wound_single_pair_diff": 2.220446049250313e-16,
+   "mean_over_55_pairs_diff": 0.0003281034851612368,
+   "pearson_on_percentiles_wound_pairs": 0.2690626383355467,
+   "weighted_avg_ng_minus_1_over_ng_wound_pairs": 0.2690626383355467,
+   "weighted_avg_ng_wound_pairs_stats_v7": 0.268969794395491,
+   "weights_ng_minus_1_over_ng": {
+    "U": 17.944444444444443,
+    "F": 13.928571428571429
+   },
+   "max_abs_pair_diff_ng_vs_ng_minus_1_over_ng": 0.00043347855134756585
+  },
+  "nsd|U+F": {
+   "max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng": 0.00515897231510681,
+   "pair_of_max": "cvc_colondb~tn3k_test",
+   "wound_pair_mean_diff": 5.551115123125783e-17,
+   "max_abs_wound_single_pair_diff": 1.6653345369377348e-16,
+   "mean_over_55_pairs_diff": 0.0002090511187694176,
+   "pearson_on_percentiles_wound_pairs": 0.48698460127743,
+   "weighted_avg_ng_minus_1_over_ng_wound_pairs": 0.48698460127742993,
+   "weighted_avg_ng_wound_pairs_stats_v7": 0.4868311899658649,
+   "weights_ng_minus_1_over_ng": {
+    "U": 17.944444444444443,
+    "F": 13.928571428571429
+   },
+   "max_abs_pair_diff_ng_vs_ng_minus_1_over_ng": 0.0005667754141351344
+  }
+ },
+ "R2_M3_scale": {
+  "sift_scale_fuseg_px_per_azh_px": {
+   "median_all_61_matched_test_images": 1.1990757592671357,
+   "n_all": 61,
+   "quartiles_all": [
+    1.198769994627095,
+    1.1993622369831871
+   ],
+   "min_all": 1.1970117015964867,
+   "max_all": 1.4222574128245757,
+   "median_matched_and_kept": 1.1990758800066006,
+   "n_matched_and_kept": 57,
+   "median_control_crops": 1.1992218479818426,
+   "n_control_crops": 71,
+   "source": "results/v7/azh_overlap_v7.json azh_test/matches/*/scale (similarity transform AZH -> FUSeg frame, scale = FUSeg pixels per AZH pixel)"
+  },
+  "image_sizes_px": {
+   "azh": 224,
+   "fuseg": 512,
+   "pretrained_input_long_side": 256,
+   "source": "results/v7/black_share_v7.json sets/<set>/size, kept images"
+  },
+  "magnification_vs_fuseg_training_input": {
+   "pretrained_letterbox": 1.9062300843370343,
+   "nnunet_native": 0.8339756618974525,
+   "formula_pretrained": "(256/224) / (scale x 256/512) = 512 / (224 x scale)",
+   "formula_nnunet": "1 / scale"
+  },
+  "median_lesion_px_in_pretrained_input": {
+   "azh": 1279.3469387755104,
+   "fuseg": 503.375,
+   "definition": "median over non-empty references of lesion fraction x 256 x 256"
+  },
+  "dice_when_detected_azh": {
+   "P18_architecture_mean": 0.7885863415656638,
+   "P18_n_architectures": 18,
+   "P18_n_models": 51,
+   "P10_architecture_mean": 0.7870684748699469,
+   "N8_architecture_mean": 0.7904836749353097,
+   "nnunet": 0.6826931231734649,
+   "v6_style_10_seed0_models_mean": 0.79301740978703,
+   "per_architecture": {
+    "unet_r18_in": 0.8263465201836772,
+    "unetpp_r18_in": 0.8017119458548253,
+    "deeplabv3p_r18_in": 0.7953132235006631,
+    "fpn_r18_in": 0.7610656406410975,
+    "pspnet_r18_in": 0.7113696412718422,
+    "linknet_r18_in": 0.7831154585915135,
+    "manet_r18_in": 0.8342331659314213,
+    "segformer_mitb0_in": 0.7565568725573089,
+    "unet_mbv2_in": 0.8230498666637501,
+    "unet_effb0_in": 0.7779224135033701,
+    "unet_r50": 0.8027429915641878,
+    "deeplabv3p_r50": 0.7958454585177233,
+    "upernet_convnext_t": 0.7437160934798142,
+    "unet_swin_t": 0.7914839853306544,
+    "segformer_mitb2": 0.8011481312252986,
+    "unet_effb3": 0.7973060148381589,
+    "fpn_regnety016": 0.7468221350052096,
+    "manet_r50": 0.8448045895214302
+   },
+   "definition": "mean Dice over non-empty AZH references with Dice >= 0.1, per model; architecture = mean over its seeds; group = mean over architectures"
+  },
+  "dice_when_detected_fuseg": {
+   "P18_architecture_mean": 0.832146616015552,
+   "nnunet": 0.8539741041522446
+  }
+ },
+ "R2_M5_oracle_grid_censoring": {
+  "medetec": {
+   "share_at_grid_min_0.05": 0.9230769230769231,
+   "n_at_grid_min": 48,
+   "n_models": 52,
+   "median_oracle_thr": 0.05
+  },
+  "co2wounds": {
+   "share_at_grid_min_0.05": 0.9615384615384616,
+   "n_at_grid_min": 50,
+   "n_models": 52,
+   "median_oracle_thr": 0.05
+  },
+  "fuseg": {
+   "share_at_grid_min_0.05": 0.0,
+   "n_at_grid_min": 0,
+   "n_models": 52,
+   "median_oracle_thr": 0.4
+  },
+  "azh": {
+   "share_at_grid_min_0.05": 0.40384615384615385,
+   "n_at_grid_min": 21,
+   "n_models": 52,
+   "median_oracle_thr": 0.1
+  },
+  "models": "the 52 individual models behind M19, that is 51 pretrained seed models and nnU-Net (robust_v7 definitions/seed_members); the Kvasir-trained models also listed in threshold/oracle_individual are not counted",
+  "non_wound_share_range": [
+   0.9615384615384616,
+   1.0
+  ]
+ },
+ "R2_13_nsd_vs_dice_wound_pairs": {
+  "U": {
+   "dice": 0.35053319573443414,
+   "nsd": 0.6216030271757825
+  },
+  "F": {
+   "dice": 0.1641025641025641,
+   "nsd": 0.31355311355311355
+  },
+  "K": {
+   "dice": 0.3626373626373627,
+   "nsd": 0.2600732600732601
+  }
+ },
+ "R2_M6_floor": {
+  "U_wound_pairs_without_fuseg_3pairs": 0.348469212246302,
+  "U_wound_pairs_6": 0.35053319573443414,
+  "pairs": [
+   "medetec~co2wounds",
+   "medetec~azh",
+   "co2wounds~azh"
+  ],
+  "mean_dice": {
+   "U": {
+    "medetec": 0.29154950101457433,
+    "co2wounds": 0.18759494481746222,
+    "fuseg": 0.061046285576261225,
+    "azh": 0.29619551731642263,
+    "kvasir_disjoint": 0.2290917928015689,
+    "kvasir_sessile": 0.11089232278606587,
+    "cvc_clinicdb": 0.1795329516106206,
+    "cvc_colondb": 0.12504690191756654,
+    "etis_larib": 0.06726665032629042,
+    "ph2": 0.4902943442785441,
+    "tn3k_test": 0.10178138010814435,
+    "azh_train_slice": 0.24875703873309638
+   },
+   "F": {
+    "medetec": 0.35595596889385256,
+    "co2wounds": 0.2773826434434413,
+    "fuseg": 0.5307220858330101,
+    "azh": 0.42112018428544784,
+    "kvasir_disjoint": 0.12674950557777057,
+    "kvasir_sessile": 0.0534925524605429,
+    "cvc_clinicdb": 0.0891429546056787,
+    "cvc_colondb": 0.05128160586456578,
+    "etis_larib": 0.015097143348179133,
+    "ph2": 0.08117743724896528,
+    "tn3k_test": 0.0072477315806767,
+    "azh_train_slice": 0.2890631115148545
+   },
+   "K": {
+    "medetec": 0.2870430438315357,
+    "co2wounds": 0.27147365240556004,
+    "fuseg": 0.07587344029719416,
+    "azh": 0.1955820543164895,
+    "kvasir_disjoint": 0.6377960484007096,
+    "kvasir_sessile": 0.3517548665887609,
+    "cvc_clinicdb": 0.410325655828728,
+    "cvc_colondb": 0.2939513846304736,
+    "etis_larib": 0.21104200594329556,
+    "ph2": 0.12640418939740886,
+    "tn3k_test": 0.0725139486193634,
+    "azh_train_slice": 0.1614294883162776
+   },
+   "M19": {
+    "medetec": 0.7092556501519399,
+    "co2wounds": 0.43800829210115605,
+    "fuseg": 0.7980646886022233,
+    "azh": 0.5820714824405262,
+    "kvasir_disjoint": 0.06338147567074089,
+    "kvasir_sessile": 0.021881560717170446,
+    "cvc_clinicdb": 0.06777240790653444,
+    "cvc_colondb": 0.006677034503469585,
+    "etis_larib": 0.02267220758704617,
+    "ph2": 0.04803823511687561,
+    "tn3k_test": 0.014996159613026104,
+    "azh_train_slice": 0.479791535314785
+   }
+  },
+  "below_0.1": {
+   "U": [
+    "fuseg",
+    "etis_larib"
+   ],
+   "F": [
+    "kvasir_sessile",
+    "cvc_clinicdb",
+    "cvc_colondb",
+    "etis_larib",
+    "ph2",
+    "tn3k_test"
+   ],
+   "K": [
+    "fuseg",
+    "tn3k_test"
+   ],
+   "M19": [
+    "kvasir_disjoint",
+    "kvasir_sessile",
+    "cvc_clinicdb",
+    "cvc_colondb",
+    "etis_larib",
+    "ph2",
+    "tn3k_test"
+   ]
+  },
+  "n_nonwound_below_0.1|U": 1,
+  "n_nonwound_below_0.1|F": 6,
+  "n_nonwound_below_0.1|K": 1,
+  "n_nonwound_below_0.1|M19": 7
+ },
+ "R2_7_segformer_vs_nnunet_azh": {
+  "segformer_mitb2_seedavg_mean_dice": 0.7084186026708059,
+  "nnunet_mean_dice": 0.6272606776470105,
+  "segformer_mitb2_miss_rate_seed_mean": 0.12254901960784315,
+  "segformer_mitb2_miss_rate_per_seed": {
+   "0": 0.1323529411764706,
+   "1": 0.10294117647058823,
+   "2": 0.1323529411764706
+  },
+  "nnunet_miss_rate": 0.014705882352941176,
+  "nnunet_miss_ci95": [
+   0.0,
+   0.03704394693200659
+  ],
+  "segformer_mitb2_miss_ci95_of_seed_mean": [
+   0.07380411255411255,
+   0.1728518518518518
+  ],
+  "azh_top_mean_dice_in_M19": "segformer_mitb2@seeds"
+ },
+ "R3_M7_oracle_minus_main": {
+  "M19_wound_pairs_change": {
+   "est": -0.09035087719298245,
+   "ci95": [
+    -0.2800473630949419,
+    0.09117664595493612
+   ]
+  },
+  "M19_wound_pairs_oracle": {
+   "est": 0.1154970760233918,
+   "ci": [
+    -0.1364082541001382,
+    0.39132785465989844
+   ]
+  },
+  "M19_wound_pairs_default": {
+   "est": 0.20584795321637425,
+   "ci": [
+    -0.07044964010465983,
+    0.49129597308795864
+   ]
+  },
+  "source": "robust_v7.json threshold/delta_vs_default/M19|oracle|wound pairs (read only)"
+ },
+ "verification": {
+  "n_checks": 297,
+  "all_passed": true,
+  "checks": [
+   {
+    "what": "n_units medetec vs stats_v7",
+    "recomputed": 38.0,
+    "file": 38.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images medetec vs stats_v7",
+    "recomputed": 152.0,
+    "file": 152.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units co2wounds vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images co2wounds vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units fuseg vs stats_v7",
+    "recomputed": 112.0,
+    "file": 112.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images fuseg vs stats_v7",
+    "recomputed": 112.0,
+    "file": 112.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units azh vs stats_v7",
+    "recomputed": 118.0,
+    "file": 118.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images azh vs stats_v7",
+    "recomputed": 146.0,
+    "file": 146.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units kvasir_disjoint vs stats_v7",
+    "recomputed": 120.0,
+    "file": 120.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images kvasir_disjoint vs stats_v7",
+    "recomputed": 120.0,
+    "file": 120.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units kvasir_sessile vs stats_v7",
+    "recomputed": 120.0,
+    "file": 120.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images kvasir_sessile vs stats_v7",
+    "recomputed": 120.0,
+    "file": 120.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units cvc_clinicdb vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images cvc_clinicdb vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units cvc_colondb vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images cvc_colondb vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units etis_larib vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images etis_larib vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units ph2 vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images ph2 vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units tn3k_test vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images tn3k_test vs stats_v7",
+    "recomputed": 150.0,
+    "file": 150.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_units azh_train_slice vs stats_v7",
+    "recomputed": 71.0,
+    "file": 71.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "n_images azh_train_slice vs stats_v7",
+    "recomputed": 78.0,
+    "file": 78.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 rbar_wound",
+    "recomputed": 0.5541666666666666,
+    "file": 0.5541666666666666,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 crossseed|wound pairs",
+    "recomputed": 0.05879629629629627,
+    "file": 0.058796296296296284,
+    "abs_diff": 1.3877787807814457e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 gap",
+    "recomputed": 0.4953703703703703,
+    "file": 0.4953703703703703,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|N7 rbar_wound",
+    "recomputed": 0.2678571428571429,
+    "file": 0.2678571428571429,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|N7 crossseed|wound pairs",
+    "recomputed": 0.189484126984127,
+    "file": 0.18948412698412703,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|N7 gap",
+    "recomputed": 0.0783730158730159,
+    "file": 0.07837301587301587,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|C16 rbar_wound",
+    "recomputed": 0.44019607843137254,
+    "file": 0.44019607843137254,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|C16 crossseed|wound pairs",
+    "recomputed": 0.0897058823529412,
+    "file": 0.08970588235294118,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|C16 gap",
+    "recomputed": 0.35049019607843135,
+    "file": 0.35049019607843135,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 mean_r01_over_11_refs",
+    "recomputed": 0.3490350257818621,
+    "file": 0.3490350257818621,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 mean_r02_over_11_refs",
+    "recomputed": 0.34554983842061054,
+    "file": 0.34554983842061054,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 mean_r12_over_11_refs",
+    "recomputed": 0.5417638536806515,
+    "file": 0.5417638536806515,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 gap units_only interval lo (draws reproduced)",
+    "recomputed": 0.3268171296296296,
+    "file": 0.32681712962962955,
+    "abs_diff": 5.551115123125783e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|P9 gap units_only interval hi (draws reproduced)",
+    "recomputed": 0.6138888888888888,
+    "file": 0.6138888888888888,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|N7 gap units_only interval lo (draws reproduced)",
+    "recomputed": -0.04474206349206349,
+    "file": -0.044742063492063465,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|N7 gap units_only interval hi (draws reproduced)",
+    "recomputed": 0.304563492063492,
+    "file": 0.304563492063492,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|C16 gap units_only interval lo (draws reproduced)",
+    "recomputed": 0.2423182189542484,
+    "file": 0.2423182189542484,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "seeds dice|C16 gap units_only interval hi (draws reproduced)",
+    "recomputed": 0.4828553921568628,
+    "file": 0.4828553921568628,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/offdiag_mean",
+    "recomputed": 0.047639330925014635,
+    "file": 0.047639330925014635,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/random_mean_over_B",
+    "recomputed": 0.06332797983377873,
+    "file": 0.06332797983377875,
+    "abs_diff": 1.3877787807814457e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/random_choice_expected_loss/medetec",
+    "recomputed": 0.06148602081593412,
+    "file": 0.06148602081593412,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/medetec/medetec",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/co2wounds/medetec",
+    "recomputed": 0.039205120447453834,
+    "file": 0.039205120447453834,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/fuseg/medetec",
+    "recomputed": 0.11339349014543698,
+    "file": 0.11339349014543698,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/azh/medetec",
+    "recomputed": 0.039205120447453834,
+    "file": 0.039205120447453834,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/random_choice_expected_loss/co2wounds",
+    "recomputed": 0.036325433656617445,
+    "file": 0.036325433656617445,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/medetec/co2wounds",
+    "recomputed": 0.03209105699211806,
+    "file": 0.03209105699211806,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/co2wounds/co2wounds",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/fuseg/co2wounds",
+    "recomputed": 0.06914479327166123,
+    "file": 0.06914479327166123,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/azh/co2wounds",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/random_choice_expected_loss/fuseg",
+    "recomputed": 0.029153344632283893,
+    "file": 0.029153344632283893,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/medetec/fuseg",
+    "recomputed": 0.0070747357850147186,
+    "file": 0.0070747357850147186,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/co2wounds/fuseg",
+    "recomputed": 0.02093007367216304,
+    "file": 0.02093007367216304,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/fuseg/fuseg",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/azh/fuseg",
+    "recomputed": 0.02093007367216304,
+    "file": 0.02093007367216304,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/random_choice_expected_loss/azh",
+    "recomputed": 0.12634712023027955,
+    "file": 0.12634712023027955,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/medetec/azh",
+    "recomputed": 0.11023221464310617,
+    "file": 0.11023221464310617,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/co2wounds/azh",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/fuseg/azh",
+    "recomputed": 0.11946529202360467,
+    "file": 0.11946529202360467,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19/matrix/azh/azh",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19 FUSeg row mean over the other 3",
+    "recomputed": 0.1006678584802343,
+    "file": 0.1006678584802343,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/offdiag_mean",
+    "recomputed": 0.05871638389957007,
+    "file": 0.05871638389957007,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/random_mean_over_B",
+    "recomputed": 0.059837769058550316,
+    "file": 0.059837769058550386,
+    "abs_diff": 6.938893903907228e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/random_choice_expected_loss/medetec",
+    "recomputed": 0.054513150942322994,
+    "file": 0.054513150942322994,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/medetec/medetec",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/co2wounds/medetec",
+    "recomputed": 0.04498073385844226,
+    "file": 0.04498073385844226,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/fuseg/medetec",
+    "recomputed": 0.020715448694014982,
+    "file": 0.020715448694014982,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/azh/medetec",
+    "recomputed": 0.03343932522552495,
+    "file": 0.03343932522552495,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/random_choice_expected_loss/co2wounds",
+    "recomputed": 0.04471689717038453,
+    "file": 0.04471689717038453,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/medetec/co2wounds",
+    "recomputed": 0.052950496389134905,
+    "file": 0.052950496389134905,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/co2wounds/co2wounds",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/fuseg/co2wounds",
+    "recomputed": 0.06185894343288861,
+    "file": 0.06185894343288861,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/azh/co2wounds",
+    "recomputed": 0.0035732644810927416,
+    "file": 0.0035732644810927416,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/random_choice_expected_loss/fuseg",
+    "recomputed": 0.03125726895283236,
+    "file": 0.03125726895283236,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/medetec/fuseg",
+    "recomputed": 0.040925232702860304,
+    "file": 0.040925232702860304,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/co2wounds/fuseg",
+    "recomputed": 0.054094589805763205,
+    "file": 0.054094589805763205,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/fuseg/fuseg",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/azh/fuseg",
+    "recomputed": 0.02233995553695678,
+    "file": 0.02233995553695678,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/random_choice_expected_loss/azh",
+    "recomputed": 0.10886375916866163,
+    "file": 0.10886375916866163,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/medetec/azh",
+    "recomputed": 0.19550233184308552,
+    "file": 0.19550233184308552,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/co2wounds/azh",
+    "recomputed": 0.09179184246258443,
+    "file": 0.09179184246258443,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/fuseg/azh",
+    "recomputed": 0.08242444236249213,
+    "file": 0.08242444236249213,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s0/matrix/azh/azh",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/offdiag_mean",
+    "recomputed": 0.07707460057334178,
+    "file": 0.07707460057334178,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/random_mean_over_B",
+    "recomputed": 0.08467132100388457,
+    "file": 0.08467132100388455,
+    "abs_diff": 1.3877787807814457e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/random_choice_expected_loss/medetec",
+    "recomputed": 0.08964236547426134,
+    "file": 0.08964236547426134,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/medetec/medetec",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/co2wounds/medetec",
+    "recomputed": 0.031014877877691527,
+    "file": 0.031014877877691527,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/fuseg/medetec",
+    "recomputed": 0.13385251856593028,
+    "file": 0.13385251856593028,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/azh/medetec",
+    "recomputed": 0.06039109984814339,
+    "file": 0.06039109984814339,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/random_choice_expected_loss/co2wounds",
+    "recomputed": 0.06797385641745285,
+    "file": 0.06797385641745285,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/medetec/co2wounds",
+    "recomputed": 0.04676331708297732,
+    "file": 0.04676331708297732,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/co2wounds/co2wounds",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/fuseg/co2wounds",
+    "recomputed": 0.10175729298134306,
+    "file": 0.10175729298134306,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/azh/co2wounds",
+    "recomputed": 0.03389466826341697,
+    "file": 0.03389466826341697,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/random_choice_expected_loss/fuseg",
+    "recomputed": 0.028944947189921303,
+    "file": 0.028944947189921303,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/medetec/fuseg",
+    "recomputed": 0.012934792380315807,
+    "file": 0.012934792380315807,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/co2wounds/fuseg",
+    "recomputed": 0.026327934679524434,
+    "file": 0.026327934679524434,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/fuseg/fuseg",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/azh/fuseg",
+    "recomputed": 0.022559919690681718,
+    "file": 0.022559919690681718,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/random_choice_expected_loss/azh",
+    "recomputed": 0.15212411493390274,
+    "file": 0.15212411493390274,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/medetec/azh",
+    "recomputed": 0.1532108827475429,
+    "file": 0.1532108827475429,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/co2wounds/azh",
+    "recomputed": 0.1544222934352958,
+    "file": 0.1544222934352958,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/fuseg/azh",
+    "recomputed": 0.14776560932723826,
+    "file": 0.14776560932723826,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s1/matrix/azh/azh",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/offdiag_mean",
+    "recomputed": 0.0533844378439779,
+    "file": 0.0533844378439779,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/random_mean_over_B",
+    "recomputed": 0.05881069487794435,
+    "file": 0.058810694877944325,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/random_choice_expected_loss/medetec",
+    "recomputed": 0.0558562615786122,
+    "file": 0.0558562615786122,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/medetec/medetec",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/co2wounds/medetec",
+    "recomputed": 0.0046128636934065215,
+    "file": 0.0046128636934065215,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/fuseg/medetec",
+    "recomputed": 0.08782871025645345,
+    "file": 0.08782871025645345,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/azh/medetec",
+    "recomputed": 0.04230890241441687,
+    "file": 0.04230890241441687,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/random_choice_expected_loss/co2wounds",
+    "recomputed": 0.03726528231892366,
+    "file": 0.03726528231892366,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/medetec/co2wounds",
+    "recomputed": 0.014714531964366118,
+    "file": 0.014714531964366118,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/co2wounds/co2wounds",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/fuseg/co2wounds",
+    "recomputed": 0.04305159218451643,
+    "file": 0.04305159218451643,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/azh/co2wounds",
+    "recomputed": 0.006808273095911588,
+    "file": 0.006808273095911588,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/random_choice_expected_loss/fuseg",
+    "recomputed": 0.021757210979946835,
+    "file": 0.021757210979946835,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/medetec/fuseg",
+    "recomputed": 0.03373974409019609,
+    "file": 0.03373974409019609,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/co2wounds/fuseg",
+    "recomputed": 0.02409449683019238,
+    "file": 0.02409449683019238,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/fuseg/fuseg",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/azh/fuseg",
+    "recomputed": 0.007831886691975765,
+    "file": 0.007831886691975765,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/random_choice_expected_loss/azh",
+    "recomputed": 0.1203640246342946,
+    "file": 0.1203640246342946,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/medetec/azh",
+    "recomputed": 0.1904356666379422,
+    "file": 0.1904356666379422,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/co2wounds/azh",
+    "recomputed": 0.06598702919997257,
+    "file": 0.06598702919997257,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/fuseg/azh",
+    "recomputed": 0.11919955706838481,
+    "file": 0.11919955706838481,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical selection/M19_s2/matrix/azh/azh",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/U/40/co2wounds|bench",
+    "recomputed": 0.8046095631234951,
+    "file": 0.8046095631234951,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/U/40/azh|bench",
+    "recomputed": 0.31750945992432056,
+    "file": 0.31750945992432056,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/U/40/co2wounds|bench interval lo (same method draws)",
+    "recomputed": 0.5567333669842098,
+    "file": 0.5567333669842098,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/U/40/co2wounds|bench interval hi (same method draws)",
+    "recomputed": 0.9077523413111341,
+    "file": 0.9077523413111341,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/K/40/azh|bench",
+    "recomputed": 0.5589743589743591,
+    "file": 0.5589743589743591,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/K/40/fuseg|bench",
+    "recomputed": -0.3377289377289377,
+    "file": -0.3377289377289377,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/K/40/azh|bench interval lo (same method draws)",
+    "recomputed": -0.027746302645078994,
+    "file": -0.027746302645078994,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/K/40/azh|bench interval hi (same method draws)",
+    "recomputed": 0.8817923877835481,
+    "file": 0.8817923877835481,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/M19/40/co2wounds|bench",
+    "recomputed": 0.4719298245614034,
+    "file": 0.4719298245614034,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/M19/40/fuseg|bench",
+    "recomputed": 0.045614035087719294,
+    "file": 0.045614035087719294,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/M19/40/co2wounds|bench interval lo (same method draws)",
+    "recomputed": -0.006517863951803565,
+    "file": -0.006517863951803565,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/M19/40/co2wounds|bench interval hi (same method draws)",
+    "recomputed": 0.8376076641891165,
+    "file": 0.8376076641891165,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/groups/P10_archmean/est",
+    "recomputed": 0.311764705882353,
+    "file": 0.311764705882353,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/groups/N8_archmean/est",
+    "recomputed": 0.25520833333333337,
+    "file": 0.25520833333333337,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/groups/P10_archmean/ci lo (unit draws reproduced)",
+    "recomputed": 0.23868092572850033,
+    "file": 0.23868092572850033,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/groups/N8_archmean/ci hi (unit draws reproduced)",
+    "recomputed": 0.3203349130805737,
+    "file": 0.3203349130805737,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "bench rel/M19/40/mean|bench",
+    "recomputed": 0.20526315789473681,
+    "file": 0.2052631578947368,
+    "abs_diff": 2.7755575615628914e-17,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U/wound pairs",
+    "recomputed": 0.35053319573443414,
+    "file": 0.35053319573443414,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U/wound different-source pairs",
+    "recomputed": 0.4014447884416924,
+    "file": 0.4014447884416924,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|F/wound pairs",
+    "recomputed": 0.1641025641025641,
+    "file": 0.1641025641025641,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|F/wound different-source pairs",
+    "recomputed": 0.18417582417582418,
+    "file": 0.18417582417582418,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|K/wound pairs",
+    "recomputed": 0.3626373626373627,
+    "file": 0.3626373626373627,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|K/wound different-source pairs",
+    "recomputed": 0.44263736263736264,
+    "file": 0.44263736263736264,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|M19/wound pairs",
+    "recomputed": 0.20584795321637425,
+    "file": 0.20584795321637425,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|M19/wound different-source pairs",
+    "recomputed": 0.20491228070175435,
+    "file": 0.20491228070175435,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+F/wound pairs",
+    "recomputed": 0.5233382209188661,
+    "file": 0.5233382209188661,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+F/wound different-source pairs",
+    "recomputed": 0.49794721407624626,
+    "file": 0.49794721407624626,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+K/wound pairs",
+    "recomputed": 0.2701612903225807,
+    "file": 0.2701612903225807,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+K/wound different-source pairs",
+    "recomputed": 0.36151026392961877,
+    "file": 0.36151026392961877,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+M19/wound pairs",
+    "recomputed": 0.8180812391338709,
+    "file": 0.8180812391338709,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/dice|U+M19/wound different-source pairs",
+    "recomputed": 0.8238027501185398,
+    "file": 0.8238027501185398,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U/wound pairs",
+    "recomputed": 0.6216030271757825,
+    "file": 0.6216030271757825,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U/wound different-source pairs",
+    "recomputed": 0.6008255933952529,
+    "file": 0.6008255933952529,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|F/wound pairs",
+    "recomputed": 0.31355311355311355,
+    "file": 0.31355311355311355,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|F/wound different-source pairs",
+    "recomputed": 0.20527472527472526,
+    "file": 0.20527472527472526,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|K/wound pairs",
+    "recomputed": 0.2600732600732601,
+    "file": 0.2600732600732601,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|K/wound different-source pairs",
+    "recomputed": 0.2624175824175824,
+    "file": 0.2624175824175824,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|M19/wound pairs",
+    "recomputed": 0.47865497076023383,
+    "file": 0.47865497076023383,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|M19/wound different-source pairs",
+    "recomputed": 0.4950877192982455,
+    "file": 0.4950877192982455,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+F/wound pairs",
+    "recomputed": 0.5545576735092864,
+    "file": 0.5545576735092864,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+F/wound different-source pairs",
+    "recomputed": 0.5088709677419354,
+    "file": 0.5088709677419354,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+K/wound pairs",
+    "recomputed": 0.5537023460410556,
+    "file": 0.5537023460410556,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+K/wound different-source pairs",
+    "recomputed": 0.5351173020527857,
+    "file": 0.5351173020527857,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+M19/wound pairs",
+    "recomputed": 0.8849770823455034,
+    "file": 0.8849770823455034,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats point/nsd|U+M19/wound different-source pairs",
+    "recomputed": 0.8848269321953532,
+    "file": 0.8848269321953532,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/medetec/spearman_brown_median",
+    "recomputed": 0.9375,
+    "file": 0.9375,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/co2wounds/spearman_brown_median",
+    "recomputed": 0.9778481012658228,
+    "file": 0.9778481012658228,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/fuseg/spearman_brown_median",
+    "recomputed": 0.9789251844046364,
+    "file": 0.9789251844046364,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/azh/spearman_brown_median",
+    "recomputed": 0.9669509594882729,
+    "file": 0.9669509594882729,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/kvasir_disjoint/spearman_brown_median",
+    "recomputed": 0.9767687434002112,
+    "file": 0.9767687434002112,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/kvasir_sessile/spearman_brown_median",
+    "recomputed": 0.9535637149028079,
+    "file": 0.9535637149028079,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/cvc_clinicdb/spearman_brown_median",
+    "recomputed": 0.9937694704049844,
+    "file": 0.9937694704049844,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/cvc_colondb/spearman_brown_median",
+    "recomputed": 0.9937694704049844,
+    "file": 0.9937694704049844,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/etis_larib/spearman_brown_median",
+    "recomputed": 0.9647435897435896,
+    "file": 0.9647435897435896,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/ph2/spearman_brown_median",
+    "recomputed": 0.9895724713242962,
+    "file": 0.9895724713242962,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|U/tn3k_test/spearman_brown_median",
+    "recomputed": 0.9909978866676298,
+    "file": 0.9909978866676298,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/medetec/spearman_brown_median",
+    "recomputed": 0.9705882352941176,
+    "file": 0.9705882352941176,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/co2wounds/spearman_brown_median",
+    "recomputed": 0.9635535307517085,
+    "file": 0.9635535307517085,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/fuseg/spearman_brown_median",
+    "recomputed": 0.8451776649746192,
+    "file": 0.8451776649746192,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/azh/spearman_brown_median",
+    "recomputed": 0.9467592592592593,
+    "file": 0.9467592592592593,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/kvasir_disjoint/spearman_brown_median",
+    "recomputed": 0.9933628318584071,
+    "file": 0.9933628318584071,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/kvasir_sessile/spearman_brown_median",
+    "recomputed": 0.9702801044850478,
+    "file": 0.9702801044850478,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/cvc_clinicdb/spearman_brown_median",
+    "recomputed": 0.9866369710467705,
+    "file": 0.9866369710467705,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/cvc_colondb/spearman_brown_median",
+    "recomputed": 0.9775280898876404,
+    "file": 0.9775280898876404,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/etis_larib/spearman_brown_median",
+    "recomputed": 0.9393939393939394,
+    "file": 0.9393939393939394,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/ph2/spearman_brown_median",
+    "recomputed": 0.9843750000000002,
+    "file": 0.9843750000000002,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|F/tn3k_test/spearman_brown_median",
+    "recomputed": 0.9097937864032103,
+    "file": 0.9097937864032103,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/medetec/spearman_brown_median",
+    "recomputed": 0.8596491228070176,
+    "file": 0.8596491228070176,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/co2wounds/spearman_brown_median",
+    "recomputed": 0.9540229885057472,
+    "file": 0.9540229885057472,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/fuseg/spearman_brown_median",
+    "recomputed": 0.8392857142857142,
+    "file": 0.8392857142857142,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/azh/spearman_brown_median",
+    "recomputed": 0.9418604651162791,
+    "file": 0.9418604651162791,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/kvasir_disjoint/spearman_brown_median",
+    "recomputed": 0.895631067961165,
+    "file": 0.895631067961165,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/kvasir_sessile/spearman_brown_median",
+    "recomputed": 0.9491916859122402,
+    "file": 0.9491916859122402,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/cvc_clinicdb/spearman_brown_median",
+    "recomputed": 0.9752252252252253,
+    "file": 0.9752252252252253,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/cvc_colondb/spearman_brown_median",
+    "recomputed": 0.9491916859122402,
+    "file": 0.9491916859122402,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/etis_larib/spearman_brown_median",
+    "recomputed": 0.9418604651162791,
+    "file": 0.9418604651162791,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/ph2/spearman_brown_median",
+    "recomputed": 0.9729119638826185,
+    "file": 0.9729119638826185,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|K/tn3k_test/spearman_brown_median",
+    "recomputed": 0.9883141589467528,
+    "file": 0.9883141589467528,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/medetec/spearman_brown_median",
+    "recomputed": 0.8735177865612648,
+    "file": 0.8735177865612648,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/co2wounds/spearman_brown_median",
+    "recomputed": 0.8662354232812082,
+    "file": 0.8662354232812082,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/fuseg/spearman_brown_median",
+    "recomputed": 0.8223140495867767,
+    "file": 0.8223140495867767,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/azh/spearman_brown_median",
+    "recomputed": 0.9245283018867924,
+    "file": 0.9245283018867924,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/kvasir_disjoint/spearman_brown_median",
+    "recomputed": 0.9214758751182592,
+    "file": 0.9214758751182592,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/kvasir_sessile/spearman_brown_median",
+    "recomputed": 0.9038461538461537,
+    "file": 0.9038461538461537,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/cvc_clinicdb/spearman_brown_median",
+    "recomputed": 0.8259526261585992,
+    "file": 0.8259526261585992,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/cvc_colondb/spearman_brown_median",
+    "recomputed": 0.5696361355081556,
+    "file": 0.5696361355081556,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/etis_larib/spearman_brown_median",
+    "recomputed": 0.8050314465408804,
+    "file": 0.8050314465408804,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/ph2/spearman_brown_median",
+    "recomputed": 0.9385474860335195,
+    "file": 0.9385474860335195,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats reliability/dice|M19/tn3k_test/spearman_brown_median",
+    "recomputed": 0.9000477588395617,
+    "file": 0.9000477588395617,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/dice|U+M19/pearson_on_percentiles/wound pairs",
+    "recomputed": 0.2762239010116769,
+    "file": 0.2762239010116769,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/dice|U+M19/size_weighted_average (n_g weights)/wound pairs",
+    "recomputed": 0.2762353684954304,
+    "file": 0.2762353684954304,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/nsd|U+M19/pearson_on_percentiles/wound pairs",
+    "recomputed": 0.5481859386782985,
+    "file": 0.5481859386782985,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/nsd|U+M19/size_weighted_average (n_g weights)/wound pairs",
+    "recomputed": 0.5481972684759062,
+    "file": 0.5481972684759062,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/dice|U+F/pearson_on_percentiles/wound pairs",
+    "recomputed": 0.2690626383355467,
+    "file": 0.2690626383355467,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/dice|U+F/size_weighted_average (n_g weights)/wound pairs",
+    "recomputed": 0.268969794395491,
+    "file": 0.268969794395491,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/nsd|U+F/pearson_on_percentiles/wound pairs",
+    "recomputed": 0.48698460127743,
+    "file": 0.48698460127743,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats stratified/nsd|U+F/size_weighted_average (n_g weights)/wound pairs",
+    "recomputed": 0.4868311899658649,
+    "file": 0.4868311899658649,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/unet_r18_in/dice_when_detected",
+    "recomputed": 0.831235074259911,
+    "file": 0.8312,
+    "abs_diff": 3.5074259911005434e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/unetpp_r18_in/dice_when_detected",
+    "recomputed": 0.8109397877444993,
+    "file": 0.8109,
+    "abs_diff": 3.9787744499308886e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/deeplabv3p_r18_in/dice_when_detected",
+    "recomputed": 0.7920221780953007,
+    "file": 0.792,
+    "abs_diff": 2.217809530069559e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/fpn_r18_in/dice_when_detected",
+    "recomputed": 0.7864109490181214,
+    "file": 0.7864,
+    "abs_diff": 1.0949018121375609e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/pspnet_r18_in/dice_when_detected",
+    "recomputed": 0.7252235121480988,
+    "file": 0.7252,
+    "abs_diff": 2.35121480988143e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/linknet_r18_in/dice_when_detected",
+    "recomputed": 0.7644176026350832,
+    "file": 0.7644,
+    "abs_diff": 1.760263508321369e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/manet_r18_in/dice_when_detected",
+    "recomputed": 0.8480791610263733,
+    "file": 0.8481,
+    "abs_diff": 2.0838973626702284e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/segformer_mitb0_in/dice_when_detected",
+    "recomputed": 0.7664815369160491,
+    "file": 0.7665,
+    "abs_diff": 1.8463083950814863e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/unet_mbv2_in/dice_when_detected",
+    "recomputed": 0.8147385779904367,
+    "file": 0.8147,
+    "abs_diff": 3.8577990436716725e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/unet_effb0_in/dice_when_detected",
+    "recomputed": 0.7906257180364262,
+    "file": 0.7906,
+    "abs_diff": 2.5718036426258806e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/miss/0.1/table/azh/nnunet_2d/dice_when_detected",
+    "recomputed": 0.6826931231734649,
+    "file": 0.6827,
+    "abs_diff": 6.876826535107128e-06,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/azh_explanation/azh/pretrained_input_lesion_px_median",
+    "recomputed": 1279.3469387755104,
+    "file": 1279.3469,
+    "abs_diff": 3.877551034747739e-05,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "practical v6/azh_explanation/fuseg/pretrained_input_lesion_px_median",
+    "recomputed": 503.375,
+    "file": 503.375,
+    "abs_diff": 0.0,
+    "tol": "equal after rounding to 4 decimals"
+   },
+   {
+    "what": "robust threshold/oracle_detail/M19/medetec/share_models_oracle_at_grid_min_0.05 (from oracle_individual)",
+    "recomputed": 0.9230769230769231,
+    "file": 0.9230769230769231,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "robust threshold/oracle_detail/M19/co2wounds/share_models_oracle_at_grid_min_0.05 (from oracle_individual)",
+    "recomputed": 0.9615384615384616,
+    "file": 0.9615384615384616,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "robust threshold/oracle_detail/M19/fuseg/share_models_oracle_at_grid_min_0.05 (from oracle_individual)",
+    "recomputed": 0.0,
+    "file": 0.0,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "robust threshold/oracle_detail/M19/azh/share_models_oracle_at_grid_min_0.05 (from oracle_individual)",
+    "recomputed": 0.40384615384615385,
+    "file": 0.40384615384615385,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/medetec",
+    "recomputed": 0.29154950101457433,
+    "file": 0.29154950101457433,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/co2wounds",
+    "recomputed": 0.18759494481746222,
+    "file": 0.18759494481746222,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/fuseg",
+    "recomputed": 0.061046285576261225,
+    "file": 0.061046285576261225,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/azh",
+    "recomputed": 0.29619551731642263,
+    "file": 0.29619551731642263,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/kvasir_disjoint",
+    "recomputed": 0.2290917928015689,
+    "file": 0.2290917928015689,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/kvasir_sessile",
+    "recomputed": 0.11089232278606587,
+    "file": 0.11089232278606587,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/cvc_clinicdb",
+    "recomputed": 0.1795329516106206,
+    "file": 0.1795329516106206,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/cvc_colondb",
+    "recomputed": 0.12504690191756654,
+    "file": 0.12504690191756654,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/etis_larib",
+    "recomputed": 0.06726665032629042,
+    "file": 0.06726665032629042,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/ph2",
+    "recomputed": 0.4902943442785441,
+    "file": 0.4902943442785441,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/tn3k_test",
+    "recomputed": 0.10178138010814435,
+    "file": 0.10178138010814435,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/U/azh_train_slice",
+    "recomputed": 0.24875703873309638,
+    "file": 0.24875703873309638,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/medetec",
+    "recomputed": 0.35595596889385256,
+    "file": 0.35595596889385256,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/co2wounds",
+    "recomputed": 0.2773826434434413,
+    "file": 0.2773826434434413,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/fuseg",
+    "recomputed": 0.5307220858330101,
+    "file": 0.5307220858330101,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/azh",
+    "recomputed": 0.42112018428544784,
+    "file": 0.42112018428544784,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/kvasir_disjoint",
+    "recomputed": 0.12674950557777057,
+    "file": 0.12674950557777057,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/kvasir_sessile",
+    "recomputed": 0.0534925524605429,
+    "file": 0.0534925524605429,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/cvc_clinicdb",
+    "recomputed": 0.0891429546056787,
+    "file": 0.0891429546056787,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/cvc_colondb",
+    "recomputed": 0.05128160586456578,
+    "file": 0.05128160586456578,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/etis_larib",
+    "recomputed": 0.015097143348179133,
+    "file": 0.015097143348179133,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/ph2",
+    "recomputed": 0.08117743724896528,
+    "file": 0.08117743724896528,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/tn3k_test",
+    "recomputed": 0.0072477315806767,
+    "file": 0.0072477315806767,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/F/azh_train_slice",
+    "recomputed": 0.2890631115148545,
+    "file": 0.2890631115148545,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/medetec",
+    "recomputed": 0.2870430438315357,
+    "file": 0.2870430438315357,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/co2wounds",
+    "recomputed": 0.27147365240556004,
+    "file": 0.27147365240556004,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/fuseg",
+    "recomputed": 0.07587344029719416,
+    "file": 0.07587344029719416,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/azh",
+    "recomputed": 0.1955820543164895,
+    "file": 0.1955820543164895,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/kvasir_disjoint",
+    "recomputed": 0.6377960484007096,
+    "file": 0.6377960484007096,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/kvasir_sessile",
+    "recomputed": 0.3517548665887609,
+    "file": 0.3517548665887609,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/cvc_clinicdb",
+    "recomputed": 0.410325655828728,
+    "file": 0.410325655828728,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/cvc_colondb",
+    "recomputed": 0.2939513846304736,
+    "file": 0.2939513846304736,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/etis_larib",
+    "recomputed": 0.21104200594329556,
+    "file": 0.21104200594329556,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/ph2",
+    "recomputed": 0.12640418939740886,
+    "file": 0.12640418939740886,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/tn3k_test",
+    "recomputed": 0.0725139486193634,
+    "file": 0.0725139486193634,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/K/azh_train_slice",
+    "recomputed": 0.1614294883162776,
+    "file": 0.1614294883162776,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/medetec",
+    "recomputed": 0.7092556501519399,
+    "file": 0.7092556501519399,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/co2wounds",
+    "recomputed": 0.43800829210115605,
+    "file": 0.43800829210115605,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/fuseg",
+    "recomputed": 0.7980646886022233,
+    "file": 0.7980646886022233,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/azh",
+    "recomputed": 0.5820714824405262,
+    "file": 0.5820714824405262,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/kvasir_disjoint",
+    "recomputed": 0.06338147567074089,
+    "file": 0.06338147567074089,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/kvasir_sessile",
+    "recomputed": 0.021881560717170446,
+    "file": 0.021881560717170446,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/cvc_clinicdb",
+    "recomputed": 0.06777240790653444,
+    "file": 0.06777240790653444,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/cvc_colondb",
+    "recomputed": 0.006677034503469585,
+    "file": 0.006677034503469585,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/etis_larib",
+    "recomputed": 0.02267220758704617,
+    "file": 0.02267220758704617,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/ph2",
+    "recomputed": 0.04803823511687561,
+    "file": 0.04803823511687561,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/tn3k_test",
+    "recomputed": 0.014996159613026104,
+    "file": 0.014996159613026104,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "stats floor/mean_dice/M19/azh_train_slice",
+    "recomputed": 0.479791535314785,
+    "file": 0.479791535314785,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical spread/M19/azh/means/segformer_mitb2@seeds",
+    "recomputed": 0.7084186026708059,
+    "file": 0.7084186026708059,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical spread/M19/azh/means/nnunet_2d",
+    "recomputed": 0.6272606776470105,
+    "file": 0.6272606776470105,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/per_architecture/segformer_mitb2/mean",
+    "recomputed": 0.12254901960784315,
+    "file": 0.12254901960784315,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   },
+   {
+    "what": "practical miss/0.1/azh/per_model/nnunet_2d/miss_rate",
+    "recomputed": 0.014705882352941176,
+    "file": 0.014705882352941176,
+    "abs_diff": 0.0,
+    "tol": 1e-12
+   }
+  ]
+ },
+ "runtime_s": 2.1,
+ "definitions": "Numbers requested by the statistical (R3) and domain (R2) reviews of\nmanuscript V6, recomputed under the current exclusions (exclusions_v6.json via\nscripts/excl_cfg.py) and written to results/v7/review_v7.json and\nresults/v7/REVIEW_V7.md (the md is generated here; every number in it is read\nfrom the computed values).\n\nData: scripts/perimage_v7.py (load, load_synth, GROUPS, SEEDCOLS, units).\nDefinitions mirror scripts/v7/stats_v7.py, practical_v7.py and bench_v7.py:\n  agreement      Spearman (Pearson on average ranks) of per-method mean scores\n                 between two image sets over a method set\n  wound pairs    the 6 pairs of medetec, co2wounds, fuseg, azh\n  seed sets      C16 = P9 + N7, the 16 architectures with 3 training seeds\n  units          photograph for Medetec, AZH and the control; image otherwise\nWhere a quantity already exists in stats_v7.json, practical_v7.json,\nbench_v7.json or robust_v7.json, the point estimate is recomputed here and\nasserted equal (abs diff <= 1e-12, or equal after the 4-decimal rounding that\nthe source file applied).\n\nRandom seeds (numpy default_rng):\n  31001  architecture bootstrap of the P9 and N7 gaps (B 2000)\n  31002  half splits of units for shared vs independent halves (300 per dataset)\n  6060   units-only bootstrap of the seed gap (B 1000): the exact unit draws of\n         stats_v7.py section 3, so its units_only interval is reproduced\n  [20261010, k]  unit draws of practical_v7.py (B 2000; k = index of the\n         dataset in medetec, co2wounds, fuseg, azh, azh_train_slice), used for\n         the selection-loss and miss-rate bootstraps\n  31003  candidate bootstrap of the selection losses (B 2000)\n  31004  half splits of units for choose-on-one-half selection (500 per dataset)\n  31005  architecture resampling for the AZH miss difference (B 2000)\n  0      bench_v7.method_takes (method bootstrap of benchmark agreement, B 2000)\n  1      split halves of stats_v7.py (500 unit splits), reproduced for checks\n\nRun from the rebuild folder:  nice -n 10 python scripts/v7/review_v7.py\n"
+}

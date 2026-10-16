@@ -7,7 +7,8 @@ study uses, that is
   (a) a FUSeg training image used to train a model (training indices 0 to 392)
       or to tune a threshold (400 to 549) (results/v7/fuseg_train_index.json), or
   (b) an image of another evaluation set: the FUSeg reference (the first 120
-      FUSeg validation images) or, for the control, the AZH test set.
+      FUSeg validation images, without those excluded as duplicates) or, for the
+      control, the AZH test set.
 Crops of FUSeg photographs that nothing in the study uses are kept: they are
 not leakage and not shared between evaluation sets.
 
@@ -36,7 +37,10 @@ OV = J("v7", "azh_overlap_v7.json")
 CO = J("v7", "azh_control_overlap_v7.json")
 IDX = J("v7", "fuseg_train_index.json")
 POS = {f: i for i, f in enumerate(IDX["files"])}
-REF = [os.path.basename(p) for p in J("perimage32", "fuseg.json")["image_paths"]]
+# FUSeg reference images actually analysed: the first 120 validation images minus
+# the ones excluded as duplicates (exclusions_v5.json, kept unchanged below)
+REF = [os.path.basename(p) for i, p in enumerate(J("perimage32", "fuseg.json")["image_paths"])
+       if i not in {e[0] for e in V5["fuseg"]}]
 IDS = {s: J("perimage32", s + ".json")["ids"] for s in ("azh", "azh_train_slice")}
 
 
@@ -93,8 +97,17 @@ summ["azh"] = {"n_checked": OV["azh_test"]["n"], "n_match": OV["azh_test"]["n_ma
                                                       for m in OV["azh_test"]["matches"].values()),
                "max_inliers_nonmatch": OV["azh_test"]["max_inliers_nonmatch"]}
 
-# control
-ctrl = {e[0]: e for e in V5["azh_train_slice"]}
+# control: the recorded exclusions are re-checked with the same rule (the overlap
+# check found all of them again); an image whose matched photographs are used
+# nowhere in the study is kept
+ctrl, v5_dropped = {}, []
+for e in V5["azh_train_slice"]:
+    k = e[1][:-4]
+    frames, used = classify(OV["validation_control"]["matches"][k])
+    if used:
+        ctrl[e[0]] = e
+    else:
+        v5_dropped.append({"image": e[1], "v5_reason": e[2], "matched_frames": frames})
 new_crop, new_crop_use, ctrl_unused = [], {"train": 0, "threshold": 0, "reference": 0}, 0
 for k in OV["validation_control"]["new_hits_not_recorded"]:
     m = OV["validation_control"]["matches"][k]
@@ -123,6 +136,8 @@ for c in crop_t:
 out["azh_train_slice"] = [ctrl[i] for i in sorted(ctrl)]
 summ["azh_train_slice"] = {
     "n_checked": len(IDS["azh_train_slice"]), "n_v5": len(V5["azh_train_slice"]),
+    "n_v5_kept_by_rule": len(v5_dropped), "v5_kept_by_rule": v5_dropped,
+    "n_v5_confirmed": len(V5["azh_train_slice"]) - len(v5_dropped),
     "v5_found_again": OV["validation_control"]["found_again"],
     "n_new_crops_excluded": len(new_crop), "new_crops_by_use": new_crop_use,
     "n_new_crops_kept_unused_frames": ctrl_unused,
@@ -130,12 +145,12 @@ summ["azh_train_slice"] = {
     "n_control_images_matching_azh_test": CO["n_control_images_matched"],
     "n_excluded": len(out["azh_train_slice"]),
     "n_kept": len(IDS["azh_train_slice"]) - len(out["azh_train_slice"]),
-    "v5_by_use": {u: sum(1 for e in V5["azh_train_slice"]
-                         if use_of(e[2].split()[3] + "/" + e[2].split()[4]) == u)
+    "v5_by_use": {u: sum(1 for e in V5["azh_train_slice"] if e[0] in ctrl and
+                         classify(OV["validation_control"]["matches"][e[1][:-4]])[1][0][1] == u)
                   for u in ("train", "threshold", "reference")},
 }
 summ["azh"]["n_kept"] = len(IDS["azh"]) - len(azh)
-assert sum(summ["azh_train_slice"]["v5_by_use"].values()) == len(V5["azh_train_slice"])
+assert sum(summ["azh_train_slice"]["v5_by_use"].values()) == len(V5["azh_train_slice"]) - len(v5_dropped)
 json.dump(out, open(os.path.join(RES, "exclusions_v6.json"), "w"), indent=1)
 json.dump(summ, open(os.path.join(RES, "v7", "exclusions_v6_summary.json"), "w"), indent=1)
 print(json.dumps(summ, indent=1))

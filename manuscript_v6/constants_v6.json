@@ -1,0 +1,6 @@
+{
+ "_note": "Numbers the manuscript states that are not produced by this study's code or results: each is quoted from the cited external source. facts_v6.py reads them from here (nothing else in the manuscript is outside the results JSON, code constants or logs).",
+ "co2.n": {"value": 764, "source": "sanchez2024 (CO2Wounds-V2 dataset paper, arXiv:2408.10827): 764 images", "fmt": "int"},
+ "co2.pat": {"value": 96, "source": "sanchez2024: 96 patients", "fmt": "int"},
+ "nn.ep.default": {"value": 1000, "source": "nnU-Net v2 default trainer (nnUNetTrainer.num_epochs = 1000), isensee2021 / nnU-Net repository", "fmt": "int"}
+}
