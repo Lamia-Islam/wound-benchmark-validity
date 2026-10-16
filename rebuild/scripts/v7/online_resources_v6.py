@@ -2,9 +2,15 @@
 """Online Resources for manuscript V6 (JIIM).
 
 Writes
-  manuscript_v6/Online_Resource_1.docx   Tables S1 to S9 and Figure S1
+  manuscript_v6/Online_Resource_1.docx   Tables S1 to S9 (S9e, S9f: overlap check and excluded images) and Fig. S1
+  manuscript_v6/Online_Resource_1.pdf    the same, converted with LibreOffice (soffice --headless)
   manuscript_v6/Online_Resource_2.xlsx   per-method means and per-pair agreement
   manuscript_v6/figures/FigS1_matrices.{png,tif,pdf}
+
+The article title is read from manuscript_v6/build_v6.js (const TITLE) so that both
+Online Resources carry the current title. The exclusions are the list selected by
+excl_cfg (exclusions_v6.json); Tables S9e and S9f are built from it, from
+results/v7/exclusions_v6_summary.json and from the two overlap checks.
 
 Every number is read from a results JSON (rebuild/results/v7/*.json,
 results/v7/audit/audit_v7.json, results/v7/rescore_local, results/kaggle*,
@@ -56,6 +62,17 @@ RPP = os.path.join(V7, "robust_pooled_v7.json")
 RP = jl(RPP) if os.path.exists(RPP) else None
 import excl_cfg                                                      # noqa: E402
 EXCL = excl_cfg.EXCL
+EXSUM = jl(V7, "exclusions_v6_summary.json")
+OVL = jl(V7, "azh_overlap_v7.json")
+OVC = jl(V7, "azh_control_overlap_v7.json")
+FTI = jl(V7, "fuseg_train_index.json")
+assert os.path.basename(excl_cfg.EXCL_PATH) == "exclusions_v6.json" and not excl_cfg.OLD
+
+# article title from the manuscript build script, so that the Online Resources follow it
+_m = re.search(r'^const TITLE = "([^"]+)";', open(os.path.join(MS, "build_v6.js")).read(), re.M)
+assert _m, "TITLE not found in build_v6.js"
+TITLE = _m.group(1)
+JOURNAL = "Journal of Imaging Informatics in Medicine"
 
 REFS = list(P7.REFS)
 CONTROL = P7.CONTROL
@@ -154,7 +171,7 @@ def set_members(s):
 for s in SETDEF:
     assert len(set_members(s)) == SETN[s], s
 assert SETDEF["ALL"] == ["U", "F", "K", "M19"]
-PAIRSETS = ["U", "F", "K", "M", "M11s", "M19", "N8s", "U+F", "U+K", "U+M", "U+M19", "ALL"]
+PAIRSETS = ["U", "F", "K", "M", "M11s", "M19", "N8s", "U+F", "U+K", "U+M", "U+M11s", "U+M19", "ALL57", "ALL"]
 assert all(s in SETDEF for s in PAIRSETS)
 
 TR2 = jl(RES, "kaggle2", "train_report_k2.json")
@@ -328,13 +345,22 @@ import matplotlib                                     # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt                       # noqa: E402
 
+from matplotlib import font_manager as _fm         # noqa: E402
+from matplotlib.text import Text                      # noqa: E402
+
 MM = 1 / 25.4
 INK, SEC = "#111111", "#444444"
-plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 8, "axes.edgecolor": SEC,
-                     "axes.labelcolor": INK, "xtick.color": SEC, "ytick.color": SEC,
+FIGFONT = "Liberation Sans"   # as fig_v6.py: Arial is not installed; Liberation Sans has Arial's metrics
+_fm.findfont(_fm.FontProperties(family=FIGFONT), fallback_to_default=False)
+plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": [FIGFONT], "font.size": 8,
+                     "axes.edgecolor": SEC, "axes.labelcolor": INK, "xtick.color": SEC, "ytick.color": SEC,
+                     "xtick.labelcolor": INK, "ytick.labelcolor": INK, "axes.unicode_minus": True,
                      "axes.linewidth": 0.6, "xtick.major.width": 0.6, "ytick.major.width": 0.6,
-                     "pdf.fonttype": 42})
-FIGS1_SETS = [("U", "a  U: 18 untrained"), ("M19", "b  M19: 19 modern"), ("U+M19", "c  U+M19: 37 pooled")]
+                     "pdf.fonttype": 42, "ps.fonttype": 42})
+FIGS1_W_MM, FIGS1_H_MM = 240.0, 100.0    # placed at exactly this width in Online Resource 1 (print size)
+FIGS1_MIN_PT = 6.0
+FIGS1_SETS = [("U", f"a  U: {SETN['U']} untrained methods"), ("M19", f"b  M19: {SETN['M19']} modern models"),
+              ("U+M19", f"c  U+M19: {SETN['U+M19']} methods pooled")]
 for s, t in FIGS1_SETS:
     assert t.split(": ")[1].split()[0] == str(SETN[s]), (s, t)
 
@@ -367,8 +393,9 @@ def cell_text(v):
 
 
 def fig_s1():
-    lab = [NICE[r] for r in REFS]
-    fig, axes = plt.subplots(1, 3, figsize=(174 * MM, 72 * MM))
+    from PIL import Image
+    lab = [SHORTNICE[r] for r in REFS]
+    fig, axes = plt.subplots(1, 3, figsize=(FIGS1_W_MM * MM, FIGS1_H_MM * MM))
     for ax, (s, t) in zip(axes, FIGS1_SETS):
         M = FIGS1_M[s]
         shade = np.where(np.isnan(M), 1.0, np.abs(M))
@@ -376,28 +403,38 @@ def fig_s1():
         for i, j in itertools.product(range(len(REFS)), range(len(REFS))):
             if i != j:
                 v = M[i, j]
-                ax.text(j, i, cell_text(v), ha="center", va="center", fontsize=3.9,
+                ax.text(j, i, cell_text(v), ha="center", va="center", fontsize=6.5,
                         color="white" if abs(v) > 0.8 else INK,
                         fontweight="bold" if float(f"{v:.2f}") < 0 else "normal")
         ax.set_xticks(range(len(REFS)))
         ax.set_yticks(range(len(REFS)))
-        ax.set_xticklabels(lab, rotation=60, ha="right", fontsize=5.8)
-        ax.set_yticklabels(lab if ax is axes[0] else [], fontsize=5.8)
+        ax.set_xticklabels(lab, rotation=60, ha="right", rotation_mode="anchor", fontsize=7)
+        ax.set_yticklabels(lab if ax is axes[0] else [], fontsize=7)
+        ax.tick_params(length=2)
         for b in (3.5, 8.5, 9.5):
             ax.axhline(b, color=INK, lw=0.8)
             ax.axvline(b, color=INK, lw=0.8)
         ax.set_title(t, fontsize=8, loc="left", color=INK)
-    fig.tight_layout(w_pad=0.5)
+    fig.tight_layout(w_pad=0.6)
+    # smallest text at print size (the figure is placed at its own width)
+    sizes = [x.get_fontsize() for x in fig.findobj(Text) if x.get_visible() and x.get_text().strip()]
+    assert min(sizes) >= FIGS1_MIN_PT, min(sizes)
     base = os.path.join(FIGDIR, "FigS1_matrices")
-    fig.savefig(base + ".tif", dpi=600, pil_kwargs={"compression": "tiff_lzw"}, facecolor="white")
+    fig.savefig(base + ".tif", dpi=600, facecolor="white")
     fig.savefig(base + ".png", dpi=300, facecolor="white")
     fig.savefig(base + ".pdf", facecolor="white")
     plt.close(fig)
-    return base + ".png"
+    # TIFF: flatten to RGB on white (no alpha channel), LZW
+    im = Image.open(base + ".tif")
+    bg = Image.new("RGB", im.size, "white")
+    bg.paste(im, mask=im.split()[3] if im.mode == "RGBA" else None)
+    bg.save(base + ".tif", compression="tiff_lzw", dpi=(600, 600))
+    assert Image.open(base + ".tif").mode == "RGB"
+    return base + ".png", min(sizes)
 
 
-FIGS1_PNG = fig_s1()
-print("Figure S1 written", flush=True)
+FIGS1_PNG, FIGS1_PT = fig_s1()
+print(f"Fig. S1 written ({FIGS1_W_MM:.0f} x {FIGS1_H_MM:.0f} mm, smallest text {FIGS1_PT} pt)", flush=True)
 
 # ====================================================================== method rows (Table S1 and OR2)
 GROUPLAB = {"U": "U", "F": "F", "K": "K", "P10": "Modern, original 10", "N8": "Modern, new 8",
@@ -453,8 +490,130 @@ assert sorted(r["name"] for r in MROWS) == sorted(MEANS["dice"]["medetec"]), \
     set(MEANS["dice"]["medetec"]) ^ {r["name"] for r in MROWS}
 assert len({r["name"] for r in MROWS}) == len(MROWS)
 
+# ====================================================================== shared notation (OR1 and OR2)
+K_MISSING = re.search(r"\[(.*)\]", RO["definitions"]["K11_vs_paper_K14"]).group(1).replace("'", "")
+N_KMISS = len(K_MISSING.split(","))
+assert RO["definitions"]["groups"]["K11"]["n"] == SETN["K"] - N_KMISS
+SETS14 = ["U", "F", "K", "M", "M11s", "M19", "N8s", "U+F", "U+K", "U+M", "U+M11s", "U+M19", "ALL57", "ALL"]
+assert sorted(SETS14) == sorted(SETDEF) and PAIRSETS == SETS14
+assert SETDEF["ALL57"] == ["U", "F", "K", "M"] and BE["pools"]["P10s"] == len(ORIG10)
+for _s in ("U+F", "U+K", "U+M", "U+M11s", "U+M19"):
+    assert SETDEF[_s] == _s.split("+"), _s
+SET_PLAIN = {
+    "U": "untrained classical methods",
+    "F": "methods trained from scratch on FUSeg",
+    "K": f"the same {SETN['K']} methods trained from scratch on Kvasir-SEG",
+    "M": f"the {len(ORIG10)} original ImageNet-pretrained architectures, each at training seed 0, plus nnU-Net",
+    "M11s": f"the same {len(ORIG10)} architectures as seed averages, plus nnU-Net",
+    "M19": (f"all {len(ORIG10) + len(NEW8)} ImageNet-pretrained architectures ({len(ORIG10)} original, {len(NEW8)} "
+            "new) as seed averages, plus nnU-Net (the modern models of the main text)"),
+    "N8s": f"the {len(NEW8)} new architectures as seed averages",
+    "U+F": "U and F pooled", "U+K": "U and K pooled", "U+M": "U and M pooled", "U+M11s": "U and M11s pooled",
+    "U+M19": "U and M19 pooled", "ALL57": "U, F, K and M pooled", "ALL": "U, F, K and M19 pooled",
+}
+assert sorted(SET_PLAIN) == sorted(SETS14)
+
+
+def sets_sentence():
+    """one plain list of the 14 method sets, shared by OR1 (Notation) and OR2 (README)"""
+    return "; ".join(f"{s} ({SETN[s]}), {SET_PLAIN[s]}" for s in SETS14) + "."
+
+
+SEEDAVG_TXT = ("A seed average is one column per architecture: per image, the mean of the scores of the training "
+               "seeds that exist, then the mean over images (equal to the mean of the seed models' means).")
+
+# exclusions: counts from the list and the summary, never typed
+EX_FUS = EXCL["fuseg"]
+EX_FUS_TR = [e for e in EX_FUS if re.match(r"byte-identical to FUSeg train ", e[2])]
+EX_FUS_EV = [e for e in EX_FUS if re.match(r"byte-identical to evaluation image ", e[2])]
+assert len(EX_FUS_TR) + len(EX_FUS_EV) == len(EX_FUS) == EXSUM["fuseg"]["n"]
+_REFFILES = [os.path.basename(x) for x in jl(RES, "perimage32", "fuseg.json")["image_paths"]]
+for e in EX_FUS_EV:      # "evaluation image" here is another FUSeg validation image of the reference
+    assert re.search(r"(\d+\.png)$", e[2]).group(1) in _REFFILES
+EX_AZH = EXCL["azh"]
+EX_CTL = EXCL[CONTROL]
+EX_CTL_CROP = [e for e in EX_CTL if e[2].startswith("crop of FUSeg ")]
+EX_CTL_PIX = [e for e in EX_CTL if e[2].startswith("pixel-identical to AZH test image ")]
+assert len(EX_CTL_CROP) + len(EX_CTL_PIX) == len(EX_CTL) == EXSUM[CONTROL]["n_excluded"]
+assert all(e[2].startswith("crop of FUSeg ") for e in EX_AZH) and len(EX_AZH) == EXSUM["azh"]["n_excluded"]
+
+# how the study uses a FUSeg photograph: ranges parsed from the index file note, checked against the rule text
+_rng = re.search(r"trained on (\d+)-(\d+), thresholds (\d+)-(\d+)", FTI["note"])
+TR_LO, TR_HI, TH_LO, TH_HI = (int(x) for x in _rng.groups())
+_rule = " ".join(EXSUM["rule"].split())
+assert f"training indices {TR_LO} to {TR_HI}" in _rule and f"({TH_LO} to {TH_HI})" in _rule
+N_REF_ALL = int(re.search(r"the first (\d+) FUSeg validation images", _rule).group(1))
+assert N_REF_ALL == len(_REFFILES)
+_POS = {fn: i for i, fn in enumerate(FTI["files"])}
+
+
+def fuseg_use(split, fn):
+    if split == "train":
+        i = _POS.get(fn)
+        if i is None or i in FTI["eval_duplicates"]:
+            return None
+        if TR_LO <= i <= TR_HI:
+            return "train"
+        if TH_LO <= i <= TH_HI:
+            return "threshold"
+        return None
+    # the reference images analysed: the first validation images minus the excluded duplicates
+    return "reference" if fn in _REFFILES and fn not in {e[1] for e in EXCL["fuseg"]} else None
+
+
+USE_TXT = {"train": "model training", "threshold": "threshold tuning",
+           "reference": "the FUSeg reference"}
+
+
+def reason_frame(e):
+    """(split, file) of the FUSeg photograph named first in an exclusion reason"""
+    m = re.match(r"crop of FUSeg (train|validation) (\S+\.png)", e[2])
+    return m.group(1), m.group(2)
+
+
+def reason_plain(e):
+    r = e[2]
+    r = re.sub(r"byte-identical to FUSeg train (\S+)", r"byte-identical to FUSeg training image \1", r)
+    r = re.sub(r"byte-identical to evaluation image (\S+)", r"byte-identical to FUSeg validation image \1", r)
+    r = re.sub(r"crop of FUSeg train (\S+)", r"crop of FUSeg training image \1", r)
+    r = re.sub(r"crop of FUSeg validation (\S+)", r"crop of FUSeg validation image \1", r)
+    r = re.sub(r"equally matched to ", "equally good match: ", r)
+    r = re.sub(r"\btrain (\d+\.png)", r"training image \1", r)
+    r = re.sub(r"\bvalidation (\d+\.png)", r"validation image \1", r)
+    return r
+
+
+# per-image use of every FUSeg-crop exclusion, recomputed and checked against the summary counts
+EX_USE = {}
+for _set, _lst in (("azh", EX_AZH), (CONTROL, EX_CTL_CROP)):
+    for e in _lst:
+        u = fuseg_use(*reason_frame(e))
+        assert u is not None, e
+        EX_USE[(_set, e[0])] = u
+_cnt = {s: {u: sum(1 for (ss, _), v in EX_USE.items() if ss == s and v == u) for u in USE_TXT} for s in ("azh", CONTROL)}
+assert _cnt["azh"] == EXSUM["azh"]["excluded_by_use"], _cnt
+_cs = EXSUM[CONTROL]
+assert _cnt[CONTROL] == {u: _cs["v5_by_use"][u] + _cs["new_crops_by_use"][u] for u in USE_TXT}, _cnt
+
+
+def _uses(d):
+    nz = [(u, n) for u, n in d.items() if n]
+    if len(nz) == 1:
+        return f"all for {USE_TXT[nz[0][0]]}"
+    return ", ".join(f"{n} for {USE_TXT[u]}" for u, n in nz)
+
+
+def excl_sentence():
+    """the exclusions in one sentence (Table S9a caption and OR2 README)"""
+    return (f"{len(EX_FUS)} FUSeg validation images are byte-identical to FUSeg training images ({len(EX_FUS_TR)}) or "
+            f"to another validation image ({len(EX_FUS_EV)}); {len(EX_AZH)} AZH test images are crops of FUSeg "
+            f"photographs used in this study ({_uses(_cnt['azh'])}); {len(EX_CTL)} control images are crops of FUSeg "
+            f"photographs used in this study ({len(EX_CTL_CROP)}: {_uses(_cnt[CONTROL])}) or pixel-identical to an AZH "
+            f"test image ({len(EX_CTL_PIX)})")
+
+
 # ====================================================================== Online Resource 2
-from openpyxl import Workbook                          # noqa: E402
+from openpyxl import Workbook                         # noqa: E402
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side   # noqa: E402
 from openpyxl.utils import get_column_letter          # noqa: E402
 
@@ -472,7 +631,7 @@ def set_kind(s):
     if s == CONTROL:
         return "within-dataset control"
     if s == R256:
-        return "resolution check (FUSeg test images, long side 256 px)"
+        return "resolution check (FUSeg validation images, long side 256 px)"
     return "synthetic"
 
 
@@ -492,34 +651,31 @@ def write_or2(path):
     ws.title = "README"
     lines = [
         ("Online Resource 2", TFONT),
-        ("Method pool, clinical reference and training seed shape the measured validity of synthetic segmentation "
-         "benchmarks: a study in wound imaging", Font(name=XF, italic=True, size=11)),
+        (JOURNAL, Font(name=XF, size=11)),
+        (TITLE, Font(name=XF, italic=True, size=11)),
         ("", BFONT),
         ("Sheets", HFONT),
         ("Image sets: every image set, its kind, modality, and the number of images (and resampling units) the means use.", BFONT),
         ("Mean Dice, Mean NSD: per-method mean score on every image set. One row per method; every individual trained "
          "model (each training seed) and every seed average has its own row.", BFONT),
-        ("Pair agreement: Spearman agreement between two image sets over a method set, for every pair of the 11 clinical "
-         "references and the control (66 pairs), Dice and NSD.", BFONT),
+        (f"Pair agreement: Spearman agreement between two image sets over a method set, for every pair of the "
+         f"{len(REFS)} clinical references and the control ({len(PAIRS)} pairs), Dice and NSD, for each of the "
+         f"{len(PAIRSETS)} method sets.", BFONT),
         ("", BFONT),
         ("Definitions", HFONT),
         ("Mean score: mean over the kept images of the per-image score. Dice of an empty reference mask is 1 if the "
          "prediction is also empty and 0 otherwise. NSD is the normalised surface Dice at a tolerance of 2 px.", BFONT),
-        ("Kept images: the clinical sets exclude 8 FUSeg test images that duplicate FUSeg training images and 47 control "
-         "images that are crops of FUSeg photographs (Online Resource 1, Table S9). FUSeg at 256 px uses the FUSeg "
-         "exclusions. Synthetic sets have no exclusions.".replace("8 FUSeg", f"{len(EXCL['fuseg'])} FUSeg")
-         .replace("47 control", f"{len(EXCL['azh_train_slice'])} control"), BFONT),
+        (f"Kept images: images were excluded before any analysis if they copy or crop a photograph that another part "
+         f"of the study uses: {excl_sentence()}. Online Resource 1, Tables S9a, S9e and S9f, give the rule, the "
+         "counts and every excluded file. FUSeg at 256 px uses the FUSeg exclusions. Synthetic sets have no "
+         "exclusions.", BFONT),
         ("Resampling units (used by the bootstrap intervals of Online Resource 1): photographs for Medetec, AZH and the "
          "control (several stored images can come from one photograph), single images otherwise.", BFONT),
-        ("Seed average (rows marked 'seed average'): per image, the mean of the per-image scores of the training seeds "
-         "that exist, then the mean over images; it equals the mean of the seed models' means.", BFONT),
+        ("Seed average (rows marked 'seed average'): " + SEEDAVG_TXT.split("is one column per architecture: ")[1], BFONT),
         ("Agreement: Spearman correlation (Pearson correlation of average ranks) between the per-method mean scores on "
          "dataset A and on dataset B, over the methods of the method set.", BFONT),
-        ("Method sets: " + "; ".join(f"{s} ({SETN[s]} methods: {' + '.join(SETDEF[s])})" for s in PAIRSETS) +
-         ". U: untrained classical methods. F: trained from scratch on FUSeg. K: the same 14 trained on Kvasir-SEG. "
-         "M: the 10 original ImageNet-pretrained architectures at training seed 0 plus nnU-Net. M11s: the same 10 "
-         "architectures as seed averages plus nnU-Net. M19: the 18 ImageNet-pretrained architectures as seed averages "
-         "plus nnU-Net. N8s: the 8 new architectures as seed averages. SAM and MedSAM rows are never part of a method set.", BFONT),
+        ("Method sets (number of methods in brackets), as in Online Resource 1: " + sets_sentence() +
+         " SAM and MedSAM rows are never part of a method set.", BFONT),
         ("Pair category: same modality, same source (FUSeg and AZH; Kvasir and Kvasir-sessile; CVC-ClinicDB and "
          "CVC-ColonDB); same modality, different source; across modality; control (AZH with its training slice); with "
          "control (any other dataset with the control).", BFONT),
@@ -531,17 +687,16 @@ def write_or2(path):
         ("FUSeg at 256 px: the three Kvasir-trained pixel classifiers (logreg_all_kv, gbm_all_kv, logreg_colour_kv) and "
          "the first-run SAM and MedSAM were not run on it.", BFONT),
         ("", BFONT),
-        ("Sources", HFONT),
-        ("Clinical sets and control: per-image scores of rebuild/results/perimage32 (U, F) and rebuild/results/kaggle*/scores "
-         "(trained models, SAM/MedSAM) through rebuild/scripts/perimage_v7.py. nnU-Net: first-session scores.", BFONT),
-        ("FUSeg at 256 px: rescore files (pipeline P0) in rebuild/results/kaggle2/rescore (trained models; nnU-Net there is the "
-         "second-session re-prediction) and rebuild/results/v7/rescore_local (U, F); SAM/MedSAM from rebuild/results/kaggle2/scores.", BFONT),
-        ("Synthetic sets: per-image scores of the trained models and of the first-run SAM/MedSAM; U and F Dice means from "
-         "rebuild/scripts/pools_v5.py, as in the benchmark analysis.", BFONT),
-        ("Checks run by rebuild/scripts/v7/online_resources_v6.py before writing: every pair value equals the value stored "
-         "in rebuild/results/v7/stats_v7.json (to 1e-12); U, F, K and M clinical means equal pools_v5; group mean Dice equals "
-         "the stored floor and benchmark tables; FUSeg-at-256-px group means equal rebuild/results/v7/robust_v7.json.", BFONT),
-        ("Values are unrounded numbers; the displayed format shows 3 decimals.", BFONT),
+        ("Where the values come from", HFONT),
+        ("Clinical sets and control: the per-image scores used in the main analyses; nnU-Net uses the first-session "
+         "scores.", BFONT),
+        ("FUSeg at 256 px: every method scored again on the resampled images with the main post-processing (Online "
+         "Resource 1, Table S6f); the nnU-Net values there come from the second-session re-prediction (Online "
+         "Resource 1, Table S9b).", BFONT),
+        ("Synthetic sets: per-image scores of the trained models and of the first-run SAM and MedSAM; for U and F only "
+         "the per-method mean Dice exists, as in the benchmark analysis (Online Resource 1, Table S5).", BFONT),
+        ("Every value in the Pair agreement sheet is the value used in Online Resource 1 and the main text.", BFONT),
+        ("Values are unrounded numbers; the display shows 3 decimals and the minus sign (\u2212) for negative values.", BFONT),
     ]
     for i, (t, ft) in enumerate(lines, 1):
         c = ws.cell(row=i, column=1, value=t)
@@ -591,6 +746,15 @@ def write_or2(path):
     wb.save(path)
 
 
+def xfmt(base, v):
+    """Excel number format that shows the minus sign U+2212 for negative values; a negative value that rounds
+    to zero at the displayed precision is shown without a sign (as in Online Resource 1)."""
+    d = len(base.split(".")[1]) if "." in base else 0
+    if v < 0 and round(-v, d) == 0:
+        return f'{base};{base}'
+    return f'{base};"{MINUS}"{base}'
+
+
 def style_sheet(ws, ncol, widths, numfmt):
     for j in range(1, ncol + 1):
         c = ws.cell(row=1, column=j)
@@ -600,7 +764,7 @@ def style_sheet(ws, ncol, widths, numfmt):
         for c in row:
             c.font = BFONT
             if c.column in numfmt and isinstance(c.value, (int, float)):
-                c.number_format = numfmt[c.column]
+                c.number_format = xfmt(numfmt[c.column], c.value)
     for j, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(j)].width = w
 
@@ -829,17 +993,7 @@ MIN_P = ST["exact"]["dice|U"]["full_55"]["min_p"]
 assert abs(MIN_P - 2 / N_RELAB) < 1e-15
 N_UNITS_TXT = ", ".join(f"{SHORTNICE[d]} {ST['n_units'][d]} units for {ST['n_images'][d]} images" for d in ("medetec", "azh", CONTROL))
 
-SETS14 = ["U", "F", "K", "M", "M11s", "M19", "N8s", "U+F", "U+K", "U+M", "U+M11s", "U+M19", "ALL57", "ALL"]
-assert sorted(SETS14) == sorted(SETDEF)
-SETTXT = (f"Method sets: U, {SETN['U']} untrained classical methods; F, {SETN['F']} methods trained from scratch on FUSeg; "
-          f"K, the same {SETN['K']} methods trained on Kvasir-SEG; M, the {len(ORIG10)} original ImageNet-pretrained "
-          f"architectures at training seed 0 plus nnU-Net ({SETN['M']}); M11s, the same {len(ORIG10)} architectures as seed "
-          f"averages plus nnU-Net ({SETN['M11s']}); M19, all {len(ORIG10) + len(NEW8)} ImageNet-pretrained architectures "
-          f"({len(ORIG10)} original, {len(NEW8)} new) as seed averages plus nnU-Net ({SETN['M19']}); N8s, the {len(NEW8)} new "
-          f"architectures as seed averages ({SETN['N8s']}); pooled sets U+F ({SETN['U+F']}), U+K ({SETN['U+K']}), "
-          f"U+M ({SETN['U+M']}), U+M11s ({SETN['U+M11s']}), U+M19 ({SETN['U+M19']}); ALL57 = U+F+K+M ({SETN['ALL57']}); "
-          f"ALL = U+F+K+M19 ({SETN['ALL']}). A seed average is one column per architecture: per image, the mean of the "
-          f"scores of the training seeds that exist.")
+SETTXT = "Method sets and their sizes as defined in the Notation."
 AGRTXT = ("Agreement is the Spearman correlation of the per-method mean scores of two image sets over the methods of "
           "a method set.")
 PAIRTXT = (f"Wound pairs: mean over the {comb(NW, 2)} pairs of the {NW} wound datasets. Colonoscopy pairs: mean over the "
@@ -853,7 +1007,7 @@ UNITTXT = (f"Resampling units are photographs for Medetec, AZH and the control (
 MHTXT = (f"m: method bootstrap (methods resampled with replacement within each group, pooled sets keep their "
          f"composition), B = {B_M:,}; h: hierarchical bootstrap (methods within group and resampling units within "
          f"dataset), B = {B_H:,}; both 95% percentile intervals.")
-EXTXT = (f"Exact p: share of the {N_RELAB:,} distinct relabelings of the {len(REFS)} modality labels whose modality "
+EXTXT = (f"Exact p: share of the {N_RELAB:,} distinct relabellings of the {len(REFS)} modality labels whose modality "
          f"difference is at least the observed one; (min) marks the smallest attainable p (2/{N_RELAB:,} = "
          f"{fp(MIN_P)}).")
 DSNAMES = ", ".join(NICE[r] for r in REFS)
@@ -930,7 +1084,7 @@ def table_s1(D):
            f"{nsw} images, which it never saw. Seed 0 of the original 10 was trained in a first GPU session, seeds 1 and 2 "
            f"and all seeds of the new 8 in a second session ({len(tr2_saved)} of {len(run2_all)} second-session trainings "
            f"saved; {', '.join(diverged)} diverged with non-finite values under mixed precision and were not imputed; "
-           "Table S9). The modern rows name the seed-0 key of an original architecture or the seed-average key of a new "
+           "Table S9c). The modern rows name the seed-0 key of an original architecture or the seed-average key of a new "
            "one; individual models carry the suffix _s1 or _s2 (original 10) or _s0, _s1, _s2 (new 8) in Online "
            "Resource 2. n/a: not applicable. nr: not stored in a results file. div.: diverged.")
     D.caption("Table S1", "Methods, training and held-out Dice", cap, bm="S1", before=0)
@@ -969,7 +1123,7 @@ def table_s2(D):
         rows = [[s, str(SETN[s])] + [m_h(ST["bootstrap"][f"{m}|{s}"][k]) for k, _ in Q] for s in SETS14]
         cap = (f"Each cell: estimate, then the m and h intervals. {MHTXT} "
                f"{UNITTXT} Resampling the units adds noise to every method mean and so pulls agreement down in each draw; "
-               "h intervals therefore sit partly below the estimate. Wound with non-wound: mean over the "
+               "h intervals are therefore shifted towards zero and understate how strong agreement is. Wound with non-wound: mean over the "
                f"{NW * (len(REFS) - NW)} pairs of a wound dataset with a non-wound dataset. {PAIRTXT}")
         D.caption(f"Table S2{part}", f"Agreement with method and hierarchical bootstrap intervals ({mname})", cap)
         D.table(["Set", "n"] + [h for _, h in Q], rows, [1.5, 0.8] + [3.4] * len(Q), size=7.5)
@@ -984,9 +1138,9 @@ def table_s2(D):
             rows.append([mname, s, str(SETN[s]), f(a["diff"]), fp(a["p"], a["min_p"]), f(b["diff"]),
                          fp(b["p"], b["min_p"]), f(lv["different source, same modality (13)"]),
                          f(lv["across modality (39)"]), f(lv["same source (3, excluded)"])])
-    cap = (f"Exact relabeling tests of the modality difference. {EXTXT} The 52-pair test drops the {N_SRC} same-source "
-           "pairs under every relabeling. The last three columns give the category means that enter the 52-pair "
-           f"difference and the mean of the dropped same-source pairs. {PAIRTXT} {SETTXT.split('. A seed')[0]}.")
+    cap = (f"Exact relabelling tests of the modality difference. {EXTXT} The 52-pair test drops the {N_SRC} same-source "
+           "pairs under every relabelling. The last three columns give the category means that enter the 52-pair "
+           f"difference and the mean of the dropped same-source pairs. {PAIRTXT} {SETTXT}")
     D.caption("Table S2e", "Exact tests of the modality difference (55 and 52 pairs)", cap)
     D.table(["Metric", "Set", "n", "Difference (55)", "Exact p (55)", "Difference (52)", "Exact p (52)",
              f"Different source, same modality ({N_SAME - N_SRC})", f"Across modality ({N_ACROSS})",
@@ -1033,10 +1187,10 @@ def table_s3(D):
             rows.append(row)
     nrel = sorted({ST["leave_one_dataset_out"][f"dice|M19"][d]["full"]["n_relabelings"] for d in REFS})
     cap = (f"Modality difference over the {comb(len(REFS) - 1, 2)} pairs of the remaining "
-           f"{len(REFS) - 1} clinical references, with its exact relabeling p in brackets. The number of distinct "
-           f"relabelings depends on the dropped dataset ({', '.join(f'{x:,}' for x in nrel)}); (min) marks the smallest "
+           f"{len(REFS) - 1} clinical references, with its exact relabelling p in brackets. The number of distinct "
+           f"relabellings depends on the dropped dataset ({', '.join(f'{x:,}' for x in nrel)}); (min) marks the smallest "
            f"attainable p for that design. Sets: U ({SETN['U']}), M ({SETN['M']}), M11s ({SETN['M11s']}), "
-           f"M19 ({SETN['M19']}), N8s ({SETN['N8s']}); definitions as in Table S2. {AGRTXT}")
+           f"M19 ({SETN['M19']}), N8s ({SETN['N8s']}); definitions in the Notation. {AGRTXT}")
     D.caption("Table S3a", "Leave one dataset out", cap, bm="S3", before=0)
     D.table(["Metric", "Dropped dataset"] + [f"{s}: difference (p)" for s in LS], rows,
             [1.4, 3.0] + [3.6] * len(LS), size=7.5, left_cols=2)
@@ -1068,17 +1222,24 @@ SEEDMH = (f"m: architecture bootstrap (architectures resampled with replacement;
           f"B = {SB['B_hier']:,}; both 95% percentile intervals.")
 
 
-def seedsets_txt():
+def seedsets_def():
+    """definition of P9, N7 and C16 for the Notation"""
     s = SDS["sets"]
     for k in SEEDSETS:
         assert s[k]["n"] == len(s[k]["architectures"])
+    assert sorted(s["C16"]["architectures"]) == sorted(s["P9"]["architectures"] + s["N7"]["architectures"])
     excl = [c for c in G["M19"] if c not in s["C16"]["architectures"]]
-    return (f"Architecture sets with all three training seeds: P9, the {s['P9']['n']} original architectures "
-            f"({', '.join(short(c) for c in s['P9']['architectures'])}); N7, the {s['N7']['n']} new architectures "
-            f"({', '.join(short(c) for c in s['N7']['architectures'])}); C16 = P9 + N7. Not in these sets: "
-            f"{', '.join(short(c) for c in excl)} (missing seeds or one training). Seed 0 of the original architectures "
-            "comes from the first GPU session and seeds 1 and 2 from the second, so for P9 seed and session effects "
-            "cannot be separated.")
+    return (f"The architectures with three usable training seeds: P9, the {s['P9']['n']} original "
+            f"architectures with three seeds ({', '.join(short(c) for c in s['P9']['architectures'])}); N7, the "
+            f"{s['N7']['n']} new architectures with three seeds ({', '.join(short(c) for c in s['N7']['architectures'])}); "
+            f"C16, the {s['C16']['n']} architectures of P9 and N7 together. Not in these sets: "
+            f"{', '.join(short(c) for c in excl)} (a diverged training or a single training).")
+
+
+def seedsets_txt():
+    return ("Sets P9, N7 and C16 as defined in the Notation. Seed 0 of the original architectures comes from the "
+            "first GPU session and seeds 1 and 2 from the second, so for P9 seed and session effects cannot be "
+            "separated.")
 
 
 def table_s4(D):
@@ -1147,11 +1308,12 @@ def table_s4(D):
     rows = []
     for k, v in SDS["named_groups"].items():
         m, g = k.split("|", 1)
+        g = g.split(" = ")[0].replace("M (V6)", "M_s0 (= M)")
+        assert "V6" not in g
         rows.append(["Dice" if m == "dice" else "NSD", g, str(v["n"]), f(v["wound pairs"]), f(v["colonoscopy pairs"]),
                      f(v["modality_diff"]), f(v["same dataset"])])
-    cap = ("Point estimates. P10_sk: the original architectures at training seed k (models "
-           "that exist); N8_sk: the new architectures at seed k; M (V6) = P10_s0 + nnU-Net; M_sk = P10_sk + nnU-Net; "
-           "M19_sk = P10_sk + N8_sk + nnU-Net. nnU-Net has one training and appears in every single-seed set. Set sizes "
+    cap = ("Point estimates. Single-seed sets P10_sk, N8_sk, M_sk and M19_sk as defined in the Notation (M_s0 is "
+           "the set M). nnU-Net has one training and appears in every single-seed set that includes it. Set sizes "
            f"differ because of the diverged trainings. Seed-averaged sets (M11s, M19, N8s) for comparison. {PAIRTXT} "
            f"{AGRTXT}")
     D.caption("Table S4f", "Single-seed method sets", cap)
@@ -1229,7 +1391,7 @@ def table_s4(D):
            "(negative when the seed noise exceeds the observed spread). Image SE: median over M19 of the SD of a method "
            f"mean over {ST['definitions']['B_hier']:,} resamples of the units; it is largely shared by all methods, so "
            "it moves rankings less than its size suggests.")
-    D.caption("Table S4j", "Spread of modern method means against seed noise", cap)
+    D.caption("Table S4j", "Spread of modern model means against seed noise", cap)
     D.table(["Metric", "Dataset", "M19 mean", "M19 range", "M19 SD", "Median neighbour gap", "Between SD (C16)",
              "Seed SD, pooled", "Seed SD, median", "SE of 3-seed average", "Between / seed SD", "ICC, one seed",
              "ICC, 3-seed average", "Image SE, median"], rows, [1.2, 2.0] + [1.75] * 12, size=7, left_cols=2)
@@ -1250,8 +1412,7 @@ BENCHTXT = ("Benchmark agreement (bench) with a wound reference R: Spearman agre
             f"{BE['checks']['n_images_per_synth_set'][0]} images. Other: mean agreement of the other {NW - 1} wound datasets "
             "with R. Diff = bench minus other: positive means the benchmark ranks the methods more like R than another "
             f"wound dataset does. Mean: average over the {NW} wound references (other then equals the mean of the "
-            f"{comb(NW, 2)} wound pairs). Dice only. ALL57 = U+F+K+M; ALL = U+F+K+M19; P10s: the {len(ORIG10)} original "
-            "architectures as seed averages; other sets as in Table S2.")
+            f"{comb(NW, 2)} wound pairs). Dice only. Method sets as defined in the Notation.")
 BMB = (f"Intervals: method bootstrap (methods resampled with replacement within each group, pooled sets keep their "
        f"composition), B = {B_B:,}, 95% percentile.")
 BHB = (f"Hierarchical bootstrap: methods within the group plus, independently per dataset, resampling units of the "
@@ -1318,10 +1479,10 @@ def table_s5(D):
         rows.append([p, str(v["n_methods"]), eiv(v["bench"]), eiv(v["other"]), eiv(v["diff"])] +
                     [f(v["bench_by_ref"][r]) for r in WOUND])
     D.caption("Table S5d", "Benchmark validity in single-seed method sets (amplitude 40)",
-              "Single-seed sets: P10_sk, the original architectures at training seed k (models that exist); N8_sk, the "
-              "new architectures at seed k; M19_sk = P10_sk + N8_sk + nnU-Net; M = P10_s0 + nnU-Net. Seed-averaged sets "
+              "Single-seed sets P10_sk, N8_sk and M19_sk as defined in the Notation; M is the original architectures at "
+              "seed 0 plus nnU-Net. Seed-averaged sets "
               f"for comparison. Bench, other, diff: means over the {NW} wound references, estimate [interval]; the last "
-              f"{NW} columns give bench per reference. {BENCHTXT.split(' ALL57')[0]} {BMB}")
+              f"{NW} columns give bench per reference. {BENCHTXT.split(' Method sets as defined')[0]} {BMB}")
     D.table(["Set", "n", "Bench", "Other", "Diff"] + [f"Bench, {NICE[r]}" for r in WOUND], rows,
             [1.8, 0.8, 3.5, 3.5, 3.5] + [2.1] * 4, size=7.5)
     counts["S5d"] = len(rows)
@@ -1369,13 +1530,13 @@ def table_s5(D):
 RG = ["M19", "K11"]
 B_R = int(re.search(r"B (\d+)", RO["definitions"]["method_bootstrap"]).group(1))
 assert re.search(r"default_rng\(0\)", RO["definitions"]["method_bootstrap"])
-K_MISSING = re.search(r"\[(.*)\]", RO["definitions"]["K11_vs_paper_K14"]).group(1).replace("'", "")
-ROBTXT = (f"Modern sets from the rescore files of the trained models: M19 as in the main analysis; K11, the K set "
-          f"without its {len(K_MISSING.split(','))} pixel classifiers ({K_MISSING}), which were not rescored. Post-processing "
+ROBTXT = (f"Scores from the rescoring of the trained models (each model's probability maps scored again under "
+          f"every variant): M19 as in the main analysis; K11 as defined in the "
+          f"Notation (K without its {N_KMISS} pixel classifiers, which were not rescored). Post-processing "
           "P0: Gaussian smoothing of the probability map, threshold, small-component removal (main analysis); P1: "
           "threshold, closing and opening with a 5 px ellipse, small-component removal; P2: threshold and "
-          "small-component removal only. nnU-Net values in the rescore files come from the second-session "
-          f"re-prediction (Table S9). Intervals: method bootstrap, B = {B_R:,}, 95% percentile, the same draws for every "
+          "small-component removal only. nnU-Net values in the rescoring come from the second-session "
+          f"re-prediction (Table S9b). Intervals: method bootstrap, B = {B_R:,}, 95% percentile, the same draws for every "
           "condition, so differences between conditions get paired intervals.")
 SUMQ = [("wound pairs", "Wound pairs"), ("colonoscopy pairs", "Colonoscopy pairs"),
         ("modality_diff", "Modality difference (55)")]
@@ -1480,7 +1641,7 @@ def table_s6(D):
                          f(e["spearman_fuseg_vs_r256"]), eiv(e["with_fuseg"]["wound pairs"]),
                          eiv(e["with_fuseg_r256"]["wound pairs"]), eiv(e["delta_r256_minus_native_wound_pairs"])])
     D.caption("Table S6f", "Resolution: FUSeg at native size and at 256 px (P0)",
-              "FUSeg at 256 px: the same test images and masks resampled so that the long side is 256 px (image by area "
+              "FUSeg at 256 px: the same FUSeg validation images and masks resampled so that the long side is 256 px (image by area "
               "averaging, mask by nearest neighbour), with the FUSeg exclusions. Shift: 256 px minus native, mean over "
               "the methods of the set [smallest, largest]. Rank correlation: Spearman correlation of the method means at "
               "the two resolutions. Wound pairs computed with FUSeg at native size or at 256 px, and the change with its "
@@ -1526,10 +1687,9 @@ def table_s6_pooled(D):
     for s in PS:
         assert RR[s]["dice|P0"]["n_methods"] == sum(RP["definitions"]["groups"][g]["n"] for g in RP["definitions"]["sets"][s])
     ntxt = ", ".join(f"{s} ({RR[s]['dice|P0']['n_methods']})" for s in PS)
-    base = (f"Pooled sets {ntxt}: U+M19 and U+F as in the main analysis; U+K11 uses K11, the K set without its "
-            f"{len(K_MISSING.split(','))} pixel classifiers ({K_MISSING}), which were not rescored, so it differs from "
-            "U+K. Scores from the rescore files of every method (untrained and from-scratch methods rescored locally, "
-            "trained Kaggle models from the second session, nnU-Net re-predicted). Conditions: post-processing P0 "
+    base = (f"Pooled sets {ntxt}: U+M19 and U+F as in the main analysis; U+K11 is U pooled with K11 (Notation), so "
+            "it differs from U+K. Scores from the rescoring of every method (untrained and from-scratch methods rescored "
+            "on a local computer, the other trained models in the second GPU session, nnU-Net re-predicted). Conditions: post-processing P0 "
             "(main), P1, P2 for Dice and NSD at 2 px; NSD at 1, 3, 5 px and at 1% of the image diagonal (P0); FUSeg "
             "replaced by FUSeg at 256 px (P0). For untrained methods P1 equals P0, because their main pipeline already "
             "applies closing and opening. Stratified agreement: methods ranked within their own group, ranks turned "
@@ -1614,12 +1774,10 @@ SETS5 = WOUND + [CONTROL]
 B_P = PR["B"]
 UBTXT = (f"Intervals: unit bootstrap (resampling units drawn with replacement, the same draws for every model of a "
          f"dataset, models fixed), B = {B_P:,}, 95% percentile; they cover image sampling only. {UNITTXT}")
-CANDTXT = (f"Candidate sets: M19 ({SEL['M19']['n_candidates']}, seed averages plus nnU-Net); M ({SEL['M']['n_candidates']}, "
-           f"original architectures at seed 0 plus nnU-Net); M11s ({SEL['M11s']['n_candidates']}); P10s "
-           f"({SEL['P10s']['n_candidates']}) and N8s ({SEL['N8s']['n_candidates']}), the original and new architectures "
-           "alone as seed averages; M19_sk: every architecture that has training seed k, as that single model, plus "
-           f"nnU-Net ({SEL['M19_s0']['n_candidates']}, {SEL['M19_s1']['n_candidates']}, {SEL['M19_s2']['n_candidates']} "
-           "candidates).")
+CANDTXT = ("Candidate sets as defined in the Notation, with the number of candidates: " +
+           ", ".join(f"{k} ({SEL[k]['n_candidates']})" for k in ("M19", "M", "M11s", "P10s", "N8s", "M19_s0", "M19_s1",
+                                                                "M19_s2")) +
+           "; in M19_sk each architecture that has training seed k enters as that single model.")
 LOSSTXT = ("Selection loss from A to B: best mean Dice on B minus the mean Dice on B of the candidate with the highest "
            "mean Dice on A. Random choice: mean over candidates of (best on B minus candidate on B). Synthetic chooser: "
            "the candidate with the highest mean Dice on generator B at the given texture amplitude (mean over the 3 "
@@ -1645,7 +1803,7 @@ def table_s7(D):
                 [f(s19["random_mean_over_B"])])
     off = [s19["matrix_rows_choose_on_cols_deploy_on"][a][b] for a in WOUND for b in WOUND if a != b]
     assert abs(np.mean(off) - s19["offdiag_mean"]) < 1e-12
-    D.caption("Table S7a", "Selection loss among the 19 modern methods (M19, Dice)",
+    D.caption("Table S7a", f"Selection loss among the {SETN['M19']} modern models (M19, Dice)",
               f"Rows: the set the model is chosen on (chosen model in brackets); columns: the wound dataset it is "
               f"deployed on. Mean: over the deployment datasets other than the choice dataset (for the wound rows) or "
               f"over all {NW} (other rows). Mean over the {len(off)} off-diagonal pairs: {f(s19['offdiag_mean'])} "
@@ -1753,7 +1911,11 @@ def table_s7(D):
               "share over non-empty images; Spearman correlation of the miss share with the black share and with the "
               "lesion fraction; number of images missed by most pretrained models but detected by nnU-Net, and the "
               "reverse. Last rows (AZH): mean miss share in images with more vs less padding than the median within each "
-              f"lesion-size tercile (tercile 1 = smallest lesions). Mean black share over non-empty images: AZH "
+              f"lesion-size tercile (tercile 1 = smallest lesions). Mean black share over all kept images (the basis "
+              f"used in the main text): AZH {f(pdg['azh']['black_share_mean_all_kept'])} "
+              f"({pc(pdg['azh']['black_share_mean_all_kept'])} of pixels), FUSeg "
+              f"{f(pdg['fuseg']['black_share_mean_all_kept'])} ({pc(pdg['fuseg']['black_share_mean_all_kept'])}); over "
+              f"kept images with a non-empty reference mask (the images of this table): AZH "
               f"{f(pdg['azh']['black_share_mean_nonempty'])}, FUSeg {f(pdg['fuseg']['black_share_mean_nonempty'])}. "
               "Correlational: padding is not manipulated.")
     D.table(["Dataset", "Models", "Mean miss share", "Rank correlation with black share",
@@ -1831,6 +1993,17 @@ def table_s8(D):
 # ====================================================================== S9
 
 
+def manet_txt():
+    """how the MA-Net seed columns are formed, from the seed-average definitions"""
+    out = []
+    for c in ("manet_r18_in@seeds", "manet_r50@seeds"):
+        sd = [int(re.search(r"_s(\d)$", x).group(1)) if re.search(r"_s\d$", x) else 0 for x in SEEDCOLS[c]]
+        k = short(c)
+        out.append(f"{k} is averaged over seeds {' and '.join(map(str, sd))}" if len(sd) > 1
+                   else f"{k} is a single model (seed {sd[0]})")
+    return ", ".join(out)
+
+
 def table_s9(D):
     counts = {}
     rows = []
@@ -1840,22 +2013,11 @@ def table_s9(D):
         assert n_file - ex == NKEPT[d] == ST["n_images"][d]
         rows.append([SHORTNICE[d], P7.MODALITY.get(d, "wound"), P7.SOURCE.get(d, "AZH"), str(n_file), str(ex),
                      str(NKEPT[d]), str(ST["n_units"][d]), str(ST["n_empty"][d])])
-    dup = [e for e in EXCL["fuseg"] if e[2].startswith("byte-identical")]
-    dup_tr = [e for e in dup if "FUSeg train" in e[2]]
-    dup_ev = [e for e in dup if "evaluation image" in e[2]]
-    crop = [e for e in EXCL[CONTROL] if e[2].startswith("crop of FUSeg")]
-    cdup = [e for e in EXCL[CONTROL] if e[2].startswith("pixel-identical to AZH test")]
-    acrop = [e for e in EXCL["azh"] if e[2].startswith("crop of FUSeg train")]
-    assert len(dup) == len(dup_tr) + len(dup_ev) == len(EXCL["fuseg"])
-    assert len(crop) + len(cdup) == len(EXCL[CONTROL]) and len(acrop) == len(EXCL["azh"])
     D.caption("Table S9a", "Images, exclusions and resampling units",
               f"Images in the scored file, images excluded, images kept for every analysis, resampling units and kept "
-              f"images with an empty reference mask. Exclusions: {len(dup)} FUSeg validation images are byte-identical "
-              f"to FUSeg training images ({len(dup_tr)}) or to another validation image ({len(dup_ev)}); {len(acrop)} AZH "
-              f"test images are crops of FUSeg training photographs used to train the models; {len(crop)} control images "
-              f"are crops of FUSeg photographs used in this study and {len(cdup)} are pixel-identical to AZH test images "
-              f"(Table S9e). "
-              f"{UNITTXT} Synthetic sets: {NKEPT[SYNTH[0]]} images each, no exclusions.", bm="S9", before=0)
+              f"images with an empty reference mask. Exclusions: {excl_sentence()}; the rule and the check are in "
+              f"Table S9e, every excluded file in Table S9f. {UNITTXT} Synthetic sets: {NKEPT[SYNTH[0]]} images each, "
+              "no exclusions.", bm="S9", before=0)
     D.table(["Dataset", "Modality", "Source", "Images", "Excluded", "Kept", "Units", "Empty references"], rows,
             [4.4, 2.6, 2.4, 1.8, 1.8, 1.8, 1.8, 2.4], size=7.5, left_cols=3)
     counts["S9a"] = len(rows)
@@ -1880,7 +2042,7 @@ def table_s9(D):
               "than 0.0001 and 0.001; largest absolute per-image difference in Dice and NSD (2 px); mean Dice over the "
               f"kept images in each session and the difference (second minus first). Direction of the "
               f"{a['n_dice_gt_1e-4']} larger differences: {a['n_run2_higher']} higher, {a['n_run2_lower']} lower in the "
-              "second session. nnU-Net's rank among the 11 modern methods of M is the same in both sessions on every "
+              f"second session. nnU-Net's rank among the {SETN['M']} modern models of M is the same in both sessions on every "
               "dataset, for Dice and NSD. The main analyses use the first-session scores.")
     D.table(["Dataset", "Images", "Dice differs > 0.0001", "Dice differs > 0.001", "Largest Dice difference",
              "Largest NSD difference", "Mean Dice, first session", "Mean Dice, second session", "Difference of means"],
@@ -1905,8 +2067,7 @@ def table_s9(D):
               f"Second-session trainings: {len(run2)}; saved: {len(saved)}; every saved model had 0 non-finite training "
               "steps. MA-Net trainings with the cumulative number of optimiser steps with a non-finite loss at epochs 10, "
               "20, 30 and 40, the logged mean loss at epoch 40, and the outcome. A model with non-finite weights after "
-              "training was not saved and is not imputed: manet_r18 is averaged over seeds 0 and 1, manet_r50 is a single "
-              "model (seed 1).")
+              f"training was not saved and is not imputed: {manet_txt()}.")
     D.table(["Model", "Non-finite steps, epoch 10", "Epoch 20", "Epoch 30", "Epoch 40", "Mean loss, epoch 40",
              "Outcome"], rows, [3.6, 2.6, 1.8, 1.8, 1.8, 2.6, 5.4], size=7.5)
     counts["S9c"] = len(rows)
@@ -1921,45 +2082,195 @@ def table_s9(D):
     D.table(["Dataset", "Image-mask pairs checked", "Masks not matching their image size", "Size difference",
              "Decision"], rows, [3.0, 3.6, 4.6, 3.0, 5.0], size=7.5)
     counts["S9d"] = len(rows)
+    counts.update(table_s9_overlap(D))
     return counts
 
+
+def overlap_rows():
+    """S9e: counts from the two overlap checks and the exclusion summary, cross-checked against each other"""
+    rule = OVL["rule"]
+    mm = re.match(r"SIFT, ratio ([0-9.]+), RANSAC similarity (\d+) px, >= (\d+) inliers, exact matcher; "
+                  r"FUSeg train \((\d+)\) \+ validation \((\d+)\)$", rule)
+    assert mm, rule
+    ratio, px, kmin, n_tr, n_va = mm.groups()
+    assert OVC["rule"].startswith("pixel identity; SIFT ratio " + ratio) and f">= {kmin} inliers" in OVC["rule"]
+    col = {}
+    for key, ov in (("azh", OVL["azh_test"]["matches"]), (CONTROL, OVL["validation_control"]["matches"])):
+        split = {"train": 0, "validation": 0}
+        use = {u: 0 for u in USE_TXT}
+        unused = 0
+        for m in ov.values():
+            frames = m.get("fuseg_tied") or [m["fuseg"]]
+            used = [x for x in frames if fuseg_use(*x.split("/"))]
+            fr = used[0] if used else m["fuseg"]
+            split[fr.split("/")[0]] += 1
+            if used:
+                use[fuseg_use(*fr.split("/"))] += 1
+            else:
+                unused += 1
+            assert m["inliers"] >= int(kmin)
+        col[key] = dict(n_match=len(ov), split=split, use=use, unused=unused)
+    a, c = col["azh"], col[CONTROL]
+    sa, sc = EXSUM["azh"], EXSUM[CONTROL]
+    # cross-checks against the stored summary and the exclusion list
+    assert a["n_match"] == sa["n_match"] == OVL["azh_test"]["n_match"]
+    assert a["split"] == {"train": sa["n_match_train_split"], "validation": sa["n_match_validation_split"]}
+    assert a["use"] == sa["excluded_by_use"] and a["unused"] == sa["n_kept_crops_of_unused_frames"]
+    assert sa["n_match_validation_in_reference"] == a["use"]["reference"]
+    assert c["n_match"] == sc["n_v5"] + sc["n_new_crops_excluded"] + sc["n_new_crops_kept_unused_frames"]
+    assert c["unused"] == sc["n_new_crops_kept_unused_frames"] and c["use"] == _cnt[CONTROL]
+    assert sum(c["use"].values()) == len(EX_CTL_CROP) and sum(a["use"].values()) == len(EX_AZH)
+    pix_t = OVC["pixel_identical"]
+    pix_c = sorted({x for v in pix_t.values() for x in v})
+    crop_only = sorted({x["control"] for v in OVC["crop_matches"].values() for x in v} - set(pix_c))
+    assert len(pix_t) == OVC["n_test_pixel_identical"] and len(pix_c) == OVC["n_control_images_matched"]
+    pix_already = [x for x in pix_c if x + ".png" in {e[1] for e in EX_CTL_CROP}]
+    assert len(pix_c) - len(pix_already) + len(crop_only) == len(EX_CTL_PIX) == sc["n_copies_of_azh_test_added"]
+    assert sa["n_checked"] == OVL["azh_test"]["n"] == OVC["n_test"] and sc["n_checked"] == OVC["n_control"]
+    assert sa["n_kept"] == NKEPT["azh"] and sc["n_kept"] == NKEPT[CONTROL]
+    rows = [
+        ["Images checked", str(sa["n_checked"]), str(sc["n_checked"])],
+        ["Matched to a FUSeg photograph", str(a["n_match"]), str(c["n_match"])],
+        ["   of which the photograph is in the FUSeg training split", str(a["split"]["train"]), str(c["split"]["train"])],
+        ["   of which the photograph is in the FUSeg validation split", str(a["split"]["validation"]),
+         str(c["split"]["validation"])],
+        ["   of which the photograph is used in this study: model training", str(a["use"]["train"]),
+         str(c["use"]["train"])],
+        ["   of which the photograph is used in this study: threshold tuning", str(a["use"]["threshold"]),
+         str(c["use"]["threshold"])],
+        [f"   of which the photograph is in the FUSeg reference (first {N_REF_ALL} validation images, duplicates excluded)",
+         str(a["use"]["reference"]), str(c["use"]["reference"])],
+        ["   of which the photograph is not used in this study (image kept)", str(a["unused"]), str(c["unused"])],
+        ["Excluded as crops of FUSeg photographs used in this study", str(sum(a["use"].values())),
+         str(sum(c["use"].values()))],
+        ["Images with a pixel-identical image in the other set", str(len(pix_t)), str(len(pix_c))],
+        ["   control image already excluded as a crop of a FUSeg photograph", "n/a", str(len(pix_already))],
+        ["   control image excluded as a copy of an AZH test image", "n/a", str(len(pix_c) - len(pix_already))],
+        ["Crops of an AZH test image (not pixel-identical)", "n/a", str(len(crop_only))],
+        ["Excluded in total", str(len(EX_AZH)), str(len(EX_CTL))],
+        ["Kept", str(sa["n_kept"]), str(sc["n_kept"])],
+        [f"Largest inlier count among images without a match (threshold {kmin})",
+         str(sa["max_inliers_nonmatch"]), "n/a"],
+    ]
+    bold = (1, 13, 14)
+    rule_txt = (f"Rule, applied to every evaluation set before any analysis: an image is removed if it is a copy or a "
+                f"crop of a photograph that another part of the study uses, that is a FUSeg training image used to "
+                f"train a model (training images {TR_LO} to {TR_HI}) or to tune a threshold (images {TH_LO} to "
+                f"{TH_HI}), an image of the FUSeg reference (the first {N_REF_ALL} FUSeg validation images, without those excluded as duplicates), or, for "
+                f"the control, an image of the AZH test set. Crops of FUSeg photographs that nothing in the study uses "
+                f"are kept: they are not leakage and are not shared between evaluation sets. Check: scale-invariant "
+                f"feature transform (SIFT) keypoints matched with a ratio test at {ratio} and a similarity transform "
+                f"fitted by random sample consensus (RANSAC) with a {px} px tolerance; an image matches a photograph "
+                f"with at least {kmin} inliers. Every AZH test and control image was compared with all {int(n_tr):,} "
+                f"FUSeg training and {int(n_va):,} validation photographs; where several photographs tie at the best "
+                f"inlier count, the one used in this study is counted (training or validation split refers to that "
+                f"photograph). AZH test against control: pixel identity, then the same feature check. The check found "
+                f"again all {OVL['validation_control']['recorded_exclusions']} control crops recorded before it was run.")
+    assert OVL["validation_control"]["found_again"] == OVL["validation_control"]["recorded_exclusions"]
+    return rows, bold, rule_txt
+
+
+def table_s9_overlap(D):
+    counts = {}
+    rows, bold, rule_txt = overlap_rows()
+    D.caption("Table S9e", "Overlap of AZH test and control images with FUSeg photographs",
+              f"{rule_txt} Counts of images; the files are listed in Table S9f.")
+    D.table(["Quantity", "AZH test", "Control"], rows, [12.0, 2.6, 2.6], size=7.5, bold_rows=bold)
+    counts["S9e"] = len(rows)
+    rows = []
+    for key, lst in (("fuseg", EX_FUS), ("azh", EX_AZH), (CONTROL, EX_CTL)):
+        for e in lst:
+            u = EX_USE.get((key, e[0]))
+            rows.append([SHORTNICE[key], e[1], reason_plain(e), USE_TXT[u].replace("the FUSeg", "FUSeg") if u else "n/a"])
+    assert len(rows) == sum(len(v) for v in EXCL.values())
+    D.caption("Table S9f", "Every excluded image",
+              "File name in the dataset as distributed, the reason, and for crops of FUSeg photographs how the study "
+              "uses that photograph. FUSeg file names refer to the FUSeg training and validation folders. SIFT inliers: "
+              "the number of geometrically consistent keypoint matches (Table S9e); an equally good match is a second "
+              "photograph with the same inlier count.")
+    D.table(["Dataset", "File", "Reason", "Photograph used for"], rows, [2.0, 7.4, 11.0, 5.4], size=7, left_cols=4)
+    counts["S9f"] = len(rows)
+    return counts
+
+
 # ====================================================================== assemble Online Resource 1
-TITLE = ("Method pool, clinical reference and training seed shape the measured validity of synthetic segmentation "
-         "benchmarks: a study in wound imaging")
-assert TITLE in open(os.path.join(MS, "BRIEF_MS_V6.md")).read()
 
 
 def figure_s1(D):
-    D.figure(FIGS1_PNG, 24.0)
+    D.figure(FIGS1_PNG, FIGS1_W_MM / 10)      # placed at its own width, so the font sizes are print sizes
     p = D.para(before=4, after=6)
     p.paragraph_format.line_spacing = 1.05
-    D.run(p, "Figure S1. ", 9.5, bold=True)
+    D.run(p, "Fig. S1. ", 9.5, bold=True)
     D.run(p, "Agreement matrices (Dice). ", 9.5, bold=True)
     D.run(p, (f"Each cell is the Spearman agreement of per-method mean Dice between the row dataset and the column "
               f"dataset over the methods of one set: (a) U, {SETN['U']} untrained methods; (b) M19, {SETN['M19']} modern "
-              f"methods (seed averages and nnU-Net); (c) U+M19, the {SETN['U+M19']} methods pooled. Values to 2 decimals "
+              f"models (seed averages and nnU-Net); (c) U+M19, the {SETN['U+M19']} methods pooled. Values to 2 decimals "
               "with the leading zero omitted (for example .54 is 0.54); negative values in bold; shading by absolute value "
               "(darker is stronger); diagonal not shown. Lines separate the wound, colonoscopy, dermoscopy and ultrasound "
               "datasets. Unrounded values for these and all other method sets are in Online Resource 2 (sheet Pair "
               "agreement)."), 9.5, color=GREYC)
-    bm = "FigureS1"
-    D.toc.append(("Figure S1", "Agreement matrices (Dice)", bm))
+    bm = "FigS1"
+    D.toc.append(("Fig. S1", "Agreement matrices (Dice)", bm))
     D.bookmark(p, bm)
 
 
+def notation_paras():
+    k11 = RO["definitions"]["groups"]["K11"]["n"]
+    return [
+        ("General. ", "Numbers are rounded to 3 decimals (p values to 2 significant digits, percentages to 1 decimal); "
+         "negative numbers use the minus sign. Intervals are 95% percentile bootstrap intervals; each caption names the "
+         "bootstrap and its number of draws B."),
+        ("Datasets. ", f"{DSNAMES}. FUSeg means the FUSeg challenge validation images used as the reference; AZH means "
+         "the AZH test images. Control: the AZH training slice, a second sample from the AZH source. Table S9a gives the "
+         "images kept in each set."),
+        ("Method sets ", "(the codes used in the tables; number of methods in brackets): " + sets_sentence() + " "
+         + SEEDAVG_TXT + f" Further sets: P10s ({BE['pools']['P10s']}), the {len(ORIG10)} original architectures as "
+         f"seed averages; K11 ({k11}), K without its {N_KMISS} pixel classifiers ({K_MISSING}), used where those were "
+         "not rescored (Table S6)."),
+        ("Single-seed sets ", "(suffix _sk for training seed k = 0, 1 or 2): P10_sk, the original architectures at "
+         "training seed k (the models that exist); N8_sk, the new architectures at seed k; M_sk, P10_sk plus nnU-Net "
+         "(M_s0 is the set M); M19_sk, P10_sk, N8_sk and nnU-Net."),
+        ("Seed-analysis sets. ", seedsets_def()),
+        ("Agreement. ", f"{AGRTXT} {PAIRTXT}"),
+        ("Method keys ", "(for example unet_r18, segformer_mitb2) are listed with their architecture in Table S1. "
+         "Online Resource 2 gives every per-method mean and every pairwise agreement."),
+    ]
+
+
+def header(sec):
+    sec.header_distance = Cm(0.7)
+    hp = sec.header.paragraphs[0]
+    hp.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    for t, it in ((f"{JOURNAL}. Online Resource 1. ", False), (TITLE, True)):
+        TEXT_LOG.append(t)
+        r = hp.add_run(t)
+        r.font.name, r.font.size, r.italic = FONT, Pt(8), it
+        r.font.color.rgb = GREYC
+
+
 def build_or1(path):
+    import datetime
     D = Doc()
-    D.para("Online Resource 1", size=16, bold=True, after=6)
+    sec = D.d.sections[0]
+    sec.top_margin = Cm(2.1)
+    header(sec)
+    cp = D.d.core_properties
+    cp.title, cp.subject, cp.author, cp.last_modified_by = f"Online Resource 1: {TITLE}", JOURNAL, "", ""
+    cp.comments, cp.keywords = "", ""
+    now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0, tzinfo=None)
+    cp.created = cp.modified = now
+    cp.revision = 1
+    D.para("Online Resource 1", size=16, bold=True, after=4)
+    D.para(JOURNAL, size=11, after=4)
     D.para(TITLE, size=12, italic=True, after=12)
     D.para("Contents", size=11, bold=True, after=4)
     anchor = D.para(after=2)
     D.para("Notation", size=11, bold=True, before=10, after=4)
-    D.para(("Numbers are rounded to 3 decimals (p values to 2 significant digits, percentages to 1 decimal); negative "
-            "numbers use the minus sign. Intervals are 95% percentile bootstrap intervals; each caption names the "
-            "bootstrap and its number of draws B. Datasets: " + DSNAMES + "; Control: the AZH training slice. "
-            + SETTXT + " " + AGRTXT + " Method keys (for example unet_r18, segformer_mitb2) are listed with their "
-            "architecture in Table S1; Online Resource 2 gives every per-method mean and every pairwise agreement."),
-           size=9.5, color=GREYC, after=4)
+    for lead, body in notation_paras():
+        p = D.para(after=3)
+        p.paragraph_format.line_spacing = 1.05
+        D.run(p, lead, 9.5, bold=True, color=GREYC)
+        D.run(p, body, 9.5, color=GREYC)
     counts = {}
     sections = [table_s1, table_s2, table_s3, table_s4, table_s5, table_s6, table_s7, table_s8, table_s9]
     for fn in sections:
@@ -1971,7 +2282,7 @@ def build_or1(path):
     # contents, inserted after the anchor in document order
     prev = anchor
     for label, title, bm in D.toc:
-        top = re.fullmatch(r"Table S\d|Figure S1|Table S\da", label) is not None
+        top = re.fullmatch(r"Table S\d|Fig\. S1|Table S\da", label) is not None
         q = anchor.insert_paragraph_before()
         q.paragraph_format.space_after = Pt(1)
         q.paragraph_format.left_indent = Cm(0 if top and not label.endswith(("b", "c", "d", "e", "f", "g", "h", "i", "j"))
@@ -1999,3 +2310,32 @@ for _ws in _wb:
             if isinstance(_v, str):
                 assert "\u2014" not in _v and "\u2013" not in _v, _v
 print("robust_pooled_v7.json present:", RP is not None)
+
+# house rules and wording on all text of both Online Resources
+_or2txt = "\n".join(str(_v) for _ws in _wb for _row in _ws.iter_rows(values_only=True) for _v in _row
+                     if isinstance(_v, str))
+for _name, _t in (("Online Resource 1", alltxt), ("Online Resource 2", _or2txt)):
+    for _pat in (r"FUSeg test", r"\brelabeling", r"\blabeled\b", r"\blabeling\b", r"\bV[4-7]\b", r"rebuild/",
+                 r"\.json\b", r"\.py\b", r"pools_v5", r"perimage", r"1e-12", r"modern methods", r"Figure S1",
+                 r"normaliz", r"initializ", r"\bcolor\b", r"\bmodeling\b"):
+        _hit = re.findall(r".{0,40}" + _pat + r".{0,40}", _t)
+        assert not _hit, (_name, _pat, _hit[:3])
+    assert "\u2014" not in _t and "\u2013" not in _t, _name
+# every numeric cell of Online Resource 2 shows negative values with U+2212
+for _ws in _wb:
+    for _row in _ws.iter_rows(min_row=2):
+        for _c in _row:
+            if isinstance(_c.value, (int, float)) and not isinstance(_c.value, bool):
+                assert MINUS in _c.number_format or (_c.value < 0 and round(-_c.value, 3) == 0), \
+                    (_ws.title, _c.coordinate, _c.number_format)
+
+# PDF of Online Resource 1 (LibreOffice)
+import subprocess                                       # noqa: E402
+_pdf = os.path.join(MS, "Online_Resource_1.pdf")
+if os.path.exists(_pdf):
+    os.remove(_pdf)
+subprocess.run(["soffice", "--headless", "--convert-to", "pdf", "--outdir", MS, OR1], check=True,
+               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=600)
+assert os.path.exists(_pdf), "PDF export failed"
+_pages = re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", _pdf], capture_output=True, text=True).stdout)
+print("Online Resource 1 PDF written:", _pdf, "pages:", _pages.group(1) if _pages else "?")
