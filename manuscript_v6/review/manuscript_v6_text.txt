@@ -1,0 +1,501 @@
+Method pool, clinical reference and training seed shape the measured validity of synthetic segmentation benchmarks: a study in wound imaging
+
+Abstract
+
+Synthetic test sets for medical image segmentation are usually validated by showing that they rank methods as a clinical dataset does. We measured how much this figure depends on the methods compared, the clinical reference and training noise. We scored 65 methods on 11 public clinical datasets in four modalities and on parametric synthetic wound benchmarks: 18 untrained classical methods, 14 methods trained from scratch on wound photographs, the same 14 trained on colonoscopy images, and 19 modern models (18 ImageNet-pretrained architectures, each trained with three random seeds, and nnU-Net). Agreement was the Spearman correlation of per-method mean Dice. Pooling classical and modern methods made four wound datasets agree at 0.82, although they agreed at 0.37 among the classical and 0.21 among the modern methods; ranking methods within their own group before pooling removed this effect. Among the modern models, two training seeds of the same architectures agreed at only 0.45 on the same wound dataset, and different wound datasets agreed less (0.10). A synthetic benchmark agreed with the wound datasets at 0.65 over the pooled methods but at 0.21 among the modern models, the level at which the wound datasets agreed with each other. A modern model chosen on one wound dataset lost 0.047 Dice on average on another, against 0.063 for a random choice, and on one dataset the pretrained architectures missed 27.9% of wounds against 1.4% for nnU-Net. The measured validity of a synthetic benchmark depends on the method pool, the clinical reference and the training seed.
+
+Keywords Benchmark validity; Rank agreement; Synthetic data; Wound imaging; Image segmentation; Training variance
+
+Introduction
+
+Segmentation software is increasingly evaluated before it reaches a clinic, by vendors comparing candidate models, by hospitals validating a product on local data and by regulators considering computational evidence. Synthetic and simulated images are attractive for this purpose because they come with exact ground truth and can be generated in any quantity, and in-silico trials and edited images have already been used to evaluate and stress-test medical models [1–4]. Rankings of segmentation methods are, however, known to be fragile. They change with the test cases, the metric, the aggregation rule and the annotators [5, 6], with the choice of benchmark [7, 8] and with the hospital the test data come from [9–11].
+
+The usual evidence that a synthetic test set is trustworthy is a rank correlation between method scores on the synthetic set and on one clinical dataset, sometimes expressed relative to the agreement between two real datasets [12, 13]. Synthetic data have been proposed for model validation and selection on the same basis [14–16], and in computed tomography the transfer of rankings from synthetic to real data has been shown to depend on the task [17]. Such a correlation is computed over a particular set of methods. Outside medical imaging it is established that agreement between benchmarks depends on which models are compared [18, 19], and that the correlation between in-distribution and out-of-distribution performance depends on how the models were selected and trained [20–22]. When groups of methods change order between domains, pooling them produces correlations that hold in neither group, a form of Simpson's paradox [23, 24].
+
+Medical segmentation studies often pool exactly such groups. Wound segmentation studies, for example, compare classical colour and threshold methods with trained networks [25, 26], and a synthetic benchmark validated over such a pool inherits whatever the pooling does to the correlation. A second source of variation lies in training itself. Retraining the same network with another random seed changes its score, and for closely matched models these changes can be as large as the differences between models [27, 28]. A ranking of modern models on one dataset may then be partly a ranking of training runs, and two datasets cannot agree on an order that training noise does not preserve. Decision thresholds add a further choice, because networks differ in how confident their outputs are [29]. How large these effects are for segmentation, and what they imply for validating a synthetic benchmark, has not been measured.
+
+We scored 65 methods in four homogeneous groups on 11 clinical datasets from eight sources in four modalities and on synthetic wound benchmarks from three generator families. The modern group contains 18 ImageNet-pretrained architectures, each trained with three random seeds, and nnU-Net. We asked how much pooling groups of methods changes agreement between clinical datasets, whether agreement is organised by modality within groups, how much of the disagreement among modern models is training noise, and what this implies for the measured validity of a synthetic benchmark and for choosing a model. The contributions are:
+
+  1. A measurement of the composition effect in segmentation benchmark agreement. Pooling untrained with modern methods raises agreement between wound datasets from 0.37 and 0.21 within the groups to 0.82, and an exact identity shows that ranking methods within their groups before pooling returns the size-weighted average of the within-group agreements.
+
+  2. A demonstration that the measured validity of a synthetic benchmark follows the method pool and the clinical reference: the same benchmark agrees with wound data at 0.65 or at 0.21 depending on whether untrained methods are in the pool, and its agreement with single wound datasets varies widely within one pool.
+
+  3. Evidence from 18 architectures trained with three seeds that rankings of modern models on wound data are dominated by small differences and training noise, with the consequences for model selection and a failure mode on one dataset that mean Dice hides.
+
+Materials and Methods
+
+Clinical datasets
+
+Eleven public datasets serve as clinical references (Table 1). The wound photographs are Medetec [30], CO2Wounds-V2 [31], the FUSeg challenge validation set [32] and the AZH chronic wound dataset [33]. FUSeg and AZH were collected at one wound centre and are treated as one source; CO2Wounds-V2 contains 764 smartphone photographs from 96 leprosy patients in Colombia [31] and shares no source with any other dataset. The colonoscopy datasets are Kvasir-SEG [34] and its sessile subset, CVC-ClinicDB [35], CVC-ColonDB [36] and ETIS-LaribPolypDB [37]; the two CVC sets come from one group and are one source. PH2 [38] is the dermoscopy reference and the TN3K test split [39] the thyroid ultrasound reference. A disjoint slice of the AZH training set serves as a within-dataset control.
+
+The Kvasir reference was drawn only from images outside the sessile subset, so the two Kvasir references share no image. For CO2Wounds-V2 and the five other non-wound datasets, 150 image and mask pairs were taken evenly spaced over the files sorted by number, because consecutive colonoscopy frames are near duplicates. Images in these six sets were resampled so that the long side is at most 256 pixels; wound masks were binarised at any non-zero value and all others above 127. Several images can come from one photograph: Medetec's 152 images are 38 photographs with four variants each, and the 150 AZH test images and 103 control images are crops of 118 and 89 photographs. The photograph is therefore the resampling unit for these three sets in every analysis, and the image for all others.
+
+Duplicated evaluation images were removed before any analysis. In FUSeg, 8 validation images are byte-identical to FUSeg training images (7) or to another validation image (1). Feature matching (SIFT with RANSAC, at least 25 geometrically consistent matches) showed that 47 of the 150 control images are crops of FUSeg photographs, 35 from its training split and 12 from its validation split; they were removed, leaving 103. A fifth wound dataset (WoundSeg) was prepared but excluded before any method was scored on it, because 322 of its 2,686 masks did not match the size of their image, so the pairing of images and masks could not be trusted. The exclusions are listed in Online Resource 1 (Table S9).
+
+Table 1 Clinical datasets after removal of duplicated images. Units are the resampling units (photographs for Medetec and the AZH sets, images otherwise). Lesion fraction is the median share of image pixels inside the reference mask
+
+  ----------------------------------------------------------------------------------------------------------------------------
+  Dataset                     Modality             Source                     Images   Units   Empty masks   Lesion fraction
+  --------------------------- -------------------- -------------------------- -------- ------- ------------- -----------------
+  Medetec                     Wound photography    Medetec archive            152      38      0             0.098
+
+  CO2Wounds-V2                Wound photography    Leprosy clinic, Colombia   150      150     0             0.045
+
+  FUSeg (validation)          Wound photography    AZH Wound Center           112      112     4             0.007
+
+  AZH (test)                  Wound photography    AZH Wound Center           150      118     10            0.019
+
+  AZH train slice (control)   Wound photography    AZH Wound Center           103      89      8             0.011
+
+  Kvasir                      Colonoscopy          Kvasir collection          120      120     0             0.128
+
+  Kvasir-sessile              Colonoscopy          Kvasir collection          120      120     0             0.043
+
+  CVC-ClinicDB                Colonoscopy          CVC, Barcelona             150      150     0             0.067
+
+  CVC-ColonDB                 Colonoscopy          CVC, Barcelona             150      150     0             0.038
+
+  ETIS-Larib                  Colonoscopy          ETIS, Paris                150      150     0             0.020
+
+  PH2                         Dermoscopy           Porto                      150      150     0             0.231
+
+  TN3K (test)                 Thyroid ultrasound   TN3K                       150      150     0             0.066
+  ----------------------------------------------------------------------------------------------------------------------------
+
+Method groups
+
+The 65 methods form four groups that differ in training and in training domain (Table 2; every method is listed in Online Resource 1, Table S1). The 18 untrained methods (U) are thresholding, colour, clustering and region-growing algorithms with no learned parameters. The 14 from-scratch methods (F) are three pixel classifiers (two logistic regressions and gradient boosting on colour and texture features), a three-level U-Net with 117,681 parameters and ten architectures from segmentation_models_pytorch [40] with randomly initialised encoders: U-Net [41], U-Net++ [42], DeepLabV3+ [43], FPN [44], PSPNet [45], LinkNet [46] and MA-Net [47] on ResNet-18 [48], U-Net on MobileNetV2 [49] and EfficientNet-B0 [50], and SegFormer on MiT-B0 [51].
+
+The from-scratch group was trained on FUSeg training images. The pixel classifiers were fitted on 247,975 pixels sampled from images 0 to 249, balanced between lesion and background; one decision threshold (0.90) was swept for the logistic regression on images 250 to 399 and applied to all three. The small U-Net uses a threshold of 0.5. The ten architectures were trained on images 0 to 392 at 128 by 128 pixels for 30 epochs (Dice plus binary cross-entropy, Adam, learning rate 0.001, horizontal flips) and each threshold was swept on images 400 to 549. The Kvasir-trained group (K) repeats this protocol exactly on Kvasir-SEG images that appear in neither Kvasir reference nor the sessile subset (pixel threshold 0.60).
+
+The modern group (M19) contains 18 architectures with ImageNet-pretrained encoders [52] and nnU-Net. Ten are the architectures of the from-scratch group with pretrained encoders. Eight were added to cover larger encoders and current designs: U-Net, DeepLabV3+ and MA-Net on ResNet-50, U-Net on EfficientNet-B3 [50] and on Swin-T [53], SegFormer on MiT-B2 [51], UPerNet [54] on ConvNeXt-T [55] and FPN on RegNetY-1.6GF [56]. All 18 were trained with one protocol on FUSeg training images 0 to 392 with the one image duplicated in the evaluation set removed (392 images). Images were letterboxed so that the long side is 256 pixels, with the aspect ratio kept and the remainder padded with black pixels. Training used Dice plus binary cross-entropy, AdamW (learning rate 0.0003, weight decay 0.0001, cosine decay), batches of 16, 40 epochs, random horizontal and vertical flips and 90-degree rotations, and mixed-precision arithmetic with gradient scaling. Each model's decision threshold was chosen on a grid from 0.05 to 0.90 in steps of 0.05 to maximise mean Dice on 148 held-out FUSeg training images (images 400 to 549 without two duplicates of evaluation images). Held-out Dice of the 51 individual models ranged from 0.75 to 0.84.
+
+Each architecture was trained with three random seeds (0, 1 and 2). The seed sets the initial weights of the parts not taken from ImageNet, the order of the training batches and the augmentation draws. Seed 0 of the ten original architectures was trained in a first GPU session; seeds 1 and 2 of these and all seeds of the eight new architectures were trained in a second session with the same training code (segmentation_models_pytorch 0.5.0, timm 1.0.22 and PyTorch 2.11.0 were recorded in the second session; the first session did not record the PyTorch and timm versions). Of the 44 trainings in the second session, 41 produced a usable model. The 3 that did not were MA-Net trainings (3 of 5: ResNet-18 at seed 2 and ResNet-50 at seeds 0 and 2), in which mixed-precision arithmetic produced non-finite values; the other 39 trainings had none. Failed trainings were not imputed. In the main analyses each architecture is represented by the per-image mean of its scores over the seeds that exist (its seed average), so MA-Net on ResNet-18 averages two models and MA-Net on ResNet-50 is a single model.
+
+nnU-Net v2 [57] was trained once, in its 2D configuration with the default trainer, on all 392 training images (one model, no cross-validation folds) for 100 epochs instead of the default 1,000. Its foreground probability is thresholded at 0.5; its Dice on the 148 held-out images is 0.83. To produce inputs for the robustness analyses nnU-Net was run again in the second session on the same images. Per-image Dice differed from the first run by at most 0.0034 and dataset means by at most 0.00003, with no change of rank, so all main analyses use the first-run scores (Online Resource 1, Table S9).
+
+SAM [58] and MedSAM [59] were also run, with box prompts taken from the reference masks. Because those prompts give them the lesion location, they are reported only in Online Resource 1 (Table S8) and are not part of any method set.
+
+Untrained methods receive morphological closing and opening with a 5-pixel elliptical element. Methods that output a probability map receive Gaussian smoothing with a standard deviation of 2 pixels before thresholding. Every method then has connected components smaller than 0.05% of the image removed.
+
+Table 2 Method groups. Mean Dice is the range of group means (mean over methods of the per-method mean) over the four wound datasets and over the seven other clinical datasets
+
+  ------------------------------------------------------------------------------------------------------------------------------------
+  Group                n    Training data              Training seeds                            Mean Dice, wound   Mean Dice, other
+  -------------------- ---- -------------------------- ----------------------------------------- ------------------ ------------------
+  Untrained (U)        18   none                       none                                      0.06 to 0.30       0.07 to 0.49
+
+  From scratch (F)     14   FUSeg                      one                                       0.28 to 0.53       0.01 to 0.13
+
+  Kvasir-trained (K)   14   Kvasir-SEG                 one                                       0.08 to 0.29       0.07 to 0.64
+
+  Modern (M19)         19   FUSeg, ImageNet encoders   three per architecture; one for nnU-Net   0.44 to 0.80       0.01 to 0.07
+  ------------------------------------------------------------------------------------------------------------------------------------
+
+Synthetic benchmarks
+
+Three parametric generator families produce wound images with exact masks, 45 images per benchmark in three severity classes. Generator A places a lesion on a uniform drape and reproduces the benchmark released with an earlier system description [60]. Generator B renders textured skin with clutter such as hair and gauze, and its background texture amplitude is a parameter; it was built at amplitudes 11, 28 and 40. Generator C shares no code with B and uses spectral noise, vignetting and a colour mixture model. Every benchmark was built at three synthetic seeds (2024, 7 and 101). Background texture is the median local standard deviation of shading-corrected luminance in a 9-pixel window over background pixels, measured at 512 pixels.
+
+Agreement between image sets
+
+Agreement between two image sets is the Spearman correlation between their vectors of per-method mean Dice over a given set of methods. The 55 pairs of the 11 clinical datasets are grouped by level: within source (one clinic or group, no shared images; 3 pairs), within modality from different sources (13 pairs) and across modality (39 pairs). The within-dataset control compares AZH with the disjoint AZH slice. The modality difference is mean same-modality agreement (16 pairs) minus mean across-modality agreement (39 pairs). For the composition analyses each pair is assigned to one of four categories relative to a domain, the modality a trained group was trained on. For wound photography these are domain with domain (the 6 wound pairs), domain with other datasets (28 pairs), other datasets of the same modality (the 10 colonoscopy pairs) and other datasets across modality (11 pairs). Method sets are the four groups alone and the pooled sets U+F (32 methods), U+K (32) and U+M19 (37). Every analysis was repeated with normalised surface Dice (NSD) at a tolerance of 2 pixels [61] and with the images whose reference mask is empty excluded.
+
+Pairs share datasets, so tests on pairs overstate the evidence. The modality difference was therefore tested by assigning the modality labels to the 11 datasets in every distinct way (13,860 assignments) and counting how often the difference was at least as large as observed. Swapping the labels of the two single-dataset modalities gives the same partition of pairs, so the smallest attainable p is 2/13,860 = 0.00014. Because the three within-source pairs could carry the result alone, the test was repeated with them dropped under every relabeling (52 pairs).
+
+Two bootstrap designs give 95% percentile intervals. The method bootstrap resamples methods with replacement within each group, so a pooled set keeps its composition (2,000 draws). The hierarchical bootstrap also resamples the units of every dataset independently (1,000 draws), using photographs as units for Medetec (38 photographs), AZH (118) and the control (89), and images for the other datasets. Resampling units adds noise to every method mean and so pulls agreement towards zero in each draw; hierarchical intervals therefore sit partly below the estimate and are conservative for claims that agreement exceeds zero. Intervals in the text are method-bootstrap intervals unless marked hierarchical. Analyses of the synthetic benchmarks that involve untrained or from-scratch methods use the method bootstrap only, because per-image synthetic scores exist only for the GPU-trained groups. Image sampling within a dataset was also summarised by split-half reliability: the Spearman correlation between method means on two random halves of the units, corrected with the Spearman-Brown formula (median of 500 splits).
+
+Stratified agreement and why it equals the within-group average
+
+As a remedy for pooled sets we computed stratified agreement. Within each group g of size n_g, a method's mean on a dataset is replaced by its within-group percentile (r − 0.5)/n_g, where r is its rank in the group, and agreement is the Pearson correlation of these percentiles over the pooled set of N = Σ n_g methods. The percentiles have mean 1/2 in every group, so the pooled mean is also 1/2 and the between-group part of the pooled covariance is zero. The pooled covariance of the percentiles on datasets A and B is therefore (1/N) Σ n_g c_g, and each pooled variance is (1/N) Σ n_g v_g, where c_g and v_g are the covariance and variance within group g. Without ties, v_g = (1 − 1/n_g²)/12 on every dataset, and within a group the correlation of percentiles is the Spearman correlation r_g. Hence stratified agreement = Σ w_g r_g / Σ w_g with w_g = n_g − 1/n_g, a size-weighted average of the within-group agreements. The weights do not depend on the pair, so the identity also holds for means over pairs. With ties the variances differ slightly between datasets and the identity holds approximately. Stratified agreement thus adds no information beyond the within-group agreements; what it shows is how much of a pooled value comes from differences in level between groups. In our data the Pearson value matched the identity to rounding error, and ranking the pooled percentiles again (a Spearman version) changed single pairs by at most 0.03 under Dice.
+
+Training-seed analyses
+
+In total 16 architectures have all three seeds: nine of the original ten and seven of the eight new ones. The two MA-Net architectures lack seeds and nnU-Net has one training, so these three are left out of the seed analyses. For each wound dataset, same-dataset cross-seed agreement is the mean Spearman correlation between the architecture means of seeds s and t on the same images, over the three seed pairs. Its counterpart across datasets correlates seed s on one wound dataset with a different seed t on another (36 correlations over the 6 wound pairs), so that training noise is present in both and only the dataset differs. The gap between the two measures how much more two datasets disagree than two trainings do. We also compared wound-pair agreement at single seeds (mean over the three seeds) with agreement of the seed averages, and set the spread of architecture means on each dataset against the seed-to-seed standard deviation of one architecture's mean (pooled over the 16 architectures). Intervals resample architectures (2,000 draws); hierarchical intervals also resample units (1,000 draws). One reading rule was fixed before the new trainings were scored: the statement that modern models disagree across wound datasets because the datasets differ, not because of training noise, would be supported only if same-dataset cross-seed agreement exceeded 0.7 while cross-dataset agreement stayed low. Details are in Online Resource 1 (Table S4).
+
+Synthetic benchmark analyses
+
+For each wound reference, benchmark agreement is the Spearman correlation between generator B at amplitude 40 and that reference, averaged over the three synthetic seeds. It is compared with the mean agreement of the other three wound datasets with the same reference; the difference (benchmark minus other) is positive when the benchmark ranks methods more like the reference than another wound dataset does. Averaged over the four references, the second term equals the mean agreement of the six wound pairs. The texture effect is benchmark agreement at amplitude 40 minus agreement at amplitude 11. Benchmark agreement was also computed for single-seed versions of the modern group, in which every architecture is represented by its model at one training seed, together with nnU-Net.
+
+Model selection and failure modes
+
+For the modern models, the selection loss from dataset A to dataset B is the best mean Dice on B minus the mean Dice on B of the candidate ranked first on A. The expected loss of a random choice is the mean over candidates of the best mean Dice minus the candidate's. The synthetic chooser picks the candidate with the highest mean Dice on generator B (mean over synthetic seeds). Selection losses are small Dice differences and are given to three decimals. A miss is a non-empty reference mask segmented with Dice below 0.1. Miss rates were computed for every individual trained model and averaged over seeds per architecture, because a seed-averaged score is not the output of any model; their intervals resample units (2,000 draws) with the models fixed. To look for the cause of the misses on AZH we related, for each image, the share of pretrained models that miss it to its share of black padding pixels (every colour channel at most 8) and to its lesion fraction.
+
+Robustness analyses
+
+The main analyses were repeated with two other post-processing pipelines (P1: threshold, closing and opening with a 5-pixel element and small-component removal; P2: threshold and small-component removal only), with NSD at tolerances of 1, 3 and 5 pixels and at 1% of the image diagonal, and with FUSeg resampled so that its long side is 256 pixels, the resolution of most other datasets. For the modern models the threshold protocol was also varied: one common threshold for all models (each value of the grid from 0.05 to 0.90), and a per-dataset oracle threshold for every model, chosen on the evaluation images themselves to remove calibration differences. These reanalyses used probability maps rescored in the second session; for the pooled sets the untrained and from-scratch methods were rescored locally with the same variants. Three Kvasir-trained pixel classifiers were not rescored, so robustness results for the Kvasir group use the remaining 11 methods (Online Resource 1, Table S6).
+
+Confirmatory and exploratory analyses
+
+The composition effect of pooling and the modality structure within groups were the confirmatory analyses of the study design and are tested with the exact relabeling test. All other analyses, including the training-seed, benchmark, selection and robustness analyses, are exploratory and are reported with intervals; no correction for multiple comparisons was applied.
+
+Results
+
+The groups differ in level and in domain
+
+The groups differ in level and in domain (Table 2). The modern models reach group mean Dice of 0.44 to 0.80 on the wound datasets but 0.01 to 0.07 on the seven other datasets, and the from-scratch group shows the same pattern at a lower level. The Kvasir-trained group leads on colonoscopy (0.21 to 0.64) and is close to the untrained group on wound photographs (0.08 to 0.29 against 0.06 to 0.30). Each dataset ranks the methods reproducibly: split-half reliability over all 65 methods is 0.97 to 0.99 on the 11 datasets, and among the 19 modern models it is 0.82 to 0.93 on the four wound datasets.
+
+Pooling creates agreement and disagreement
+
+Pooling the untrained group with the modern group changes agreement in both directions (Fig. 1a, Table 3). Over the pooled 37 methods the four wound datasets agree at 0.82 (0.77 to 0.87), against 0.37 (0.14 to 0.61) among untrained methods and 0.21 (−0.07 to 0.50) among modern models; the pooled value exceeds the higher of the two by 0.45 (0.24 to 0.61). Agreement between wound and other datasets becomes −0.56 (−0.66 to −0.44), against 0.09 and 0.14 within the groups, and non-wound datasets of different modalities appear to agree at 0.43 (0.23 to 0.62), against 0.04 and 0.01. Under NSD the pooled wound-pair agreement is 0.88, against 0.62 and 0.47 within the groups. The full agreement matrices are shown in Online Resource 1 (Fig. S1).
+
+The from-scratch group moves agreement in the same direction by less (Fig. 1b). Pooled with the untrained methods, wound datasets agree at 0.53, against 0.37 and 0.16 within the groups, but the excess over the untrained group, 0.16 (−0.07 to 0.35), is not distinguishable from zero. Agreement between wound and other datasets turns negative, −0.26 (−0.44 to −0.09), against 0.09 and 0.14 within the groups.
+
+The mechanism is visible in the group means. The modern models lead the untrained methods on every wound dataset and fall below them on every other dataset (Table 2; per-dataset means in Online Resource 2), so a pooled correlation between a wound and a non-wound dataset is dominated by which group each method belongs to, without any pair of methods changing order within a group. The Kvasir-trained group is the mirror experiment. It leads on colonoscopy, but on wound photographs its means (0.08 to 0.29) are close to those of the untrained methods (0.06 to 0.30), so the two groups do not change places across modalities. Pooling it with the untrained group pulls agreement between colonoscopy and other datasets below both groups (0.02, against 0.13 and 0.20) but does not reverse its sign (Fig. 1c).
+
+Stratified agreement removes the effect and, as derived in the Methods, equals the size-weighted average of the within-group agreements. For U+M19 the stratified wound-pair agreement is 0.29 (size-weighted within-group average 0.29; pooled 0.82), and the stratified modality difference is 0.41, against 1.10 pooled. For U+F and U+K the stratified modality differences are 0.54 and 0.55, against 0.83 and 0.68 pooled.
+
+[]
+
+Fig. 1 Mean Spearman agreement between pairs of clinical datasets by category, for each group alone and pooled (Dice; 95% method-bootstrap intervals). The domain is the modality the trained group was trained on. a: untrained (U) and modern (M19) methods. b: untrained and from-scratch (F) methods. c: untrained and Kvasir-trained (K) methods
+
+Table 3 Mean Spearman agreement between clinical datasets by level (Dice), wound-pair agreement, and the modality difference (same-modality minus across-modality agreement) with its 95% method-bootstrap interval, exact relabeling p and NSD value. Method sets: U untrained, F from scratch, K Kvasir-trained, M19 modern; + denotes pooling
+
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  Methods   n    Within dataset   Within source   Within modality   Across modality   Wound pairs   Modality difference (95% interval)   p         NSD difference
+  --------- ---- ---------------- --------------- ----------------- ----------------- ------------- ------------------------------------ --------- ----------------
+  U         18   0.96             0.69            0.67              0.08              0.37          0.60 (0.35 to 0.83)                  0.00014   0.42
+
+  F         14   0.95             0.65            0.60              0.14              0.16          0.47 (0.21 to 0.72)                  0.0045    0.56
+
+  K         14   0.85             0.54            0.68              0.16              0.36          0.50 (0.24 to 0.73)                  0.00058   0.69
+
+  M19       19   0.91             0.55            0.28              0.11              0.21          0.23 (0.05 to 0.46)                  0.0058    0.36
+
+  U+F       32   0.89             0.86            0.74              −0.07             0.53          0.83 (0.64 to 1.00)                  0.00014   0.71
+
+  U+K       32   0.97             0.58            0.70              0.00              0.28          0.68 (0.59 to 0.76)                  0.00014   0.72
+
+  U+M19     37   0.98             0.86            0.81              −0.28             0.82          1.10 (0.98 to 1.20)                  0.00014   1.01
+  -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Within modality: different sources. The smallest attainable p is 0.00014.
+
+Modality structure is clear within the untrained and Kvasir-trained groups
+
+Within the untrained and Kvasir-trained groups, datasets of the same modality agree more than datasets of different modalities: the modality difference is 0.60 (p = 0.00014, the smallest attainable) and 0.50 (p = 0.00058) (Table 3). Both groups score above the floor on most non-wound datasets. The from-scratch group shows the same structure (0.47, p = 0.0045), although its group mean Dice is below 0.1 on six of the seven non-wound datasets. For these three groups the difference holds without the three within-source pairs (0.46 to 0.60, p at most 0.0087), under NSD (0.42 to 0.69, p at most 0.00043) and with empty masks excluded (0.46 to 0.60, p at most 0.0062; Online Resource 1, Tables S2 and S3). Colonoscopy datasets from three sources agree at 0.86, 0.88 and 0.83 within the three groups, whereas the wound datasets agree at 0.37, 0.16 and 0.36.
+
+For the modern models the same statistic cannot be interpreted. Their group mean Dice is at most 0.07 on each of the seven non-wound datasets, so their rankings there order near-zero scores. The modality difference among the 19 modern models is 0.23 (p = 0.0058), but it depends on the training seed. For the ten original architectures with nnU-Net it is 0.46 with the seed-0 models, 0.02 with the seed-1 models (p = 0.38) and 0.18 with the seed-2 models (nine architectures; p = 0.022), and the eight new architectures show none (0.05, p = 0.33). We therefore do not count the modern group as evidence of modality structure.
+
+Synthetic benchmark validity follows the method pool
+
+Generator B at texture amplitude 40 agrees with the four wound datasets at 0.65 (0.44 to 0.81) over the pooled untrained and modern methods, a value that would usually be read as good validation (Fig. 2, Table 4). Among the modern models alone it agrees at 0.21 (−0.17 to 0.49), and the wound datasets agree with each other at the same level (0.21; difference 0.00, −0.41 to 0.30; hierarchical −0.38 to 0.27). Over the pooled set the benchmark is a worse proxy than another wound dataset: it agrees with each wound dataset less than the other wound datasets do, by −0.17 on average (−0.38 to −0.02). Among untrained methods it agrees at 0.53 (0.20 to 0.74); for the from-scratch and Kvasir-trained groups the intervals include zero.
+
+Validity per reference varies widely. Among untrained methods the benchmark agrees with CO2Wounds-V2 at 0.80 and with AZH at 0.31; among Kvasir-trained methods it agrees with AZH at 0.56 and with FUSeg at −0.34; among modern models its agreement with single wound datasets ranges from 0.05 to 0.47 (Table 4). Reported against a single dataset, the same benchmark and pool could be described as valid or invalid.
+
+Background texture raises validity only in pooled sets. Moving generator B from amplitude 11 to 40 raises mean benchmark agreement by 0.33 (0.09 to 0.59) in U+M19, with every per-reference interval above zero, and by 0.21 (0.08 to 0.36) in U+F. Within the groups the change is 0.08, 0.03, −0.03 and −0.08 (U, F, K and M19), and only 1 of the 16 per-reference intervals excludes zero, about what chance would give.
+
+Benchmark agreement among modern models also depends on the training seed. With single-seed versions of the ten original architectures it ranges from 0.26 to 0.40 over the three seeds, for the eight new architectures from −0.14 to 0.19, and for the full modern group from 0.20 to 0.26; the agreement between the wound datasets themselves moves with the seed as well (0.08 to 0.28 for the original ten). Leaving out one modern method moves benchmark agreement within 0.12 to 0.32. Comparisons between generator families also changed with the pool and the references (Online Resource 1, Table S5).
+
+[]
+
+Fig. 2 Agreement of generator B (texture amplitude 40, mean over three synthetic seeds) with the four clinical wound datasets, and agreement of those datasets with each other, for each group and pooled set (Dice; 95% method-bootstrap intervals)
+
+Table 4 Agreement of generator B (amplitude 40, mean over three synthetic seeds) with each wound dataset by method set, the mean over the four, the mean agreement of the wound datasets with each other, and the difference between the two (Dice; 95% method-bootstrap intervals)
+
+  -----------------------------------------------------------------------------------------------------------------------
+  Methods   Medetec   CO2Wounds-V2   FUSeg   AZH    Mean (95% interval)    Wound with wound   Difference (95% interval)
+  --------- --------- -------------- ------- ------ ---------------------- ------------------ ---------------------------
+  U         0.59      0.80           0.39    0.31   0.53 (0.20 to 0.74)    0.37               0.16 (−0.10 to 0.31)
+
+  F         0.05      0.47           0.10    0.28   0.22 (−0.04 to 0.45)   0.16               0.06 (−0.42 to 0.41)
+
+  K         0.16      0.06           −0.34   0.56   0.11 (−0.35 to 0.54)   0.36               −0.25 (−0.65 to 0.08)
+
+  M19       0.07      0.47           0.05    0.24   0.21 (−0.17 to 0.49)   0.21               0.00 (−0.41 to 0.30)
+
+  U+F       0.34      0.63           0.21    0.20   0.34 (0.07 to 0.57)    0.53               −0.18 (−0.43 to 0.04)
+
+  U+K       0.44      0.16           −0.03   0.70   0.32 (0.06 to 0.54)    0.28               0.04 (−0.12 to 0.17)
+
+  U+M19     0.64      0.76           0.58    0.61   0.65 (0.44 to 0.81)    0.82               −0.17 (−0.38 to −0.02)
+  -----------------------------------------------------------------------------------------------------------------------
+
+Rankings among modern models are weak and noisy
+
+Among the 19 modern models, the four wound datasets agree at 0.21 on average (hierarchical interval −0.10 to 0.49), although each ranks the models reproducibly (split-half reliability 0.82 to 0.93) and the AZH control agrees with AZH at 0.91 (hierarchical 0.43 to 0.97). Under NSD wound-pair agreement is 0.47 (hierarchical 0.12 to 0.71). The models are close together: on each wound dataset the 19 method means span 0.07 to 0.20 Dice, and the median gap between neighbours in the ranking is 0.001 to 0.007.
+
+Training noise is large (Fig. 3a, Table 5). Two seeds of the same 16 architectures, scored on the same wound images, agree at 0.45 on average (hierarchical interval 0.19 to 0.65; 0.26 to 0.60 for the individual datasets), against 0.83 on the control images. Retraining one architecture with another seed moves its dataset mean with a pooled standard deviation of 0.010 to 0.033 Dice, several times the median gap between neighbours. The rule fixed before the seed experiment required same-dataset cross-seed agreement above 0.7. It was not met, so the statement that modern models disagree across wound datasets because the datasets differ, rather than because of training noise, is not supported in that form.
+
+The datasets nevertheless disagree more than the seeds do. Agreement between different wound datasets at different seeds is 0.10 (hierarchical −0.12 to 0.34), so the gap to same-dataset agreement is 0.35 (0.11 to 0.56; hierarchical 0.12 to 0.61). The gap comes from the nine original architectures (0.49); among the seven new ones it is 0.05, so for them disagreement across datasets is no larger than disagreement between seeds. Under NSD the gap is 0.14 (−0.01 to 0.31). Averaging three seeds did not raise agreement across datasets: wound-pair agreement was 0.18 for single seeds (mean over three) and 0.18 for the seed averages, a difference of 0.00 (−0.15 to 0.18). A single-seed ranking on one wound dataset has a reliability (intraclass correlation) of 0.27 to 0.77, and a three-seed average one of 0.52 to 0.91 (Online Resource 1, Table S4).
+
+The level of agreement also depends on how thresholds are set (Fig. 3b). With each model at its own FUSeg-tuned threshold, the protocol used throughout, wound-pair agreement is 0.21. With one common threshold of 0.5 for all models it rises to 0.41 (0.14 to 0.65; change 0.20, 0.03 to 0.35), and the rise has an interval above zero for every common threshold from 0.45 to 0.90, reaching 0.62 at 0.90. At a common threshold the ranking follows how confident each model's outputs are: the mean Spearman correlation between the method means on the wound datasets and each model's own tuned threshold is 0.27 under the main protocol and 0.55 at a common threshold of 0.5. With a per-dataset oracle threshold for every model, which removes calibration differences, agreement falls to 0.12 (−0.13 to 0.40).
+
+[]
+
+Fig. 3 Agreement among modern models on the four wound datasets (Dice). a: the 16 architectures with three training seeds; agreement between two seeds on the same dataset (per dataset and mean), between two datasets at the same seed (each of the six pairs and their mean), between two datasets at different seeds, and on the control (AZH train slice), with 95% architecture-bootstrap intervals. b: mean wound-pair agreement of the 19 modern models when one common threshold is applied to every model, with 95% method-bootstrap band; filled markers show a rise over each model's own tuned threshold with interval above zero; the dashed line marks each model's own threshold and the dotted line a per-dataset oracle threshold
+
+Consequences for choosing a modern model
+
+The best model differs between wound datasets: MA-Net (ResNet-18) on Medetec, SegFormer (MiT-B2) on CO2Wounds-V2, MA-Net (ResNet-50) on FUSeg and SegFormer (MiT-B2) on AZH (seed averages), and with single-seed models the best architecture changes with the seed on three of the four datasets. Choosing on one wound dataset and deploying on another loses 0.047 Dice on average over the 12 ordered pairs (at most 0.118), against 0.063 for a random choice (Table 5). The synthetic benchmark picks nnU-Net at every texture amplitude, with a mean loss of 0.030. This pick depends on the training seed. With the seed-0 models the benchmark picks U-Net (EfficientNet-B3) (mean loss 0.067), an architecture whose synthetic Dice is 0.80, 0.67 and 0.47 at seeds 0, 1 and 2; with the seed-1 models the pick is nnU-Net again, but its mean loss is 0.051 because the best models change (Online Resource 1, Table S7).
+
+Mean Dice hides a failure mode. On AZH the 18 pretrained architectures miss (Dice below 0.1) 27.9% (21.2% to 34.3%) of the 140 images with a non-empty reference on average, against 1.4% (0.0% to 3.5%) for nnU-Net; on FUSeg the rates are 2.6% and 4.6%. The new architectures miss less than the original ten (24.9% against 30.3%), but even the best, SegFormer (MiT-B2), misses 11.9% (7.2% to 16.8%), and one architecture's AZH miss rate varied by up to 13.6 percentage points between its seeds. AZH images are small wound crops pasted on a black canvas (85.2% of pixels black on average, against 26.3% for FUSeg). The share of the 51 pretrained models that miss an image correlates with its black-pixel share (Spearman 0.73) more than with its lesion fraction (−0.46). Within each lesion-fraction tercile, images with more padding than the median are missed by a larger share of models (0.79 against 0.23, 0.36 against 0.05 and 0.15 against 0.09). In 39 AZH images most pretrained models miss the wound and nnU-Net detects it; the reverse occurs in 0.
+
+Table 5 Modern models: ranking reliability across training seeds, model selection and misses. Agreement is mean Spearman correlation over the four wound datasets (Dice); intervals are 95% hierarchical bootstrap intervals for agreement, unit-bootstrap intervals for miss rates. Losses are mean Dice below the best candidate on the deployment dataset
+
+  -----------------------------------------------------------------------------------------------------------------
+  Quantity                                                      Estimate   95% interval or detail
+  ------------------------------------------------------------- ---------- ----------------------------------------
+  Ranking reliability (16 architectures with three seeds)                  
+
+  Same dataset, different seed                                  0.45       0.19 to 0.65
+
+  Different dataset, different seed                             0.10       −0.12 to 0.34
+
+  Gap (same dataset minus different dataset)                    0.35       0.12 to 0.61
+
+  Gap, 9 original architectures                                 0.49       0.09 to 0.85 (architecture bootstrap)
+
+  Gap, 7 new architectures                                      0.05       −0.12 to 0.26 (architecture bootstrap)
+
+  Different dataset, same seed (mean over the three seeds)      0.18       −0.05 to 0.40
+
+  Different dataset, seed-averaged models                       0.18       −0.15 to 0.52
+
+  Model selection (19 candidates; Dice lost against the best)              
+
+  Chosen on another wound dataset (mean of 12 ordered pairs)    0.047      range 0.000 to 0.118
+
+  Random choice (expected)                                      0.063      
+
+  Synthetic pick, seed averages                                 0.030      nnU-Net
+
+  Synthetic pick, seed-0 models                                 0.067      U-Net (EfficientNet-B3)
+
+  Synthetic pick, seed-1 models                                 0.051      nnU-Net
+
+  Synthetic pick, seed-2 models                                 0.024      nnU-Net
+
+  Misses on AZH (non-empty reference, Dice below 0.1)                      
+
+  18 pretrained architectures                                   27.9%      21.2% to 34.3%
+
+  10 original architectures                                     30.3%      23.3% to 37.0%
+
+  8 new architectures                                           24.9%      18.4% to 31.1%
+
+  Best architecture, SegFormer (MiT-B2)                         11.9%      7.2% to 16.8%
+
+  nnU-Net                                                       1.4%       0.0% to 3.5%
+  -----------------------------------------------------------------------------------------------------------------
+
+Robustness of the findings
+
+The pooled-set findings survive the analysis choices (Online Resource 1, Table S6). In all 12 conditions (three post-processing pipelines under Dice and NSD, four further NSD tolerances, and FUSeg at 256 pixels under Dice and NSD), U+M19 wound-pair agreement is 0.82 to 0.89 and exceeds the higher within-group value by 0.23 to 0.46, each time with an interval above zero; agreement between wound and other datasets is −0.58 to −0.43; and stratified agreement (0.29 to 0.58) equals the size-weighted within-group average in every condition. The weaker U+F effect does not reach this standard in any condition (excess over the higher within-group value −0.16 to 0.16). The modality difference of every pooled set stays above zero in all conditions (U+M19 1.00 to 1.13).
+
+Among modern models, wound-pair agreement stays within 0.12 to 0.26 under Dice and 0.32 to 0.52 under NSD across post-processing pipelines, tolerances, the resampled FUSeg and the oracle threshold, and none of these changes has an interval that excludes zero; the common threshold described above is the only exception. Post-processing barely reorders the modern models under Dice (lowest rank correlation between pipelines on a non-floor dataset 0.90), more under NSD (0.73). Excluding empty reference masks leaves the modality differences unchanged (U+M19 1.10, M19 0.23) and wound-pair agreement nearly so (U+M19 0.82, M19 0.24).
+
+Discussion
+
+What a validity figure measures
+
+A rank correlation between a synthetic benchmark and clinical data is usually read as a property of the benchmark. In our data the same benchmark scores 0.65 or 0.21 depending on whether classical methods are in the pool, and 0.80 or 0.31 among untrained methods depending on which wound dataset is the reference. The high pooled value comes from the gap between groups. A benchmark on which modern models beat classical ones, as they do on every wound dataset, will correlate with any of those datasets over a pooled set, whether or not it can order the modern models among themselves. The stratification identity makes this exact: once the difference in level between groups is removed, what remains is the average of the within-group agreements, and among modern models that average is low.
+
+Ordering modern models among themselves is the question a vendor, a hospital or a regulator usually faces, and its ceiling is lower than it seems. Wound datasets agree with each other at 0.21 among modern models, so a benchmark that agrees with them at 0.21 is as good a proxy as another clinical dataset and no better. A validity figure is informative only next to the agreement between clinical datasets for the same methods.
+
+Modern models: dataset differences, training noise and thresholds
+
+Three things limit agreement among modern models. First, the models are close: the median gap between neighbouring models is below a hundredth of Dice on each wound dataset, much less than retraining moves a model, as reported for other benchmarks [27]. Two seeds of the same architectures rank them only moderately alike on one dataset. Second, the datasets do differ: for the original architectures, two wound datasets disagree more than two seeds do, by a margin whose interval excludes zero. That part of the disagreement is a property of the data rather than of training. It did not appear among the new architectures, and the criterion fixed in advance for calling the disagreement data-driven was not met, so the evidence supports only this narrower statement. Third, the threshold protocol matters. A common threshold raises agreement, but the raised ranking follows how confident each model's outputs are [29], a trait that carries across datasets, rather than which model segments wounds best; an oracle threshold that removes calibration differences lowers agreement. Our main protocol tunes each model's threshold on held-out images from its training domain, as is usual before deployment, and the low agreement applies to that protocol.
+
+For practice, a single dataset, a single training seed and a single threshold protocol can each change which modern model looks best. In our data the best model differed between wound datasets and changed with the seed, the synthetic benchmark's choice changed with the seed, and a model chosen on one wound dataset did only modestly better on another than a random choice.
+
+Relation to prior work
+
+The composition effect is Simpson's paradox [23, 24], and its role in benchmark agreement is established for language models [18, 19] and for robustness of image classifiers, where models trained on different data lie on different lines relating in-distribution and out-of-distribution accuracy [20–22]. Our contribution is to measure its size in medical segmentation, to show that it inflates agreement within one modality as well as creating disagreement across modalities, to give the exact identity behind stratification, and to show the consequence for validating synthetic benchmarks. That training seeds and small test sets make model comparisons uncertain has been argued for machine learning benchmarks and for medical imaging [27, 28]; here the seed variation is large enough to change the validity figure of a benchmark and the model it selects. The task dependence of synthetic-to-real transfer reported for CT [17] and the strong transfer reported for programmable lesion trials [3] are consistent with our finding that validity is not a fixed property of a synthetic set. Reporting intervals over methods follows recommendations to quantify uncertainty in medical imaging evaluation [62, 63]. Finally, the advice to maximise variation in synthetic data comes from training, where domain randomisation helps models transfer to real images [64–66]. A benchmark has a different job: it should order methods as the deployment data would, which argues for matching the deployment distribution rather than exceeding it.
+
+Why wound photography differs
+
+Colonoscopy datasets from three centres agree strongly among the untrained and Kvasir-trained methods, while wound datasets do not. Colonoscopy frames share a device class and a field of view. Wound photographs have no standard framing: the median lesion fraction of the four wound datasets ranges from 0.007 to 0.098, two are different crops of one clinic's photographs, and one was taken on smartphones in a leprosy programme. The AZH crops are mostly black padding, and that framing is associated with whether the pretrained models detect the wound at all. Dice depends on lesion size [67], and under NSD mean agreement between wound datasets among untrained methods rises from 0.37 to 0.62, which is consistent with framing conventions contributing to the disagreement [68, 69].
+
+Recommendations
+
+  1. Report a benchmark's agreement within the group of methods it is meant to compare, and name that group.
+
+  2. Report agreement against several clinical datasets, as a matrix, together with the agreement between those clinical datasets and a within-dataset control.
+
+  3. Report intervals that resample methods and the images or photographs of each dataset.
+
+  4. For trained models, train several seeds and report how well the ranking on one dataset is reproduced across seeds before interpreting differences between datasets.
+
+  5. State the threshold protocol, because a common threshold can create agreement that reflects calibration rather than segmentation quality.
+
+  6. Report failure rates, such as the share of missed lesions, next to mean Dice.
+
+  7. If a mixed pool cannot be avoided, report stratified agreement, keeping in mind that it equals the size-weighted average of the within-group agreements.
+
+Limitations
+
+  The modern sets are small (19 methods; 16, 9 and 7 architectures in the seed analyses), so Spearman correlations move in coarse steps and intervals are wide. Several statements about modern models rest on intervals that include zero.
+
+  In the second session 3 of the 5 MA-Net trainings diverged under mixed precision and were not imputed. MA-Net on ResNet-18 is averaged over two seeds and MA-Net on ResNet-50 is a single model, so these columns carry more training noise than the others, although they are the best seed-averaged models on Medetec and FUSeg.
+
+  Seed 0 of the ten original architectures was trained in a different GPU session from seeds 1 and 2, so for these architectures the effects of the session and of the seed cannot be separated. The first session did not record the PyTorch and timm versions.
+
+  nnU-Net was trained once, in its 2D configuration, for 100 epochs rather than the default 1,000, with its threshold fixed at 0.5. Its scores carry the noise of a single training, which matters because it was the synthetic benchmark's pick in most settings. The pretrained architectures were trained on 392 images at 256 pixels; they represent current architectures, not every deployed system.
+
+  The level of agreement among modern models depends on the threshold protocol. Our statements about low agreement apply to each model at its own tuned threshold; a common threshold gives higher agreement, and the oracle threshold, chosen on the evaluation images and limited by the grid, gives lower agreement.
+
+  The modern models score near zero Dice on all seven non-wound datasets, so their colonoscopy agreement and modality difference rank floor-level scores, and the from-scratch group is near the floor on most of these datasets too.
+
+  The synthetic benchmarks are parametric, contain 45 images each and were built at three synthetic seeds. Learned generators such as diffusion models were not tested. Benchmark intervals for sets that include untrained or from-scratch methods resample methods only.
+
+  A fifth wound dataset was excluded before scoring because many of its masks did not match their images. Wound photography is therefore represented by four datasets from three sources, two of which share one clinic, and statements about wound datasets rest on five pairs from different sources.
+
+  Medetec's 152 images are 38 photographs with four variants each, so its effective sample is smaller than its image count; the AZH sets also contain several crops per photograph.
+
+  Images were not harmonised to one resolution across datasets, and NSD uses a fixed pixel tolerance, which is looser at lower resolution. Resampling FUSeg and varying the tolerance did not change the conclusions, but other datasets were not resampled. Untrained methods and probability-output methods receive different post-processing, which coincides with the main contrast between groups.
+
+  The seed, benchmark, selection and robustness analyses are exploratory and are not corrected for multiple comparisons. The selection losses are point estimates, and the link between padding and misses is correlational.
+
+  SAM and MedSAM received box prompts from the reference masks, an oracle that makes their scores incomparable with automatic segmentation; they were therefore kept out of every method set.
+
+Conclusions
+
+Agreement between clinical datasets about which segmentation method is better depends strongly on which methods are compared. Pooling classical and modern methods inflates agreement between wound datasets and reverses it across modalities, and a synthetic benchmark validated over such a pool inherits the inflation. Among the modern models that practitioners choose between, wound datasets agree weakly, training noise is of the same order as the differences between models, and the threshold protocol shifts the level of agreement. A synthetic benchmark can then be validated no better than one clinical dataset predicts another. Validity should be reported within the group of methods to be compared, against several clinical datasets, with intervals over methods and images, and with the training seeds and threshold protocol stated.
+
+Statements and Declarations
+
+Ethics approval. Not required. The study used only publicly available, de-identified datasets distributed for research use.
+
+Consent to participate and to publish. Not applicable.
+
+Data availability. All clinical datasets are publicly available from their original distributors (Table 1). Online Resource 2 gives the per-method mean Dice and NSD on every image set and the agreement for every pair of image sets in every method set. Online Resource 1 contains Tables S1 to S9 and Fig. S1.
+
+References
+
+1. Badano A, Graff CG, Badal A et al.: Evaluation of digital breast tomosynthesis as replacement of full-field digital mammography using an in silico imaging trial. JAMA Network Open 1(7), e185474, 2018. https://doi.org/10.1001/jamanetworkopen.2018.5474
+
+2. Sizikova E, Saharkhiz N, Sharma D et al.: Knowledge-based in silico models and dataset for the comparative evaluation of mammography AI for a range of breast characteristics, lesion conspicuities and doses. In: Advances in Neural Information Processing Systems 36 (NeurIPS 2023), Datasets and Benchmarks Track, pp. 37401-37412, 2023. https://doi.org/10.52202/075280-1626
+
+3. Tushar FI, Momy UH, Lo JY et al.: iTRIALSPACE: Programmable virtual lesion trials for controlled evaluation of lung CT models. arXiv preprint, 2026. https://arxiv.org/abs/2605.05761
+
+4. Pérez-García F, Bond-Taylor S, Sanchez PP et al.: RadEdit: Stress-testing biomedical vision models via diffusion image editing. In: Computer Vision, ECCV 2024. Lecture Notes in Computer Science 15070, pp. 358-376, 2024. https://doi.org/10.1007/978-3-031-73254-6_21
+
+5. Maier-Hein L, Eisenmann M, Reinke A et al.: Why rankings of biomedical image analysis competitions should be interpreted with care. Nature Communications 9, 5217, 2018. https://doi.org/10.1038/s41467-018-07619-7
+
+6. Reinke A, Tizabi MD, Baumgartner M et al.: Understanding metric-related pitfalls in image analysis validation. Nature Methods 21(2), 182-194, 2024. https://doi.org/10.1038/s41592-023-02150-0
+
+7. Dehghani M, Tay Y, Gritsenko AA et al.: The benchmark lottery. arXiv preprint, 2021. https://arxiv.org/abs/2107.07002
+
+8. Piérard S, Deliège A, Halin A, Van Droogenbroeck M: A methodology to evaluate strategies predicting rankings on unseen domains. In: 2025 IEEE International Conference on Multimedia and Expo Workshops (ICMEW), pp. 1-6, 2025. https://doi.org/10.1109/ICMEW68306.2025.11152102
+
+9. Bassi PRAS, Li W, Tang Y et al.: Touchstone benchmark: Are we on the right way for evaluating AI algorithms for medical segmentation? In: Advances in Neural Information Processing Systems 37 (NeurIPS 2024), Datasets and Benchmarks Track, 2024. https://arxiv.org/abs/2411.03670
+
+10. Ali S, Ghatwary N, Jha D et al.: Assessing generalisability of deep learning-based polyp detection and segmentation methods through a computer vision challenge. Scientific Reports 14, 2032, 2024. https://doi.org/10.1038/s41598-024-52063-x
+
+11. Urooj A, Ul Abdien Z, Madan N: Metrics or mirage? An audit of evaluation inconsistencies in colonoscopy polyp segmentation benchmarks. arXiv preprint, 2026. https://arxiv.org/abs/2607.08203
+
+12. Kang C: Is synthetic dataset reliable for benchmarking generalizable person re-identification? In: 2022 IEEE International Joint Conference on Biometrics (IJCB), pp. 1-8, 2022. https://doi.org/10.1109/IJCB54206.2022.10007952
+
+13. Borsukiewicz P, Lunghi D, Ouédraogo WC, Klein J, Bissyandé TF: Benchmarking face recognition without real faces. arXiv preprint, 2026. https://arxiv.org/abs/2607.14932
+
+14. Hu Q, Yuille A, Zhou Z: Synthetic data as validation. arXiv preprint, 2023. https://arxiv.org/abs/2310.16052
+
+15. van Breugel B, Seedat N, Imrie F, van der Schaar M: Can you rely on your model evaluation? Improving model evaluation with synthetic test data. In: Advances in Neural Information Processing Systems 36 (NeurIPS 2023), pp. 1889-1904, 2023. https://doi.org/10.52202/075280-0091
+
+16. Shoshan A, Bhonker N, Kviatkovsky I, Fintz M, Medioni G: Synthetic data for model selection. In: Proceedings of the 40th International Conference on Machine Learning (ICML 2023), PMLR 202, pp. 31633-31656, 2023. https://arxiv.org/abs/2105.00717
+
+17. Tushar FI: When does synthetic CT transfer? A label-free donor/host diagnostic for medical vision-language model routing on real lung CT. arXiv preprint, 2026. https://arxiv.org/abs/2606.29232
+
+18. Perlitz Y, Gera A, Arviv O et al.: Do these LLM benchmarks agree? Fixing benchmark evaluation with BenchBench. arXiv preprint, 2024. https://arxiv.org/abs/2407.13696
+
+19. Zhang G, Dominguez-Olmedo R, Hardt M: Train-before-test harmonizes language model rankings. In: International Conference on Learning Representations (ICLR 2026), 2026. https://arxiv.org/abs/2507.05195
+
+20. Teney D, Lin Y, Oh SJ, Abbasnejad E: ID and OOD performance are sometimes inversely correlated on real-world datasets. In: Advances in Neural Information Processing Systems 36 (NeurIPS 2023), 2023. https://arxiv.org/abs/2209.00613
+
+21. Miller JP, Taori R, Raghunathan A et al.: Accuracy on the line: On the strong correlation between out-of-distribution and in-distribution generalization. In: Proceedings of the 38th International Conference on Machine Learning (ICML 2021), PMLR 139, pp. 7721-7735, 2021. https://arxiv.org/abs/2107.04649
+
+22. Fang A, Ilharco G, Wortsman M et al.: Data determines distributional robustness in contrastive language image pre-training (CLIP). In: Proceedings of the 39th International Conference on Machine Learning (ICML 2022), PMLR 162, pp. 6216-6234, 2022. https://proceedings.mlr.press/v162/fang22a.html
+
+23. Simpson EH: The interpretation of interaction in contingency tables. Journal of the Royal Statistical Society Series B: Statistical Methodology 13(2), 238-241, 1951. https://doi.org/10.1111/j.2517-6161.1951.tb00088.x
+
+24. Kievit RA, Frankenhuis WE, Waldorp LJ et al.: Simpson's paradox in psychological science: A practical guide. Frontiers in Psychology 4, 513, 2013. https://doi.org/10.3389/fpsyg.2013.00513
+
+25. Lucho S, Naemi R, Castañeda B, Treuillet S: Can deep learning wound segmentation algorithms developed for a dataset be effective for another dataset? A specific focus on diabetic foot ulcers. IEEE Access 12, 173824-173835, 2024. https://doi.org/10.1109/ACCESS.2024.3502467
+
+26. Benfatah A: Do diabetic foot ulcer segmentation models generalize? A cross-dataset benchmark of CNN and transformer architectures. arXiv preprint, 2026. https://arxiv.org/abs/2607.02555
+
+27. Bouthillier X, Delaunay P, Bronzi M et al.: Accounting for variance in machine learning benchmarks. In: Proceedings of Machine Learning and Systems 3 (MLSys 2021), pp. 747-769, 2021. https://proceedings.mlsys.org/paper_files/paper/2021/hash/0184b0cd3cfb185989f858a1d9f5c1eb-Abstract.html
+
+28. Varoquaux G, Cheplygina V: Machine learning for medical imaging: Methodological failures and recommendations for the future. npj Digital Medicine 5, 48, 2022. https://doi.org/10.1038/s41746-022-00592-y
+
+29. Guo C, Pleiss G, Sun Y, Weinberger KQ: On calibration of modern neural networks. In: Proceedings of the 34th International Conference on Machine Learning (ICML 2017), PMLR 70, pp. 1321-1330, 2017. https://proceedings.mlr.press/v70/guo17a.html
+
+30. Medetec: Medetec wound database: medical image databases, 2014. Available at http://www.medetec.co.uk/files/medetec-image-databases.html. Accessed 8 October 2026
+
+31. Sanchez K, Hinojosa C, Mieles O, Zhao C, Ghanem B, Arguello H: CO2Wounds-V2: Extended chronic wounds dataset from leprosy patients. arXiv preprint arXiv:2408.10827, 2024. https://doi.org/10.48550/arXiv.2408.10827
+
+32. Wang C, Mahbod A, Ellinger I, Galdran A, Gopalakrishnan S, Niezgoda J, Yu Z: FUSeg: The Foot Ulcer Segmentation Challenge. Information 15(3), 140, 2024. https://doi.org/10.3390/info15030140
+
+33. Wang C, Anisuzzaman DM, Williamson V et al.: Fully automatic wound segmentation with deep convolutional neural networks. Scientific Reports 10, 21897, 2020. https://doi.org/10.1038/s41598-020-78799-w
+
+34. Jha D, Smedsrud PH, Riegler MA, Halvorsen P, de Lange T, Johansen D, Johansen HD: Kvasir-SEG: A segmented polyp dataset. In: MultiMedia Modeling, MMM 2020. Lecture Notes in Computer Science 11962, pp. 451-462, 2020. https://doi.org/10.1007/978-3-030-37734-2_37
+
+35. Bernal J, Sánchez FJ, Fernández-Esparrach G, Gil D, Rodríguez C, Vilariño F: WM-DOVA maps for accurate polyp highlighting in colonoscopy: Validation vs. saliency maps from physicians. Computerized Medical Imaging and Graphics 43, 99-111, 2015. https://doi.org/10.1016/j.compmedimag.2015.02.007
+
+36. Bernal J, Sánchez J, Vilariño F: Towards automatic polyp detection with a polyp appearance model. Pattern Recognition 45(9), 3166-3182, 2012. https://doi.org/10.1016/j.patcog.2012.03.002
+
+37. Silva J, Histace A, Romain O, Dray X, Granado B: Toward embedded detection of polyps in WCE images for early diagnosis of colorectal cancer. International Journal of Computer Assisted Radiology and Surgery 9(2), 283-293, 2014. https://doi.org/10.1007/s11548-013-0926-3
+
+38. Mendonça T, Ferreira PM, Marques JS, Marçal ARS, Rozeira J: PH2: A dermoscopic image database for research and benchmarking. In: 2013 35th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC), pp. 5437-5440, 2013. https://doi.org/10.1109/EMBC.2013.6610779
+
+39. Gong H, Chen G, Wang R et al.: Multi-task learning for thyroid nodule segmentation with thyroid region prior. In: 2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI), pp. 257-261, 2021. https://doi.org/10.1109/ISBI48211.2021.9434087
+
+40. Iakubovskii P: Segmentation Models Pytorch. GitHub repository, 2019. https://github.com/qubvel-org/segmentation_models.pytorch
+
+41. Ronneberger O, Fischer P, Brox T: U-Net: Convolutional networks for biomedical image segmentation. In: Medical Image Computing and Computer-Assisted Intervention, MICCAI 2015. Lecture Notes in Computer Science 9351, pp. 234-241, 2015. https://doi.org/10.1007/978-3-319-24574-4_28
+
+42. Zhou Z, Siddiquee MMR, Tajbakhsh N, Liang J: UNet++: A nested U-Net architecture for medical image segmentation. In: Deep Learning in Medical Image Analysis and Multimodal Learning for Clinical Decision Support. Lecture Notes in Computer Science 11045, pp. 3-11, 2018. https://doi.org/10.1007/978-3-030-00889-5_1
+
+43. Chen L-C, Zhu Y, Papandreou G, Schroff F, Adam H: Encoder-decoder with atrous separable convolution for semantic image segmentation. In: Computer Vision, ECCV 2018. Lecture Notes in Computer Science 11211, pp. 833-851, 2018. https://doi.org/10.1007/978-3-030-01234-2_49
+
+44. Lin T-Y, Dollár P, Girshick R, He K, Hariharan B, Belongie S: Feature pyramid networks for object detection. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 936-944, 2017. https://doi.org/10.1109/CVPR.2017.106
+
+45. Zhao H, Shi J, Qi X, Wang X, Jia J: Pyramid scene parsing network. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 6230-6239, 2017. https://doi.org/10.1109/CVPR.2017.660
+
+46. Chaurasia A, Culurciello E: LinkNet: Exploiting encoder representations for efficient semantic segmentation. In: 2017 IEEE Visual Communications and Image Processing (VCIP), pp. 1-4, 2017. https://doi.org/10.1109/VCIP.2017.8305148
+
+47. Fan T, Wang G, Li Y, Wang H: MA-Net: A multi-scale attention network for liver and tumor segmentation. IEEE Access 8, 179656-179665, 2020. https://doi.org/10.1109/ACCESS.2020.3025372
+
+48. He K, Zhang X, Ren S, Sun J: Deep residual learning for image recognition. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 770-778, 2016. https://doi.org/10.1109/CVPR.2016.90
+
+49. Sandler M, Howard A, Zhu M, Zhmoginov A, Chen L-C: MobileNetV2: Inverted residuals and linear bottlenecks. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 4510-4520, 2018. https://doi.org/10.1109/CVPR.2018.00474
+
+50. Tan M, Le Q: EfficientNet: Rethinking model scaling for convolutional neural networks. In: Proceedings of the 36th International Conference on Machine Learning (ICML 2019), PMLR 97, pp. 6105-6114, 2019. https://arxiv.org/abs/1905.11946
+
+51. Xie E, Wang W, Yu Z, Anandkumar A, Alvarez JM, Luo P: SegFormer: Simple and efficient design for semantic segmentation with transformers. In: Advances in Neural Information Processing Systems 34 (NeurIPS 2021), pp. 12077-12090, 2021. https://arxiv.org/abs/2105.15203
+
+52. Deng J, Dong W, Socher R et al.: ImageNet: A large-scale hierarchical image database. In: 2009 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 248-255, 2009. https://doi.org/10.1109/CVPR.2009.5206848
+
+53. Liu Z, Lin Y, Cao Y et al.: Swin Transformer: Hierarchical vision transformer using shifted windows. In: 2021 IEEE/CVF International Conference on Computer Vision (ICCV), pp. 9992-10002, 2021. https://doi.org/10.1109/ICCV48922.2021.00986
+
+54. Xiao T, Liu Y, Zhou B, Jiang Y, Sun J: Unified perceptual parsing for scene understanding. In: Computer Vision, ECCV 2018. Lecture Notes in Computer Science 11209, pp. 432-448, 2018. https://doi.org/10.1007/978-3-030-01228-1_26
+
+55. Liu Z, Mao H, Wu C-Y, Feichtenhofer C, Darrell T, Xie S: A ConvNet for the 2020s. In: 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 11966-11976, 2022. https://doi.org/10.1109/CVPR52688.2022.01167
+
+56. Radosavovic I, Kosaraju RP, Girshick R, He K, Dollár P: Designing network design spaces. In: 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 10425-10433, 2020. https://doi.org/10.1109/CVPR42600.2020.01044
+
+57. Isensee F, Jaeger PF, Kohl SAA, Petersen J, Maier-Hein KH: nnU-Net: A self-configuring method for deep learning-based biomedical image segmentation. Nature Methods 18(2), 203-211, 2021. https://doi.org/10.1038/s41592-020-01008-z
+
+58. Kirillov A, Mintun E, Ravi N et al.: Segment anything. In: 2023 IEEE/CVF International Conference on Computer Vision (ICCV), pp. 3992-4003, 2023. https://doi.org/10.1109/ICCV51070.2023.00371
+
+59. Ma J, He Y, Li F et al.: Segment anything in medical images. Nature Communications 15, 654, 2024. https://doi.org/10.1038/s41467-024-44824-z
+
+60. Islam L: Surgical Vision ROS2: a ROS2 Humble pipeline for intraoperative wound assessment and variable-autonomy arm control. Research Square preprint, 2026. https://doi.org/10.21203/rs.3.rs-10362132/v1
+
+61. Nikolov S, Blackwell S, Zverovitch A et al.: Deep learning to achieve clinically applicable segmentation of head and neck anatomy for radiotherapy. arXiv preprint, 2018. https://arxiv.org/abs/1809.04430
+
+62. Wiesenfarth M, Reinke A, Landman BA et al.: Methods and open-source toolkit for analyzing and visualizing challenge results. Scientific Reports 11, 2369, 2021. https://doi.org/10.1038/s41598-021-82017-6
+
+63. Christodoulou E, Reinke A, Houhou R et al.: Confidence intervals uncovered: Are we ready for real-world medical imaging AI? In: Medical Image Computing and Computer Assisted Intervention, MICCAI 2024. Lecture Notes in Computer Science 15010, pp. 124-132, 2024. https://doi.org/10.1007/978-3-031-72117-5_12
+
+64. Tobin J, Fong R, Ray A, Schneider J, Zaremba W, Abbeel P: Domain randomization for transferring deep neural networks from simulation to the real world. In: 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pp. 23-30, 2017. https://doi.org/10.1109/IROS.2017.8202133
+
+65. Tremblay J, Prakash A, Acuna D et al.: Training deep networks with synthetic data: Bridging the reality gap by domain randomization. In: IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), pp. 969-977, 2018. https://doi.org/10.1109/CVPRW.2018.00143
+
+66. Prakash A, Boochoon S, Brophy M et al.: Structured domain randomization: Bridging the reality gap by context-aware synthetic data. In: 2019 International Conference on Robotics and Automation (ICRA), 2019. https://doi.org/10.1109/ICRA.2019.8794443
+
+67. Raina V, Molchanova N, Graziani M et al.: Tackling bias in the Dice similarity coefficient: Introducing nDSC for white matter lesion segmentation. In: IEEE International Symposium on Biomedical Imaging (ISBI 2023), pp. 1-5, 2023. https://arxiv.org/abs/2302.05432
+
+68. Torralba A, Efros AA: Unbiased look at dataset bias. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pp. 1521-1528, 2011. https://doi.org/10.1109/CVPR.2011.5995347
+
+69. Kendrick C, Cassidy B, Pappachan JM et al.: Translating clinical delineation of diabetic foot ulcers into machine interpretable segmentation. arXiv preprint, 2022. https://arxiv.org/abs/2204.11618
