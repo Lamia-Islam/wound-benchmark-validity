@@ -126,6 +126,14 @@ def eiv(e, d=3):
     return f"{f(e['est'], d)} {iv(e['lo'], e['hi'], d)}"
 
 
+def eiv_fine(e, d=3):
+    """As eiv, with one more decimal when an interval bound is not zero but rounds to zero
+    (so a bound just above zero is not printed as 0.000)."""
+    lo, hi = e["ci"] if "ci" in e else (e["lo"], e["hi"])
+    tiny = any(x != 0 and round(x, d) == 0 for x in (lo, hi))
+    return eiv(e, d + 1 if tiny else d)
+
+
 def fp(p, min_p=None):
     """p value with 2 significant digits; '(min)' when p is the smallest attainable."""
     if p is None:
@@ -661,6 +669,10 @@ def write_or2(path):
         (f"Pair agreement: Spearman agreement between two image sets over a method set, for every pair of the "
          f"{len(REFS)} clinical references and the control ({len(PAIRS)} pairs), Dice and NSD, for each of the "
          f"{len(PAIRSETS)} method sets.", BFONT),
+        ("Further analyses: values of the additional analyses cited in the main text (Holm correction, seed-gap "
+         "subgroups, shared test images, selection-loss intervals, per-reference benchmark differences, miss-rate "
+         "difference, synthetic-seed agreement, split-half ranges, scale of the AZH crops, Dice when detected, oracle "
+         "thresholds at the grid minimum, stratification identity), unrounded, with their intervals.", BFONT),
         ("", BFONT),
         ("Definitions", HFONT),
         ("Mean score: mean over the kept images of the per-image score. Dice of an empty reference mask is 1 if the "
@@ -732,6 +744,59 @@ def write_or2(path):
         style_sheet(ws, len(hdr), widths=[26, 20, 18, 58, 16] + [14] * len(ALLSETS),
                     numfmt={k: "0.000" for k in range(6, len(hdr) + 1)})
         ws.freeze_panes = "F2"
+
+    # further analyses cited in the main text (results/v7/review_v7.json)
+    RVJ = jl(V7, "review_v7.json")
+
+    def rvget(path):
+        x = RVJ
+        for k in path.split("/"):
+            x = x[k]
+        return x
+    ws = wb.create_sheet("Further analyses")
+    hdr = ["quantity", "estimate", "95% lower", "95% upper", "interval"]
+    ws.append(hdr)
+    S5 = "R3_M5_selection/M19"
+    rows_fa = [
+        ("Holm-adjusted exact p, largest over the 7 method sets (Dice, 55 pairs)", "R3_M1_holm/largest_adjusted_p", None, ""),
+        ("Gap, 9 original minus 7 new architectures (Dice, wound pairs)", "R3_M3_seed_gap_subgroups/gap_P9_minus_N7/est",
+         "R3_M3_seed_gap_subgroups/gap_P9_minus_N7/ci95", "architectures resampled per subgroup"),
+        ("Same-dataset cross-seed agreement, 16 architectures, both seeds on the same half", "R3_M4_shared_images/half_splits/C16/shared_halves", None, "mean over random half splits"),
+        ("Same-dataset cross-seed agreement, 16 architectures, seeds on different halves", "R3_M4_shared_images/half_splits/C16/independent_halves", None, "mean over random half splits"),
+        ("Selection loss, chosen on another wound dataset (19 seed-averaged candidates)", f"{S5}/unit_bootstrap/chooser_loss/est", f"{S5}/unit_bootstrap/chooser_loss/ci95", "units resampled"),
+        ("Selection loss, random choice (19 seed-averaged candidates)", f"{S5}/unit_bootstrap/random_loss/est", f"{S5}/unit_bootstrap/random_loss/ci95", "units resampled"),
+        ("Selection loss, chooser minus random", f"{S5}/unit_bootstrap/chooser_minus_random/est", f"{S5}/unit_bootstrap/chooser_minus_random/ci95", "units resampled"),
+        ("Selection loss, choose on one half of a wound dataset and deploy on the other half (lowest dataset)", f"{S5}/half_split_same_dataset/range/0", None, ""),
+        ("Selection loss, choose on one half of a wound dataset and deploy on the other half (highest dataset)", f"{S5}/half_split_same_dataset/range/1", None, ""),
+        ("Selection loss, chosen on FUSeg, deployed on the other three wound datasets", f"{S5}/choose_on_fuseg_mean_loss_other3", None, ""),
+        ("Benchmark agreement, untrained: CO2Wounds-V2 minus AZH", "R3_m7_per_reference_benchmark_differences/U/difference/est", "R3_m7_per_reference_benchmark_differences/U/difference/ci95", "methods resampled"),
+        ("Benchmark agreement, Kvasir-trained: AZH minus FUSeg", "R3_m7_per_reference_benchmark_differences/K/difference/est", "R3_m7_per_reference_benchmark_differences/K/difference/ci95", "methods resampled"),
+        ("AZH miss rate, original minus new architectures (architectures fixed)", "R3_m9_azh_miss_original_minus_new/difference_units_only/est", "R3_m9_azh_miss_original_minus_new/difference_units_only/ci95", "units resampled"),
+        ("AZH miss rate, original minus new architectures (architectures also resampled)", "R3_m9_azh_miss_original_minus_new/difference_units_only/est", "R3_m9_azh_miss_original_minus_new/difference_units_and_architectures/ci95", "units and architectures resampled"),
+        ("Agreement between the three synthetic seeds of generator B (amplitude 40, modern models)", "R3_m17_synthetic_reliability/between_synthetic_seeds_mean_spearman", None, ""),
+        ("Split-half reliability within U, F and K, lowest of the 11 datasets", "R3_m2_split_half_reliability/U_F_K_pooled_range_11_clinical/0", None, ""),
+        ("Split-half reliability within U, F and K, highest of the 11 datasets", "R3_m2_split_half_reliability/U_F_K_pooled_range_11_clinical/1", None, ""),
+        ("Untrained wound-pair agreement without FUSeg (3 pairs, Dice)", "R2_M6_floor/U_wound_pairs_without_fuseg_3pairs", None, ""),
+        ("FUSeg pixels per AZH pixel (median over matched AZH test crops)", "R2_M3_scale/sift_scale_fuseg_px_per_azh_px/median_all_61_matched_test_images", None, ""),
+        ("AZH tissue magnification relative to FUSeg training input, pretrained models (letterbox)", "R2_M3_scale/magnification_vs_fuseg_training_input/pretrained_letterbox", None, ""),
+        ("AZH tissue magnification relative to FUSeg training input, nnU-Net (native pixels)", "R2_M3_scale/magnification_vs_fuseg_training_input/nnunet_native", None, ""),
+        ("AZH mean Dice when detected, 18 pretrained architectures", "R2_M3_scale/dice_when_detected_azh/P18_architecture_mean", None, ""),
+        ("AZH mean Dice when detected, nnU-Net", "R2_M3_scale/dice_when_detected_azh/nnunet", None, ""),
+        ("Oracle threshold at the grid minimum, share of models, Medetec", "R2_M5_oracle_grid_censoring/medetec/share_at_grid_min_0.05", None, ""),
+        ("Oracle threshold at the grid minimum, share of models, CO2Wounds-V2", "R2_M5_oracle_grid_censoring/co2wounds/share_at_grid_min_0.05", None, ""),
+        ("Stratification identity: largest single-pair difference from the weighted average", None, None, ""),
+    ]
+    _ID = "R3_m1_stratification_identity"
+    for lab, pe, pc, kind in rows_fa:
+        if pe is None:
+            v = max(RVJ[_ID][f"{m}|{g}"]["max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng"]
+                    for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
+        else:
+            v = rvget(pe) if not pe.endswith(("/0", "/1")) else rvget(pe.rsplit("/", 1)[0])[int(pe[-1])]
+        lo, hi = (rvget(pc) if pc else (None, None))
+        ws.append([lab, float(v), None if lo is None else float(lo), None if hi is None else float(hi), kind])
+    style_sheet(ws, len(hdr), widths=[95, 14, 14, 14, 36], numfmt={2: "0.0000", 3: "0.0000", 4: "0.0000"})
+    ws.freeze_panes = "A2"
 
     ws = wb.create_sheet("Pair agreement")
     hdr = ["metric", "method set", "methods in set", "dataset A", "dataset B", "pair category", "Spearman agreement"]
@@ -1600,7 +1665,7 @@ def table_s6(D):
     for t in grid:
         e, k_ = TH["common"][f"M19|{t}"], TH["common"][f"K11|{t}"]
         pr = TH["calibration_probe"][f"M19|{t}"]
-        rows.append([t, eiv(e["wound pairs"]), eiv(TH["delta_vs_default"][f"M19|{t}|wound pairs"]),
+        rows.append([t, eiv(e["wound pairs"]), eiv_fine(TH["delta_vs_default"][f"M19|{t}|wound pairs"]),
                      eiv(e["modality_diff"]), f(float(np.mean(list(pr["group_mean_dice"].values())))),
                      f(pr["mean_rho_wound"]), eiv(k_["wound pairs"]), eiv(k_["modality_diff"])])
     assert set(pd_["group_mean_dice"]) == set(WOUND)
@@ -1609,7 +1674,8 @@ def table_s6(D):
               f"{NW} wound datasets. Calibration rho: mean over the {NW} wound datasets of the Spearman correlation "
               "between the M19 method means and each method's default (FUSeg-tuned) threshold; a high value means that "
               "the ranking follows how confident each model's probabilities are. Minus default: change in M19 "
-              f"wound-pair agreement from the default protocol, paired interval. Intervals: method bootstrap, "
+              f"wound-pair agreement from the default protocol, paired interval (4 decimals where a bound rounds to "
+              f"zero at 3). Intervals: method bootstrap, "
               f"B = {B_R:,}, 95% percentile.")
     D.table(["Threshold", "M19 wound pairs", "Minus default", "M19 modality difference", "Mean wound Dice",
              "Calibration rho", "K11 wound pairs", "K11 modality difference"], rows,

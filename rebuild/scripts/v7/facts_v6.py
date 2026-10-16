@@ -723,9 +723,11 @@ src_re("d.maxside", "scripts/perimage32.py", r"def load_kvasir_one\(ip, mp, max_
 src_re("d.bin", "scripts/perimage32.py", r"def load_kvasir_one\(ip, mp, max_side=\d+, threshold=(\d+)", int)
 src_re("d.unet.params", "woundbench/deep.py", r"([\d,]+)-parameter U-Net", lambda x: int(x.replace(",", "")), lambda x: f"{x:,}")
 src_re("d.px.n", "results/refit_14.log", r"([\d,]+) px x 14 features", lambda x: int(x.replace(",", "")), lambda x: f"{x:,}")
-m_ = re.search(r"list\(range\(0, (\d+)\)\), list\(range\((\d+), (\d+)\)\)", open(os.path.join(ROOT, "kaggle/kit_run.py")).read())
-put("d.px.img", f"0 to {int(m_.group(1)) - 1}", [0, int(m_.group(1)) - 1], "kaggle/kit_run.py: pixel classifier images range(0, n)")
-put("d.px.thrimg", f"{m_.group(2)} to {int(m_.group(3)) - 1}", [int(m_.group(2)), int(m_.group(3)) - 1], "kaggle/kit_run.py: pixel threshold images")
+# FUSeg pixel classifiers: woundbench/learned.py (training images) and scripts/fit_learned.py (threshold images)
+npx = int(re.search(r"^N_TRAIN_IMAGES_PIXEL = (\d+)", open(os.path.join(ROOT, "woundbench/learned.py")).read(), re.M).group(1))
+m_ = re.search(r"sw_imgs, sw_masks = load_pairs\(img_dir, lab_dir, (\d+), (\d+)\)", open(os.path.join(ROOT, "scripts/fit_learned.py")).read())
+put("d.px.img", f"0 to {npx - 1}", [0, npx - 1], "woundbench/learned.py: N_TRAIN_IMAGES_PIXEL")
+put("d.px.thrimg", f"{m_.group(1)} to {int(m_.group(2)) - 1}", [int(m_.group(1)), int(m_.group(2)) - 1], "scripts/fit_learned.py: threshold images load_pairs(250, 400)")
 src_re("d.px.thr", "woundbench/methods.py", r"^DEFAULT_LEARNED_THRESHOLD = ([0-9.]+)", float, lambda x: f"{x:.2f}")
 src_re("d.unet.thr", "woundbench/methods.py", r"^DEFAULT_UNET_THRESHOLD = ([0-9.]+)", float, lambda x: f"{x:.1f}")
 m_ = re.search(r"tr = \[i for i in range\(0, (\d+)\).*\n.*sw = \[i for i in range\((\d+), (\d+)\)", open(os.path.join(ROOT, "kaggle/kit_run.py")).read())
@@ -786,6 +788,7 @@ src_re("d.pp.minarea", "woundbench/postproc.py", r"^MIN_COMPONENT_FRAC = ([0-9.]
 put("d.nsd.tau", f"{load('perimage32/medetec.json')['nsd_tau']:g}", load("perimage32/medetec.json")["nsd_tau"], "perimage32/*.json:nsd_tau")
 tols = sorted({k_.split("|")[1] for k_ in J(RB, "tolerance") if k_.startswith("M19|") and "nsd" in k_.split("|")[1]})
 assert tols == ["nsd1", "nsd2", "nsd3", "nsd5", "nsd_diag1"], tols
+put("d.nsd.tol5", "5", 5, RB + ":tolerance (nsd5)")
 put("d.nsd.tols", "1, 3 and 5 pixels and at 1% of the image diagonal", tols, RB + ":tolerance (nsd1, nsd3, nsd5, nsd_diag1)")
 # bootstrap sizes
 intval("d.B.method", J(ST, "definitions/seed_analysis_boot/B_method"), ST + ":definitions (method bootstrap B 2000)")
@@ -822,6 +825,8 @@ assert fus_row > fus_rand and fus_row == max(float(np.mean([FR[a][b] for b in WO
 num("sel.nn.azh.dice", PR, "spread/M19/azh/means/nnunet_2d")
 assert J(PR, "selection/M19/best_per_dataset/azh/model") == "segformer_mitb2@seeds"
 DP = "seeds/disattenuation/dice|C16/wound_pairs"
+for k_, pr_ in [("med_fus", "medetec~fuseg"), ("co2_fus", "co2wounds~fuseg"), ("fus_azh", "fuseg~azh"), ("med_co2", "medetec~co2wounds")]:
+    num(f"m19.pair.{k_}", ST, f"disattenuated/dice|M19/pairs/{pr_}/observed_full")
 for k_, pr_ in [("med_fus", "medetec~fuseg"), ("co2_fus", "co2wounds~fuseg"), ("fus_azh", "fuseg~azh"), ("med_co2", "medetec~co2wounds")]:
     num(f"sd.pair.{k_}", ST, f"{DP}/{pr_}/observed_seedavg")
 GAPL = "gap|wound: same-dataset cross-seed minus cross-dataset cross-seed"
@@ -862,6 +867,12 @@ assert abs(J(RB, "threshold/delta_vs_default/M19|oracle|wound pairs/est")) > max
 u_ = F["ov.ctrl.unused"]["raw"]
 assert u_ == 1, "the Methods sentence on the kept control crop is written for one image"
 put("w.ctrl.unused.cap", WORDS[u_].capitalize(), u_, "ov.ctrl.unused (word)")
+num("tol5.d", RB, "tolerance_delta_vs_nsd2/M19|nsd5-nsd2|wound pairs/est")
+ci("tol5.d.m", RB, "tolerance_delta_vs_nsd2/M19|nsd5-nsd2|wound pairs/ci")
+# the largest NSD change is the 5-pixel tolerance; the largest Dice change is the oracle threshold
+nchg = {k_: abs(v_["est"]) for k_, v_ in J(RB, "tolerance_delta_vs_nsd2").items() if k_.startswith("M19|nsd") and "wound" in k_}
+assert max(nchg, key=nchg.get) == "M19|nsd5-nsd2|wound pairs"
+assert abs(J(ST, "dice_noempty/M19/modality_diff") - J(ST, "point/dice|M19/modality_diff")) < 0.02
 # claims in the robustness and modern-model paragraphs
 assert F["rp.UM19.holds"]["raw"] == F["rp.UM19.ncond"]["raw"]          # every condition, interval above zero
 assert F["rp.UF.holds"]["raw"] == 0                                      # U+F: no condition
@@ -910,7 +921,7 @@ pval("rv.holm.max", RV, f"{H_}/largest_adjusted_p")
 assert J(RV, f"{H_}/largest_adjusted_p") < 0.05
 ID_ = "R3_m1_stratification_identity"
 mxp = max(J(RV, f"{ID_}/{m}|{g}/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng") for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
-put("rv.ident.maxpair", f3(mxp), mxp, RV + f":{ID_}/*/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng (max)")
+put("rv.ident.maxpair", f"{math.ceil(mxp * 1000) / 1000:.3f}", mxp, RV + f":{ID_}/*/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng (max)")
 mxm = max(J(RV, f"{ID_}/{m}|{g}/mean_over_55_pairs_diff") for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
 put("rv.ident.maxmean", "0.001" if mxm < 0.001 else f3(mxm), mxm, RV + f":{ID_}/*/mean_over_55_pairs_diff (max; bound printed)")
 assert mxm < 0.001
