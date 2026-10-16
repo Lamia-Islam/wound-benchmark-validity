@@ -3,6 +3,7 @@
 Read this file first, then `manuscript_v6/BRIEF_MS_V6.md`. Everything below was true on 16 October 2026.
 
 ## 1. What the project is
+(The numbers in this section are the V6 values under the old exclusions; the current values are in `manuscript_v6/facts_v6.json`, for example U wound pairs 0.35, AZH miss rates 28.7% against 1.5%.)
 A methods paper for the Journal of Imaging Informatics in Medicine (JIIM, Springer). Question: does a synthetic wound-segmentation benchmark rank methods the way clinical data do? Headline findings:
 - **Composition effect (Simpson's paradox).** Pooling untrained classical methods (U, 18) with modern models (M19 = 18 ImageNet-pretrained architectures, each seed-averaged over 3 training seeds, plus nnU-Net) makes 4 wound datasets agree at 0.82, although they agree at 0.37 within U and 0.21 within M19. Stratified agreement equals the size-weighted within-group average exactly; the identity is derived in Methods.
 - **Benchmark validity follows the pool.** Generator B agrees with the wound data at 0.65 over U+M19 but 0.21 over M19.
@@ -27,7 +28,7 @@ A methods paper for the Journal of Imaging Informatics in Medicine (JIIM, Spring
 - Commits end with:
   ```
   Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
-  Claude-Session: https://claude.ai/code/session_01KZ96kvnMzWaL6YRN9b9JVB
+  Claude-Session: <link to the session that made the commit>
   ```
 
 ## 3. Map of the repository
@@ -43,16 +44,23 @@ A methods paper for the Journal of Imaging Informatics in Medicine (JIIM, Spring
   - Reviews: `review/R1_numbers.md`, `R2_domain.md`, `R3_stats.md`, `R4_compliance.md`, `R5_references.md`.
 - Not in git: the raw datasets (`rebuild/data/`, gitignored) and the GPU kit images (`/home/claude/kaggle_kit` in the old container). The raw wound data are public: clone https://github.com/uwm-bigdata/wound-segmentation (folder `data/`) into `rebuild/data/wound-segmentation/`. Text, table and figure work needs only the committed results JSON.
 
-## 4. Status
-- **Done:**
-  - all analyses;
-  - manuscript V6 draft (abstract 250 words, main text about 7,000 words, 69 references);
-  - Figures 1 to 3;
-  - Online Resources 1 and 2;
-  - five independent reviews.
-- **Not done:** everything in section 5.
+## 4. Status (updated after P0 to P3)
+P0 to P3 of the previous list are done (commits on branch claude/wound-recovery-v6). What changed, in short:
+- **Exclusions:** `rebuild/results/exclusions_v6.json`, built by `rebuild/scripts/v7/exclusions_v6.py` with one rule: remove an evaluation image that is a copy or crop of a photograph used elsewhere (FUSeg training images used for training or thresholds, FUSeg reference images without the excluded duplicates, or, for the control, AZH test images). Counts: FUSeg 8, AZH test 4 (146 kept), control 72 (78 kept). Correction to the old note in section 5: the 12 AZH crops of FUSeg validation frames are NOT in our FUSeg reference (the first 120 validation images), so they are kept.
+- **Overlap checks:** `azh_overlap_v7.py` now uses exact brute-force matching (deterministic; FLANN was not) and records tied frames; `azh_control_overlap_v7.py` checks AZH test against the control (4 pixel-identical pairs).
+- **Exclusion switch:** `rebuild/scripts/excl_cfg.py`. `WB_EXCL=exclusions_v5.json` reruns the same code under the V6 exclusions into `results/v7_excl_v5/`; `compare_excl_v7.py` shows every leaf equals the V6-era results.
+- **One command:** `rebuild/scripts/v7/run_all_v7.sh` runs the whole pipeline, both builds and the V6 check (about 7 min on 4 CPUs). It needs the raw data in `rebuild/data/wound-segmentation` and a partial Kaggle kit made by `kit_partial_v7.py` (`WB_KIT`). CO2Wounds-V2 is not public in that repository, so its black-pixel means are carried from commit cf270c0 (`black_share_v7.py`; it has no exclusions).
+- **Review numbers:** `rebuild/scripts/v7/review_v7.py` -> `results/v7/review_v7.json` and `REVIEW_V7.md`.
+- **Manuscript:** all review items applied (see the P1 commit message). `build_v6.js` refuses any digit typed in the text; design numbers are read from code, logs and configs by `facts_v6.py`; three external numbers are in `manuscript_v6/constants_v6.json`. `node build_v6.js --unblinded` writes `manuscript_v6_unblinded.docx`.
+- **Online Resources:** Tables S9e (overlap check) and S9f (every excluded image) added; `Online_Resource_1.pdf` exported.
+- **Audits:** blind replication 41/41 (reported values now read from the result files); independent number audit `manuscript_v6/review/R6_audit.md`.
+- **For the owner:** `manuscript_v6/OWNER_TODO.md`.
 
-## 5. Remaining work, in priority order
+## 5. Remaining work
+Only the owner's items in `manuscript_v6/OWNER_TODO.md`. The previous task list (P0 to P3) is kept below for the record.
+
+### Previous task list (done)
+
 
 ### P0. AZH test images overlap FUSeg photographs (new finding, must be handled before submission)
 `rebuild/scripts/v7/azh_overlap_v7.py` writes `rebuild/results/v7/azh_overlap_v7.json`. It uses the Methods rule: SIFT, ratio 0.75, RANSAC similarity, at least 25 inliers, against all 810 FUSeg train and 200 validation frames.

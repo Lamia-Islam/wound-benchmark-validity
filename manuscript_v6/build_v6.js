@@ -221,7 +221,7 @@ T(["Methods", "n", "Within dataset", "Within source", "Within modality ^{a}", "A
   T3.map(([lab, k]) => [lab, `{{n.${k}}}`, `{{a.dice.${k}.ctrl}}`, `{{a.dice.${k}.src}}`, `{{a.dice.${k}.dsrc}}`,
     `{{a.dice.${k}.across}}`, `{{a.dice.${k}.wound}}`, `{{a.dice.${k}.mdiff}} ({{a.dice.${k}.mdiff.m}})`,
     `{{p.dice.${k}}}`, `{{a.nsd.${k}.mdiff}}`]),
-  [880, 450, 850, 850, 900, 900, 850, 1700, 830, 950], { leftCols: 1, size: 16 });
+  [880, 450, 850, 850, 900, 900, 850, 1700, 830, 950], { leftCols: 1, size: 16, keepWithNext: true });
 part = "note";
 P("^{a} Different sources only.", { size: 16, after: 160, color: L.GREY });
 part = "main";
