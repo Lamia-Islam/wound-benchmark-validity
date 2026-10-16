@@ -63,9 +63,10 @@ WOUND = list(P.WOUND)
 CTRL = P.CONTROL
 SETS = WOUND + [CTRL]
 SYN_SEEDS = (2024, 7, 101)
-KIT = "/home/claude/kaggle_kit"
+KIT = os.environ.get("WB_KIT", "/home/claude/kaggle_kit")
 RAW = os.path.join(ROOT, "data", "wound-segmentation", "data")
-OUT = os.path.join(ROOT, "results", "v7")
+import excl_cfg as C                                               # noqa: E402
+OUT = C.V7OUT
 V6JSON = os.path.join(ROOT, "results", "v6", "practical_v6.json")
 NN = "nnunet_2d"
 
@@ -303,27 +304,26 @@ def v6_port():
     return res
 
 
-_IMG = {}
+BSC = json.load(open(os.path.join(C.V7IN, "black_share_v7.json")))["sets"]
+# Kept-image black shares and sizes from results/v7/black_share_v7.json (made by
+# black_share_v7.py from the raw images; the same pixels as the kit refs).
+
+
+def _kept(s):
+    drop = {e[0] for e in P.EXCL.get(s, [])}
+    c = BSC[s]
+    k = [i for i in range(len(c["ids"])) if i not in drop]
+    assert [c["ids"][i] for i in k] == list(DATA[s]["ids"]), s
+    return k
 
 
 def img_size(s):
-    if s not in _IMG:
-        _IMG[s] = sorted({cv2.imread(f).shape[:2] for f in sorted(glob.glob(os.path.join(KIT, "refs", s, "*_img.png")))})
-    return _IMG[s]
-
-
-_BS = {}
+    return sorted({tuple(BSC[s]["size"][i]) for i in _kept(s)})
 
 
 def black_share(s):
     """Per kept image: share of pixels with every channel <= 8."""
-    if s not in _BS:
-        files = sorted(glob.glob(os.path.join(KIT, "refs", s, "*_img.png")))
-        drop = {e[0] for e in P.EXCL.get(s, [])}
-        v = [float((cv2.imread(f).max(2) <= 8).mean()) for i, f in enumerate(files) if i not in drop]
-        assert len(v) == len(DATA[s]["ids"]), s
-        _BS[s] = np.array(v)
-    return _BS[s]
+    return np.array([BSC[s]["black_share"][i] for i in _kept(s)])
 
 
 def sift_scales():
@@ -331,6 +331,8 @@ def sift_scales():
     bf = cv2.BFMatcher()
     out = []
     for idx, name, why in P.EXCL.get(CTRL, []):
+        if not why.startswith("crop of FUSeg "):
+            continue                              # duplicates of an AZH test image
         parts = why.split()
         split, fname = parts[3], parts[4]
         a = cv2.imread(os.path.join(RAW, "wound_dataset", "train", "images", name), 0)
@@ -563,12 +565,20 @@ def padding_section():
     for s in WOUND + [CTRL]:
         D = DATA[s]
         ne = ~D["empty"]
-        bs_all = black_share(s)
-        bs = bs_all[ne]
         f = D["frac"][ne]
         mn = (sub(s, [NN])[ne][:, 0] < 0.1)
-        o = {"black_share_mean_all_kept": rf(bs_all.mean()), "black_share_mean_nonempty": rf(bs.mean()),
-             "n_kept": int(len(bs_all)), "n_nonempty": int(ne.sum())}
+        if "carried_from" in BSC[s]:              # raw images absent; no exclusions, set means unchanged
+            c = BSC[s]
+            assert c["n_kept"] == len(D["ids"]) and s not in P.EXCL, s
+            o = {"black_share_mean_all_kept": c["black_share_mean_all_kept"],
+                 "black_share_mean_nonempty": c["black_share_mean_nonempty"],
+                 "black_share_source": c["carried_from"],
+                 "n_kept": int(len(D["ids"])), "n_nonempty": int(ne.sum())}
+        else:
+            bs_all = black_share(s)
+            bs = bs_all[ne]
+            o = {"black_share_mean_all_kept": rf(bs_all.mean()), "black_share_mean_nonempty": rf(bs.mean()),
+                 "n_kept": int(len(bs_all)), "n_nonempty": int(ne.sum())}
         for gname, names in sets.items():
             ms = (sub(s, names)[ne] < 0.1).mean(1)
             maj = ms >= 0.5
@@ -595,15 +605,17 @@ def padding_section():
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    res = {"definitions": __doc__, "seed": SEED, "B": B}
+    res = {"definitions": __doc__, "seed": SEED, "B": B, "exclusions": C.EXCL_NAME}
 
     # ---------------- reproduction of V6
     R6 = json.loads(json.dumps(v6_port()))
     V6 = json.load(open(V6JSON))
     V6c = {k: v for k, v in V6.items() if k != "definitions"}
     cmpr = compare(R6, V6c)
-    res["v6_reproduction"] = cmpr
-    assert not cmpr["mismatched"] and not cmpr["missing_in_rerun"] and not cmpr["extra_in_rerun"], cmpr
+    res["v6_reproduction"] = dict(cmpr, exclusions=C.EXCL_NAME, enforced=C.OLD)
+    # V6 used exclusions_v5.json: reproduction is enforced in that mode only
+    if C.OLD:
+        assert not cmpr["mismatched"] and not cmpr["missing_in_rerun"] and not cmpr["extra_in_rerun"], cmpr
     print("practical V6 reproduction:", cmpr["n_equal"], "of", cmpr["n_common"], "leaves identical", flush=True)
     res["v6"] = R6
 
@@ -678,7 +690,7 @@ def main():
     # results/v7/practical_v7.json, 4-decimal values)
     xc = {}
     old = os.path.join(ROOT, "results", "v7_morning", "practical_v7.json")
-    if os.path.exists(old):
+    if os.path.exists(old) and C.OLD:
         O = json.load(open(old))
         o, m = O["M19"]["selection"], res["selection"]["M19"]
         xc["M19_matrix"] = o["matrix_rows_choose_on_cols_deploy_on"] == rr(m["matrix_rows_choose_on_cols_deploy_on"])

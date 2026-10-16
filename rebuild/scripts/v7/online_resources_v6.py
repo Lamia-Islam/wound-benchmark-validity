@@ -54,7 +54,8 @@ RO = jl(V7, "robust_v7.json")
 AU = jl(V7, "audit", "audit_v7.json")
 RPP = os.path.join(V7, "robust_pooled_v7.json")
 RP = jl(RPP) if os.path.exists(RPP) else None
-EXCL = jl(RES, "exclusions_v5.json")
+import excl_cfg                                                      # noqa: E402
+EXCL = excl_cfg.EXCL
 
 REFS = list(P7.REFS)
 CONTROL = P7.CONTROL
@@ -1840,12 +1841,20 @@ def table_s9(D):
         rows.append([SHORTNICE[d], P7.MODALITY.get(d, "wound"), P7.SOURCE.get(d, "AZH"), str(n_file), str(ex),
                      str(NKEPT[d]), str(ST["n_units"][d]), str(ST["n_empty"][d])])
     dup = [e for e in EXCL["fuseg"] if e[2].startswith("byte-identical")]
+    dup_tr = [e for e in dup if "FUSeg train" in e[2]]
+    dup_ev = [e for e in dup if "evaluation image" in e[2]]
     crop = [e for e in EXCL[CONTROL] if e[2].startswith("crop of FUSeg")]
-    assert len(dup) == len(EXCL["fuseg"]) and len(crop) == len(EXCL[CONTROL])
+    cdup = [e for e in EXCL[CONTROL] if e[2].startswith("pixel-identical to AZH test")]
+    acrop = [e for e in EXCL["azh"] if e[2].startswith("crop of FUSeg train")]
+    assert len(dup) == len(dup_tr) + len(dup_ev) == len(EXCL["fuseg"])
+    assert len(crop) + len(cdup) == len(EXCL[CONTROL]) and len(acrop) == len(EXCL["azh"])
     D.caption("Table S9a", "Images, exclusions and resampling units",
               f"Images in the scored file, images excluded, images kept for every analysis, resampling units and kept "
-              f"images with an empty reference mask. Exclusions: {len(dup)} FUSeg test images are byte-identical to FUSeg "
-              f"training images; {len(crop)} control images are crops of FUSeg photographs (matched by SIFT keypoints). "
+              f"images with an empty reference mask. Exclusions: {len(dup)} FUSeg validation images are byte-identical "
+              f"to FUSeg training images ({len(dup_tr)}) or to another validation image ({len(dup_ev)}); {len(acrop)} AZH "
+              f"test images are crops of FUSeg training photographs used to train the models; {len(crop)} control images "
+              f"are crops of FUSeg photographs used in this study and {len(cdup)} are pixel-identical to AZH test images "
+              f"(Table S9e). "
               f"{UNITTXT} Synthetic sets: {NKEPT[SYNTH[0]]} images each, no exclusions.", bm="S9", before=0)
     D.table(["Dataset", "Modality", "Source", "Images", "Excluded", "Kept", "Units", "Empty references"], rows,
             [4.4, 2.6, 2.4, 1.8, 1.8, 1.8, 1.8, 2.4], size=7.5, left_cols=3)

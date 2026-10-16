@@ -1,0 +1,88 @@
+{
+ "reference_commit": "cf270c0",
+ "skipped_keys": [
+  "check_vs_earlier_v7_attempt",
+  "crosscheck_old_v7",
+  "crosscheck_old_v7_implementation",
+  "definitions",
+  "elapsed_s",
+  "enforced",
+  "engine_vs_stats_v7",
+  "exclusions",
+  "first_differing_leaves",
+  "note",
+  "runtime_s",
+  "texture_source"
+ ],
+ "files": {
+  "stats_v7.json": {
+   "n_old": 28481,
+   "n_new": 28481,
+   "n_common": 28481,
+   "n_identical": 28481,
+   "differing": [],
+   "only_old": [],
+   "only_new": []
+  },
+  "bench_v7.json": {
+   "n_old": 16676,
+   "n_new": 16676,
+   "n_common": 16676,
+   "n_identical": 16676,
+   "differing": [],
+   "only_old": [],
+   "only_new": []
+  },
+  "practical_v7.json": {
+   "n_old": 12406,
+   "n_new": 12407,
+   "n_common": 12406,
+   "n_identical": 12406,
+   "differing": [],
+   "only_old": [],
+   "only_new": [
+    "/padding/co2wounds/black_share_source"
+   ]
+  },
+  "robust_v7.json": {
+   "n_old": 7132,
+   "n_new": 7132,
+   "n_common": 7132,
+   "n_identical": 7132,
+   "differing": [],
+   "only_old": [],
+   "only_new": []
+  },
+  "robust_pooled_v7.json": {
+   "n_old": 10185,
+   "n_new": 10185,
+   "n_common": 10185,
+   "n_identical": 10185,
+   "differing": [],
+   "only_old": [],
+   "only_new": []
+  },
+  "blind_v7.json": {
+   "n_old": 390,
+   "n_new": 392,
+   "n_common": 390,
+   "n_identical": 390,
+   "differing": [],
+   "only_old": [],
+   "only_new": [
+    "/check_reported_equal_v6_typed_values",
+    "/reported_from"
+   ]
+  },
+  "audit/audit_v7.json": {
+   "n_old": 6481,
+   "n_new": 6481,
+   "n_common": 6481,
+   "n_identical": 6481,
+   "differing": [],
+   "only_old": [],
+   "only_new": []
+  }
+ },
+ "all_identical": true
+}

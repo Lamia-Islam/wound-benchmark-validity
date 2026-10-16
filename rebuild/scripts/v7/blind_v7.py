@@ -51,7 +51,9 @@ def jload(*p):
         return json.load(f)
 
 
-EXCL = jload("exclusions_v5.json")
+EXCL_NAME = os.environ.get("WB_EXCL", "exclusions_v6.json")   # same switch as scripts/excl_cfg.py
+EXCL = jload(EXCL_NAME)
+OUTDIR = os.path.join(RES, "v7_excl_v5" if EXCL_NAME == "exclusions_v5.json" else "v7")
 
 
 def keep_mask(s, n):
@@ -223,6 +225,22 @@ OUT["checks"]["seeds_per_arch"] = SEEDS
 OUT["checks"]["kept_images"] = {s: int(len(EMPTY[s])) for s in CLIN}
 
 
+# ---------------------------------------------------------------- reported values
+# The values the analysis reports are read from the result files of the main
+# pipeline (never typed here); this script recomputes each one from the raw files.
+def reported(fname, path, scale=1.0, agg=None):
+    with open(os.path.join(OUTDIR, fname)) as f:
+        x = json.load(f)
+    for k in path.split("/"):
+        x = x[int(k)] if isinstance(x, list) else x[k]
+    if agg == "mean_of_values":
+        x = float(np.mean(list(x.values())))
+    return scale * float(x)
+
+
+ST, BE, PR, RB = "stats_v7.json", "bench_v7.json", "practical_v7.json", "robust_v7.json"
+
+
 def rec(item, label, reported, mine, decimals=3, note=""):
     ok = round(mine, decimals) == round(reported, decimals) or \
         abs(mine - reported) <= 0.5 * 10 ** (-decimals) + 1e-12
@@ -233,27 +251,30 @@ def rec(item, label, reported, mine, decimals=3, note=""):
 
 
 # ---------------------------------------------------------------- 1. wound pairs
-for g, rep in (("M", 0.126), ("M11s", 0.274), ("M19", 0.211), ("N8s", 0.258)):
-    rec(1, f"wound-pair agreement, Dice, {g}", rep, wound_mean("dice", GROUPS[g]))
-rec(1, "wound-pair agreement, NSD, M19", 0.473, wound_mean("nsd", GROUPS["M19"]))
+for g in ("M", "M11s", "M19", "N8s"):
+    rec(1, f"wound-pair agreement, Dice, {g}", reported(ST, f"point/dice|{g}/wound pairs"), wound_mean("dice", GROUPS[g]))
+rec(1, "wound-pair agreement, NSD, M19", reported(ST, "point/nsd|M19/wound pairs"), wound_mean("nsd", GROUPS["M19"]))
 
 # ---------------------------------------------------------------- 2. mixed pools
-rec(2, "wound-pair agreement, Dice, U+M19", 0.821, wound_mean("dice", GROUPS["U+M19"]))
-rec(2, "wound-pair agreement, Dice, U+M", 0.801, wound_mean("dice", GROUPS["U+M"]))
+rec(2, "wound-pair agreement, Dice, U+M19", reported(ST, "point/dice|U+M19/wound pairs"), wound_mean("dice", GROUPS["U+M19"]))
+rec(2, "wound-pair agreement, Dice, U+M", reported(ST, "point/dice|U+M/wound pairs"), wound_mean("dice", GROUPS["U+M"]))
 
 # ---------------------------------------------------------------- 3 and 4. modality
 EXACT = {}
-for g, rep in (("M", 0.461), ("M19", 0.225), ("M11s", 0.329), ("N8s", 0.055),
-               ("U+M19", 1.101), ("M_s1", 0.024), ("M_s2", 0.180)):
+MDREP = {g: f"point/dice|{g}/modality_diff" for g in ("M", "M19", "M11s", "N8s", "U+M19")}
+MDREP["M_s1"] = "seeds/named_groups/dice|M_s1 = P10_s1 + nnunet_2d/modality_diff"
+MDREP["M_s2"] = "seeds/named_groups/dice|M_s2 = P10_s2 + nnunet_2d/modality_diff"
+for g in ("M", "M19", "M11s", "N8s", "U+M19", "M_s1", "M_s2"):
+    rep = reported(ST, MDREP[g])
     R = pair_matrix("dice", GROUPS[g])
     obs, p, cnt = exact_p(R)
     EXACT[g] = {"diff": obs, "p": p, "count_ge": cnt}
     lab = {"M_s1": "M seed 1 (10 pretrained s1 + nnU-Net)",
            "M_s2": "M seed 2 (9 pretrained s2 + nnU-Net)"}.get(g, g)
     rec(3, f"modality difference, Dice, {lab}", rep, obs)
-rec(4, "exact relabeling p, M19 Dice modality difference", 0.00577, EXACT["M19"]["p"], 5,
+rec(4, "exact relabeling p, M19 Dice modality difference", reported(ST, "exact/dice|M19/full_55/p"), EXACT["M19"]["p"], 5,
     f"{EXACT['M19']['count_ge']} of 13860 labelings with statistic >= observed")
-rec(4, "exact relabeling p, U+M19 Dice modality difference", 0.00014, EXACT["U+M19"]["p"], 5,
+rec(4, "exact relabeling p, U+M19 Dice modality difference", reported(ST, "exact/dice|U+M19/full_55/p"), EXACT["U+M19"]["p"], 5,
     f"{EXACT['U+M19']['count_ge']} of 13860 (2 is the minimum: ph2 and tn3k labels swap)")
 OUT["exact_tests"] = EXACT
 
@@ -287,16 +308,17 @@ def seed_block(archs, m="dice"):
 
 SEEDRES = {"C16": seed_block(C16), "P9": seed_block(P9), "N7": seed_block(N7)}
 OUT["seed_analysis"] = SEEDRES
-rec(5, "same wound dataset, different seed, mean Spearman (C16)", 0.446,
+rec(5, "same wound dataset, different seed, mean Spearman (C16)", reported(ST, "seeds/dice|C16/summary/rbar_wound/est"),
     SEEDRES["C16"]["same_dataset_diff_seed"])
-rec(5, "wound-pair agreement, single seeds (mean of 3), C16", 0.177,
+rec(5, "wound-pair agreement, single seeds (mean of 3), C16", reported(ST, "seeds/dice|C16/summary/single|wound pairs/est"),
     SEEDRES["C16"]["single_seed_mean"])
-rec(5, "wound-pair agreement, seed averages, C16", 0.179, SEEDRES["C16"]["seed_average"])
-rec(5, "different wound dataset and different seed (C16)", 0.100,
+rec(5, "wound-pair agreement, seed averages, C16", reported(ST, "seeds/dice|C16/summary/avg|wound pairs/est"), SEEDRES["C16"]["seed_average"])
+rec(5, "different wound dataset and different seed (C16)", reported(ST, "seeds/dice|C16/summary/crossseed|wound pairs/est"),
     SEEDRES["C16"]["cross_dataset_cross_seed"])
-rec(5, "gap, C16", 0.346, SEEDRES["C16"]["gap"])
-rec(5, "gap, 9 original architectures", 0.493, SEEDRES["P9"]["gap"])
-rec(5, "gap, 7 new architectures", 0.055, SEEDRES["N7"]["gap"])
+GAP = "summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/est"
+rec(5, "gap, C16", reported(ST, f"seeds/dice|C16/{GAP}"), SEEDRES["C16"]["gap"])
+rec(5, "gap, 9 original architectures", reported(ST, f"seeds/dice|P9/{GAP}"), SEEDRES["P9"]["gap"])
+rec(5, "gap, 7 new architectures", reported(ST, f"seeds/dice|N7/{GAP}"), SEEDRES["N7"]["gap"])
 
 # ---------------------------------------------------------------- 6. benchmark
 SYN_LOCAL = {}
@@ -327,8 +349,8 @@ def bench(names):
 
 
 BENCH = {}
-for g, rep in (("M", 0.353), ("M11s", 0.408), ("M19", 0.208), ("N8s", -0.127),
-               ("U+M19", 0.647), ("U+M", 0.721)):
+for g in ("M", "M11s", "M19", "N8s", "U+M19", "U+M"):
+    rep = reported(BE, f"rel/{g}/40/mean|bench/est")
     v, pr = bench(GROUPS[g])
     BENCH[g] = {"mean": v, "per_ref": pr}
     rec(6, f"benchmark amp40 agreement with 4 wound sets, {g}", rep, v,
@@ -347,15 +369,18 @@ for a in WOUND:
         loss[(a, b)] = float(MU[b].max() - MU[b][pick])
 off = [loss[(a, b)] for a in WOUND for b in WOUND if a != b]
 rand = {b: float(np.mean(MU[b].max() - MU[b])) for b in WOUND}
-rec(7, "M19 selection loss, choose on another wound set (mean of 12)", 0.047, float(np.mean(off)))
-rec(7, "M19 random-pick expected loss (mean of 4 wound sets)", 0.063, float(np.mean(list(rand.values()))))
+rec(7, "M19 selection loss, choose on another wound set (mean of 12)", reported(PR, "selection/M19/offdiag_mean"), float(np.mean(off)))
+rec(7, "M19 random-pick expected loss (mean of 4 wound sets)",
+    reported(PR, "selection/M19/random_choice_expected_loss", agg="mean_of_values"), float(np.mean(list(rand.values()))))
 azh_best = cand[int(np.argmax(MU["azh"]))]
 OUT["practical"] = {"loss_matrix": {f"{a}->{b}": v for (a, b), v in loss.items()},
                     "random": rand, "azh_best": azh_best,
                     "best_per_set": {s: cand[int(np.argmax(MU[s]))] for s in MU}}
-rec(7, f"AZH best M19 method mean Dice ({azh_best})", 0.713, float(MU["azh"].max()),
-    note="reported best is segformer_mitb2@seeds; replicated best is " + azh_best)
-rec(7, "AZH nnU-Net mean Dice", 0.631, float(COL["dice"]["azh"][NN].mean()))
+with open(os.path.join(OUTDIR, PR)) as f:
+    _rep_best = json.load(f)["selection"]["M19"]["best_per_dataset"]["azh"]
+rec(7, f"AZH best M19 method mean Dice ({azh_best})", reported(PR, "selection/M19/best_per_dataset/azh/mean_dice"),
+    float(MU["azh"].max()), note=f"reported best is {_rep_best.get('model', _rep_best)}; replicated best is " + azh_best)
+rec(7, "AZH nnU-Net mean Dice", reported(PR, "spread/M19/azh/means/nnunet_2d"), float(COL["dice"]["azh"][NN].mean()))
 
 
 def miss_rate(s, model):
@@ -378,12 +403,12 @@ OUT["practical"]["azh_miss"] = {
     "orig10_equal_weight_per_architecture": old_arch, "orig10_equal_weight_per_model_29": old_model,
     "per_architecture": {a: arch_miss("azh", a) for a in P10 + N8},
     "nnunet": miss_rate("azh", NN)}
-rec(7, "AZH miss rate, new 8 architectures, all seeds (%)", 24.9, 100 * new_arch, 1,
+rec(7, "AZH miss rate, new 8 architectures, all seeds (%)", reported(PR, "miss/0.1/azh/groups/N8_archmean/est", 100), 100 * new_arch, 1,
     f"equal weight per architecture (PRACTICAL_V7 definition); equal weight per model (22 models) gives {100 * new_model:.2f}%")
-rec(7, "AZH miss rate, original 10 architectures, all seeds (%)", 30.3, 100 * old_arch, 1,
+rec(7, "AZH miss rate, original 10 architectures, all seeds (%)", reported(PR, "miss/0.1/azh/groups/P10_archmean/est", 100), 100 * old_arch, 1,
     f"equal weight per architecture; per model (29 models) {100 * old_model:.2f}%")
-rec(7, "AZH miss rate, nnU-Net (%)", 1.4, 100 * miss_rate("azh", NN), 1)
-rec(7, "AZH miss rate, segformer_mitb2, mean over 3 seeds (%)", 11.9,
+rec(7, "AZH miss rate, nnU-Net (%)", reported(PR, "miss/0.1/azh/per_architecture/nnunet_2d/mean", 100), 100 * miss_rate("azh", NN), 1)
+rec(7, "AZH miss rate, segformer_mitb2, mean over 3 seeds (%)", reported(PR, "miss/0.1/azh/per_architecture/segformer_mitb2/mean", 100),
     100 * arch_miss("azh", "segformer_mitb2"), 1)
 
 # ---------------------------------------------------------------- 8. robustness (rescore files)
@@ -441,10 +466,10 @@ ROB["r256_wound_mixed"] = wound_mean("dice", m19, MIX, ["medetec", "co2wounds", 
 ROB["max_abs_p0_minus_run1_mean"] = float(max(
     abs(RC["p0"][s][n].mean() - COL["dice"][s][n].mean()) for s in CLIN for n in m19))
 OUT["robustness"] = ROB
-rec(8, "M19 wound pairs, rescore P0 (check, should equal 0.211)", 0.211, ROB["p0_wound"])
-rec(8, "M19 wound pairs, one common threshold 0.50", 0.412, ROB["common50_wound"])
-rec(8, "M19 wound pairs, per-dataset oracle threshold", 0.122, ROB["oracle_wound"])
-rec(8, "M19 wound pairs, fuseg replaced by fuseg_r256 (P0)", 0.171, ROB["r256_wound_all_rescore"],
+rec(8, "M19 wound pairs, rescore P0 (check, should equal the main M19 value)", reported(ST, "point/dice|M19/wound pairs"), ROB["p0_wound"])
+rec(8, "M19 wound pairs, one common threshold 0.50", reported(RB, "threshold/common/M19|0.50/wound pairs/est"), ROB["common50_wound"])
+rec(8, "M19 wound pairs, per-dataset oracle threshold", reported(RB, "threshold/oracle/M19/wound pairs/est"), ROB["oracle_wound"])
+rec(8, "M19 wound pairs, fuseg replaced by fuseg_r256 (P0)", reported(RB, "resolution/M19|dice/with_fuseg_r256/wound pairs/est"), ROB["r256_wound_all_rescore"],
     note=f"with run-1 scores for the other three sets: {ROB['r256_wound_mixed']:.6f}")
 
 # ---------------------------------------------------------------- independent route check
@@ -454,7 +479,20 @@ OUT["checks"]["scipy_spearman_M19_wound"] = float(np.mean([
 # ---------------------------------------------------------------- write
 OUT["n_pass"] = sum(i["status"] == "PASS" for i in OUT["items"])
 OUT["n_fail"] = sum(i["status"] == "FAIL" for i in OUT["items"])
-with open(os.path.join(RES, "v7", "blind_v7.json"), "w") as f:
+os.makedirs(OUTDIR, exist_ok=True)
+OUT["exclusions"] = EXCL_NAME
+OUT["reported_from"] = f"results/{os.path.basename(OUTDIR)}/{{stats,bench,practical,robust}}_v7.json"
+if EXCL_NAME == "exclusions_v5.json":
+    # under the V6 exclusions, the reported values read from the result files must
+    # equal the values the V6 blind replication had (typed then, commit cf270c0)
+    import subprocess
+    old = json.loads(subprocess.run(["git", "show", "cf270c0:rebuild/results/v7/blind_v7.json"],
+                                    cwd=ROOT, capture_output=True, check=True).stdout)
+    assert len(old["items"]) == len(OUT["items"])
+    for a, b in zip(old["items"], OUT["items"]):
+        assert a["item"] == b["item"] and round(a["reported"], a["decimals"]) == round(b["reported"], a["decimals"]), (a, b)
+    OUT["check_reported_equal_v6_typed_values"] = len(old["items"])
+with open(os.path.join(OUTDIR, "blind_v7.json"), "w") as f:
     json.dump(OUT, f, indent=1, default=float)
 
 for i in OUT["items"]:

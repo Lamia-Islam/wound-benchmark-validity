@@ -5,10 +5,13 @@ Every number in the two markdown files is read from those json files here;
 nothing is typed by hand."""
 import json
 import os
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(HERE))
-OUT = os.path.join(ROOT, "results", "v7")
+sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import excl_cfg as C                                               # noqa: E402
+OUT = C.V7OUT
 BJ = json.load(open(os.path.join(OUT, "bench_v7.json")))
 PJ = json.load(open(os.path.join(OUT, "practical_v7.json")))
 B6 = json.load(open(os.path.join(ROOT, "results", "v6", "bench_v6.json")))

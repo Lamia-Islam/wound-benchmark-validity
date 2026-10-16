@@ -51,7 +51,8 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import perimage_v7 as V                                            # noqa: E402
 
-OUT = os.path.join(ROOT, "results", "v7")
+import excl_cfg as C                                               # noqa: E402
+OUT = C.V7OUT
 T0 = time.time()
 
 N_SPLIT = 500
@@ -914,19 +915,28 @@ def walk(a, b, path, acc):
 SJ = json.loads(json.dumps(S))                 # same float/NaN round trip as the V6 file
 acc = {"n_numeric": 0, "n_other": 0, "n_identical": 0, "max_abs": 0.0, "bad": [], "missing": []}
 walk(V6J, SJ, "", acc)
+S["exclusions"] = C.EXCL_NAME
 S["check_reproduces_stats_v6"] = {"n_numeric": acc["n_numeric"], "n_other": acc["n_other"],
                                   "n_numeric_bit_identical": acc["n_identical"],
                                   "max_abs_diff": acc["max_abs"], "n_failed": len(acc["bad"]),
                                   "n_missing": len(acc["missing"]), "tolerance": TOL,
-                                  "excluded": ["definitions (text)", "runtime_s"]}
-print("V6 reproduction:", S["check_reproduces_stats_v6"], flush=True)
-if acc["bad"] or acc["missing"]:
+                                  "excluded": ["definitions (text)", "runtime_s"],
+                                  "exclusions": C.EXCL_NAME, "enforced": C.OLD}
+print("V6 comparison:", S["check_reproduces_stats_v6"], flush=True)
+if C.OLD and (acc["bad"] or acc["missing"]):
     print("FAILED leaves (first 20):", acc["bad"][:20], acc["missing"][:20])
-    sys.exit("V6 values not reproduced; stopping before writing any output")
+    sys.exit("V6 values not reproduced under the V6 exclusions; stopping before writing any output")
+if not C.OLD:
+    # V6 was computed under exclusions_v5.json; reproduction is enforced by the run
+    # with WB_EXCL=exclusions_v5.json (results/v7_excl_v5). Here the differences are
+    # the effect of the new exclusions and are only recorded.
+    S["check_reproduces_stats_v6"]["note"] = ("V6 used exclusions_v5.json; values that involve AZH or the control differ by "
+                                              "design. Bit-identical reproduction of V6 is checked in results/v7_excl_v5.")
+    S["check_reproduces_stats_v6"]["first_differing_leaves"] = [x[0] for x in acc["bad"][:20]]
 
 # earlier V7 attempt (results/v7_morning/stats_v7.json, same M19 definition): informative cross-check
 OLD7 = os.path.join(ROOT, "results", "v7_morning", "stats_v7.json")
-if os.path.exists(OLD7):
+if os.path.exists(OLD7) and C.OLD:
     o7 = json.load(open(OLD7))["point"]
     cmp7 = {}
     for m in ("dice", "nsd", "dice_noempty"):
@@ -939,7 +949,7 @@ if os.path.exists(OLD7):
 S["runtime_s"] = round(time.time() - T0, 1)
 os.makedirs(OUT, exist_ok=True)
 json.dump(S, open(os.path.join(OUT, "stats_v7.json"), "w"), indent=1)
-print("saved results/v7/stats_v7.json", f"{time.time() - T0:.0f}s", flush=True)
+print(f"saved {C.V7OUT_REL}/stats_v7.json", f"{time.time() - T0:.0f}s", flush=True)
 
 # ================================================================ markdown
 SD = S["seeds"]
@@ -1040,9 +1050,14 @@ w("- Correction to the brief: the brief quotes Medetec split-half reliability 0.
 # ---------------------------------------------------------------- checks
 w("## Checks\n")
 c6 = S["check_reproduces_stats_v6"]
-w(f"- **V6 reproduced**: every leaf of `results/v6/stats_v6.json` except the definition text and the runtime was recomputed here with the V7 loader "
-  f"and compared: {c6['n_numeric']} numbers and {c6['n_other']} other values (labels, None, lists of names); {c6['n_numeric_bit_identical']} numbers "
-  f"bit-identical, max abs diff {c6['max_abs_diff']:.1e}, failures {c6['n_failed']}, missing {c6['n_missing']} (tolerance {TOL:.0e}). The script stops before writing if any differ.")
+if C.OLD:
+    w(f"- **V6 reproduced** (run under `exclusions_v5.json`, the V6 exclusions): every leaf of `results/v6/stats_v6.json` except the definition text and the runtime was recomputed here with the V7 loader "
+      f"and compared: {c6['n_numeric']} numbers and {c6['n_other']} other values (labels, None, lists of names); {c6['n_numeric_bit_identical']} numbers "
+      f"bit-identical, max abs diff {c6['max_abs_diff']:.1e}, failures {c6['n_failed']}, missing {c6['n_missing']} (tolerance {TOL:.0e}). The script stops before writing if any differ.")
+else:
+    w(f"- **Exclusions**: `{C.EXCL_NAME}`. V6 used `exclusions_v5.json`; bit-identical reproduction of V6 by this code is checked by the run with "
+      f"`WB_EXCL=exclusions_v5.json` (`results/v7_excl_v5/STATS_V7.md`). Against V6, {c6['n_numeric_bit_identical']} of {c6['n_numeric']} numbers are unchanged "
+      f"here and {c6['n_failed']} differ because AZH and the control lost images.")
 w(f"- Point estimates vs stats_v5 ({S['check_point_estimates_vs_v5']['n_compared']} values): max abs diff {S['check_point_estimates_vs_v5']['max_abs_diff']:.2e}. "
   f"Method-only intervals vs stats_v5 ({S['check_v5_intervals_reproduced']['n_compared']}): {S['check_v5_intervals_reproduced']['max_abs_diff']:.2e}. "
   f"Exact tests vs stats_v5 ({S['check_v5_exact_reproduced']['n_compared']}): {S['check_v5_exact_reproduced']['max_abs_diff']:.2e}. "
@@ -1397,4 +1412,4 @@ w(f"Runtime {S['runtime_s']} s.\n")
 txt = "\n".join(L)
 assert "—" not in txt and "–" not in txt, "dash character in markdown"
 open(os.path.join(OUT, "STATS_V7.md"), "w").write(txt)
-print("saved results/v7/STATS_V7.md", f"{time.time() - T0:.0f}s")
+print(f"saved {C.V7OUT_REL}/STATS_V7.md", f"{time.time() - T0:.0f}s")

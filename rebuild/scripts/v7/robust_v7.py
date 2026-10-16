@@ -32,7 +32,7 @@ stats_v6): agreement = Spearman (Pearson on average ranks) of per-method mean
 scores between two datasets; 11 REFS, 55 pairs, wound pairs 6, colonoscopy
 pairs 10, modality difference = mean same-modality (16) minus mean
 across-modality (39); control = azh vs azh_train_slice. Exclusions from
-results/exclusions_v5.json (image indexes dropped). fuseg_r256 holds the same
+results/exclusions_v6.json, or the list WB_EXCL names (image indexes dropped). fuseg_r256 holds the same
 FUSeg images in the same order (k2_common.fuseg_r256_dir), so the fuseg
 exclusions are applied to it by index (n and gt_empty are checked equal).
 
@@ -64,7 +64,8 @@ import perimage_v7 as P                                            # noqa: E402
 
 T0 = time.time()
 RES = os.path.join(ROOT, "results")
-OUT = os.path.join(RES, "v7")
+import excl_cfg as C                                               # noqa: E402
+OUT = C.V7OUT
 RS = os.path.join(RES, "kaggle2", "rescore")
 FAMS = ["pretrained_s0", "pretrained_s1", "pretrained_s2", "modern2_s0",
         "modern2_s1", "modern2_s2", "kvasir_nets", "kvasir_unet", "nnunet"]
@@ -210,11 +211,13 @@ CHECKS = {}
 
 # engine check: reproduce stats_v7 method-only B2000 intervals with run-1 data
 SV7 = jload(os.path.join(RES, "v7_morning", "stats_v7.json"))  # earlier independent implementation
+# The earlier implementation ran under exclusions_v5.json, so the engine check is
+# made in that mode only (WB_EXCL=exclusions_v5.json, results/v7_excl_v5).
 assert [c.replace("@avg", "") for c in SV7["definitions"]["groups"]["M19"]["members"]] == \
     [c.replace("_in@seeds", "").replace("@seeds", "") for c in GROUP_M19]
 assert SV7["definitions"]["groups"]["K"]["members"] == list(P.GROUPS["K"])
 eng = {}
-for m, key in (("dice", "dice"), ("nsd", "nsd2")):
+for m, key in ((("dice", "dice"), ("nsd", "nsd2")) if C.OLD else ()):
     M = run1_means("M19", m)
     S = summarise(M, TAKES["M19"])
     ref = SV7["bootstrap"][f"{m}|M19"]
@@ -236,7 +239,7 @@ for m, key in (("dice", "dice"), ("nsd", "nsd2")):
         Sk = summarise(MK, tk)
         assert max(abs(a - b) for a, b in zip(Sk[q]["ci"], rk[q]["method_only_repro_B2000"])) < 1e-12
     eng[f"{m}|K14 point and B2000 interval"] = "equal to stats_v7.json"
-CHECKS["engine_vs_stats_v7"] = eng
+CHECKS["engine_vs_stats_v7"] = eng if C.OLD else {"note": "run under exclusions_v5.json only; see results/v7_excl_v5/robust_v7.json"}
 print("engine reproduces stats_v7 method-only intervals", flush=True)
 
 # ------------------------------------------------------------- rescore loading
@@ -358,7 +361,7 @@ R = {"definitions": {
                  "P1": "postprocess(p >= t): closing then opening with 5 px ellipse, small-component removal",
                  "P2": "remove_small_components(p >= t)"},
     "nsd": "NSD at 1, 2, 3, 5 px and at 1% of the image diagonal; nsd2 is the paper's NSD",
-    "exclusions": "results/exclusions_v5.json; fuseg_r256 uses the fuseg exclusions by index",
+    "exclusions": f"results/{C.EXCL_NAME}; fuseg_r256 uses the fuseg exclusions by index",
     "floor_M19_mean_dice_P0": FLOOR},
     "checks": CHECKS}
 
@@ -659,7 +662,7 @@ L.append("- Source: run-2 rescore files (`results/kaggle2/rescore`), built by `k
 L.append(f"- M19: 10 original architectures and 8 new ones, each averaged per image over its available seeds, plus nnU-Net (19 methods, as `perimage_v7.GROUPS['M19']`).")
 L.append(f"- K11: the paper's K group without the three Kvasir pixel classifiers ({', '.join(K_MISSING)}), which were not rescored. So K11 has 11 methods, not 14.")
 L.append("- Agreement: Spearman correlation of per-method mean scores between two datasets. Wound pairs: mean of the 6 pairs of medetec, co2wounds, fuseg, azh. Colonoscopy pairs: mean of 10. Modality difference: mean of the 16 same-modality pairs minus mean of the 39 across-modality pairs (11 references).")
-L.append(f"- Intervals: method bootstrap, methods resampled within the group, {B} draws, seed {SEED_METHOD}; the same draws for every condition. Exclusions from `results/exclusions_v5.json`.")
+L.append(f"- Intervals: method bootstrap, methods resampled within the group, {B} draws, seed {SEED_METHOD}; the same draws for every condition. Exclusions from `results/{C.EXCL_NAME}`.")
 L.append("- Post-processing variants: P0 = Gaussian smoothing of the probability map, threshold, small-component removal (main results). "
          "P1 = threshold, then closing and opening with a 5 px ellipse, then small-component removal. P2 = threshold and small-component removal only.")
 L.append("- `grid_dice` (threshold analysis) is Dice of the P0 pipeline at each grid threshold (`postprocess_prob(p, g)` in `k2_rescore.score_image`), so the threshold analysis keeps P0 post-processing. Dice only; there is no NSD on the grid.")
@@ -674,7 +677,10 @@ L.append("- K11 is weak on the wound sets (K11 mean Dice " + ", ".join(f"{d} {KF
 L.append("")
 L.append("## Checks")
 L.append("")
-L.append("- Bootstrap engine: with run-1 scores it reproduces `results/v7_morning/stats_v7.json` (the earlier independent implementation) exactly (point estimates and method-only B 2000 intervals for M19 wound pairs, colonoscopy pairs and modality difference, and K14 with 14-method draws; max difference 0).")
+if C.OLD:
+    L.append("- Bootstrap engine: with run-1 scores it reproduces `results/v7_morning/stats_v7.json` (the earlier independent implementation) exactly (point estimates and method-only B 2000 intervals for M19 wound pairs, colonoscopy pairs and modality difference, and K14 with 14-method draws; max difference 0).")
+else:
+    L.append("- Bootstrap engine: checked against the earlier independent implementation in the run under the V6 exclusions (`results/v7_excl_v5/ROBUST_V7.md`).")
 c = CHECKS["rescore_P0_vs_run1_dataset_means"]
 L.append(f"- Rescore P0 vs run-1 dataset means: max abs difference excluding nnU-Net {max(c[k]['max_abs_diff_excl_nnunet'] for k in c):.1e}; nnU-Net {max(c[k]['max_abs_diff_nnunet'] or 0 for k in c):.1e} (re-prediction).")
 L.append("- Summaries, rescore P0 vs run 1 (wound pairs / colonoscopy pairs / modality difference):")

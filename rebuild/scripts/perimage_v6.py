@@ -43,7 +43,7 @@ SOURCE = {"medetec": "Medetec", "co2wounds": "CO2Wounds", "fuseg": "AZH",
           "ph2": "PH2", "tn3k_test": "TN3K"}
 WOUND = [r for r in REFS if MODALITY[r] == "wound"]
 COLON = [r for r in REFS if MODALITY[r] == "colonoscopy"]
-EXCL = json.load(open(os.path.join(RES, "exclusions_v5.json")))
+from excl_cfg import EXCL                                           # noqa: E402  (WB_EXCL selects the list)
 KAGGLE = {"M": ["pretrained", "nnunet"], "K": ["kvasir"], "S": ["sam"]}
 
 

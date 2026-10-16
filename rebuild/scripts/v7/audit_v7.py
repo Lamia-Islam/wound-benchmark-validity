@@ -28,8 +28,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 RES = os.path.join(ROOT, "results")
 K1 = os.path.join(RES, "kaggle")
 K2 = os.path.join(RES, "kaggle2")
-OUTD = os.path.join(RES, "v7", "audit")
-KIT = "/home/claude/kaggle_kit"          # run-1 kit (refs, train, manifest), read only
+EXCL_NAME = os.environ.get("WB_EXCL", "exclusions_v6.json")   # same switch as scripts/excl_cfg.py
+OUTD = os.path.join(RES, "v7_excl_v5" if EXCL_NAME == "exclusions_v5.json" else "v7", "audit")
+# run-1 kit (refs, train, manifest), read only; WB_KIT points to a copy rebuilt by kit_partial_v7.py
+KIT = os.environ.get("WB_KIT", "/home/claude/kaggle_kit")
 
 CLIN = ["medetec", "co2wounds", "fuseg", "azh", "azh_train_slice", "kvasir_disjoint",
         "kvasir_sessile", "cvc_clinicdb", "cvc_colondb", "etis_larib", "ph2", "tn3k_test"]
@@ -61,7 +63,7 @@ def fl(x):
     return None if x is None else float(x)
 
 
-EXCL = J(os.path.join(RES, "exclusions_v5.json"))
+EXCL = J(os.path.join(RES, EXCL_NAME))
 PI32 = {s: J(os.path.join(RES, "perimage32", s + ".json")) for s in CLIN}
 
 
@@ -113,7 +115,7 @@ def load_rs(fam, s):
     return J(os.path.join(K2, "rescore", fam, s + ".json"))
 
 
-AUD = {}
+AUD = {"exclusions": EXCL_NAME}
 
 
 # ---------------------------------------------------------------- check 1
