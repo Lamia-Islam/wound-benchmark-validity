@@ -3258,11 +3258,11 @@
      "n_on_empty_gt_changed": 0,
      "mean_dice_run1_all": 0.6009895521898867,
      "mean_dice_run2_all": 0.6010025333333332,
-     "mean_dice_run1_kept": 0.538165534805844,
-     "mean_dice_run2_kept": 0.538173896103896,
-     "delta_mean_dice_kept": 8.361298052039778e-06,
-     "mean_nsd2_run1_kept": 0.30091071295638505,
-     "mean_nsd2_run2_kept": 0.3009105194805195
+     "mean_dice_run1_kept": 0.5392530655792518,
+     "mean_dice_run2_kept": 0.539261282051282,
+     "delta_mean_dice_kept": 8.216472030198041e-06,
+     "mean_nsd2_run1_kept": 0.2977884864977177,
+     "mean_nsd2_run2_kept": 0.2977883333333334
     },
     "kvasir_disjoint": {
      "n": 120,
@@ -3435,8 +3435,8 @@
      "rank_dice_run2": 2,
      "rank_nsd2_run1": 10,
      "rank_nsd2_run2": 10,
-     "closest_other_gap_dice": 0.030889752792988667,
-     "abs_delta_dice": 8.361298052039778e-06
+     "closest_other_gap_dice": 0.033303563861482366,
+     "abs_delta_dice": 8.216472030198041e-06
     },
     "kvasir_disjoint": {
      "rank_dice_run1": 10,
@@ -3994,9 +3994,9 @@
       "frac_zero_on_nonempty": 0.33088235294117646
      },
      "azh_train_slice": {
-      "mean": 0.3995122178248697,
-      "sd": 0.4489311975420451,
-      "frac_zero_on_nonempty": 0.5774647887323944
+      "mean": 0.4056497003925204,
+      "sd": 0.4492837335979559,
+      "frac_zero_on_nonempty": 0.5694444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.06843563942598777,
@@ -4076,9 +4076,9 @@
       "frac_zero_on_nonempty": 0.3161764705882353
      },
      "azh_train_slice": {
-      "mean": 0.38977229461562946,
-      "sd": 0.44452789118040953,
-      "frac_zero_on_nonempty": 0.5774647887323944
+      "mean": 0.3959223666288469,
+      "sd": 0.44495398494147714,
+      "frac_zero_on_nonempty": 0.5694444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.15185784517014658,
@@ -4158,9 +4158,9 @@
       "frac_zero_on_nonempty": 0.3235294117647059
      },
      "azh_train_slice": {
-      "mean": 0.4011950032714341,
-      "sd": 0.4454715223168186,
-      "frac_zero_on_nonempty": 0.5774647887323944
+      "mean": 0.40759244803354705,
+      "sd": 0.44615256825810934,
+      "frac_zero_on_nonempty": 0.5694444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.09653349738250398,
@@ -4232,9 +4232,9 @@
       "frac_zero_on_nonempty": 0.27205882352941174
      },
      "azh_train_slice": {
-      "mean": 0.4568852954805018,
-      "sd": 0.4416290803658374,
-      "frac_zero_on_nonempty": 0.4647887323943662
+      "mean": 0.46271069171018525,
+      "sd": 0.44175648668132206,
+      "frac_zero_on_nonempty": 0.4583333333333333
      },
      "kvasir_disjoint": {
       "mean": 0.1318340404310156,
@@ -4314,9 +4314,9 @@
       "frac_zero_on_nonempty": 0.2867647058823529
      },
      "azh_train_slice": {
-      "mean": 0.4861186438751758,
-      "sd": 0.4180206422724463,
-      "frac_zero_on_nonempty": 0.39436619718309857
+      "mean": 0.4913497103561815,
+      "sd": 0.41786124154825244,
+      "frac_zero_on_nonempty": 0.3888888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.06527693497369438,
@@ -4396,9 +4396,9 @@
       "frac_zero_on_nonempty": 0.29411764705882354
      },
      "azh_train_slice": {
-      "mean": 0.4443938205386393,
-      "sd": 0.4215088036537524,
-      "frac_zero_on_nonempty": 0.43661971830985913
+      "mean": 0.4503400936727593,
+      "sd": 0.4220360575802556,
+      "frac_zero_on_nonempty": 0.4305555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.08555815308261104,
@@ -4470,9 +4470,9 @@
       "frac_zero_on_nonempty": 0.3897058823529412
      },
      "azh_train_slice": {
-      "mean": 0.3465323671325427,
-      "sd": 0.41769495099539006,
-      "frac_zero_on_nonempty": 0.6197183098591549
+      "mean": 0.3537281242005834,
+      "sd": 0.41978478525882784,
+      "frac_zero_on_nonempty": 0.6111111111111112
      },
      "kvasir_disjoint": {
       "mean": 0.10117233007381182,
@@ -4552,9 +4552,9 @@
       "frac_zero_on_nonempty": 0.3897058823529412
      },
      "azh_train_slice": {
-      "mean": 0.3237045438840803,
-      "sd": 0.4177545430218255,
-      "frac_zero_on_nonempty": 0.647887323943662
+      "mean": 0.3310841745782,
+      "sd": 0.42008900966721985,
+      "frac_zero_on_nonempty": 0.6388888888888888
      },
      "kvasir_disjoint": {
       "mean": 0.08789435255941758,
@@ -4634,9 +4634,9 @@
       "frac_zero_on_nonempty": 0.3897058823529412
      },
      "azh_train_slice": {
-      "mean": 0.3161481235148116,
-      "sd": 0.41194341299206483,
-      "frac_zero_on_nonempty": 0.647887323943662
+      "mean": 0.323007720266356,
+      "sd": 0.4136966658482656,
+      "frac_zero_on_nonempty": 0.6388888888888888
      },
      "kvasir_disjoint": {
       "mean": 0.12631954748658408,
@@ -4708,9 +4708,9 @@
       "frac_zero_on_nonempty": 0.2867647058823529
      },
      "azh_train_slice": {
-      "mean": 0.4121226766188843,
-      "sd": 0.42559634499255405,
-      "frac_zero_on_nonempty": 0.5211267605633803
+      "mean": 0.4181429058228557,
+      "sd": 0.42614641127976755,
+      "frac_zero_on_nonempty": 0.5138888888888888
      },
      "kvasir_disjoint": {
       "mean": 0.1430780838456736,
@@ -4790,9 +4790,9 @@
       "frac_zero_on_nonempty": 0.25735294117647056
      },
      "azh_train_slice": {
-      "mean": 0.44252159172669886,
-      "sd": 0.39568931428614507,
-      "frac_zero_on_nonempty": 0.36619718309859156
+      "mean": 0.44877806254801655,
+      "sd": 0.3969594049885163,
+      "frac_zero_on_nonempty": 0.3611111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.07608381872174344,
@@ -4872,9 +4872,9 @@
       "frac_zero_on_nonempty": 0.23529411764705882
      },
      "azh_train_slice": {
-      "mean": 0.43068381279178913,
-      "sd": 0.4097207402315408,
-      "frac_zero_on_nonempty": 0.4225352112676056
+      "mean": 0.43640743896194917,
+      "sd": 0.4101724071802089,
+      "frac_zero_on_nonempty": 0.4166666666666667
      },
      "kvasir_disjoint": {
       "mean": 0.08916882076919723,
@@ -4946,9 +4946,9 @@
       "frac_zero_on_nonempty": 0.2426470588235294
      },
      "azh_train_slice": {
-      "mean": 0.4330393273346904,
-      "sd": 0.3642521880390655,
-      "frac_zero_on_nonempty": 0.3380281690140845
+      "mean": 0.4387025813399626,
+      "sd": 0.3653056440717187,
+      "frac_zero_on_nonempty": 0.3333333333333333
      },
      "kvasir_disjoint": {
       "mean": 0.023672561213440715,
@@ -5028,9 +5028,9 @@
       "frac_zero_on_nonempty": 0.25735294117647056
      },
      "azh_train_slice": {
-      "mean": 0.40016182748085977,
-      "sd": 0.3704655777213693,
-      "frac_zero_on_nonempty": 0.4225352112676056
+      "mean": 0.40615489060728055,
+      "sd": 0.3718209116052422,
+      "frac_zero_on_nonempty": 0.4166666666666667
      },
      "kvasir_disjoint": {
       "mean": 0.006603929133667554,
@@ -5110,9 +5110,9 @@
       "frac_zero_on_nonempty": 0.29411764705882354
      },
      "azh_train_slice": {
-      "mean": 0.3373475688918717,
-      "sd": 0.3685785685372,
-      "frac_zero_on_nonempty": 0.4788732394366197
+      "mean": 0.3450905460901348,
+      "sd": 0.372457953379356,
+      "frac_zero_on_nonempty": 0.4722222222222222
      },
      "kvasir_disjoint": {
       "mean": 0.00871328857319656,
@@ -5184,9 +5184,9 @@
       "frac_zero_on_nonempty": 0.23529411764705882
      },
      "azh_train_slice": {
-      "mean": 0.5011549055779693,
-      "sd": 0.37642049705755887,
-      "frac_zero_on_nonempty": 0.30985915492957744
+      "mean": 0.5059495017177694,
+      "sd": 0.3763587506752169,
+      "frac_zero_on_nonempty": 0.3055555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.10670272811660997,
@@ -5266,9 +5266,9 @@
       "frac_zero_on_nonempty": 0.34558823529411764
      },
      "azh_train_slice": {
-      "mean": 0.412754645828162,
-      "sd": 0.432403483077688,
-      "frac_zero_on_nonempty": 0.5211267605633803
+      "mean": 0.41904006371984337,
+      "sd": 0.4331485705465868,
+      "frac_zero_on_nonempty": 0.5138888888888888
      },
      "kvasir_disjoint": {
       "mean": 0.027162112131567363,
@@ -5348,9 +5348,9 @@
       "frac_zero_on_nonempty": 0.27205882352941174
      },
      "azh_train_slice": {
-      "mean": 0.48712109406599874,
-      "sd": 0.4166054030160921,
-      "frac_zero_on_nonempty": 0.4084507042253521
+      "mean": 0.4923285856719545,
+      "sd": 0.41644089187313205,
+      "frac_zero_on_nonempty": 0.4027777777777778
      },
      "kvasir_disjoint": {
       "mean": 0.13822135917322856,
@@ -5422,9 +5422,9 @@
       "frac_zero_on_nonempty": 0.2867647058823529
      },
      "azh_train_slice": {
-      "mean": 0.49899056638865197,
-      "sd": 0.4445924162943473,
-      "frac_zero_on_nonempty": 0.4507042253521127
+      "mean": 0.5036756111411642,
+      "sd": 0.4436422045901377,
+      "frac_zero_on_nonempty": 0.4444444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.06804702171150975,
@@ -5504,9 +5504,9 @@
       "frac_zero_on_nonempty": 0.3014705882352941
      },
      "azh_train_slice": {
-      "mean": 0.45213323591735566,
-      "sd": 0.43540508410754675,
-      "frac_zero_on_nonempty": 0.49295774647887325
+      "mean": 0.4573823801301754,
+      "sd": 0.43505025690272003,
+      "frac_zero_on_nonempty": 0.4861111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.06927998835823128,
@@ -5587,9 +5587,9 @@
       "frac_zero_on_nonempty": 0.22058823529411764
      },
      "azh_train_slice": {
-      "mean": 0.5690552875988326,
-      "sd": 0.3762162224227372,
-      "frac_zero_on_nonempty": 0.28169014084507044
+      "mean": 0.5737773696911854,
+      "sd": 0.3760864243140216,
+      "frac_zero_on_nonempty": 0.2777777777777778
      },
      "kvasir_disjoint": {
       "mean": 0.06889941683441793,
@@ -5669,9 +5669,9 @@
       "frac_zero_on_nonempty": 0.15441176470588236
      },
      "azh_train_slice": {
-      "mean": 0.5931876444678676,
-      "sd": 0.35027432175473067,
-      "frac_zero_on_nonempty": 0.18309859154929578
+      "mean": 0.5975933397388871,
+      "sd": 0.35016240010425315,
+      "frac_zero_on_nonempty": 0.18055555555555555
      },
      "kvasir_disjoint": {
       "mean": 0.0340248026665468,
@@ -5751,9 +5751,9 @@
       "frac_zero_on_nonempty": 0.22058823529411764
      },
      "azh_train_slice": {
-      "mean": 0.5869023978538428,
-      "sd": 0.36597458085988527,
-      "frac_zero_on_nonempty": 0.23943661971830985
+      "mean": 0.5911321645044006,
+      "sd": 0.3655103952782368,
+      "frac_zero_on_nonempty": 0.2361111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.04029205514530446,
@@ -5825,9 +5825,9 @@
       "frac_zero_on_nonempty": 0.3602941176470588
      },
      "azh_train_slice": {
-      "mean": 0.39279971493935123,
-      "sd": 0.4267015690019846,
-      "frac_zero_on_nonempty": 0.5492957746478874
+      "mean": 0.39896166930005333,
+      "sd": 0.4273916347807477,
+      "frac_zero_on_nonempty": 0.5416666666666666
      },
      "kvasir_disjoint": {
       "mean": 0.10955377015276116,
@@ -5907,9 +5907,9 @@
       "frac_zero_on_nonempty": 0.36764705882352944
      },
      "azh_train_slice": {
-      "mean": 0.3931822210346516,
-      "sd": 0.4338288168454786,
-      "frac_zero_on_nonempty": 0.5633802816901409
+      "mean": 0.39950894469660053,
+      "sd": 0.4345994002354195,
+      "frac_zero_on_nonempty": 0.5555555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.07646946695009846,
@@ -5989,9 +5989,9 @@
       "frac_zero_on_nonempty": 0.38235294117647056
      },
      "azh_train_slice": {
-      "mean": 0.3473583197445045,
-      "sd": 0.4313182911693784,
-      "frac_zero_on_nonempty": 0.6338028169014085
+      "mean": 0.35445696476802296,
+      "sd": 0.4330479035868683,
+      "frac_zero_on_nonempty": 0.625
      },
      "kvasir_disjoint": {
       "mean": 0.08840891323348572,
@@ -6063,9 +6063,9 @@
       "frac_zero_on_nonempty": 0.29411764705882354
      },
      "azh_train_slice": {
-      "mean": 0.4857987217680887,
-      "sd": 0.41993281370104274,
-      "frac_zero_on_nonempty": 0.39436619718309857
+      "mean": 0.48958857193998356,
+      "sd": 0.418555493693822,
+      "frac_zero_on_nonempty": 0.3888888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.075957045455009,
@@ -6145,9 +6145,9 @@
       "frac_zero_on_nonempty": 0.25735294117647056
      },
      "azh_train_slice": {
-      "mean": 0.4637893624987755,
-      "sd": 0.3989258144067209,
-      "frac_zero_on_nonempty": 0.352112676056338
+      "mean": 0.46920149592387717,
+      "sd": 0.399195374892933,
+      "frac_zero_on_nonempty": 0.3472222222222222
      },
      "kvasir_disjoint": {
       "mean": 0.03579509089367619,
@@ -6227,9 +6227,9 @@
       "frac_zero_on_nonempty": 0.2647058823529412
      },
      "azh_train_slice": {
-      "mean": 0.43152515667481883,
-      "sd": 0.4192693100922946,
-      "frac_zero_on_nonempty": 0.43661971830985913
+      "mean": 0.43750972923523096,
+      "sd": 0.4198700291986445,
+      "frac_zero_on_nonempty": 0.4305555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.03510566492884772,
@@ -6309,9 +6309,9 @@
       "frac_zero_on_nonempty": 0.3014705882352941
      },
      "azh_train_slice": {
-      "mean": 0.4449461121112312,
-      "sd": 0.4240162590660966,
-      "frac_zero_on_nonempty": 0.4507042253521127
+      "mean": 0.45066118310319664,
+      "sd": 0.4242637946809659,
+      "frac_zero_on_nonempty": 0.4444444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.05454555880851489,
@@ -6391,9 +6391,9 @@
       "frac_zero_on_nonempty": 0.3014705882352941
      },
      "azh_train_slice": {
-      "mean": 0.43248754885424706,
-      "sd": 0.4298868217537893,
-      "frac_zero_on_nonempty": 0.49295774647887325
+      "mean": 0.4381775837732528,
+      "sd": 0.43003070203623345,
+      "frac_zero_on_nonempty": 0.4861111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.04584005081342078,
@@ -6473,9 +6473,9 @@
       "frac_zero_on_nonempty": 0.3014705882352941
      },
      "azh_train_slice": {
-      "mean": 0.4542503183027353,
-      "sd": 0.4301344986735853,
-      "frac_zero_on_nonempty": 0.4788732394366197
+      "mean": 0.45991728752221245,
+      "sd": 0.4302516828008988,
+      "frac_zero_on_nonempty": 0.4722222222222222
      },
      "kvasir_disjoint": {
       "mean": 0.08610317020504957,
@@ -6555,9 +6555,9 @@
       "frac_zero_on_nonempty": 0.35294117647058826
      },
      "azh_train_slice": {
-      "mean": 0.38754049881146135,
-      "sd": 0.4208616284377395,
-      "frac_zero_on_nonempty": 0.5633802816901409
+      "mean": 0.3939107758850678,
+      "sd": 0.4218748349283557,
+      "frac_zero_on_nonempty": 0.5555555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.05117535251021858,
@@ -6637,9 +6637,9 @@
       "frac_zero_on_nonempty": 0.27941176470588236
      },
      "azh_train_slice": {
-      "mean": 0.4504084551688125,
-      "sd": 0.409015717148069,
-      "frac_zero_on_nonempty": 0.4225352112676056
+      "mean": 0.45629877304454425,
+      "sd": 0.4096591801454507,
+      "frac_zero_on_nonempty": 0.4166666666666667
      },
      "kvasir_disjoint": {
       "mean": 0.03569924434488573,
@@ -6719,9 +6719,9 @@
       "frac_zero_on_nonempty": 0.38235294117647056
      },
      "azh_train_slice": {
-      "mean": 0.35313007396925444,
-      "sd": 0.42888602856570796,
-      "frac_zero_on_nonempty": 0.6338028169014085
+      "mean": 0.36021035069002316,
+      "sd": 0.430633270356803,
+      "frac_zero_on_nonempty": 0.625
      },
      "kvasir_disjoint": {
       "mean": 0.05778374136625383,
@@ -6801,9 +6801,9 @@
       "frac_zero_on_nonempty": 0.23529411764705882
      },
      "azh_train_slice": {
-      "mean": 0.5019390909219842,
-      "sd": 0.38098688345006976,
-      "frac_zero_on_nonempty": 0.30985915492957744
+      "mean": 0.5071978792802903,
+      "sd": 0.3813391126945413,
+      "frac_zero_on_nonempty": 0.3055555555555556
      },
      "kvasir_disjoint": {
       "mean": 0.028947044563714882,
@@ -6883,9 +6883,9 @@
       "frac_zero_on_nonempty": 0.20588235294117646
      },
      "azh_train_slice": {
-      "mean": 0.495922956151897,
-      "sd": 0.3970851437845332,
-      "frac_zero_on_nonempty": 0.3380281690140845
+      "mean": 0.5017649220022827,
+      "sd": 0.3978479808934875,
+      "frac_zero_on_nonempty": 0.3333333333333333
      },
      "kvasir_disjoint": {
       "mean": 0.07050689481185975,
@@ -6965,9 +6965,9 @@
       "frac_zero_on_nonempty": 0.16176470588235295
      },
      "azh_train_slice": {
-      "mean": 0.5690121686974039,
-      "sd": 0.3843830247232858,
-      "frac_zero_on_nonempty": 0.2676056338028169
+      "mean": 0.5738305910923691,
+      "sd": 0.38424445203894936,
+      "frac_zero_on_nonempty": 0.2638888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.07215013312676116,
@@ -7047,9 +7047,9 @@
       "frac_zero_on_nonempty": 0.19117647058823528
      },
      "azh_train_slice": {
-      "mean": 0.638937278184009,
-      "sd": 0.3823581147308206,
-      "frac_zero_on_nonempty": 0.23943661971830985
+      "mean": 0.6421575962402458,
+      "sd": 0.3809487138462933,
+      "frac_zero_on_nonempty": 0.2361111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.014126137127315228,
@@ -7129,9 +7129,9 @@
       "frac_zero_on_nonempty": 0.1323529411764706
      },
      "azh_train_slice": {
-      "mean": 0.7059090727872863,
-      "sd": 0.32257555323049597,
-      "frac_zero_on_nonempty": 0.14084507042253522
+      "mean": 0.7085116347888456,
+      "sd": 0.3213137027438784,
+      "frac_zero_on_nonempty": 0.1388888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.031964910429650356,
@@ -7211,9 +7211,9 @@
       "frac_zero_on_nonempty": 0.25
      },
      "azh_train_slice": {
-      "mean": 0.5709542939441643,
-      "sd": 0.38723957109221774,
-      "frac_zero_on_nonempty": 0.2676056338028169
+      "mean": 0.5752205198227346,
+      "sd": 0.38656622282202313,
+      "frac_zero_on_nonempty": 0.2638888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.03447085752486733,
@@ -7293,9 +7293,9 @@
       "frac_zero_on_nonempty": 0.11764705882352941
      },
      "azh_train_slice": {
-      "mean": 0.6673955818304742,
-      "sd": 0.3295309754232048,
-      "frac_zero_on_nonempty": 0.14084507042253522
+      "mean": 0.6708632763134553,
+      "sd": 0.32882273865033196,
+      "frac_zero_on_nonempty": 0.1388888888888889
      },
      "kvasir_disjoint": {
       "mean": 0.024214040404035117,
@@ -7375,9 +7375,9 @@
       "frac_zero_on_nonempty": 0.07352941176470588
      },
      "azh_train_slice": {
-      "mean": 0.6883520483973673,
-      "sd": 0.3291681897616262,
-      "frac_zero_on_nonempty": 0.15492957746478872
+      "mean": 0.6909204125540921,
+      "sd": 0.32782694047392924,
+      "frac_zero_on_nonempty": 0.1527777777777778
      },
      "kvasir_disjoint": {
       "mean": 0.016735684719788712,
@@ -7457,9 +7457,9 @@
       "frac_zero_on_nonempty": 0.11764705882352941
      },
      "azh_train_slice": {
-      "mean": 0.6546121752193964,
-      "sd": 0.3515604092830816,
-      "frac_zero_on_nonempty": 0.19718309859154928
+      "mean": 0.6581191388679404,
+      "sd": 0.35065250720025976,
+      "frac_zero_on_nonempty": 0.19444444444444445
      },
      "kvasir_disjoint": {
       "mean": 0.07898980487286596,
@@ -7539,9 +7539,9 @@
       "frac_zero_on_nonempty": 0.27205882352941174
      },
      "azh_train_slice": {
-      "mean": 0.49796888295241537,
-      "sd": 0.4057486245264481,
-      "frac_zero_on_nonempty": 0.352112676056338
+      "mean": 0.5023890952062167,
+      "sd": 0.40500089827952285,
+      "frac_zero_on_nonempty": 0.3472222222222222
      },
      "kvasir_disjoint": {
       "mean": 0.06881769814511571,
@@ -7621,9 +7621,9 @@
       "frac_zero_on_nonempty": 0.35294117647058826
      },
      "azh_train_slice": {
-      "mean": 0.4125629866365501,
-      "sd": 0.4219184854484744,
-      "frac_zero_on_nonempty": 0.49295774647887325
+      "mean": 0.4191080371037344,
+      "sd": 0.4231210983804209,
+      "frac_zero_on_nonempty": 0.4861111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.07225782553606122,
@@ -7703,9 +7703,9 @@
       "frac_zero_on_nonempty": 0.27941176470588236
      },
      "azh_train_slice": {
-      "mean": 0.4170880930353668,
-      "sd": 0.4310584123907933,
-      "frac_zero_on_nonempty": 0.5211267605633803
+      "mean": 0.4228580587900807,
+      "sd": 0.4312686876016903,
+      "frac_zero_on_nonempty": 0.5138888888888888
      },
      "kvasir_disjoint": {
       "mean": 0.0356630230072891,
@@ -7785,9 +7785,9 @@
       "frac_zero_on_nonempty": 0.11764705882352941
      },
      "azh_train_slice": {
-      "mean": 0.6285586857172732,
-      "sd": 0.328416446608428,
-      "frac_zero_on_nonempty": 0.15492957746478872
+      "mean": 0.6324750027415718,
+      "sd": 0.32810907669723766,
+      "frac_zero_on_nonempty": 0.1527777777777778
      },
      "kvasir_disjoint": {
       "mean": 0.04658806644957038,
@@ -7867,9 +7867,9 @@
       "frac_zero_on_nonempty": 0.19117647058823528
      },
      "azh_train_slice": {
-      "mean": 0.5034845014659326,
-      "sd": 0.34689437551631375,
-      "frac_zero_on_nonempty": 0.23943661971830985
+      "mean": 0.508794277842312,
+      "sd": 0.34779858987431156,
+      "frac_zero_on_nonempty": 0.2361111111111111
      },
      "kvasir_disjoint": {
       "mean": 0.052525757018300506,
@@ -7949,9 +7949,9 @@
       "frac_zero_on_nonempty": 0.18382352941176472
      },
      "azh_train_slice": {
-      "mean": 0.4539036546041267,
-      "sd": 0.37684904531818514,
-      "frac_zero_on_nonempty": 0.3380281690140845
+      "mean": 0.45966342487289386,
+      "sd": 0.3778213422376743,
+      "frac_zero_on_nonempty": 0.3333333333333333
      },
      "kvasir_disjoint": {
       "mean": 0.04464076836848481,
@@ -8040,9 +8040,9 @@
       "frac_zero_on_nonempty": 0.2867647058823529
      },
      "azh_train_slice": {
-      "mean": 0.4652508991689386,
-      "sd": 0.4362288793039565,
-      "frac_zero_on_nonempty": 0.4507042253521127
+      "mean": 0.47067055054781093,
+      "sd": 0.4360248150404708,
+      "frac_zero_on_nonempty": 0.4444444444444444
      },
      "kvasir_disjoint": {
       "mean": 0.05030686032832347,
@@ -8121,13 +8121,12 @@
    "unet_r50_s1/cvc_colondb: per-image Dice SD 0.0036 (near constant; off-domain, mean 0.0005)",
    "unet_r50_s2/tn3k_test: per-image Dice SD 0.0039 (near constant; off-domain, mean 0.0003)",
    "unet_swin_t_s0/ph2: per-image Dice SD 0.0085 (near constant; off-domain, mean 0.0018)",
-   "unet_swin_t_s1/azh_train_slice: mean Dice 0.706 vs sibling mean 0.605",
    "unet_swin_t_s2/azh: mean Dice 0.560 vs sibling mean 0.670",
-   "unet_swin_t_s2/azh_train_slice: mean Dice 0.571 vs sibling mean 0.672",
+   "unet_swin_t_s2/azh_train_slice: mean Dice 0.575 vs sibling mean 0.675",
    "segformer_mitb2_s0/cvc_colondb: per-image Dice SD 0.0043 (near constant; off-domain, mean 0.0006)",
    "segformer_mitb2_s0/tn3k_test: per-image Dice SD 0.0000 (near constant; off-domain, mean 0.0000)",
-   "fpn_regnety016_s0/azh_train_slice: mean Dice 0.629 vs sibling mean 0.479",
-   "fpn_regnety016_s2/azh_train_slice: mean Dice 0.454 vs sibling mean 0.566"
+   "fpn_regnety016_s0/azh_train_slice: mean Dice 0.632 vs sibling mean 0.484",
+   "fpn_regnety016_s2/azh_train_slice: mean Dice 0.460 vs sibling mean 0.571"
   ],
   "problems": [],
   "loss_note": [
@@ -8189,14 +8188,14 @@
     "nnunet_rank_of_17_no_manet": 3
    },
    "azh_train_slice": {
-    "M19_mean": 0.47458014158214196,
-    "M17_no_manet_mean": 0.4750711699846326,
-    "delta": 0.0004910284024906564,
+    "M19_mean": 0.479791535314785,
+    "M17_no_manet_mean": 0.4802846838116139,
+    "delta": 0.0004931484968288546,
     "rank_manet_r18_of_18": 6,
     "rank_manet_r50_of_18": 8,
-    "pooled_within_arch_seed_sd": 0.040812935497315274,
-    "manet_r18_seed_mean": 0.4755619011530038,
-    "manet_r50_seed_mean": 0.4652508991689386,
+    "pooled_within_arch_seed_sd": 0.04022450202536285,
+    "manet_r18_seed_mean": 0.4805289956356698,
+    "manet_r50_seed_mean": 0.47067055054781093,
     "nnunet_rank_of_19": 4,
     "nnunet_run2_rank_of_19": 4,
     "nnunet_rank_of_17_no_manet": 4
@@ -8354,11 +8353,11 @@
       2
      ],
      "means": [
-      0.3995,
-      0.3898,
-      0.4012
+      0.4056,
+      0.3959,
+      0.4076
      ],
-     "range": 0.011422708655804636
+     "range": 0.011670081404700161
     }
    },
    "unetpp_r18": {
@@ -8421,11 +8420,11 @@
       2
      ],
      "means": [
-      0.4569,
-      0.4861,
-      0.4444
+      0.4627,
+      0.4913,
+      0.4503
      ],
-     "range": 0.04172482333653649
+     "range": 0.041009616683422234
     }
    },
    "deeplabv3p_r18": {
@@ -8488,11 +8487,11 @@
       2
      ],
      "means": [
-      0.3465,
-      0.3237,
-      0.3161
+      0.3537,
+      0.3311,
+      0.323
      ],
-     "range": 0.03038424361773112
+     "range": 0.030720403934227425
     }
    },
    "fpn_r18": {
@@ -8555,11 +8554,11 @@
       2
      ],
      "means": [
-      0.4121,
-      0.4425,
-      0.4307
+      0.4181,
+      0.4488,
+      0.4364
      ],
-     "range": 0.03039891510781456
+     "range": 0.030635156725160873
     }
    },
    "pspnet_r18": {
@@ -8622,11 +8621,11 @@
       2
      ],
      "means": [
-      0.433,
-      0.4002,
-      0.3373
+      0.4387,
+      0.4062,
+      0.3451
      ],
-     "range": 0.09569175844281874
+     "range": 0.09361203524982781
     }
    },
    "linknet_r18": {
@@ -8689,11 +8688,11 @@
       2
      ],
      "means": [
-      0.5012,
-      0.4128,
-      0.4871
+      0.5059,
+      0.419,
+      0.4923
      ],
-     "range": 0.08840025974980725
+     "range": 0.08690943799792605
     }
    },
    "manet_r18": {
@@ -8747,10 +8746,10 @@
       1
      ],
      "means": [
-      0.499,
-      0.4521
+      0.5037,
+      0.4574
      ],
-     "range": 0.04685733047129631
+     "range": 0.04629323101098881
     }
    },
    "segformer_mitb0": {
@@ -8813,11 +8812,11 @@
       2
      ],
      "means": [
-      0.5691,
-      0.5932,
-      0.5869
+      0.5738,
+      0.5976,
+      0.5911
      ],
-     "range": 0.024132356869035032
+     "range": 0.02381597004770164
     }
    },
    "unet_mbv2": {
@@ -8880,11 +8879,11 @@
       2
      ],
      "means": [
-      0.3928,
-      0.3932,
-      0.3474
+      0.399,
+      0.3995,
+      0.3545
      ],
-     "range": 0.04582390129014713
+     "range": 0.04505197992857757
     }
    },
    "unet_effb0": {
@@ -8947,11 +8946,11 @@
       2
      ],
      "means": [
-      0.4858,
-      0.4638,
-      0.4315
+      0.4896,
+      0.4692,
+      0.4375
      ],
-     "range": 0.05427356509326986
+     "range": 0.052078842704752604
     }
    },
    "unet_r50": {
@@ -9014,11 +9013,11 @@
       2
      ],
      "means": [
-      0.4449,
-      0.4325,
-      0.4543
+      0.4507,
+      0.4382,
+      0.4599
      ],
-     "range": 0.02176276944848826
+     "range": 0.02173970374895967
     }
    },
    "deeplabv3p_r50": {
@@ -9081,11 +9080,11 @@
       2
      ],
      "means": [
-      0.3875,
-      0.4504,
-      0.3531
+      0.3939,
+      0.4563,
+      0.3602
      ],
-     "range": 0.09727838119955806
+     "range": 0.09608842235452109
     }
    },
    "upernet_convnext_t": {
@@ -9148,11 +9147,11 @@
       2
      ],
      "means": [
-      0.5019,
-      0.4959,
-      0.569
+      0.5072,
+      0.5018,
+      0.5738
      ],
-     "range": 0.07308921254550688
+     "range": 0.07206566909008638
     }
    },
    "unet_swin_t": {
@@ -9215,11 +9214,11 @@
       2
      ],
      "means": [
-      0.6389,
-      0.7059,
-      0.571
+      0.6422,
+      0.7085,
+      0.5752
      ],
-     "range": 0.13495477884312201
+     "range": 0.133291114966111
     }
    },
    "segformer_mitb2": {
@@ -9282,11 +9281,11 @@
       2
      ],
      "means": [
-      0.6674,
-      0.6884,
-      0.6546
+      0.6709,
+      0.6909,
+      0.6581
      ],
-     "range": 0.03373987317797089
+     "range": 0.03280127368615171
     }
    },
    "unet_effb3": {
@@ -9349,11 +9348,11 @@
       2
      ],
      "means": [
-      0.498,
-      0.4126,
-      0.4171
+      0.5024,
+      0.4191,
+      0.4229
      ],
-     "range": 0.08540589631586526
+     "range": 0.08328105810248226
     }
    },
    "fpn_regnety016": {
@@ -9416,11 +9415,11 @@
       2
      ],
      "means": [
-      0.6286,
-      0.5035,
-      0.4539
+      0.6325,
+      0.5088,
+      0.4597
      ],
-     "range": 0.17465503111314656
+     "range": 0.1728115778686779
     }
    },
    "manet_r50": {
@@ -9465,7 +9464,7 @@
       1
      ],
      "means": [
-      0.4653
+      0.4707
      ],
      "range": 0.0
     }
@@ -9708,15 +9707,15 @@
    },
    "azh_train_slice": {
     "n": 150,
-    "n_kept": 77,
+    "n_kept": 78,
     "n_gt_empty": 8,
-    "medsam_fixed_gtbox": 0.6613864009759851,
-    "sam_nnbox": 0.5263511819312418,
-    "medsam_fixed_nnbox": 0.4919834277126755,
-    "nnunet_run2_P0": 0.538173896103896,
-    "sam_vitb_box_run1": 0.874055963534469,
-    "medsam_vitb_box_run1": 0.5516984836214431,
-    "nnunet_run1": 0.538165534805844
+    "medsam_fixed_gtbox": 0.660286884069011,
+    "sam_nnbox": 0.5315788402030436,
+    "medsam_fixed_nnbox": 0.49592601133809056,
+    "nnunet_run2_P0": 0.539261282051282,
+    "sam_vitb_box_run1": 0.8750712977522362,
+    "medsam_vitb_box_run1": 0.5525262271925571,
+    "nnunet_run1": 0.5392530655792518
    },
    "kvasir_disjoint": {
     "n": 120,

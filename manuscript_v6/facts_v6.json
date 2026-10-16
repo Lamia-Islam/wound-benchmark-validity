@@ -6,11 +6,11 @@
  },
  "a.dice.ALL.across.h": {
   "raw": [
-   -0.277950179780022,
-   -0.1345776111695659
+   -0.2698256206306577,
+   -0.13270177246864115
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/across modality/hierarchical",
-  "v": "−0.28 to −0.13"
+  "v": "−0.27 to −0.13"
  },
  "a.dice.ALL.across.m": {
   "raw": [
@@ -27,11 +27,11 @@
  },
  "a.dice.ALL.c_in_out.h": {
   "raw": [
-   -0.26528270996326136,
-   -0.09562521584742051
+   -0.260685946983272,
+   -0.0911543279937089
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.27 to −0.10"
+  "v": "−0.26 to −0.09"
  },
  "a.dice.ALL.c_in_out.m": {
   "raw": [
@@ -48,11 +48,11 @@
  },
  "a.dice.ALL.c_out_across.h": {
   "raw": [
-   -0.41157894798472094,
-   -0.1764565207920465
+   -0.397104593202961,
+   -0.18002630844089412
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.41 to −0.18"
+  "v": "−0.40 to −0.18"
  },
  "a.dice.ALL.c_out_across.m": {
   "raw": [
@@ -69,11 +69,11 @@
  },
  "a.dice.ALL.c_out_same.h": {
   "raw": [
-   0.6754928503705007,
-   0.8200937016453442
+   0.6817053070309653,
+   0.8255350779089679
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.68 to 0.82"
+  "v": "0.68 to 0.83"
  },
  "a.dice.ALL.c_out_same.m": {
   "raw": [
@@ -90,11 +90,11 @@
  },
  "a.dice.ALL.colon.h": {
   "raw": [
-   0.834036280156246,
-   0.9254482011492562
+   0.832331825966688,
+   0.9242521119274549
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/colonoscopy pairs/hierarchical",
-  "v": "0.83 to 0.93"
+  "v": "0.83 to 0.92"
  },
  "a.dice.ALL.colon.m": {
   "raw": [
@@ -105,25 +105,25 @@
   "v": "0.85 to 0.93"
  },
  "a.dice.ALL.ctrl": {
-  "raw": 0.9329108391608391,
+  "raw": 0.9402534965034963,
   "src": "v7/stats_v7.json:point/dice|ALL/same dataset",
-  "v": "0.93"
+  "v": "0.94"
  },
  "a.dice.ALL.ctrl.h": {
   "raw": [
-   0.7961633762685383,
-   0.9742401227025184
+   0.8130802202595705,
+   0.9746551170518973
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/same dataset/hierarchical",
-  "v": "0.80 to 0.97"
+  "v": "0.81 to 0.97"
  },
  "a.dice.ALL.ctrl.m": {
   "raw": [
-   0.875278968443753,
-   0.9635036605736798
+   0.8851981083649114,
+   0.9683786039100549
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/same dataset/method_only_repro_B2000",
-  "v": "0.88 to 0.96"
+  "v": "0.89 to 0.97"
  },
  "a.dice.ALL.dsrc": {
   "raw": 0.8394735072619687,
@@ -132,8 +132,8 @@
  },
  "a.dice.ALL.dsrc.h": {
   "raw": [
-   0.7797472410859296,
-   0.8649479044722088
+   0.7778111764034841,
+   0.8615078654377439
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/different source, same modality/hierarchical",
   "v": "0.78 to 0.86"
@@ -153,11 +153,11 @@
  },
  "a.dice.ALL.fa.h": {
   "raw": [
-   0.6532883735785024,
-   0.8630961363241114
+   0.6578540239516022,
+   0.8679970325426187
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/fuseg~azh/hierarchical",
-  "v": "0.65 to 0.86"
+  "v": "0.66 to 0.87"
  },
  "a.dice.ALL.fa.m": {
   "raw": [
@@ -174,11 +174,11 @@
  },
  "a.dice.ALL.mdiff.h": {
   "raw": [
-   0.939366172397481,
-   1.1409667719614887
+   0.9375647677912138,
+   1.129300177177569
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/modality_diff/hierarchical",
-  "v": "0.94 to 1.14"
+  "v": "0.94 to 1.13"
  },
  "a.dice.ALL.mdiff.m": {
   "raw": [
@@ -195,11 +195,11 @@
  },
  "a.dice.ALL.mdiff52.h": {
   "raw": [
-   0.9253600889203021,
-   1.1323584600187209
+   0.929991108723012,
+   1.123059813182671
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/modality_diff_excl_within_source/hierarchical",
-  "v": "0.93 to 1.13"
+  "v": "0.93 to 1.12"
  },
  "a.dice.ALL.mdiff52.m": {
   "raw": [
@@ -216,8 +216,8 @@
  },
  "a.dice.ALL.src.h": {
   "raw": [
-   0.8316070679266213,
-   0.9155716535284406
+   0.8331691251498475,
+   0.9176552533709554
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/same source/hierarchical",
   "v": "0.83 to 0.92"
@@ -237,11 +237,11 @@
  },
  "a.dice.ALL.w_in_out.h": {
   "raw": [
-   -0.5358145812439373,
-   -0.34778252186944275
+   -0.5303678634987641,
+   -0.3476581557432639
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|wound|in x out/hierarchical",
-  "v": "−0.54 to −0.35"
+  "v": "−0.53 to −0.35"
  },
  "a.dice.ALL.w_in_out.m": {
   "raw": [
@@ -258,11 +258,11 @@
  },
  "a.dice.ALL.w_out_across.h": {
   "raw": [
-   0.24312001273111722,
-   0.5264764300550401
+   0.249874247220416,
+   0.5296060722353002
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|wound|out, across modality/hierarchical",
-  "v": "0.24 to 0.53"
+  "v": "0.25 to 0.53"
  },
  "a.dice.ALL.w_out_across.m": {
   "raw": [
@@ -279,11 +279,11 @@
  },
  "a.dice.ALL.w_out_same.h": {
   "raw": [
-   0.834036280156246,
-   0.9254482011492562
+   0.832331825966688,
+   0.9242521119274549
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/comp|wound|out, same modality/hierarchical",
-  "v": "0.83 to 0.93"
+  "v": "0.83 to 0.92"
  },
  "a.dice.ALL.w_out_same.m": {
   "raw": [
@@ -300,11 +300,11 @@
  },
  "a.dice.ALL.wound.h": {
   "raw": [
-   0.6754928503705007,
-   0.8200937016453442
+   0.6817053070309653,
+   0.8255350779089679
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|ALL/wound pairs/hierarchical",
-  "v": "0.68 to 0.82"
+  "v": "0.68 to 0.83"
  },
  "a.dice.ALL.wound.m": {
   "raw": [
@@ -321,11 +321,11 @@
  },
  "a.dice.F.across.h": {
   "raw": [
-   -0.054350351454918205,
-   0.32686327412763916
+   -0.041648457015731034,
+   0.3101567630863176
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/across modality/hierarchical",
-  "v": "−0.05 to 0.33"
+  "v": "−0.04 to 0.31"
  },
  "a.dice.F.across.m": {
   "raw": [
@@ -342,11 +342,11 @@
  },
  "a.dice.F.c_in_out.h": {
   "raw": [
-   -0.030704526909630922,
-   0.38702073852344093
+   -0.0255818684727415,
+   0.3749860000115715
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.03 to 0.39"
+  "v": "−0.03 to 0.37"
  },
  "a.dice.F.c_in_out.m": {
   "raw": [
@@ -363,11 +363,11 @@
  },
  "a.dice.F.c_out_across.h": {
   "raw": [
-   -0.18014887727120957,
-   0.2131741740884198
+   -0.18439651488929587,
+   0.1894275237221374
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.18 to 0.21"
+  "v": "−0.18 to 0.19"
  },
  "a.dice.F.c_out_across.m": {
   "raw": [
@@ -384,11 +384,11 @@
  },
  "a.dice.F.c_out_same.h": {
   "raw": [
-   -0.127255042989418,
-   0.4900969036965695
+   -0.13153732260029763,
+   0.5127580518299847
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.13 to 0.49"
+  "v": "−0.13 to 0.51"
  },
  "a.dice.F.c_out_same.m": {
   "raw": [
@@ -405,11 +405,11 @@
  },
  "a.dice.F.colon.h": {
   "raw": [
-   0.6015221577966453,
-   0.961613527478619
+   0.640348511904762,
+   0.960119505096122
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/colonoscopy pairs/hierarchical",
-  "v": "0.60 to 0.96"
+  "v": "0.64 to 0.96"
  },
  "a.dice.F.colon.m": {
   "raw": [
@@ -420,25 +420,25 @@
   "v": "0.63 to 0.96"
  },
  "a.dice.F.ctrl": {
-  "raw": 0.9032967032967032,
+  "raw": 0.912087912087912,
   "src": "v7/stats_v7.json:point/dice|F/same dataset",
-  "v": "0.90"
+  "v": "0.91"
  },
  "a.dice.F.ctrl.h": {
   "raw": [
-   0.447733525481462,
-   0.9866071428571429
+   0.43115124153498874,
+   0.9866078885618838
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/same dataset/hierarchical",
-  "v": "0.45 to 0.99"
+  "v": "0.43 to 0.99"
  },
  "a.dice.F.ctrl.m": {
   "raw": [
-   0.6383523182254965,
-   0.9955357142857142
+   0.6591157194164315,
+   0.9999999999999999
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/same dataset/method_only_repro_B2000",
-  "v": "0.64 to 1.00"
+  "v": "0.66 to 1.00"
  },
  "a.dice.F.dsrc": {
   "raw": 0.6000000000000001,
@@ -447,11 +447,11 @@
  },
  "a.dice.F.dsrc.h": {
   "raw": [
-   0.32305450155225934,
-   0.7503195921475655
+   0.3500015927791938,
+   0.7453677561951471
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/different source, same modality/hierarchical",
-  "v": "0.32 to 0.75"
+  "v": "0.35 to 0.75"
  },
  "a.dice.F.dsrc.m": {
   "raw": [
@@ -468,11 +468,11 @@
  },
  "a.dice.F.fa.h": {
   "raw": [
-   -0.5157759645250533,
-   0.6645421479553789
+   -0.5437835570469799,
+   0.6554228509585653
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/fuseg~azh/hierarchical",
-  "v": "−0.52 to 0.66"
+  "v": "−0.54 to 0.66"
  },
  "a.dice.F.fa.m": {
   "raw": [
@@ -489,11 +489,11 @@
  },
  "a.dice.F.mdiff.h": {
   "raw": [
-   0.18927238274934127,
-   0.7262893169827852
+   0.21040834998342026,
+   0.7043083320737876
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/modality_diff/hierarchical",
-  "v": "0.19 to 0.73"
+  "v": "0.21 to 0.70"
  },
  "a.dice.F.mdiff.m": {
   "raw": [
@@ -510,11 +510,11 @@
  },
  "a.dice.F.mdiff52.h": {
   "raw": [
-   0.1491962456376347,
-   0.7250310299222453
+   0.1679454641320747,
+   0.7009731861181877
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/modality_diff_excl_within_source/hierarchical",
-  "v": "0.15 to 0.73"
+  "v": "0.17 to 0.70"
  },
  "a.dice.F.mdiff52.m": {
   "raw": [
@@ -531,11 +531,11 @@
  },
  "a.dice.F.src.h": {
   "raw": [
-   0.41698472014615506,
-   0.8473274306026922
+   0.43465378949091504,
+   0.8312322686922302
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/same source/hierarchical",
-  "v": "0.42 to 0.85"
+  "v": "0.43 to 0.83"
  },
  "a.dice.F.src.m": {
   "raw": [
@@ -552,11 +552,11 @@
  },
  "a.dice.F.w_in_out.h": {
   "raw": [
-   -0.14109550867774595,
-   0.36558573545939876
+   -0.11945785886022749,
+   0.35160081068464566
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|wound|in x out/hierarchical",
-  "v": "−0.14 to 0.37"
+  "v": "−0.12 to 0.35"
  },
  "a.dice.F.w_in_out.m": {
   "raw": [
@@ -573,11 +573,11 @@
  },
  "a.dice.F.w_out_across.h": {
   "raw": [
-   -0.05544619185193004,
-   0.41353631102447225
+   -0.04188697822878172,
+   0.4396477346527559
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|wound|out, across modality/hierarchical",
-  "v": "−0.06 to 0.41"
+  "v": "−0.04 to 0.44"
  },
  "a.dice.F.w_out_across.m": {
   "raw": [
@@ -594,11 +594,11 @@
  },
  "a.dice.F.w_out_same.h": {
   "raw": [
-   0.6015221577966453,
-   0.961613527478619
+   0.640348511904762,
+   0.960119505096122
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/comp|wound|out, same modality/hierarchical",
-  "v": "0.60 to 0.96"
+  "v": "0.64 to 0.96"
  },
  "a.dice.F.w_out_same.m": {
   "raw": [
@@ -615,11 +615,11 @@
  },
  "a.dice.F.wound.h": {
   "raw": [
-   -0.127255042989418,
-   0.4900969036965695
+   -0.13153732260029763,
+   0.5127580518299847
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|F/wound pairs/hierarchical",
-  "v": "−0.13 to 0.49"
+  "v": "−0.13 to 0.51"
  },
  "a.dice.F.wound.m": {
   "raw": [
@@ -636,11 +636,11 @@
  },
  "a.dice.K.across.h": {
   "raw": [
-   -0.13064647043858554,
-   0.40454815051435583
+   -0.10846094551346225,
+   0.42171342083842095
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/across modality/hierarchical",
-  "v": "−0.13 to 0.40"
+  "v": "−0.11 to 0.42"
  },
  "a.dice.K.across.m": {
   "raw": [
@@ -657,8 +657,8 @@
  },
  "a.dice.K.c_in_out.h": {
   "raw": [
-   -0.13987977167855212,
-   0.47832427979068204
+   -0.1449007885839198,
+   0.47806847473696296
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|colonoscopy|in x out/hierarchical",
   "v": "−0.14 to 0.48"
@@ -678,11 +678,11 @@
  },
  "a.dice.K.c_out_across.h": {
   "raw": [
-   -0.1915683350148411,
-   0.31247827862076405
+   -0.20049402982418685,
+   0.32983809388152946
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.19 to 0.31"
+  "v": "−0.20 to 0.33"
  },
  "a.dice.K.c_out_across.m": {
   "raw": [
@@ -699,11 +699,11 @@
  },
  "a.dice.K.c_out_same.h": {
   "raw": [
-   -0.02469956774908016,
-   0.6518199002574002
+   -0.032118196225915115,
+   0.6341090067340067
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.02 to 0.65"
+  "v": "−0.03 to 0.63"
  },
  "a.dice.K.c_out_same.m": {
   "raw": [
@@ -720,11 +720,11 @@
  },
  "a.dice.K.colon.h": {
   "raw": [
-   0.48553571428571435,
-   0.9081165165165165
+   0.4887082211638021,
+   0.9171269772076224
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/colonoscopy pairs/hierarchical",
-  "v": "0.49 to 0.91"
+  "v": "0.49 to 0.92"
  },
  "a.dice.K.colon.m": {
   "raw": [
@@ -735,25 +735,25 @@
   "v": "0.60 to 0.92"
  },
  "a.dice.K.ctrl": {
-  "raw": 0.8725274725274725,
+  "raw": 0.8769230769230769,
   "src": "v7/stats_v7.json:point/dice|K/same dataset",
-  "v": "0.87"
+  "v": "0.88"
  },
  "a.dice.K.ctrl.h": {
   "raw": [
-   0.13238898457761683,
-   0.9684061089164787
+   0.18545824579831938,
+   0.9685463326743574
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/same dataset/hierarchical",
-  "v": "0.13 to 0.97"
+  "v": "0.19 to 0.97"
  },
  "a.dice.K.ctrl.m": {
   "raw": [
-   0.5429605175403496,
-   0.9866369710467708
+   0.5446372640741947,
+   0.9955357142857143
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/same dataset/method_only_repro_B2000",
-  "v": "0.54 to 0.99"
+  "v": "0.54 to 1.00"
  },
  "a.dice.K.dsrc": {
   "raw": 0.6797971259509722,
@@ -762,11 +762,11 @@
  },
  "a.dice.K.dsrc.h": {
   "raw": [
-   0.3553861871007612,
-   0.786348747721336
+   0.3613963850188973,
+   0.8050402758768981
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/different source, same modality/hierarchical",
-  "v": "0.36 to 0.79"
+  "v": "0.36 to 0.81"
  },
  "a.dice.K.dsrc.m": {
   "raw": [
@@ -783,11 +783,11 @@
  },
  "a.dice.K.fa.h": {
   "raw": [
-   -0.7132442491548038,
-   0.5650709681294043
+   -0.6889061345158907,
+   0.5892083931869485
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/fuseg~azh/hierarchical",
-  "v": "−0.71 to 0.57"
+  "v": "−0.69 to 0.59"
  },
  "a.dice.K.fa.m": {
   "raw": [
@@ -804,11 +804,11 @@
  },
  "a.dice.K.mdiff.h": {
   "raw": [
-   0.18101569654304042,
-   0.7256017566021377
+   0.17703046527230235,
+   0.7157160938020312
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/modality_diff/hierarchical",
-  "v": "0.18 to 0.73"
+  "v": "0.18 to 0.72"
  },
  "a.dice.K.mdiff.m": {
   "raw": [
@@ -825,11 +825,11 @@
  },
  "a.dice.K.mdiff52.h": {
   "raw": [
-   0.20592389264264263,
-   0.742568060199647
+   0.20309901411817657,
+   0.7355891312033042
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/modality_diff_excl_within_source/hierarchical",
-  "v": "0.21 to 0.74"
+  "v": "0.20 to 0.74"
  },
  "a.dice.K.mdiff52.m": {
   "raw": [
@@ -846,11 +846,11 @@
  },
  "a.dice.K.src.h": {
   "raw": [
-   0.20381489841986453,
-   0.7597972972972974
+   0.20390539615742118,
+   0.7487489114904338
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/same source/hierarchical",
-  "v": "0.20 to 0.76"
+  "v": "0.20 to 0.75"
  },
  "a.dice.K.src.m": {
   "raw": [
@@ -867,11 +867,11 @@
  },
  "a.dice.K.w_in_out.h": {
   "raw": [
-   -0.1288588319514888,
-   0.45457786788701965
+   -0.1349920486682857,
+   0.4776237887624426
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|wound|in x out/hierarchical",
-  "v": "−0.13 to 0.45"
+  "v": "−0.13 to 0.48"
  },
  "a.dice.K.w_in_out.m": {
   "raw": [
@@ -888,11 +888,11 @@
  },
  "a.dice.K.w_out_across.h": {
   "raw": [
-   -0.22774770650860765,
-   0.41653518417724295
+   -0.21077827993763382,
+   0.4305877567622534
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|wound|out, across modality/hierarchical",
-  "v": "−0.23 to 0.42"
+  "v": "−0.21 to 0.43"
  },
  "a.dice.K.w_out_across.m": {
   "raw": [
@@ -909,11 +909,11 @@
  },
  "a.dice.K.w_out_same.h": {
   "raw": [
-   0.48553571428571435,
-   0.9081165165165165
+   0.4887082211638021,
+   0.9171269772076224
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/comp|wound|out, same modality/hierarchical",
-  "v": "0.49 to 0.91"
+  "v": "0.49 to 0.92"
  },
  "a.dice.K.w_out_same.m": {
   "raw": [
@@ -930,11 +930,11 @@
  },
  "a.dice.K.wound.h": {
   "raw": [
-   -0.02469956774908016,
-   0.6518199002574002
+   -0.032118196225915115,
+   0.6341090067340067
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|K/wound pairs/hierarchical",
-  "v": "−0.02 to 0.65"
+  "v": "−0.03 to 0.63"
  },
  "a.dice.K.wound.m": {
   "raw": [
@@ -951,11 +951,11 @@
  },
  "a.dice.M.across.h": {
   "raw": [
-   -0.2074203778543734,
-   0.2968582982659051
+   -0.21347707517809064,
+   0.3072078880220019
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/across modality/hierarchical",
-  "v": "−0.21 to 0.30"
+  "v": "−0.21 to 0.31"
  },
  "a.dice.M.across.m": {
   "raw": [
@@ -972,11 +972,11 @@
  },
  "a.dice.M.c_in_out.h": {
   "raw": [
-   -0.3160481721251649,
-   0.34592895785715083
+   -0.3177110082245361,
+   0.3590506099324964
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.32 to 0.35"
+  "v": "−0.32 to 0.36"
  },
  "a.dice.M.c_in_out.m": {
   "raw": [
@@ -993,11 +993,11 @@
  },
  "a.dice.M.c_out_across.h": {
   "raw": [
-   -0.3102028586585189,
-   0.42239390615386935
+   -0.28509189998731466,
+   0.4176671932596102
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.31 to 0.42"
+  "v": "−0.29 to 0.42"
  },
  "a.dice.M.c_out_across.m": {
   "raw": [
@@ -1014,11 +1014,11 @@
  },
  "a.dice.M.c_out_same.h": {
   "raw": [
-   -0.18463395638629285,
-   0.4285770176615248
+   -0.18779342723004688,
+   0.43027716880676453
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.18 to 0.43"
+  "v": "−0.19 to 0.43"
  },
  "a.dice.M.c_out_same.m": {
   "raw": [
@@ -1035,11 +1035,11 @@
  },
  "a.dice.M.colon.h": {
   "raw": [
-   0.18485588318953255,
-   0.882888518024032
+   0.18778676711431377,
+   0.8819192166462668
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/colonoscopy pairs/hierarchical",
-  "v": "0.18 to 0.88"
+  "v": "0.19 to 0.88"
  },
  "a.dice.M.colon.m": {
   "raw": [
@@ -1056,11 +1056,11 @@
  },
  "a.dice.M.ctrl.h": {
   "raw": [
-   0.027454932010453098,
-   0.9910138248847923
+   0.014344052520307075,
+   0.9907834101382487
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/same dataset/hierarchical",
-  "v": "0.03 to 0.99"
+  "v": "0.01 to 0.99"
  },
  "a.dice.M.ctrl.m": {
   "raw": [
@@ -1077,11 +1077,11 @@
  },
  "a.dice.M.dsrc.h": {
   "raw": [
-   0.07654565061107123,
-   0.6281442430989052
+   0.08409342450637819,
+   0.6244082521698799
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/different source, same modality/hierarchical",
-  "v": "0.08 to 0.63"
+  "v": "0.08 to 0.62"
  },
  "a.dice.M.dsrc.m": {
   "raw": [
@@ -1098,11 +1098,11 @@
  },
  "a.dice.M.fa.h": {
   "raw": [
-   -0.6057255158860136,
-   0.8411214953271027
+   -0.6118684825602301,
+   0.7860958096667024
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/fuseg~azh/hierarchical",
-  "v": "−0.61 to 0.84"
+  "v": "−0.61 to 0.79"
  },
  "a.dice.M.fa.m": {
   "raw": [
@@ -1119,11 +1119,11 @@
  },
  "a.dice.M.mdiff.h": {
   "raw": [
-   0.07933698272404999,
-   0.7175717011354026
+   0.07102463652835708,
+   0.7223317596105571
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/modality_diff/hierarchical",
-  "v": "0.08 to 0.72"
+  "v": "0.07 to 0.72"
  },
  "a.dice.M.mdiff.m": {
   "raw": [
@@ -1140,11 +1140,11 @@
  },
  "a.dice.M.mdiff52.h": {
   "raw": [
-   0.03731649730816666,
-   0.7148634938075072
+   0.0298102472817709,
+   0.6966698115938679
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/modality_diff_excl_within_source/hierarchical",
-  "v": "0.04 to 0.71"
+  "v": "0.03 to 0.70"
  },
  "a.dice.M.mdiff52.m": {
   "raw": [
@@ -1161,11 +1161,11 @@
  },
  "a.dice.M.src.h": {
   "raw": [
-   0.16113130395274872,
-   0.8100026450361488
+   0.1960280373831776,
+   0.7975077881619935
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/same source/hierarchical",
-  "v": "0.16 to 0.81"
+  "v": "0.20 to 0.80"
  },
  "a.dice.M.src.m": {
   "raw": [
@@ -1182,11 +1182,11 @@
  },
  "a.dice.M.w_in_out.h": {
   "raw": [
-   -0.29144945491793134,
-   0.25558720296355164
+   -0.2883541010474271,
+   0.26788867001456085
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|wound|in x out/hierarchical",
-  "v": "−0.29 to 0.26"
+  "v": "−0.29 to 0.27"
  },
  "a.dice.M.w_in_out.m": {
   "raw": [
@@ -1203,11 +1203,11 @@
  },
  "a.dice.M.w_out_across.h": {
   "raw": [
-   -0.3381282427761877,
-   0.6363046371763994
+   -0.33697373947737314,
+   0.6173235538939836
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|wound|out, across modality/hierarchical",
-  "v": "−0.34 to 0.64"
+  "v": "−0.34 to 0.62"
  },
  "a.dice.M.w_out_across.m": {
   "raw": [
@@ -1224,11 +1224,11 @@
  },
  "a.dice.M.w_out_same.h": {
   "raw": [
-   0.18485588318953255,
-   0.882888518024032
+   0.18778676711431377,
+   0.8819192166462668
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/comp|wound|out, same modality/hierarchical",
-  "v": "0.18 to 0.88"
+  "v": "0.19 to 0.88"
  },
  "a.dice.M.w_out_same.m": {
   "raw": [
@@ -1245,11 +1245,11 @@
  },
  "a.dice.M.wound.h": {
   "raw": [
-   -0.18463395638629285,
-   0.4285770176615248
+   -0.18779342723004688,
+   0.43027716880676453
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M/wound pairs/hierarchical",
-  "v": "−0.18 to 0.43"
+  "v": "−0.19 to 0.43"
  },
  "a.dice.M.wound.m": {
   "raw": [
@@ -1266,11 +1266,11 @@
  },
  "a.dice.M11s.across.h": {
   "raw": [
-   -0.21882703267991171,
-   0.4576308359120223
+   -0.23008402228612507,
+   0.47275940570333075
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/across modality/hierarchical",
-  "v": "−0.22 to 0.46"
+  "v": "−0.23 to 0.47"
  },
  "a.dice.M11s.across.m": {
   "raw": [
@@ -1287,11 +1287,11 @@
  },
  "a.dice.M11s.c_in_out.h": {
   "raw": [
-   -0.3649843175079484,
-   0.434037712676731
+   -0.3744233807266981,
+   0.44425499231950843
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.36 to 0.43"
+  "v": "−0.37 to 0.44"
  },
  "a.dice.M11s.c_in_out.m": {
   "raw": [
@@ -1308,11 +1308,11 @@
  },
  "a.dice.M11s.c_out_across.h": {
   "raw": [
-   -0.21087746625129797,
-   0.648172514619883
+   -0.2144203338050632,
+   0.6619756343563524
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.21 to 0.65"
+  "v": "−0.21 to 0.66"
  },
  "a.dice.M11s.c_out_across.m": {
   "raw": [
@@ -1329,11 +1329,11 @@
  },
  "a.dice.M11s.c_out_same.h": {
   "raw": [
-   -0.15086357285660248,
-   0.6713618067978533
+   -0.14241001564945224,
+   0.6869548286604361
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.15 to 0.67"
+  "v": "−0.14 to 0.69"
  },
  "a.dice.M11s.c_out_same.m": {
   "raw": [
@@ -1350,11 +1350,11 @@
  },
  "a.dice.M11s.colon.h": {
   "raw": [
-   -0.02919173331445964,
-   0.7058376600899964
+   -0.018168997803722116,
+   0.7159764361961286
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/colonoscopy pairs/hierarchical",
-  "v": "−0.03 to 0.71"
+  "v": "−0.02 to 0.72"
  },
  "a.dice.M11s.colon.m": {
   "raw": [
@@ -1371,11 +1371,11 @@
  },
  "a.dice.M11s.ctrl.h": {
   "raw": [
-   0.13084112149532706,
-   0.9999999999999999
+   0.09259259259259266,
+   1.0
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/same dataset/hierarchical",
-  "v": "0.13 to 1.00"
+  "v": "0.09 to 1.00"
  },
  "a.dice.M11s.ctrl.m": {
   "raw": [
@@ -1392,11 +1392,11 @@
  },
  "a.dice.M11s.dsrc.h": {
   "raw": [
-   -0.05672629816440046,
-   0.6332082551594748
+   -0.05413256128600828,
+   0.6501629146919432
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/different source, same modality/hierarchical",
-  "v": "−0.06 to 0.63"
+  "v": "−0.05 to 0.65"
  },
  "a.dice.M11s.dsrc.m": {
   "raw": [
@@ -1413,11 +1413,11 @@
  },
  "a.dice.M11s.fa.h": {
   "raw": [
-   -0.6175525522120683,
-   0.8335975609756094
+   -0.5962912991970514,
+   0.824074074074074
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/fuseg~azh/hierarchical",
-  "v": "−0.62 to 0.83"
+  "v": "−0.60 to 0.82"
  },
  "a.dice.M11s.fa.m": {
   "raw": [
@@ -1434,11 +1434,11 @@
  },
  "a.dice.M11s.mdiff.h": {
   "raw": [
-   -0.06845000844871629,
-   0.6490102921466347
+   -0.04840275519054589,
+   0.6818909620472119
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/modality_diff/hierarchical",
-  "v": "−0.07 to 0.65"
+  "v": "−0.05 to 0.68"
  },
  "a.dice.M11s.mdiff.m": {
   "raw": [
@@ -1455,11 +1455,11 @@
  },
  "a.dice.M11s.mdiff52.h": {
   "raw": [
-   -0.09560009630432166,
-   0.6336042799849886
+   -0.07635565270747047,
+   0.6600370084038425
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/modality_diff_excl_within_source/hierarchical",
-  "v": "−0.10 to 0.63"
+  "v": "−0.08 to 0.66"
  },
  "a.dice.M11s.mdiff52.m": {
   "raw": [
@@ -1476,11 +1476,11 @@
  },
  "a.dice.M11s.src.h": {
   "raw": [
-   -0.028475749879051736,
-   0.7296925669909541
+   -0.06996200896588403,
+   0.7383518765761755
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/same source/hierarchical",
-  "v": "−0.03 to 0.73"
+  "v": "−0.07 to 0.74"
  },
  "a.dice.M11s.src.m": {
   "raw": [
@@ -1497,11 +1497,11 @@
  },
  "a.dice.M11s.w_in_out.h": {
   "raw": [
-   -0.23630137857158745,
-   0.46131943366348943
+   -0.2294662836834088,
+   0.47991682321416645
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|wound|in x out/hierarchical",
-  "v": "−0.24 to 0.46"
+  "v": "−0.23 to 0.48"
  },
  "a.dice.M11s.w_in_out.m": {
   "raw": [
@@ -1518,11 +1518,11 @@
  },
  "a.dice.M11s.w_out_across.h": {
   "raw": [
-   -0.4047624399777706,
-   0.5176526757712692
+   -0.4020168702192565,
+   0.5450384122919333
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|wound|out, across modality/hierarchical",
-  "v": "−0.40 to 0.52"
+  "v": "−0.40 to 0.55"
  },
  "a.dice.M11s.w_out_across.m": {
   "raw": [
@@ -1539,11 +1539,11 @@
  },
  "a.dice.M11s.w_out_same.h": {
   "raw": [
-   -0.02919173331445964,
-   0.7058376600899964
+   -0.018168997803722116,
+   0.7159764361961286
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/comp|wound|out, same modality/hierarchical",
-  "v": "−0.03 to 0.71"
+  "v": "−0.02 to 0.72"
  },
  "a.dice.M11s.w_out_same.m": {
   "raw": [
@@ -1560,11 +1560,11 @@
  },
  "a.dice.M11s.wound.h": {
   "raw": [
-   -0.15086357285660248,
-   0.6713618067978533
+   -0.14241001564945224,
+   0.6869548286604361
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M11s/wound pairs/hierarchical",
-  "v": "−0.15 to 0.67"
+  "v": "−0.14 to 0.69"
  },
  "a.dice.M11s.wound.m": {
   "raw": [
@@ -1581,11 +1581,11 @@
  },
  "a.dice.M19.across.h": {
   "raw": [
-   -0.08051930478415827,
-   0.3211997296836684
+   -0.08245361456235244,
+   0.35317742724012857
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/across modality/hierarchical",
-  "v": "−0.08 to 0.32"
+  "v": "−0.08 to 0.35"
  },
  "a.dice.M19.across.m": {
   "raw": [
@@ -1602,11 +1602,11 @@
  },
  "a.dice.M19.c_in_out.h": {
   "raw": [
-   -0.12194989449815767,
-   0.34129213195893154
+   -0.1345300774737668,
+   0.34631154424499005
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.12 to 0.34"
+  "v": "−0.13 to 0.35"
  },
  "a.dice.M19.c_in_out.m": {
   "raw": [
@@ -1623,11 +1623,11 @@
  },
  "a.dice.M19.c_out_across.h": {
   "raw": [
-   -0.1512233084674781,
-   0.41023858818889863
+   -0.13844176810788855,
+   0.39931171858567244
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.15 to 0.41"
+  "v": "−0.14 to 0.40"
  },
  "a.dice.M19.c_out_across.m": {
   "raw": [
@@ -1644,11 +1644,11 @@
  },
  "a.dice.M19.c_out_same.h": {
   "raw": [
-   -0.10646678648308353,
-   0.5074377643551684
+   -0.09801686672832025,
+   0.4835279162460038
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.11 to 0.51"
+  "v": "−0.10 to 0.48"
  },
  "a.dice.M19.c_out_same.m": {
   "raw": [
@@ -1665,11 +1665,11 @@
  },
  "a.dice.M19.colon.h": {
   "raw": [
-   0.05293032428697216,
-   0.5931695613936077
+   0.06329367486878493,
+   0.5931496827397678
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/colonoscopy pairs/hierarchical",
-  "v": "0.05 to 0.59"
+  "v": "0.06 to 0.59"
  },
  "a.dice.M19.colon.m": {
   "raw": [
@@ -1686,11 +1686,11 @@
  },
  "a.dice.M19.ctrl.h": {
   "raw": [
-   0.5017226148409895,
-   0.975221238938053
+   0.4564265237203874,
+   0.9734917138826941
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/same dataset/hierarchical",
-  "v": "0.50 to 0.98"
+  "v": "0.46 to 0.97"
  },
  "a.dice.M19.ctrl.m": {
   "raw": [
@@ -1707,11 +1707,11 @@
  },
  "a.dice.M19.dsrc.h": {
   "raw": [
-   0.0037679057408150224,
-   0.46040930820845405
+   0.010820076680953547,
+   0.4721711816702058
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/different source, same modality/hierarchical",
-  "v": "0.00 to 0.46"
+  "v": "0.01 to 0.47"
  },
  "a.dice.M19.dsrc.m": {
   "raw": [
@@ -1728,11 +1728,11 @@
  },
  "a.dice.M19.fa.h": {
   "raw": [
-   -0.2644605607249286,
-   0.6719873520668573
+   -0.2707147751565426,
+   0.6840270234499264
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/fuseg~azh/hierarchical",
-  "v": "−0.26 to 0.67"
+  "v": "−0.27 to 0.68"
  },
  "a.dice.M19.fa.m": {
   "raw": [
@@ -1749,11 +1749,11 @@
  },
  "a.dice.M19.mdiff.h": {
   "raw": [
-   -0.004600774460870603,
-   0.4064070624133821
+   -0.007053345663745436,
+   0.40126018656854984
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/modality_diff/hierarchical",
-  "v": "0.00 to 0.41"
+  "v": "−0.01 to 0.40"
  },
  "a.dice.M19.mdiff.m": {
   "raw": [
@@ -1770,8 +1770,8 @@
  },
  "a.dice.M19.mdiff52.h": {
   "raw": [
-   -0.06827932633843493,
-   0.372255502609485
+   -0.0716440292174335,
+   0.3699111807606484
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/modality_diff_excl_within_source/hierarchical",
   "v": "−0.07 to 0.37"
@@ -1791,11 +1791,11 @@
  },
  "a.dice.M19.src.h": {
   "raw": [
-   0.19998204667863562,
-   0.7197811408188455
+   0.2087439769470601,
+   0.7342240867088737
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/same source/hierarchical",
-  "v": "0.20 to 0.72"
+  "v": "0.21 to 0.73"
  },
  "a.dice.M19.src.m": {
   "raw": [
@@ -1812,11 +1812,11 @@
  },
  "a.dice.M19.w_in_out.h": {
   "raw": [
-   -0.057542450695399386,
-   0.36124177165525967
+   -0.049615483217671494,
+   0.354512688971266
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|wound|in x out/hierarchical",
-  "v": "−0.06 to 0.36"
+  "v": "−0.05 to 0.35"
  },
  "a.dice.M19.w_in_out.m": {
   "raw": [
@@ -1833,11 +1833,11 @@
  },
  "a.dice.M19.w_out_across.h": {
   "raw": [
-   -0.21964035634818832,
-   0.3059310709491321
+   -0.2417088267889536,
+   0.32106864241559446
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|wound|out, across modality/hierarchical",
-  "v": "−0.22 to 0.31"
+  "v": "−0.24 to 0.32"
  },
  "a.dice.M19.w_out_across.m": {
   "raw": [
@@ -1854,11 +1854,11 @@
  },
  "a.dice.M19.w_out_same.h": {
   "raw": [
-   0.05293032428697216,
-   0.5931695613936077
+   0.06329367486878493,
+   0.5931496827397678
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/comp|wound|out, same modality/hierarchical",
-  "v": "0.05 to 0.59"
+  "v": "0.06 to 0.59"
  },
  "a.dice.M19.w_out_same.m": {
   "raw": [
@@ -1875,11 +1875,11 @@
  },
  "a.dice.M19.wound.h": {
   "raw": [
-   -0.10646678648308353,
-   0.5074377643551684
+   -0.09801686672832025,
+   0.4835279162460038
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|M19/wound pairs/hierarchical",
-  "v": "−0.11 to 0.51"
+  "v": "−0.10 to 0.48"
  },
  "a.dice.M19.wound.m": {
   "raw": [
@@ -1896,11 +1896,11 @@
  },
  "a.dice.N8s.across.h": {
   "raw": [
-   -0.053054476203020694,
-   0.279113296118716
+   -0.05731244064577396,
+   0.26972166338901565
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/across modality/hierarchical",
-  "v": "−0.05 to 0.28"
+  "v": "−0.06 to 0.27"
  },
  "a.dice.N8s.across.m": {
   "raw": [
@@ -1917,8 +1917,8 @@
  },
  "a.dice.N8s.c_in_out.h": {
   "raw": [
-   -0.03883100724872878,
-   0.31458847736625495
+   -0.04395071138211381,
+   0.3097872285684882
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|colonoscopy|in x out/hierarchical",
   "v": "−0.04 to 0.31"
@@ -1938,11 +1938,11 @@
  },
  "a.dice.N8s.c_out_across.h": {
   "raw": [
-   -0.27431563239683027,
-   0.2742764083203789
+   -0.2686862129900105,
+   0.29539250924623595
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.27 to 0.27"
+  "v": "−0.27 to 0.30"
  },
  "a.dice.N8s.c_out_across.m": {
   "raw": [
@@ -1959,11 +1959,11 @@
  },
  "a.dice.N8s.c_out_same.h": {
   "raw": [
-   -0.23868451785118444,
-   0.7131543991248631
+   -0.24059123186168568,
+   0.6581140350877192
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.24 to 0.71"
+  "v": "−0.24 to 0.66"
  },
  "a.dice.N8s.c_out_same.m": {
   "raw": [
@@ -1980,11 +1980,11 @@
  },
  "a.dice.N8s.colon.h": {
   "raw": [
-   -0.2000000000000001,
-   0.5017843343870737
+   -0.20546763869132284,
+   0.45861638060825055
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/colonoscopy pairs/hierarchical",
-  "v": "−0.20 to 0.50"
+  "v": "−0.21 to 0.46"
  },
  "a.dice.N8s.colon.m": {
   "raw": [
@@ -2001,11 +2001,11 @@
  },
  "a.dice.N8s.ctrl.h": {
   "raw": [
-   0.40722222222222215,
+   0.34371789383561646,
    1.0
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/same dataset/hierarchical",
-  "v": "0.41 to 1.00"
+  "v": "0.34 to 1.00"
  },
  "a.dice.N8s.ctrl.m": {
   "raw": [
@@ -2022,11 +2022,11 @@
  },
  "a.dice.N8s.dsrc.h": {
   "raw": [
-   -0.3124626502675283,
-   0.356456935278132
+   -0.32551594746716694,
+   0.34285224854845103
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/different source, same modality/hierarchical",
-  "v": "−0.31 to 0.36"
+  "v": "−0.33 to 0.34"
  },
  "a.dice.N8s.dsrc.m": {
   "raw": [
@@ -2043,11 +2043,11 @@
  },
  "a.dice.N8s.fa.h": {
   "raw": [
-   -0.7370919387075283,
-   0.9231012658227848
+   -0.7534246575342465,
+   0.9259259259259258
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/fuseg~azh/hierarchical",
-  "v": "−0.74 to 0.92"
+  "v": "−0.75 to 0.93"
  },
  "a.dice.N8s.fa.m": {
   "raw": [
@@ -2064,11 +2064,11 @@
  },
  "a.dice.N8s.mdiff.h": {
   "raw": [
-   -0.20048243138140398,
-   0.2852841088952199
+   -0.2042692593193648,
+   0.26963416081810393
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/modality_diff/hierarchical",
-  "v": "−0.20 to 0.29"
+  "v": "−0.20 to 0.27"
  },
  "a.dice.N8s.mdiff.m": {
   "raw": [
@@ -2085,11 +2085,11 @@
  },
  "a.dice.N8s.mdiff52.h": {
   "raw": [
-   -0.3302115246079433,
-   0.23867521367521363
+   -0.34402002107481555,
+   0.22137834036568213
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/modality_diff_excl_within_source/hierarchical",
-  "v": "−0.33 to 0.24"
+  "v": "−0.34 to 0.22"
  },
  "a.dice.N8s.mdiff52.m": {
   "raw": [
@@ -2106,11 +2106,11 @@
  },
  "a.dice.N8s.src.h": {
   "raw": [
-   -0.012769122579249175,
-   0.8292682926829268
+   -0.05000570776255705,
+   0.8397235176548965
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/same source/hierarchical",
-  "v": "−0.01 to 0.83"
+  "v": "−0.05 to 0.84"
  },
  "a.dice.N8s.src.m": {
   "raw": [
@@ -2127,11 +2127,11 @@
  },
  "a.dice.N8s.w_in_out.h": {
   "raw": [
-   -0.07975088183421514,
-   0.27204960958817836
+   -0.07234432234432234,
+   0.2744087946831848
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|wound|in x out/hierarchical",
-  "v": "−0.08 to 0.27"
+  "v": "−0.07 to 0.27"
  },
  "a.dice.N8s.w_in_out.m": {
   "raw": [
@@ -2148,11 +2148,11 @@
  },
  "a.dice.N8s.w_out_across.h": {
   "raw": [
-   -0.1426574579013603,
-   0.39280782508630574
+   -0.14846709002827144,
+   0.3873041882414629
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|wound|out, across modality/hierarchical",
-  "v": "−0.14 to 0.39"
+  "v": "−0.15 to 0.39"
  },
  "a.dice.N8s.w_out_across.m": {
   "raw": [
@@ -2169,11 +2169,11 @@
  },
  "a.dice.N8s.w_out_same.h": {
   "raw": [
-   -0.2000000000000001,
-   0.5017843343870737
+   -0.20546763869132284,
+   0.45861638060825055
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/comp|wound|out, same modality/hierarchical",
-  "v": "−0.20 to 0.50"
+  "v": "−0.21 to 0.46"
  },
  "a.dice.N8s.w_out_same.m": {
   "raw": [
@@ -2190,11 +2190,11 @@
  },
  "a.dice.N8s.wound.h": {
   "raw": [
-   -0.23868451785118444,
-   0.7131543991248631
+   -0.24059123186168568,
+   0.6581140350877192
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|N8s/wound pairs/hierarchical",
-  "v": "−0.24 to 0.71"
+  "v": "−0.24 to 0.66"
  },
  "a.dice.N8s.wound.m": {
   "raw": [
@@ -2211,11 +2211,11 @@
  },
  "a.dice.U.across.h": {
   "raw": [
-   -0.09929044035452661,
-   0.22175784458840514
+   -0.10567396205150087,
+   0.23220974727825908
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/across modality/hierarchical",
-  "v": "−0.10 to 0.22"
+  "v": "−0.11 to 0.23"
  },
  "a.dice.U.across.m": {
   "raw": [
@@ -2232,11 +2232,11 @@
  },
  "a.dice.U.c_in_out.h": {
   "raw": [
-   -0.09520661115746742,
-   0.2987347868136319
+   -0.11906636164536717,
+   0.3086499054892648
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.10 to 0.30"
+  "v": "−0.12 to 0.31"
  },
  "a.dice.U.c_in_out.m": {
   "raw": [
@@ -2253,11 +2253,11 @@
  },
  "a.dice.U.c_out_across.h": {
   "raw": [
-   -0.27958476599106424,
-   0.06732471724591702
+   -0.2763169802584204,
+   0.08504347261303509
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.28 to 0.07"
+  "v": "−0.28 to 0.09"
  },
  "a.dice.U.c_out_across.m": {
   "raw": [
@@ -2274,11 +2274,11 @@
  },
  "a.dice.U.c_out_same.h": {
   "raw": [
-   0.09674331781048527,
-   0.6119019327961528
+   0.10702077543291694,
+   0.6191309961484593
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.10 to 0.61"
+  "v": "0.11 to 0.62"
  },
  "a.dice.U.c_out_same.m": {
   "raw": [
@@ -2295,11 +2295,11 @@
  },
  "a.dice.U.colon.h": {
   "raw": [
-   0.6644522258147462,
-   0.9237595165964173
+   0.6396659707724426,
+   0.9250730688935284
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/colonoscopy pairs/hierarchical",
-  "v": "0.66 to 0.92"
+  "v": "0.64 to 0.93"
  },
  "a.dice.U.colon.m": {
   "raw": [
@@ -2316,11 +2316,11 @@
  },
  "a.dice.U.ctrl.h": {
   "raw": [
-   0.6033195464749609,
-   0.993730407523511
+   0.5716552035141778,
+   0.9937501625910509
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/same dataset/hierarchical",
-  "v": "0.60 to 0.99"
+  "v": "0.57 to 0.99"
  },
  "a.dice.U.ctrl.m": {
   "raw": [
@@ -2337,8 +2337,8 @@
  },
  "a.dice.U.dsrc.h": {
   "raw": [
-   0.4945650835232877,
-   0.7628285256410257
+   0.4898575796588348,
+   0.7615859484825228
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/different source, same modality/hierarchical",
   "v": "0.49 to 0.76"
@@ -2358,11 +2358,11 @@
  },
  "a.dice.U.fa.h": {
   "raw": [
-   -0.45000914315569485,
-   0.680803979922711
+   -0.49703800496777034,
+   0.6976174019286044
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/fuseg~azh/hierarchical",
-  "v": "−0.45 to 0.68"
+  "v": "−0.50 to 0.70"
  },
  "a.dice.U.fa.m": {
   "raw": [
@@ -2379,11 +2379,11 @@
  },
  "a.dice.U.mdiff.h": {
   "raw": [
-   0.3670758904499339,
-   0.8140140788460412
+   0.35017465744615056,
+   0.8169622649653486
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/modality_diff/hierarchical",
-  "v": "0.37 to 0.81"
+  "v": "0.35 to 0.82"
  },
  "a.dice.U.mdiff.m": {
   "raw": [
@@ -2400,11 +2400,11 @@
  },
  "a.dice.U.mdiff52.h": {
   "raw": [
-   0.36382684403988746,
-   0.8180370489600133
+   0.35543622290896976,
+   0.8116806968117167
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/modality_diff_excl_within_source/hierarchical",
-  "v": "0.36 to 0.82"
+  "v": "0.36 to 0.81"
  },
  "a.dice.U.mdiff52.m": {
   "raw": [
@@ -2421,11 +2421,11 @@
  },
  "a.dice.U.src.h": {
   "raw": [
-   0.44500516636348325,
-   0.8553301447553144
+   0.42856400356400354,
+   0.8566119261519678
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/same source/hierarchical",
-  "v": "0.45 to 0.86"
+  "v": "0.43 to 0.86"
  },
  "a.dice.U.src.m": {
   "raw": [
@@ -2442,11 +2442,11 @@
  },
  "a.dice.U.w_in_out.h": {
   "raw": [
-   -0.15786514096801316,
-   0.2768760036319178
+   -0.1690663740292736,
+   0.29050377579593956
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|wound|in x out/hierarchical",
-  "v": "−0.16 to 0.28"
+  "v": "−0.17 to 0.29"
  },
  "a.dice.U.w_in_out.m": {
   "raw": [
@@ -2463,11 +2463,11 @@
  },
  "a.dice.U.w_out_across.h": {
   "raw": [
-   -0.21711245847589183,
-   0.2786939495606162
+   -0.2189235863147605,
+   0.3028067149859764
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|wound|out, across modality/hierarchical",
-  "v": "−0.22 to 0.28"
+  "v": "−0.22 to 0.30"
  },
  "a.dice.U.w_out_across.m": {
   "raw": [
@@ -2484,11 +2484,11 @@
  },
  "a.dice.U.w_out_same.h": {
   "raw": [
-   0.6644522258147462,
-   0.9237595165964173
+   0.6396659707724426,
+   0.9250730688935284
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/comp|wound|out, same modality/hierarchical",
-  "v": "0.66 to 0.92"
+  "v": "0.64 to 0.93"
  },
  "a.dice.U.w_out_same.m": {
   "raw": [
@@ -2505,11 +2505,11 @@
  },
  "a.dice.U.wound.h": {
   "raw": [
-   0.09674331781048527,
-   0.6119019327961528
+   0.10702077543291694,
+   0.6191309961484593
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U/wound pairs/hierarchical",
-  "v": "0.10 to 0.61"
+  "v": "0.11 to 0.62"
  },
  "a.dice.U.wound.m": {
   "raw": [
@@ -2526,8 +2526,8 @@
  },
  "a.dice.UF.across.h": {
   "raw": [
-   -0.1761404590241396,
-   0.05583603995742503
+   -0.17767485359526658,
+   0.06211550729580225
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/across modality/hierarchical",
   "v": "−0.18 to 0.06"
@@ -2547,11 +2547,11 @@
  },
  "a.dice.UF.c_in_out.h": {
   "raw": [
-   -0.1066373369726599,
-   0.1497587951444873
+   -0.10382572414939478,
+   0.1523079646102075
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.11 to 0.15"
+  "v": "−0.10 to 0.15"
  },
  "a.dice.UF.c_in_out.m": {
   "raw": [
@@ -2568,8 +2568,8 @@
  },
  "a.dice.UF.c_out_across.h": {
   "raw": [
-   -0.466362732934353,
-   -0.20590306851812476
+   -0.47109881501919965,
+   -0.20527360780228146
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|colonoscopy|out, across modality/hierarchical",
   "v": "−0.47 to −0.21"
@@ -2589,11 +2589,11 @@
  },
  "a.dice.UF.c_out_same.h": {
   "raw": [
-   0.2334473659632086,
-   0.6774246135796228
+   0.2542946985955876,
+   0.6907655306795754
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.23 to 0.68"
+  "v": "0.25 to 0.69"
  },
  "a.dice.UF.c_out_same.m": {
   "raw": [
@@ -2610,8 +2610,8 @@
  },
  "a.dice.UF.colon.h": {
   "raw": [
-   0.7937186892515044,
-   0.9306822035872131
+   0.7940252004641353,
+   0.9311721070428729
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/colonoscopy pairs/hierarchical",
   "v": "0.79 to 0.93"
@@ -2625,25 +2625,25 @@
   "v": "0.81 to 0.94"
  },
  "a.dice.UF.ctrl": {
-  "raw": 0.6730205278592374,
+  "raw": 0.6994134897360702,
   "src": "v7/stats_v7.json:point/dice|U+F/same dataset",
-  "v": "0.67"
+  "v": "0.70"
  },
  "a.dice.UF.ctrl.h": {
   "raw": [
-   0.1955519499046242,
-   0.9424044841364628
+   0.2617124164775651,
+   0.9440961023572283
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/same dataset/hierarchical",
-  "v": "0.20 to 0.94"
+  "v": "0.26 to 0.94"
  },
  "a.dice.UF.ctrl.m": {
   "raw": [
-   0.33761209478274573,
-   0.870683960777162
+   0.3832345095940921,
+   0.8842386781094493
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/same dataset/method_only_repro_B2000",
-  "v": "0.34 to 0.87"
+  "v": "0.38 to 0.88"
  },
  "a.dice.UF.dsrc": {
   "raw": 0.7363241597112565,
@@ -2652,11 +2652,11 @@
  },
  "a.dice.UF.dsrc.h": {
   "raw": [
-   0.5927668738494465,
-   0.7980192433177157
+   0.5851007607037381,
+   0.8077262560623227
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/different source, same modality/hierarchical",
-  "v": "0.59 to 0.80"
+  "v": "0.59 to 0.81"
  },
  "a.dice.UF.dsrc.m": {
   "raw": [
@@ -2673,11 +2673,11 @@
  },
  "a.dice.UF.fa.h": {
   "raw": [
-   0.14872204277693346,
-   0.813733048842073
+   0.1710844303819842,
+   0.8078612373731565
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/fuseg~azh/hierarchical",
-  "v": "0.15 to 0.81"
+  "v": "0.17 to 0.81"
  },
  "a.dice.UF.fa.m": {
   "raw": [
@@ -2694,11 +2694,11 @@
  },
  "a.dice.UF.mdiff.h": {
   "raw": [
-   0.5798687163578532,
-   0.9768641047794963
+   0.5864072743888452,
+   0.9766344050578167
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/modality_diff/hierarchical",
-  "v": "0.58 to 0.98"
+  "v": "0.59 to 0.98"
  },
  "a.dice.UF.mdiff.m": {
   "raw": [
@@ -2715,8 +2715,8 @@
  },
  "a.dice.UF.mdiff52.h": {
   "raw": [
-   0.5579654142063117,
-   0.9637557168756942
+   0.5560915256773337,
+   0.9638541103863771
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/modality_diff_excl_within_source/hierarchical",
   "v": "0.56 to 0.96"
@@ -2736,8 +2736,8 @@
  },
  "a.dice.UF.src.h": {
   "raw": [
-   0.6778041940643552,
-   0.9025985168842312
+   0.683747047841026,
+   0.9040862676726825
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/same source/hierarchical",
   "v": "0.68 to 0.90"
@@ -2757,11 +2757,11 @@
  },
  "a.dice.UF.w_in_out.h": {
   "raw": [
-   -0.4325821066847612,
-   -0.05587563767480734
+   -0.42044152058499523,
+   -0.06364967502012049
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|wound|in x out/hierarchical",
-  "v": "−0.43 to −0.06"
+  "v": "−0.42 to −0.06"
  },
  "a.dice.UF.w_in_out.m": {
   "raw": [
@@ -2778,11 +2778,11 @@
  },
  "a.dice.UF.w_out_across.h": {
   "raw": [
-   0.18429139113464788,
-   0.6012349790740779
+   0.18761962758600456,
+   0.6042764491597786
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|wound|out, across modality/hierarchical",
-  "v": "0.18 to 0.60"
+  "v": "0.19 to 0.60"
  },
  "a.dice.UF.w_out_across.m": {
   "raw": [
@@ -2799,8 +2799,8 @@
  },
  "a.dice.UF.w_out_same.h": {
   "raw": [
-   0.7937186892515044,
-   0.9306822035872131
+   0.7940252004641353,
+   0.9311721070428729
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/comp|wound|out, same modality/hierarchical",
   "v": "0.79 to 0.93"
@@ -2820,11 +2820,11 @@
  },
  "a.dice.UF.wound.h": {
   "raw": [
-   0.2334473659632086,
-   0.6774246135796228
+   0.2542946985955876,
+   0.6907655306795754
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+F/wound pairs/hierarchical",
-  "v": "0.23 to 0.68"
+  "v": "0.25 to 0.69"
  },
  "a.dice.UF.wound.m": {
   "raw": [
@@ -2841,11 +2841,11 @@
  },
  "a.dice.UK.across.h": {
   "raw": [
-   -0.07482719226407272,
-   0.08614210837167939
+   -0.07199218814828519,
+   0.080779575960621
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/across modality/hierarchical",
-  "v": "−0.07 to 0.09"
+  "v": "−0.07 to 0.08"
  },
  "a.dice.UK.across.m": {
   "raw": [
@@ -2862,8 +2862,8 @@
  },
  "a.dice.UK.c_in_out.h": {
   "raw": [
-   -0.08085266363378556,
-   0.13157020718592294
+   -0.07694859270322613,
+   0.12725687828638413
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|colonoscopy|in x out/hierarchical",
   "v": "−0.08 to 0.13"
@@ -2883,11 +2883,11 @@
  },
  "a.dice.UK.c_out_across.h": {
   "raw": [
-   -0.23932760113293328,
-   0.09772606975825188
+   -0.24508625232016965,
+   0.09483309407426785
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.24 to 0.10"
+  "v": "−0.25 to 0.09"
  },
  "a.dice.UK.c_out_across.m": {
   "raw": [
@@ -2904,11 +2904,11 @@
  },
  "a.dice.UK.c_out_same.h": {
   "raw": [
-   0.08094543349250162,
-   0.4461048746316335
+   0.06560420640772405,
+   0.44550942052139375
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.08 to 0.45"
+  "v": "0.07 to 0.45"
  },
  "a.dice.UK.c_out_same.m": {
   "raw": [
@@ -2925,8 +2925,8 @@
  },
  "a.dice.UK.colon.h": {
   "raw": [
-   0.8192937281589113,
-   0.9509155882992054
+   0.823737889473059,
+   0.9511804152121992
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/colonoscopy pairs/hierarchical",
   "v": "0.82 to 0.95"
@@ -2940,25 +2940,25 @@
   "v": "0.83 to 0.96"
  },
  "a.dice.UK.ctrl": {
-  "raw": 0.9457478005865102,
+  "raw": 0.9508797653958945,
   "src": "v7/stats_v7.json:point/dice|U+K/same dataset",
   "v": "0.95"
  },
  "a.dice.UK.ctrl.h": {
   "raw": [
-   0.6681189438697875,
-   0.9683429249689157
+   0.6668923762617835,
+   0.9698782385211137
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/same dataset/hierarchical",
   "v": "0.67 to 0.97"
  },
  "a.dice.UK.ctrl.m": {
   "raw": [
-   0.8628159504113668,
-   0.9772109081591279
+   0.8741009667745606,
+   0.9786884191066377
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/same dataset/method_only_repro_B2000",
-  "v": "0.86 to 0.98"
+  "v": "0.87 to 0.98"
  },
  "a.dice.UK.dsrc": {
   "raw": 0.7006541845251522,
@@ -2967,8 +2967,8 @@
  },
  "a.dice.UK.dsrc.h": {
   "raw": [
-   0.6049102277596329,
-   0.7504515815880207
+   0.6015446698696085,
+   0.7478930396443212
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/different source, same modality/hierarchical",
   "v": "0.60 to 0.75"
@@ -2988,11 +2988,11 @@
  },
  "a.dice.UK.fa.h": {
   "raw": [
-   -0.5786330151673628,
-   0.253465296986075
+   -0.6021477714158483,
+   0.23962261738719084
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/fuseg~azh/hierarchical",
-  "v": "−0.58 to 0.25"
+  "v": "−0.60 to 0.24"
  },
  "a.dice.UK.fa.m": {
   "raw": [
@@ -3009,8 +3009,8 @@
  },
  "a.dice.UK.mdiff.h": {
   "raw": [
-   0.5596383958465678,
-   0.7468041426149388
+   0.5587670840766138,
+   0.7478571069465685
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/modality_diff/hierarchical",
   "v": "0.56 to 0.75"
@@ -3030,8 +3030,8 @@
  },
  "a.dice.UK.mdiff52.h": {
   "raw": [
-   0.5888983360832476,
-   0.7628092235935473
+   0.5876419512568835,
+   0.7639687893898174
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/modality_diff_excl_within_source/hierarchical",
   "v": "0.59 to 0.76"
@@ -3051,11 +3051,11 @@
  },
  "a.dice.UK.src.h": {
   "raw": [
-   0.4299160727629628,
-   0.716337024428281
+   0.424086294389015,
+   0.7206844548038484
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/same source/hierarchical",
-  "v": "0.43 to 0.72"
+  "v": "0.42 to 0.72"
  },
  "a.dice.UK.src.m": {
   "raw": [
@@ -3072,8 +3072,8 @@
  },
  "a.dice.UK.w_in_out.h": {
   "raw": [
-   -0.020197865584357152,
-   0.21604981458699513
+   -0.022068797664706624,
+   0.21596179713586922
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|wound|in x out/hierarchical",
   "v": "−0.02 to 0.22"
@@ -3093,11 +3093,11 @@
  },
  "a.dice.UK.w_out_across.h": {
   "raw": [
-   -0.42961906226631835,
-   -0.07646678953030735
+   -0.4235135614921777,
+   -0.0682560917578188
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|wound|out, across modality/hierarchical",
-  "v": "−0.43 to −0.08"
+  "v": "−0.42 to −0.07"
  },
  "a.dice.UK.w_out_across.m": {
   "raw": [
@@ -3114,8 +3114,8 @@
  },
  "a.dice.UK.w_out_same.h": {
   "raw": [
-   0.8192937281589113,
-   0.9509155882992054
+   0.823737889473059,
+   0.9511804152121992
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/comp|wound|out, same modality/hierarchical",
   "v": "0.82 to 0.95"
@@ -3135,11 +3135,11 @@
  },
  "a.dice.UK.wound.h": {
   "raw": [
-   0.08094543349250162,
-   0.4461048746316335
+   0.06560420640772405,
+   0.44550942052139375
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+K/wound pairs/hierarchical",
-  "v": "0.08 to 0.45"
+  "v": "0.07 to 0.45"
  },
  "a.dice.UK.wound.m": {
   "raw": [
@@ -3156,8 +3156,8 @@
  },
  "a.dice.UM.across.h": {
   "raw": [
-   -0.3233318800453438,
-   -0.1642211806502993
+   -0.3168412198469415,
+   -0.16107668765188118
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/across modality/hierarchical",
   "v": "−0.32 to −0.16"
@@ -3177,8 +3177,8 @@
  },
  "a.dice.UM.c_in_out.h": {
   "raw": [
-   -0.29781387676638016,
-   -0.06881147741543872
+   -0.2981498443774694,
+   -0.07188337918315525
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|colonoscopy|in x out/hierarchical",
   "v": "−0.30 to −0.07"
@@ -3198,8 +3198,8 @@
  },
  "a.dice.UM.c_out_across.h": {
   "raw": [
-   -0.5592360259669666,
-   -0.30234546037909305
+   -0.5567694745193374,
+   -0.30206426656635865
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|colonoscopy|out, across modality/hierarchical",
   "v": "−0.56 to −0.30"
@@ -3219,8 +3219,8 @@
  },
  "a.dice.UM.c_out_same.h": {
   "raw": [
-   0.7216812614432514,
-   0.8681068436957069
+   0.723788238924294,
+   0.8662430244136347
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|colonoscopy|out, same modality/hierarchical",
   "v": "0.72 to 0.87"
@@ -3240,8 +3240,8 @@
  },
  "a.dice.UM.colon.h": {
   "raw": [
-   0.6867310831379213,
-   0.9129664470562504
+   0.6854179278118818,
+   0.9085521127846252
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/colonoscopy pairs/hierarchical",
   "v": "0.69 to 0.91"
@@ -3261,8 +3261,8 @@
  },
  "a.dice.UM.ctrl.h": {
   "raw": [
-   0.8041275133581877,
-   0.9895966850402325
+   0.8032746709369905,
+   0.9876086564256663
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/same dataset/hierarchical",
   "v": "0.80 to 0.99"
@@ -3282,11 +3282,11 @@
  },
  "a.dice.UM.dsrc.h": {
   "raw": [
-   0.6948280448768526,
-   0.8793194238357475
+   0.709236031874563,
+   0.8785087386706988
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/different source, same modality/hierarchical",
-  "v": "0.69 to 0.88"
+  "v": "0.71 to 0.88"
  },
  "a.dice.UM.dsrc.m": {
   "raw": [
@@ -3303,11 +3303,11 @@
  },
  "a.dice.UM.fa.h": {
   "raw": [
-   0.5987694318304417,
-   0.8797838125909232
+   0.5918936936057109,
+   0.8880405151948826
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/fuseg~azh/hierarchical",
-  "v": "0.60 to 0.88"
+  "v": "0.59 to 0.89"
  },
  "a.dice.UM.fa.m": {
   "raw": [
@@ -3324,11 +3324,11 @@
  },
  "a.dice.UM.mdiff.h": {
   "raw": [
-   0.8980096731298675,
-   1.1856340094867763
+   0.9125321745049192,
+   1.1811528177797324
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/modality_diff/hierarchical",
-  "v": "0.90 to 1.19"
+  "v": "0.91 to 1.18"
  },
  "a.dice.UM.mdiff.m": {
   "raw": [
@@ -3345,11 +3345,11 @@
  },
  "a.dice.UM.mdiff52.h": {
   "raw": [
-   0.881997146218018,
-   1.1802261452323795
+   0.9004251678480869,
+   1.1804326437649588
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/modality_diff_excl_within_source/hierarchical",
-  "v": "0.88 to 1.18"
+  "v": "0.90 to 1.18"
  },
  "a.dice.UM.mdiff52.m": {
   "raw": [
@@ -3366,11 +3366,11 @@
  },
  "a.dice.UM.src.h": {
   "raw": [
-   0.7410346777242592,
-   0.912364812034932
+   0.7477882403035572,
+   0.9128831186110621
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/same source/hierarchical",
-  "v": "0.74 to 0.91"
+  "v": "0.75 to 0.91"
  },
  "a.dice.UM.src.m": {
   "raw": [
@@ -3387,11 +3387,11 @@
  },
  "a.dice.UM.w_in_out.h": {
   "raw": [
-   -0.6255456865712843,
-   -0.3429431606331776
+   -0.6298760229048185,
+   -0.3471355295944371
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|wound|in x out/hierarchical",
-  "v": "−0.63 to −0.34"
+  "v": "−0.63 to −0.35"
  },
  "a.dice.UM.w_in_out.m": {
   "raw": [
@@ -3408,11 +3408,11 @@
  },
  "a.dice.UM.w_out_across.h": {
   "raw": [
-   0.17189983856807556,
-   0.6020166358798905
+   0.16888464822128316,
+   0.6117273188178439
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|wound|out, across modality/hierarchical",
-  "v": "0.17 to 0.60"
+  "v": "0.17 to 0.61"
  },
  "a.dice.UM.w_out_across.m": {
   "raw": [
@@ -3429,8 +3429,8 @@
  },
  "a.dice.UM.w_out_same.h": {
   "raw": [
-   0.6867310831379213,
-   0.9129664470562504
+   0.6854179278118818,
+   0.9085521127846252
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/comp|wound|out, same modality/hierarchical",
   "v": "0.69 to 0.91"
@@ -3450,8 +3450,8 @@
  },
  "a.dice.UM.wound.h": {
   "raw": [
-   0.7216812614432514,
-   0.8681068436957069
+   0.723788238924294,
+   0.8662430244136347
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M/wound pairs/hierarchical",
   "v": "0.72 to 0.87"
@@ -3471,11 +3471,11 @@
  },
  "a.dice.UM19.across.h": {
   "raw": [
-   -0.34021333221903427,
-   -0.20885341537083724
+   -0.33860273873479707,
+   -0.20212126382636486
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/across modality/hierarchical",
-  "v": "−0.34 to −0.21"
+  "v": "−0.34 to −0.20"
  },
  "a.dice.UM19.across.m": {
   "raw": [
@@ -3492,11 +3492,11 @@
  },
  "a.dice.UM19.c_in_out.h": {
   "raw": [
-   -0.32247934158261504,
-   -0.1351927006779863
+   -0.3203421103847297,
+   -0.12919798950009218
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.32 to −0.14"
+  "v": "−0.32 to −0.13"
  },
  "a.dice.UM19.c_in_out.m": {
   "raw": [
@@ -3513,11 +3513,11 @@
  },
  "a.dice.UM19.c_out_across.h": {
   "raw": [
-   -0.5563936640487102,
-   -0.3134421553223834
+   -0.5465821422287647,
+   -0.31943055784882296
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.56 to −0.31"
+  "v": "−0.55 to −0.32"
  },
  "a.dice.UM19.c_out_across.m": {
   "raw": [
@@ -3534,8 +3534,8 @@
  },
  "a.dice.UM19.c_out_same.h": {
   "raw": [
-   0.7592940879670483,
-   0.8681962707706882
+   0.7633064770594838,
+   0.8706954066591386
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|colonoscopy|out, same modality/hierarchical",
   "v": "0.76 to 0.87"
@@ -3555,11 +3555,11 @@
  },
  "a.dice.UM19.colon.h": {
   "raw": [
-   0.6431075764468354,
-   0.8781531424498039
+   0.6362818698229548,
+   0.873268606224743
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/colonoscopy pairs/hierarchical",
-  "v": "0.64 to 0.88"
+  "v": "0.64 to 0.87"
  },
  "a.dice.UM19.colon.m": {
   "raw": [
@@ -3570,22 +3570,22 @@
   "v": "0.71 to 0.89"
  },
  "a.dice.UM19.ctrl": {
-  "raw": 0.9772403982930299,
+  "raw": 0.9779516358463728,
   "src": "v7/stats_v7.json:point/dice|U+M19/same dataset",
   "v": "0.98"
  },
  "a.dice.UM19.ctrl.h": {
   "raw": [
-   0.8474961533090438,
-   0.9890584946859988
+   0.8646064672651572,
+   0.9890840903381067
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/same dataset/hierarchical",
-  "v": "0.85 to 0.99"
+  "v": "0.86 to 0.99"
  },
  "a.dice.UM19.ctrl.m": {
   "raw": [
-   0.9360442606884443,
-   0.9909567679683986
+   0.9367837021847336,
+   0.991692062789671
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/same dataset/method_only_repro_B2000",
   "v": "0.94 to 0.99"
@@ -3597,8 +3597,8 @@
  },
  "a.dice.UM19.dsrc.h": {
   "raw": [
-   0.6806919602033724,
-   0.8528891225751193
+   0.677226171691947,
+   0.8537849380066262
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/different source, same modality/hierarchical",
   "v": "0.68 to 0.85"
@@ -3618,11 +3618,11 @@
  },
  "a.dice.UM19.fa.h": {
   "raw": [
-   0.693452357665464,
-   0.8824290814518843
+   0.6972131793249365,
+   0.8843209584309155
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/fuseg~azh/hierarchical",
-  "v": "0.69 to 0.88"
+  "v": "0.70 to 0.88"
  },
  "a.dice.UM19.fa.m": {
   "raw": [
@@ -3639,11 +3639,11 @@
  },
  "a.dice.UM19.mdiff.h": {
   "raw": [
-   0.930150607291625,
-   1.1801865252395118
+   0.9211370293424135,
+   1.1744693916607079
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/modality_diff/hierarchical",
-  "v": "0.93 to 1.18"
+  "v": "0.92 to 1.17"
  },
  "a.dice.UM19.mdiff.m": {
   "raw": [
@@ -3660,8 +3660,8 @@
  },
  "a.dice.UM19.mdiff52.h": {
   "raw": [
-   0.9145497591983254,
-   1.1738129460981155
+   0.9084078417886352,
+   1.169561930138502
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/modality_diff_excl_within_source/hierarchical",
   "v": "0.91 to 1.17"
@@ -3681,11 +3681,11 @@
  },
  "a.dice.UM19.src.h": {
   "raw": [
-   0.7471556391899006,
-   0.9035202122650428
+   0.7497175001823237,
+   0.905296417710076
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/same source/hierarchical",
-  "v": "0.75 to 0.90"
+  "v": "0.75 to 0.91"
  },
  "a.dice.UM19.src.m": {
   "raw": [
@@ -3702,11 +3702,11 @@
  },
  "a.dice.UM19.w_in_out.h": {
   "raw": [
-   -0.6670291205995129,
-   -0.42722828246035266
+   -0.6613409205589001,
+   -0.42769798230998674
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|wound|in x out/hierarchical",
-  "v": "−0.67 to −0.43"
+  "v": "−0.66 to −0.43"
  },
  "a.dice.UM19.w_in_out.m": {
   "raw": [
@@ -3723,11 +3723,11 @@
  },
  "a.dice.UM19.w_out_across.h": {
   "raw": [
-   0.23407551494010653,
-   0.6378334800695304
+   0.21703042767413291,
+   0.6145553633584723
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|wound|out, across modality/hierarchical",
-  "v": "0.23 to 0.64"
+  "v": "0.22 to 0.61"
  },
  "a.dice.UM19.w_out_across.m": {
   "raw": [
@@ -3744,11 +3744,11 @@
  },
  "a.dice.UM19.w_out_same.h": {
   "raw": [
-   0.6431075764468354,
-   0.8781531424498039
+   0.6362818698229548,
+   0.873268606224743
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/comp|wound|out, same modality/hierarchical",
-  "v": "0.64 to 0.88"
+  "v": "0.64 to 0.87"
  },
  "a.dice.UM19.w_out_same.m": {
   "raw": [
@@ -3765,8 +3765,8 @@
  },
  "a.dice.UM19.wound.h": {
   "raw": [
-   0.7592940879670483,
-   0.8681962707706882
+   0.7633064770594838,
+   0.8706954066591386
   ],
   "src": "v7/stats_v7.json:bootstrap/dice|U+M19/wound pairs/hierarchical",
   "v": "0.76 to 0.87"
@@ -3786,11 +3786,11 @@
  },
  "a.nsd.ALL.across.h": {
   "raw": [
-   -0.2785432992467812,
-   -0.1455452576527192
+   -0.27786192774168783,
+   -0.14318799591396894
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/across modality/hierarchical",
-  "v": "−0.28 to −0.15"
+  "v": "−0.28 to −0.14"
  },
  "a.nsd.ALL.across.m": {
   "raw": [
@@ -3807,8 +3807,8 @@
  },
  "a.nsd.ALL.c_in_out.h": {
   "raw": [
-   -0.26647803972972345,
-   -0.09048861431567697
+   -0.2687273427056028,
+   -0.0853187573535997
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|colonoscopy|in x out/hierarchical",
   "v": "−0.27 to −0.09"
@@ -3828,11 +3828,11 @@
  },
  "a.nsd.ALL.c_out_across.h": {
   "raw": [
-   -0.42350222396729664,
-   -0.2189444854555483
+   -0.43167486261308485,
+   -0.21904796010587943
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.42 to −0.22"
+  "v": "−0.43 to −0.22"
  },
  "a.nsd.ALL.c_out_across.m": {
   "raw": [
@@ -3849,8 +3849,8 @@
  },
  "a.nsd.ALL.c_out_same.h": {
   "raw": [
-   0.7659529360565099,
-   0.8903414874208146
+   0.7698448697273765,
+   0.8875253862354667
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|colonoscopy|out, same modality/hierarchical",
   "v": "0.77 to 0.89"
@@ -3870,8 +3870,8 @@
  },
  "a.nsd.ALL.colon.h": {
   "raw": [
-   0.7955799947431068,
-   0.9061359516514388
+   0.8008952776563185,
+   0.9058050082501449
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/colonoscopy pairs/hierarchical",
   "v": "0.80 to 0.91"
@@ -3885,25 +3885,25 @@
   "v": "0.82 to 0.91"
  },
  "a.nsd.ALL.ctrl": {
-  "raw": 0.9586975524475525,
+  "raw": 0.9630681818181819,
   "src": "v7/stats_v7.json:point/nsd|ALL/same dataset",
   "v": "0.96"
  },
  "a.nsd.ALL.ctrl.h": {
   "raw": [
-   0.8683561224950227,
-   0.9744083491310385
+   0.8761334644456313,
+   0.9736772622096975
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/same dataset/hierarchical",
-  "v": "0.87 to 0.97"
+  "v": "0.88 to 0.97"
  },
  "a.nsd.ALL.ctrl.m": {
   "raw": [
-   0.9315501752998173,
-   0.9729703576151993
+   0.9367093384903733,
+   0.977082057562768
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/same dataset/method_only_repro_B2000",
-  "v": "0.93 to 0.97"
+  "v": "0.94 to 0.98"
  },
  "a.nsd.ALL.dsrc": {
   "raw": 0.846557288864981,
@@ -3912,8 +3912,8 @@
  },
  "a.nsd.ALL.dsrc.h": {
   "raw": [
-   0.7841325036272099,
-   0.873569305492382
+   0.7848090291223341,
+   0.8732462327653767
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/different source, same modality/hierarchical",
   "v": "0.78 to 0.87"
@@ -3933,11 +3933,11 @@
  },
  "a.nsd.ALL.fa.h": {
   "raw": [
-   0.8401362831500695,
-   0.9545478166940446
+   0.8461484600543225,
+   0.9529871220804419
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/fuseg~azh/hierarchical",
-  "v": "0.84 to 0.95"
+  "v": "0.85 to 0.95"
  },
  "a.nsd.ALL.fa.m": {
   "raw": [
@@ -3954,8 +3954,8 @@
  },
  "a.nsd.ALL.mdiff.h": {
   "raw": [
-   0.9725057447917379,
-   1.150361020358086
+   0.9719641946026332,
+   1.1482167816163225
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/modality_diff/hierarchical",
   "v": "0.97 to 1.15"
@@ -3975,8 +3975,8 @@
  },
  "a.nsd.ALL.mdiff52.h": {
   "raw": [
-   0.9541750960010752,
-   1.1403111352143873
+   0.9513131144057121,
+   1.1379416322554534
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/modality_diff_excl_within_source/hierarchical",
   "v": "0.95 to 1.14"
@@ -3996,8 +3996,8 @@
  },
  "a.nsd.ALL.src.h": {
   "raw": [
-   0.8820806026187146,
-   0.9448789826554227
+   0.8836300441178573,
+   0.9449113347967126
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/same source/hierarchical",
   "v": "0.88 to 0.94"
@@ -4017,8 +4017,8 @@
  },
  "a.nsd.ALL.w_in_out.h": {
   "raw": [
-   -0.5516055059060689,
-   -0.34813819491982095
+   -0.5508440691807682,
+   -0.35219108256061393
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|wound|in x out/hierarchical",
   "v": "−0.55 to −0.35"
@@ -4038,11 +4038,11 @@
  },
  "a.nsd.ALL.w_out_across.h": {
   "raw": [
-   0.2512061305895195,
-   0.5329545262997282
+   0.25728438281655297,
+   0.5230013013229694
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|wound|out, across modality/hierarchical",
-  "v": "0.25 to 0.53"
+  "v": "0.26 to 0.52"
  },
  "a.nsd.ALL.w_out_across.m": {
   "raw": [
@@ -4059,8 +4059,8 @@
  },
  "a.nsd.ALL.w_out_same.h": {
   "raw": [
-   0.7955799947431068,
-   0.9061359516514388
+   0.8008952776563185,
+   0.9058050082501449
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/comp|wound|out, same modality/hierarchical",
   "v": "0.80 to 0.91"
@@ -4080,8 +4080,8 @@
  },
  "a.nsd.ALL.wound.h": {
   "raw": [
-   0.7659529360565099,
-   0.8903414874208146
+   0.7698448697273765,
+   0.8875253862354667
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|ALL/wound pairs/hierarchical",
   "v": "0.77 to 0.89"
@@ -4101,11 +4101,11 @@
  },
  "a.nsd.F.across.h": {
   "raw": [
-   -0.12183473244462178,
-   0.34289348157044536
+   -0.119088679307918,
+   0.3125051282988285
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/across modality/hierarchical",
-  "v": "−0.12 to 0.34"
+  "v": "−0.12 to 0.31"
  },
  "a.nsd.F.across.m": {
   "raw": [
@@ -4122,11 +4122,11 @@
  },
  "a.nsd.F.c_in_out.h": {
   "raw": [
-   -0.10603700105917557,
-   0.41138526396912695
+   -0.10478589592870154,
+   0.39621672307362393
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.11 to 0.41"
+  "v": "−0.10 to 0.40"
  },
  "a.nsd.F.c_in_out.m": {
   "raw": [
@@ -4143,11 +4143,11 @@
  },
  "a.nsd.F.c_out_across.h": {
   "raw": [
-   -0.24233688573932385,
-   0.16284190369134302
+   -0.24315715350542783,
+   0.13090211649657987
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.24 to 0.16"
+  "v": "−0.24 to 0.13"
  },
  "a.nsd.F.c_out_across.m": {
   "raw": [
@@ -4164,11 +4164,11 @@
  },
  "a.nsd.F.c_out_same.h": {
   "raw": [
-   -0.0336797017763087,
-   0.6328159645232814
+   -0.04058763308763309,
+   0.6406203288490282
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.03 to 0.63"
+  "v": "−0.04 to 0.64"
  },
  "a.nsd.F.c_out_same.m": {
   "raw": [
@@ -4185,11 +4185,11 @@
  },
  "a.nsd.F.colon.h": {
   "raw": [
-   0.5685472258379433,
-   0.9377061040637196
+   0.5883957405345211,
+   0.9422867791174198
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/colonoscopy pairs/hierarchical",
-  "v": "0.57 to 0.94"
+  "v": "0.59 to 0.94"
  },
  "a.nsd.F.colon.m": {
   "raw": [
@@ -4200,25 +4200,25 @@
   "v": "0.68 to 0.96"
  },
  "a.nsd.F.ctrl": {
-  "raw": 0.7978021978021979,
+  "raw": 0.8681318681318682,
   "src": "v7/stats_v7.json:point/nsd|F/same dataset",
-  "v": "0.80"
+  "v": "0.87"
  },
  "a.nsd.F.ctrl.h": {
   "raw": [
-   0.21236917831168578,
-   0.9570964589250425
+   0.23312349085891687,
+   0.9643692067615149
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/same dataset/hierarchical",
-  "v": "0.21 to 0.96"
+  "v": "0.23 to 0.96"
  },
  "a.nsd.F.ctrl.m": {
   "raw": [
-   0.4487392361359388,
-   0.9595528291429436
+   0.5803039965986395,
+   0.9861486982993912
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/same dataset/method_only_repro_B2000",
-  "v": "0.45 to 0.96"
+  "v": "0.58 to 0.99"
  },
  "a.nsd.F.dsrc": {
   "raw": 0.6071005917159764,
@@ -4227,11 +4227,11 @@
  },
  "a.nsd.F.dsrc.h": {
   "raw": [
-   0.3198365448415599,
-   0.7721776792947896
+   0.3378777472527473,
+   0.753680280581259
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/different source, same modality/hierarchical",
-  "v": "0.32 to 0.77"
+  "v": "0.34 to 0.75"
  },
  "a.nsd.F.dsrc.m": {
   "raw": [
@@ -4248,11 +4248,11 @@
  },
  "a.nsd.F.fa.h": {
   "raw": [
-   0.26363027597402594,
-   0.9550612070482366
+   0.27510677242220866,
+   0.9553571428571428
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/fuseg~azh/hierarchical",
-  "v": "0.26 to 0.96"
+  "v": "0.28 to 0.96"
  },
  "a.nsd.F.fa.m": {
   "raw": [
@@ -4269,11 +4269,11 @@
  },
  "a.nsd.F.mdiff.h": {
   "raw": [
-   0.23177782540782715,
-   0.7978003524621351
+   0.2525193726996018,
+   0.7809765190707454
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/modality_diff/hierarchical",
-  "v": "0.23 to 0.80"
+  "v": "0.25 to 0.78"
  },
  "a.nsd.F.mdiff.m": {
   "raw": [
@@ -4290,11 +4290,11 @@
  },
  "a.nsd.F.mdiff52.h": {
   "raw": [
-   0.17865645100738295,
-   0.7569137086131341
+   0.18501495892278136,
+   0.7441111300219311
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/modality_diff_excl_within_source/hierarchical",
-  "v": "0.18 to 0.76"
+  "v": "0.19 to 0.74"
  },
  "a.nsd.F.mdiff52.m": {
   "raw": [
@@ -4311,11 +4311,11 @@
  },
  "a.nsd.F.src.h": {
   "raw": [
-   0.6461761148904006,
-   0.9475858440224056
+   0.6703615779172571,
+   0.9533613988767066
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/same source/hierarchical",
-  "v": "0.65 to 0.95"
+  "v": "0.67 to 0.95"
  },
  "a.nsd.F.src.m": {
   "raw": [
@@ -4332,11 +4332,11 @@
  },
  "a.nsd.F.w_in_out.h": {
   "raw": [
-   -0.2313685372921692,
-   0.4045275194940724
+   -0.20809818098801172,
+   0.3749153603712975
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|wound|in x out/hierarchical",
-  "v": "−0.23 to 0.40"
+  "v": "−0.21 to 0.37"
  },
  "a.nsd.F.w_in_out.m": {
   "raw": [
@@ -4353,11 +4353,11 @@
  },
  "a.nsd.F.w_out_across.h": {
   "raw": [
-   -0.0652017792547344,
-   0.40736176757777665
+   -0.061703147876742706,
+   0.4023207179036212
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|wound|out, across modality/hierarchical",
-  "v": "−0.07 to 0.41"
+  "v": "−0.06 to 0.40"
  },
  "a.nsd.F.w_out_across.m": {
   "raw": [
@@ -4374,11 +4374,11 @@
  },
  "a.nsd.F.w_out_same.h": {
   "raw": [
-   0.5685472258379433,
-   0.9377061040637196
+   0.5883957405345211,
+   0.9422867791174198
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/comp|wound|out, same modality/hierarchical",
-  "v": "0.57 to 0.94"
+  "v": "0.59 to 0.94"
  },
  "a.nsd.F.w_out_same.m": {
   "raw": [
@@ -4395,11 +4395,11 @@
  },
  "a.nsd.F.wound.h": {
   "raw": [
-   -0.0336797017763087,
-   0.6328159645232814
+   -0.04058763308763309,
+   0.6406203288490282
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|F/wound pairs/hierarchical",
-  "v": "−0.03 to 0.63"
+  "v": "−0.04 to 0.64"
  },
  "a.nsd.F.wound.m": {
   "raw": [
@@ -4416,11 +4416,11 @@
  },
  "a.nsd.K.across.h": {
   "raw": [
-   -0.22525033702731953,
-   0.20395273203281644
+   -0.23274778106508875,
+   0.16760368335368342
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/across modality/hierarchical",
-  "v": "−0.23 to 0.20"
+  "v": "−0.23 to 0.17"
  },
  "a.nsd.K.across.m": {
   "raw": [
@@ -4437,11 +4437,11 @@
  },
  "a.nsd.K.c_in_out.h": {
   "raw": [
-   -0.27284318396006596,
-   0.2608574248405708
+   -0.28163655490859946,
+   0.22446597626561177
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.27 to 0.26"
+  "v": "−0.28 to 0.22"
  },
  "a.nsd.K.c_in_out.m": {
   "raw": [
@@ -4458,11 +4458,11 @@
  },
  "a.nsd.K.c_out_across.h": {
   "raw": [
-   -0.25294382022471906,
-   0.10324873051383114
+   -0.2783585996004873,
+   0.10171083790525905
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.25 to 0.10"
+  "v": "−0.28 to 0.10"
  },
  "a.nsd.K.c_out_across.m": {
   "raw": [
@@ -4479,11 +4479,11 @@
  },
  "a.nsd.K.c_out_same.h": {
   "raw": [
-   -0.13468061503447534,
-   0.6467195739453496
+   -0.13576512711255398,
+   0.666703952274422
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.13 to 0.65"
+  "v": "−0.14 to 0.67"
  },
  "a.nsd.K.c_out_same.m": {
   "raw": [
@@ -4500,11 +4500,11 @@
  },
  "a.nsd.K.colon.h": {
   "raw": [
-   0.6658216652276581,
-   0.937054198434992
+   0.6623858405670144,
+   0.9321388103400815
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/colonoscopy pairs/hierarchical",
-  "v": "0.67 to 0.94"
+  "v": "0.66 to 0.93"
  },
  "a.nsd.K.colon.m": {
   "raw": [
@@ -4515,25 +4515,25 @@
   "v": "0.70 to 0.94"
  },
  "a.nsd.K.ctrl": {
-  "raw": 0.454945054945055,
+  "raw": 0.46373626373626375,
   "src": "v7/stats_v7.json:point/nsd|K/same dataset",
-  "v": "0.45"
+  "v": "0.46"
  },
  "a.nsd.K.ctrl.h": {
   "raw": [
-   -0.5068385650224215,
-   0.8741573033707863
+   -0.47237458890757306,
+   0.8795628803651505
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/same dataset/hierarchical",
-  "v": "−0.51 to 0.87"
+  "v": "−0.47 to 0.88"
  },
  "a.nsd.K.ctrl.m": {
   "raw": [
    -0.1689267563527653,
-   0.7964370311883139
+   0.8239376792142029
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/same dataset/method_only_repro_B2000",
-  "v": "−0.17 to 0.80"
+  "v": "−0.17 to 0.82"
  },
  "a.nsd.K.dsrc": {
   "raw": 0.6436179205409975,
@@ -4542,8 +4542,8 @@
  },
  "a.nsd.K.dsrc.h": {
   "raw": [
-   0.44411306182720783,
-   0.762304838775427
+   0.4387331068595083,
+   0.7613401172818214
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/different source, same modality/hierarchical",
   "v": "0.44 to 0.76"
@@ -4563,11 +4563,11 @@
  },
  "a.nsd.K.fa.h": {
   "raw": [
-   -0.48639830937436734,
-   0.8044496124031008
+   -0.552048079505775,
+   0.8263539450964691
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/fuseg~azh/hierarchical",
-  "v": "−0.49 to 0.80"
+  "v": "−0.55 to 0.83"
  },
  "a.nsd.K.fa.m": {
   "raw": [
@@ -4584,11 +4584,11 @@
  },
  "a.nsd.K.mdiff.h": {
   "raw": [
-   0.3767897271998834,
-   0.9391450732724669
+   0.36250232754958267,
+   0.9410968263507326
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/modality_diff/hierarchical",
-  "v": "0.38 to 0.94"
+  "v": "0.36 to 0.94"
  },
  "a.nsd.K.mdiff.m": {
   "raw": [
@@ -4605,11 +4605,11 @@
  },
  "a.nsd.K.mdiff52.h": {
   "raw": [
-   0.3512143410194674,
-   0.9398687564532782
+   0.3594376061344387,
+   0.9491702878491569
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/modality_diff_excl_within_source/hierarchical",
-  "v": "0.35 to 0.94"
+  "v": "0.36 to 0.95"
  },
  "a.nsd.K.mdiff52.m": {
   "raw": [
@@ -4626,11 +4626,11 @@
  },
  "a.nsd.K.src.h": {
   "raw": [
-   0.3799932611625581,
-   0.8499249249249249
+   0.3629817182422788,
+   0.830024318871844
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/same source/hierarchical",
-  "v": "0.38 to 0.85"
+  "v": "0.36 to 0.83"
  },
  "a.nsd.K.src.m": {
   "raw": [
@@ -4647,11 +4647,11 @@
  },
  "a.nsd.K.w_in_out.h": {
   "raw": [
-   -0.24745269744669163,
-   0.2634791398541398
+   -0.256658947669977,
+   0.24275092007790566
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|wound|in x out/hierarchical",
-  "v": "−0.25 to 0.26"
+  "v": "−0.26 to 0.24"
  },
  "a.nsd.K.w_in_out.m": {
   "raw": [
@@ -4668,11 +4668,11 @@
  },
  "a.nsd.K.w_out_across.h": {
   "raw": [
-   -0.3957851492737384,
-   0.12299290998431095
+   -0.396764541833445,
+   0.14850531566483588
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|wound|out, across modality/hierarchical",
-  "v": "−0.40 to 0.12"
+  "v": "−0.40 to 0.15"
  },
  "a.nsd.K.w_out_across.m": {
   "raw": [
@@ -4689,11 +4689,11 @@
  },
  "a.nsd.K.w_out_same.h": {
   "raw": [
-   0.6658216652276581,
-   0.937054198434992
+   0.6623858405670144,
+   0.9321388103400815
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/comp|wound|out, same modality/hierarchical",
-  "v": "0.67 to 0.94"
+  "v": "0.66 to 0.93"
  },
  "a.nsd.K.w_out_same.m": {
   "raw": [
@@ -4710,11 +4710,11 @@
  },
  "a.nsd.K.wound.h": {
   "raw": [
-   -0.13468061503447534,
-   0.6467195739453496
+   -0.13576512711255398,
+   0.666703952274422
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|K/wound pairs/hierarchical",
-  "v": "−0.13 to 0.65"
+  "v": "−0.14 to 0.67"
  },
  "a.nsd.K.wound.m": {
   "raw": [
@@ -4731,11 +4731,11 @@
  },
  "a.nsd.M.across.h": {
   "raw": [
-   -0.16431002081926455,
-   0.4062265893933748
+   -0.17779202641137007,
+   0.39642348431379376
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/across modality/hierarchical",
-  "v": "−0.16 to 0.41"
+  "v": "−0.18 to 0.40"
  },
  "a.nsd.M.across.m": {
   "raw": [
@@ -4752,11 +4752,11 @@
  },
  "a.nsd.M.c_in_out.h": {
   "raw": [
-   -0.23615428751978948,
-   0.4411946884533205
+   -0.2610017167569638,
+   0.4310341756553531
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.24 to 0.44"
+  "v": "−0.26 to 0.43"
  },
  "a.nsd.M.c_in_out.m": {
   "raw": [
@@ -4773,11 +4773,11 @@
  },
  "a.nsd.M.c_out_across.h": {
   "raw": [
-   -0.15215924104919107,
-   0.41551992695726714
+   -0.17297485790610098,
+   0.4316423950074683
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.15 to 0.42"
+  "v": "−0.17 to 0.43"
  },
  "a.nsd.M.c_out_across.m": {
   "raw": [
@@ -4794,11 +4794,11 @@
  },
  "a.nsd.M.c_out_same.h": {
   "raw": [
-   -0.10759309904245086,
-   0.6715121445497632
+   -0.09860738071841903,
+   0.6729872937405987
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.11 to 0.67"
+  "v": "−0.10 to 0.67"
  },
  "a.nsd.M.c_out_same.m": {
   "raw": [
@@ -4815,11 +4815,11 @@
  },
  "a.nsd.M.colon.h": {
   "raw": [
-   0.21690567327409435,
-   0.8648356807511737
+   0.23082126716686407,
+   0.8685345275181723
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/colonoscopy pairs/hierarchical",
-  "v": "0.22 to 0.86"
+  "v": "0.23 to 0.87"
  },
  "a.nsd.M.colon.m": {
   "raw": [
@@ -4836,11 +4836,11 @@
  },
  "a.nsd.M.ctrl.h": {
   "raw": [
-   0.16086271567891983,
-   0.9910138248847924
+   0.17715523136539782,
+   0.9906542056074765
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/same dataset/hierarchical",
-  "v": "0.16 to 0.99"
+  "v": "0.18 to 0.99"
  },
  "a.nsd.M.ctrl.m": {
   "raw": [
@@ -4857,11 +4857,11 @@
  },
  "a.nsd.M.dsrc.h": {
   "raw": [
-   0.149116297236598,
-   0.6521259703599153
+   0.17112311866607918,
+   0.65259017298491
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/different source, same modality/hierarchical",
-  "v": "0.15 to 0.65"
+  "v": "0.17 to 0.65"
  },
  "a.nsd.M.dsrc.m": {
   "raw": [
@@ -4878,11 +4878,11 @@
  },
  "a.nsd.M.fa.h": {
   "raw": [
-   -0.2860480640854472,
-   0.9431413123289498
+   -0.2992990654205607,
+   0.9436619718309859
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/fuseg~azh/hierarchical",
-  "v": "−0.29 to 0.94"
+  "v": "−0.30 to 0.94"
  },
  "a.nsd.M.fa.m": {
   "raw": [
@@ -4899,11 +4899,11 @@
  },
  "a.nsd.M.mdiff.h": {
   "raw": [
-   0.09546801983556519,
-   0.6691494124188585
+   0.10259003483365135,
+   0.7014810931872179
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/modality_diff/hierarchical",
-  "v": "0.10 to 0.67"
+  "v": "0.10 to 0.70"
  },
  "a.nsd.M.mdiff.m": {
   "raw": [
@@ -4920,11 +4920,11 @@
  },
  "a.nsd.M.mdiff52.h": {
   "raw": [
-   0.021059820152070877,
-   0.6737641161372023
+   0.014797620190016753,
+   0.6819272827083853
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/modality_diff_excl_within_source/hierarchical",
-  "v": "0.02 to 0.67"
+  "v": "0.01 to 0.68"
  },
  "a.nsd.M.mdiff52.m": {
   "raw": [
@@ -4941,11 +4941,11 @@
  },
  "a.nsd.M.src.h": {
   "raw": [
-   0.29627435492364407,
-   0.9038690476190476
+   0.314135926671138,
+   0.8995100502512563
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/same source/hierarchical",
-  "v": "0.30 to 0.90"
+  "v": "0.31 to 0.90"
  },
  "a.nsd.M.src.m": {
   "raw": [
@@ -4962,11 +4962,11 @@
  },
  "a.nsd.M.w_in_out.h": {
   "raw": [
-   -0.11885547100130513,
-   0.40308234648709795
+   -0.1121809259221798,
+   0.39797865758835066
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|wound|in x out/hierarchical",
-  "v": "−0.12 to 0.40"
+  "v": "−0.11 to 0.40"
  },
  "a.nsd.M.w_in_out.m": {
   "raw": [
@@ -4983,11 +4983,11 @@
  },
  "a.nsd.M.w_out_across.h": {
   "raw": [
-   -0.42814068695509444,
-   0.5153468238469987
+   -0.4680193437043418,
+   0.5382617491517522
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|wound|out, across modality/hierarchical",
-  "v": "−0.43 to 0.52"
+  "v": "−0.47 to 0.54"
  },
  "a.nsd.M.w_out_across.m": {
   "raw": [
@@ -5004,11 +5004,11 @@
  },
  "a.nsd.M.w_out_same.h": {
   "raw": [
-   0.21690567327409435,
-   0.8648356807511737
+   0.23082126716686407,
+   0.8685345275181723
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/comp|wound|out, same modality/hierarchical",
-  "v": "0.22 to 0.86"
+  "v": "0.23 to 0.87"
  },
  "a.nsd.M.w_out_same.m": {
   "raw": [
@@ -5025,11 +5025,11 @@
  },
  "a.nsd.M.wound.h": {
   "raw": [
-   -0.10759309904245086,
-   0.6715121445497632
+   -0.09860738071841903,
+   0.6729872937405987
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M/wound pairs/hierarchical",
-  "v": "−0.11 to 0.67"
+  "v": "−0.10 to 0.67"
  },
  "a.nsd.M.wound.m": {
   "raw": [
@@ -5046,11 +5046,11 @@
  },
  "a.nsd.M11s.across.h": {
   "raw": [
-   -0.03542284038522141,
-   0.6626123643913387
+   -0.028112672583826437,
+   0.6683261706994099
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/across modality/hierarchical",
-  "v": "−0.04 to 0.66"
+  "v": "−0.03 to 0.67"
  },
  "a.nsd.M11s.across.m": {
   "raw": [
@@ -5067,11 +5067,11 @@
  },
  "a.nsd.M11s.c_in_out.h": {
   "raw": [
-   -0.11292211467084132,
-   0.6658322508114785
+   -0.11673824518378209,
+   0.6806709966004263
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.11 to 0.67"
+  "v": "−0.12 to 0.68"
  },
  "a.nsd.M11s.c_in_out.m": {
   "raw": [
@@ -5088,11 +5088,11 @@
  },
  "a.nsd.M11s.c_out_across.h": {
   "raw": [
-   0.038887228969353864,
-   0.7543219990116103
+   0.015553554912898686,
+   0.7491019264682381
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "0.04 to 0.75"
+  "v": "0.02 to 0.75"
  },
  "a.nsd.M11s.c_out_across.m": {
   "raw": [
@@ -5109,11 +5109,11 @@
  },
  "a.nsd.M11s.c_out_same.h": {
   "raw": [
-   0.09499282124910267,
-   0.8518341307814989
+   0.10869495268600181,
+   0.8511627906976744
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.09 to 0.85"
+  "v": "0.11 to 0.85"
  },
  "a.nsd.M11s.c_out_same.m": {
   "raw": [
@@ -5130,11 +5130,11 @@
  },
  "a.nsd.M11s.colon.h": {
   "raw": [
-   0.21942397555715312,
-   0.8398670634920635
+   0.2352691946518804,
+   0.836606308411215
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/colonoscopy pairs/hierarchical",
-  "v": "0.22 to 0.84"
+  "v": "0.24 to 0.84"
  },
  "a.nsd.M11s.colon.m": {
   "raw": [
@@ -5151,11 +5151,11 @@
  },
  "a.nsd.M11s.ctrl.h": {
   "raw": [
-   0.2179973547889343,
-   0.9999999999999998
+   0.213436758981701,
+   0.9906542056074765
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/same dataset/hierarchical",
-  "v": "0.22 to 1.00"
+  "v": "0.21 to 0.99"
  },
  "a.nsd.M11s.ctrl.m": {
   "raw": [
@@ -5172,11 +5172,11 @@
  },
  "a.nsd.M11s.dsrc.h": {
   "raw": [
-   0.2747563514778292,
-   0.7912066059993258
+   0.2960756949871609,
+   0.8060897072298093
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/different source, same modality/hierarchical",
-  "v": "0.27 to 0.79"
+  "v": "0.30 to 0.81"
  },
  "a.nsd.M11s.dsrc.m": {
   "raw": [
@@ -5193,11 +5193,11 @@
  },
  "a.nsd.M11s.fa.h": {
   "raw": [
-   -0.4488317757009345,
-   0.9320869206814435
+   -0.38395891084682104,
+   0.9029359596713966
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/fuseg~azh/hierarchical",
-  "v": "−0.45 to 0.93"
+  "v": "−0.38 to 0.90"
  },
  "a.nsd.M11s.fa.m": {
   "raw": [
@@ -5214,11 +5214,11 @@
  },
  "a.nsd.M11s.mdiff.h": {
   "raw": [
-   -0.02843230391436659,
-   0.5615086024431543
+   -0.010558354745633476,
+   0.5590344551282053
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/modality_diff/hierarchical",
-  "v": "−0.03 to 0.56"
+  "v": "−0.01 to 0.56"
  },
  "a.nsd.M11s.mdiff.m": {
   "raw": [
@@ -5235,11 +5235,11 @@
  },
  "a.nsd.M11s.mdiff52.h": {
   "raw": [
-   -0.0334909505093957,
-   0.5714253136938826
+   -0.012641080262472097,
+   0.5816367934555614
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/modality_diff_excl_within_source/hierarchical",
-  "v": "−0.03 to 0.57"
+  "v": "−0.01 to 0.58"
  },
  "a.nsd.M11s.mdiff52.m": {
   "raw": [
@@ -5256,11 +5256,11 @@
  },
  "a.nsd.M11s.src.h": {
   "raw": [
-   0.16425888665325292,
-   0.8348909657320872
+   0.1749638120430581,
+   0.821398068237714
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/same source/hierarchical",
-  "v": "0.16 to 0.83"
+  "v": "0.17 to 0.82"
  },
  "a.nsd.M11s.src.m": {
   "raw": [
@@ -5277,11 +5277,11 @@
  },
  "a.nsd.M11s.w_in_out.h": {
   "raw": [
-   0.05644349185682822,
-   0.681747767519304
+   0.04888962795313249,
+   0.7014571538011712
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|wound|in x out/hierarchical",
-  "v": "0.06 to 0.68"
+  "v": "0.05 to 0.70"
  },
  "a.nsd.M11s.w_in_out.m": {
   "raw": [
@@ -5298,11 +5298,11 @@
  },
  "a.nsd.M11s.w_out_across.h": {
   "raw": [
-   -0.33730068880856573,
-   0.6532628553644637
+   -0.37567255315542974,
+   0.6779302667232479
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|wound|out, across modality/hierarchical",
-  "v": "−0.34 to 0.65"
+  "v": "−0.38 to 0.68"
  },
  "a.nsd.M11s.w_out_across.m": {
   "raw": [
@@ -5319,11 +5319,11 @@
  },
  "a.nsd.M11s.w_out_same.h": {
   "raw": [
-   0.21942397555715312,
-   0.8398670634920635
+   0.2352691946518804,
+   0.836606308411215
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/comp|wound|out, same modality/hierarchical",
-  "v": "0.22 to 0.84"
+  "v": "0.24 to 0.84"
  },
  "a.nsd.M11s.w_out_same.m": {
   "raw": [
@@ -5340,11 +5340,11 @@
  },
  "a.nsd.M11s.wound.h": {
   "raw": [
-   0.09499282124910267,
-   0.8518341307814989
+   0.10869495268600181,
+   0.8511627906976744
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M11s/wound pairs/hierarchical",
-  "v": "0.09 to 0.85"
+  "v": "0.11 to 0.85"
  },
  "a.nsd.M11s.wound.m": {
   "raw": [
@@ -5361,11 +5361,11 @@
  },
  "a.nsd.M19.across.h": {
   "raw": [
-   -0.059492976952356696,
-   0.41405726386939007
+   -0.05480435905672242,
+   0.4349641882162299
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/across modality/hierarchical",
-  "v": "−0.06 to 0.41"
+  "v": "−0.05 to 0.43"
  },
  "a.nsd.M19.across.m": {
   "raw": [
@@ -5382,11 +5382,11 @@
  },
  "a.nsd.M19.c_in_out.h": {
   "raw": [
-   -0.12024618015389348,
-   0.4111986638226388
+   -0.12089627550796671,
+   0.4447342995034079
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.12 to 0.41"
+  "v": "−0.12 to 0.44"
  },
  "a.nsd.M19.c_in_out.m": {
   "raw": [
@@ -5403,11 +5403,11 @@
  },
  "a.nsd.M19.c_out_across.h": {
   "raw": [
-   -0.0235373542998719,
-   0.4891257781745913
+   -0.012943927017192127,
+   0.4981842607450716
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.02 to 0.49"
+  "v": "−0.01 to 0.50"
  },
  "a.nsd.M19.c_out_across.m": {
   "raw": [
@@ -5424,11 +5424,11 @@
  },
  "a.nsd.M19.c_out_same.h": {
   "raw": [
-   0.1102608430822221,
-   0.6868425633488642
+   0.12207698567326274,
+   0.6989896182106384
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.11 to 0.69"
+  "v": "0.12 to 0.70"
  },
  "a.nsd.M19.c_out_same.m": {
   "raw": [
@@ -5445,11 +5445,11 @@
  },
  "a.nsd.M19.colon.h": {
   "raw": [
-   0.23662433862433857,
-   0.7325889482359553
+   0.24064346665664235,
+   0.7446862684729064
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/colonoscopy pairs/hierarchical",
-  "v": "0.24 to 0.73"
+  "v": "0.24 to 0.74"
  },
  "a.nsd.M19.colon.m": {
   "raw": [
@@ -5466,11 +5466,11 @@
  },
  "a.nsd.M19.ctrl.h": {
   "raw": [
-   0.417902260874508,
-   0.9714807695967419
+   0.37934680851063823,
+   0.9660736945045159
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/same dataset/hierarchical",
-  "v": "0.42 to 0.97"
+  "v": "0.38 to 0.97"
  },
  "a.nsd.M19.ctrl.m": {
   "raw": [
@@ -5487,11 +5487,11 @@
  },
  "a.nsd.M19.dsrc.h": {
   "raw": [
-   0.21598990063725043,
-   0.6539025231497282
+   0.23291845201659522,
+   0.673775961338158
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/different source, same modality/hierarchical",
-  "v": "0.22 to 0.65"
+  "v": "0.23 to 0.67"
  },
  "a.nsd.M19.dsrc.m": {
   "raw": [
@@ -5508,11 +5508,11 @@
  },
  "a.nsd.M19.fa.h": {
   "raw": [
-   -0.09460837660520509,
-   0.7868911303831153
+   -0.07724749352294247,
+   0.8030394766602292
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/fuseg~azh/hierarchical",
-  "v": "−0.09 to 0.79"
+  "v": "−0.08 to 0.80"
  },
  "a.nsd.M19.fa.m": {
   "raw": [
@@ -5529,8 +5529,8 @@
  },
  "a.nsd.M19.mdiff.h": {
   "raw": [
-   0.1276149728528139,
-   0.5206988556695434
+   0.13313051856331984,
+   0.5172805390422186
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/modality_diff/hierarchical",
   "v": "0.13 to 0.52"
@@ -5550,11 +5550,11 @@
  },
  "a.nsd.M19.mdiff52.h": {
   "raw": [
-   0.08713490678794149,
-   0.5066859237079349
+   0.08226515172195466,
+   0.5075735202690713
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/modality_diff_excl_within_source/hierarchical",
-  "v": "0.09 to 0.51"
+  "v": "0.08 to 0.51"
  },
  "a.nsd.M19.mdiff52.m": {
   "raw": [
@@ -5571,8 +5571,8 @@
  },
  "a.nsd.M19.src.h": {
   "raw": [
-   0.34887244479416063,
-   0.7959061867534425
+   0.34802980458912963,
+   0.7960621729951352
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/same source/hierarchical",
   "v": "0.35 to 0.80"
@@ -5592,11 +5592,11 @@
  },
  "a.nsd.M19.w_in_out.h": {
   "raw": [
-   -0.01695744810154267,
-   0.4713619828788056
+   -0.006334322755254012,
+   0.4857935872617844
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|wound|in x out/hierarchical",
-  "v": "−0.02 to 0.47"
+  "v": "−0.01 to 0.49"
  },
  "a.nsd.M19.w_in_out.m": {
   "raw": [
@@ -5613,11 +5613,11 @@
  },
  "a.nsd.M19.w_out_across.h": {
   "raw": [
-   -0.25727168569173575,
-   0.3267972714004999
+   -0.2518607004456061,
+   0.34058493531768896
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|wound|out, across modality/hierarchical",
-  "v": "−0.26 to 0.33"
+  "v": "−0.25 to 0.34"
  },
  "a.nsd.M19.w_out_across.m": {
   "raw": [
@@ -5634,11 +5634,11 @@
  },
  "a.nsd.M19.w_out_same.h": {
   "raw": [
-   0.23662433862433857,
-   0.7325889482359553
+   0.24064346665664235,
+   0.7446862684729064
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/comp|wound|out, same modality/hierarchical",
-  "v": "0.24 to 0.73"
+  "v": "0.24 to 0.74"
  },
  "a.nsd.M19.w_out_same.m": {
   "raw": [
@@ -5655,11 +5655,11 @@
  },
  "a.nsd.M19.wound.h": {
   "raw": [
-   0.1102608430822221,
-   0.6868425633488642
+   0.12207698567326274,
+   0.6989896182106384
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|M19/wound pairs/hierarchical",
-  "v": "0.11 to 0.69"
+  "v": "0.12 to 0.70"
  },
  "a.nsd.M19.wound.m": {
   "raw": [
@@ -5676,8 +5676,8 @@
  },
  "a.nsd.N8s.across.h": {
   "raw": [
-   -0.07757221681272312,
-   0.2840270460133472
+   -0.08203986199766788,
+   0.27838003534206046
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/across modality/hierarchical",
   "v": "−0.08 to 0.28"
@@ -5697,11 +5697,11 @@
  },
  "a.nsd.N8s.c_in_out.h": {
   "raw": [
-   -0.0720724279835391,
-   0.2913661987710693
+   -0.08542218350754935,
+   0.29089989837398367
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.07 to 0.29"
+  "v": "−0.09 to 0.29"
  },
  "a.nsd.N8s.c_in_out.m": {
   "raw": [
@@ -5718,11 +5718,11 @@
  },
  "a.nsd.N8s.c_out_across.h": {
   "raw": [
-   -0.26479423868312757,
-   0.42092387482419086
+   -0.2764227642276423,
+   0.39843573119275494
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.26 to 0.42"
+  "v": "−0.28 to 0.40"
  },
  "a.nsd.N8s.c_out_across.m": {
   "raw": [
@@ -5739,11 +5739,11 @@
  },
  "a.nsd.N8s.c_out_same.h": {
   "raw": [
-   -0.1940928270042194,
-   0.7762937595129374
+   -0.17701804368471036,
+   0.7848101265822783
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "−0.19 to 0.78"
+  "v": "−0.18 to 0.78"
  },
  "a.nsd.N8s.c_out_same.m": {
   "raw": [
@@ -5760,11 +5760,11 @@
  },
  "a.nsd.N8s.colon.h": {
   "raw": [
-   -0.22739726027397258,
-   0.3282098765432098
+   -0.22739726027397253,
+   0.3128481012658227
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/colonoscopy pairs/hierarchical",
-  "v": "−0.23 to 0.33"
+  "v": "−0.23 to 0.31"
  },
  "a.nsd.N8s.colon.m": {
   "raw": [
@@ -5781,11 +5781,11 @@
  },
  "a.nsd.N8s.ctrl.h": {
   "raw": [
-   -0.17562499999999998,
+   -0.07355665328805183,
    1.0
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/same dataset/hierarchical",
-  "v": "−0.18 to 1.00"
+  "v": "−0.07 to 1.00"
  },
  "a.nsd.N8s.ctrl.m": {
   "raw": [
@@ -5802,11 +5802,11 @@
  },
  "a.nsd.N8s.dsrc.h": {
   "raw": [
-   -0.31172607879924946,
-   0.2707495957495956
+   -0.3078627069133397,
+   0.27623456790123446
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/different source, same modality/hierarchical",
-  "v": "−0.31 to 0.27"
+  "v": "−0.31 to 0.28"
  },
  "a.nsd.N8s.dsrc.m": {
   "raw": [
@@ -5823,11 +5823,11 @@
  },
  "a.nsd.N8s.fa.h": {
   "raw": [
-   -0.26622849724115544,
-   0.9999999999999999
+   -0.282051282051282,
+   0.9999999999999998
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/fuseg~azh/hierarchical",
-  "v": "−0.27 to 1.00"
+  "v": "−0.28 to 1.00"
  },
  "a.nsd.N8s.fa.m": {
   "raw": [
@@ -5844,8 +5844,8 @@
  },
  "a.nsd.N8s.mdiff.h": {
   "raw": [
-   -0.1975500553972776,
-   0.25185481956315264
+   -0.20246342866535172,
+   0.25259377967711283
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/modality_diff/hierarchical",
   "v": "−0.20 to 0.25"
@@ -5865,11 +5865,11 @@
  },
  "a.nsd.N8s.mdiff52.h": {
   "raw": [
-   -0.35253580164818205,
-   0.18950443564264702
+   -0.35574405579274126,
+   0.20047846685000006
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/modality_diff_excl_within_source/hierarchical",
-  "v": "−0.35 to 0.19"
+  "v": "−0.36 to 0.20"
  },
  "a.nsd.N8s.mdiff52.m": {
   "raw": [
@@ -5886,11 +5886,11 @@
  },
  "a.nsd.N8s.src.h": {
   "raw": [
-   0.03994936708860756,
-   0.8617886178861788
+   0.04982730359442685,
+   0.8683529057512798
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/same source/hierarchical",
-  "v": "0.04 to 0.86"
+  "v": "0.05 to 0.87"
  },
  "a.nsd.N8s.src.m": {
   "raw": [
@@ -5907,8 +5907,8 @@
  },
  "a.nsd.N8s.w_in_out.h": {
   "raw": [
-   -0.1311278456241175,
-   0.2902089222294701
+   -0.12820976491862573,
+   0.289706699524051
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|wound|in x out/hierarchical",
   "v": "−0.13 to 0.29"
@@ -5928,11 +5928,11 @@
  },
  "a.nsd.N8s.w_out_across.h": {
   "raw": [
-   -0.13082039911308205,
-   0.4127405491226626
+   -0.12420008981447696,
+   0.41189674523007846
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|wound|out, across modality/hierarchical",
-  "v": "−0.13 to 0.41"
+  "v": "−0.12 to 0.41"
  },
  "a.nsd.N8s.w_out_across.m": {
   "raw": [
@@ -5949,11 +5949,11 @@
  },
  "a.nsd.N8s.w_out_same.h": {
   "raw": [
-   -0.22739726027397258,
-   0.3282098765432098
+   -0.22739726027397253,
+   0.3128481012658227
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/comp|wound|out, same modality/hierarchical",
-  "v": "−0.23 to 0.33"
+  "v": "−0.23 to 0.31"
  },
  "a.nsd.N8s.w_out_same.m": {
   "raw": [
@@ -5970,11 +5970,11 @@
  },
  "a.nsd.N8s.wound.h": {
   "raw": [
-   -0.1940928270042194,
-   0.7762937595129374
+   -0.17701804368471036,
+   0.7848101265822783
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|N8s/wound pairs/hierarchical",
-  "v": "−0.19 to 0.78"
+  "v": "−0.18 to 0.78"
  },
  "a.nsd.N8s.wound.m": {
   "raw": [
@@ -5991,11 +5991,11 @@
  },
  "a.nsd.U.across.h": {
   "raw": [
-   0.08926233364325284,
-   0.4530611752231724
+   0.07901402805185141,
+   0.45861150710539406
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/across modality/hierarchical",
-  "v": "0.09 to 0.45"
+  "v": "0.08 to 0.46"
  },
  "a.nsd.U.across.m": {
   "raw": [
@@ -6012,11 +6012,11 @@
  },
  "a.nsd.U.c_in_out.h": {
   "raw": [
-   0.1654608405086544,
-   0.5510660586324829
+   0.15679280824551906,
+   0.557544167491139
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|colonoscopy|in x out/hierarchical",
-  "v": "0.17 to 0.55"
+  "v": "0.16 to 0.56"
  },
  "a.nsd.U.c_in_out.m": {
   "raw": [
@@ -6033,11 +6033,11 @@
  },
  "a.nsd.U.c_out_across.h": {
   "raw": [
-   -0.21572441767493963,
-   0.1750531381205099
+   -0.2294386846443913,
+   0.19208950974292965
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.22 to 0.18"
+  "v": "−0.23 to 0.19"
  },
  "a.nsd.U.c_out_across.m": {
   "raw": [
@@ -6054,11 +6054,11 @@
  },
  "a.nsd.U.c_out_same.h": {
   "raw": [
-   0.3063094891963029,
-   0.8290142345775393
+   0.27901611016973693,
+   0.8252511938489516
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.31 to 0.83"
+  "v": "0.28 to 0.83"
  },
  "a.nsd.U.c_out_same.m": {
   "raw": [
@@ -6075,11 +6075,11 @@
  },
  "a.nsd.U.colon.h": {
   "raw": [
-   0.5613972136141948,
-   0.8779352223632667
+   0.5305535998183057,
+   0.8842997766682313
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/colonoscopy pairs/hierarchical",
-  "v": "0.56 to 0.88"
+  "v": "0.53 to 0.88"
  },
  "a.nsd.U.colon.m": {
   "raw": [
@@ -6096,11 +6096,11 @@
  },
  "a.nsd.U.ctrl.h": {
   "raw": [
-   0.7368303644014333,
+   0.7688550420168068,
    0.9999999999999998
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/same dataset/hierarchical",
-  "v": "0.74 to 1.00"
+  "v": "0.77 to 1.00"
  },
  "a.nsd.U.ctrl.m": {
   "raw": [
@@ -6117,11 +6117,11 @@
  },
  "a.nsd.U.dsrc.h": {
   "raw": [
-   0.4596622133849943,
-   0.8162805865723638
+   0.43452005068180055,
+   0.811988801119888
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/different source, same modality/hierarchical",
-  "v": "0.46 to 0.82"
+  "v": "0.43 to 0.81"
  },
  "a.nsd.U.dsrc.m": {
   "raw": [
@@ -6138,11 +6138,11 @@
  },
  "a.nsd.U.fa.h": {
   "raw": [
-   0.2787547201916218,
-   0.9500863672674649
+   0.25604166666666667,
+   0.949590336134454
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/fuseg~azh/hierarchical",
-  "v": "0.28 to 0.95"
+  "v": "0.26 to 0.95"
  },
  "a.nsd.U.fa.m": {
   "raw": [
@@ -6159,8 +6159,8 @@
  },
  "a.nsd.U.mdiff.h": {
   "raw": [
-   0.268096518209797,
-   0.5603120018256572
+   0.2693834694802882,
+   0.5584243962625988
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/modality_diff/hierarchical",
   "v": "0.27 to 0.56"
@@ -6180,11 +6180,11 @@
  },
  "a.nsd.U.mdiff52.h": {
   "raw": [
-   0.23009417728082687,
-   0.5379123642057415
+   0.23093556857329428,
+   0.5279840962712629
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/modality_diff_excl_within_source/hierarchical",
-  "v": "0.23 to 0.54"
+  "v": "0.23 to 0.53"
  },
  "a.nsd.U.mdiff52.m": {
   "raw": [
@@ -6201,11 +6201,11 @@
  },
  "a.nsd.U.src.h": {
   "raw": [
-   0.640200420568852,
-   0.9417909610855667
+   0.6251254431315968,
+   0.9424572355113457
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/same source/hierarchical",
-  "v": "0.64 to 0.94"
+  "v": "0.63 to 0.94"
  },
  "a.nsd.U.src.m": {
   "raw": [
@@ -6222,11 +6222,11 @@
  },
  "a.nsd.U.w_in_out.h": {
   "raw": [
-   0.12987542506106675,
-   0.5663705990086569
+   0.10033634164143924,
+   0.5670354643553221
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|wound|in x out/hierarchical",
-  "v": "0.13 to 0.57"
+  "v": "0.10 to 0.57"
  },
  "a.nsd.U.w_in_out.m": {
   "raw": [
@@ -6243,11 +6243,11 @@
  },
  "a.nsd.U.w_out_across.h": {
   "raw": [
-   -0.14851359958981067,
-   0.29128212746104704
+   -0.15525475430533212,
+   0.31101579488979386
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|wound|out, across modality/hierarchical",
-  "v": "−0.15 to 0.29"
+  "v": "−0.16 to 0.31"
  },
  "a.nsd.U.w_out_across.m": {
   "raw": [
@@ -6264,11 +6264,11 @@
  },
  "a.nsd.U.w_out_same.h": {
   "raw": [
-   0.5613972136141948,
-   0.8779352223632667
+   0.5305535998183057,
+   0.8842997766682313
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/comp|wound|out, same modality/hierarchical",
-  "v": "0.56 to 0.88"
+  "v": "0.53 to 0.88"
  },
  "a.nsd.U.w_out_same.m": {
   "raw": [
@@ -6285,11 +6285,11 @@
  },
  "a.nsd.U.wound.h": {
   "raw": [
-   0.3063094891963029,
-   0.8290142345775393
+   0.27901611016973693,
+   0.8252511938489516
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U/wound pairs/hierarchical",
-  "v": "0.31 to 0.83"
+  "v": "0.28 to 0.83"
  },
  "a.nsd.U.wound.m": {
   "raw": [
@@ -6306,11 +6306,11 @@
  },
  "a.nsd.UF.across.h": {
   "raw": [
-   -0.08878463512551822,
-   0.14155760178780433
+   -0.07818258066514705,
+   0.1511975032373406
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/across modality/hierarchical",
-  "v": "−0.09 to 0.14"
+  "v": "−0.08 to 0.15"
  },
  "a.nsd.UF.across.m": {
   "raw": [
@@ -6327,11 +6327,11 @@
  },
  "a.nsd.UF.c_in_out.h": {
   "raw": [
-   -0.0008335367488202867,
-   0.25036765466982136
+   0.003214465593660377,
+   0.26071490084591337
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|colonoscopy|in x out/hierarchical",
-  "v": "0.00 to 0.25"
+  "v": "0.00 to 0.26"
  },
  "a.nsd.UF.c_in_out.m": {
   "raw": [
@@ -6348,11 +6348,11 @@
  },
  "a.nsd.UF.c_out_across.h": {
   "raw": [
-   -0.4101000159640018,
-   -0.17586984552164453
+   -0.4037325751713227,
+   -0.17362320404768156
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.41 to −0.18"
+  "v": "−0.40 to −0.17"
  },
  "a.nsd.UF.c_out_across.m": {
   "raw": [
@@ -6369,11 +6369,11 @@
  },
  "a.nsd.UF.c_out_same.h": {
   "raw": [
-   0.2925402329615325,
-   0.7315187644259179
+   0.3023817106709553,
+   0.7275756259369633
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.29 to 0.73"
+  "v": "0.30 to 0.73"
  },
  "a.nsd.UF.c_out_same.m": {
   "raw": [
@@ -6390,8 +6390,8 @@
  },
  "a.nsd.UF.colon.h": {
   "raw": [
-   0.7272239232903533,
-   0.8977304129081866
+   0.7259040257296455,
+   0.901329050977631
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/colonoscopy pairs/hierarchical",
   "v": "0.73 to 0.90"
@@ -6405,25 +6405,25 @@
   "v": "0.75 to 0.91"
  },
  "a.nsd.UF.ctrl": {
-  "raw": 0.9138563049853372,
+  "raw": 0.9299853372434017,
   "src": "v7/stats_v7.json:point/nsd|U+F/same dataset",
-  "v": "0.91"
+  "v": "0.93"
  },
  "a.nsd.UF.ctrl.h": {
   "raw": [
-   0.6894236783857935,
-   0.9690577390564982
+   0.6960330458601776,
+   0.9709802859004167
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/same dataset/hierarchical",
-  "v": "0.69 to 0.97"
+  "v": "0.70 to 0.97"
  },
  "a.nsd.UF.ctrl.m": {
   "raw": [
-   0.8070512205717824,
-   0.9554983449797719
+   0.8289857747618118,
+   0.9661764705882353
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/same dataset/method_only_repro_B2000",
-  "v": "0.81 to 0.96"
+  "v": "0.83 to 0.97"
  },
  "a.nsd.UF.dsrc": {
   "raw": 0.7102413715316941,
@@ -6432,11 +6432,11 @@
  },
  "a.nsd.UF.dsrc.h": {
   "raw": [
-   0.5637788554364789,
-   0.7796386982351026
+   0.5658413942704452,
+   0.7786591811892214
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/different source, same modality/hierarchical",
-  "v": "0.56 to 0.78"
+  "v": "0.57 to 0.78"
  },
  "a.nsd.UF.dsrc.m": {
   "raw": [
@@ -6453,8 +6453,8 @@
  },
  "a.nsd.UF.fa.h": {
   "raw": [
-   0.5353260869565217,
-   0.9359208386763603
+   0.5446482980585987,
+   0.9351924017716028
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/fuseg~azh/hierarchical",
   "v": "0.54 to 0.94"
@@ -6474,11 +6474,11 @@
  },
  "a.nsd.UF.mdiff.h": {
   "raw": [
-   0.5336508730782504,
-   0.8485053275728495
+   0.5362248230801707,
+   0.8315621203264878
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/modality_diff/hierarchical",
-  "v": "0.53 to 0.85"
+  "v": "0.54 to 0.83"
  },
  "a.nsd.UF.mdiff.m": {
   "raw": [
@@ -6495,11 +6495,11 @@
  },
  "a.nsd.UF.mdiff52.h": {
   "raw": [
-   0.4865319951546362,
-   0.8177910115997746
+   0.4851694495192987,
+   0.8016091655876934
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/modality_diff_excl_within_source/hierarchical",
-  "v": "0.49 to 0.82"
+  "v": "0.49 to 0.80"
  },
  "a.nsd.UF.mdiff52.m": {
   "raw": [
@@ -6516,8 +6516,8 @@
  },
  "a.nsd.UF.src.h": {
   "raw": [
-   0.7888297994271277,
-   0.9443021348720128
+   0.7924654405224011,
+   0.9424702490491964
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/same source/hierarchical",
   "v": "0.79 to 0.94"
@@ -6537,11 +6537,11 @@
  },
  "a.nsd.UF.w_in_out.h": {
   "raw": [
-   -0.29093204134451306,
-   0.08244005153938262
+   -0.2784725068657117,
+   0.08416287713697843
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|wound|in x out/hierarchical",
-  "v": "−0.29 to 0.08"
+  "v": "−0.28 to 0.08"
  },
  "a.nsd.UF.w_in_out.m": {
   "raw": [
@@ -6558,11 +6558,11 @@
  },
  "a.nsd.UF.w_out_across.h": {
   "raw": [
-   0.17531755967770643,
-   0.5567955135737715
+   0.17377794346413963,
+   0.5687861973445839
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|wound|out, across modality/hierarchical",
-  "v": "0.18 to 0.56"
+  "v": "0.17 to 0.57"
  },
  "a.nsd.UF.w_out_across.m": {
   "raw": [
@@ -6579,8 +6579,8 @@
  },
  "a.nsd.UF.w_out_same.h": {
   "raw": [
-   0.7272239232903533,
-   0.8977304129081866
+   0.7259040257296455,
+   0.901329050977631
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/comp|wound|out, same modality/hierarchical",
   "v": "0.73 to 0.90"
@@ -6600,11 +6600,11 @@
  },
  "a.nsd.UF.wound.h": {
   "raw": [
-   0.2925402329615325,
-   0.7315187644259179
+   0.3023817106709553,
+   0.7275756259369633
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+F/wound pairs/hierarchical",
-  "v": "0.29 to 0.73"
+  "v": "0.30 to 0.73"
  },
  "a.nsd.UF.wound.m": {
   "raw": [
@@ -6621,8 +6621,8 @@
  },
  "a.nsd.UK.across.h": {
   "raw": [
-   -0.11374041751069298,
-   0.16089710624771
+   -0.11472789746859016,
+   0.16221060932033596
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/across modality/hierarchical",
   "v": "−0.11 to 0.16"
@@ -6642,11 +6642,11 @@
  },
  "a.nsd.UK.c_in_out.h": {
   "raw": [
-   -0.17246198747917482,
-   0.1887531180467936
+   -0.16864148327025372,
+   0.19868357062188027
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.17 to 0.19"
+  "v": "−0.17 to 0.20"
  },
  "a.nsd.UK.c_in_out.m": {
   "raw": [
@@ -6663,11 +6663,11 @@
  },
  "a.nsd.UK.c_out_across.h": {
   "raw": [
-   -0.10113320134543356,
-   0.23249217723069074
+   -0.1023235391586191,
+   0.22334455877395848
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.10 to 0.23"
+  "v": "−0.10 to 0.22"
  },
  "a.nsd.UK.c_out_across.m": {
   "raw": [
@@ -6684,11 +6684,11 @@
  },
  "a.nsd.UK.c_out_same.h": {
   "raw": [
-   0.32677338504695425,
-   0.7242059112092225
+   0.33642304154162167,
+   0.7259056343086976
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.33 to 0.72"
+  "v": "0.34 to 0.73"
  },
  "a.nsd.UK.c_out_same.m": {
   "raw": [
@@ -6705,11 +6705,11 @@
  },
  "a.nsd.UK.colon.h": {
   "raw": [
-   0.7278174232821821,
-   0.9207706865337988
+   0.7109745206523355,
+   0.9225672120579474
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/colonoscopy pairs/hierarchical",
-  "v": "0.73 to 0.92"
+  "v": "0.71 to 0.92"
  },
  "a.nsd.UK.colon.m": {
   "raw": [
@@ -6720,25 +6720,25 @@
   "v": "0.74 to 0.92"
  },
  "a.nsd.UK.ctrl": {
-  "raw": 0.8255131964809383,
+  "raw": 0.8266129032258064,
   "src": "v7/stats_v7.json:point/nsd|U+K/same dataset",
   "v": "0.83"
  },
  "a.nsd.UK.ctrl.h": {
   "raw": [
-   0.4835951882325884,
-   0.9437658264272558
+   0.5098736873073679,
+   0.94476285960106
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/same dataset/hierarchical",
-  "v": "0.48 to 0.94"
+  "v": "0.51 to 0.94"
  },
  "a.nsd.UK.ctrl.m": {
   "raw": [
-   0.616429761342365,
-   0.9426223366975355
+   0.6164665598704239,
+   0.9466888622264177
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/same dataset/method_only_repro_B2000",
-  "v": "0.62 to 0.94"
+  "v": "0.62 to 0.95"
  },
  "a.nsd.UK.dsrc": {
   "raw": 0.7284570268441235,
@@ -6747,11 +6747,11 @@
  },
  "a.nsd.UK.dsrc.h": {
   "raw": [
-   0.6106639340728686,
-   0.8043150191454157
+   0.5991092751182404,
+   0.804278392068189
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/different source, same modality/hierarchical",
-  "v": "0.61 to 0.80"
+  "v": "0.60 to 0.80"
  },
  "a.nsd.UK.dsrc.m": {
   "raw": [
@@ -6768,11 +6768,11 @@
  },
  "a.nsd.UK.fa.h": {
   "raw": [
-   0.28632593431006564,
-   0.8694950832864848
+   0.26875376653335237,
+   0.8760602204112473
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/fuseg~azh/hierarchical",
-  "v": "0.29 to 0.87"
+  "v": "0.27 to 0.88"
  },
  "a.nsd.UK.fa.m": {
   "raw": [
@@ -6789,11 +6789,11 @@
  },
  "a.nsd.UK.mdiff.h": {
   "raw": [
-   0.540926958429355,
-   0.8568506832220292
+   0.5469441649968289,
+   0.8658370367958883
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/modality_diff/hierarchical",
-  "v": "0.54 to 0.86"
+  "v": "0.55 to 0.87"
  },
  "a.nsd.UK.mdiff.m": {
   "raw": [
@@ -6810,11 +6810,11 @@
  },
  "a.nsd.UK.mdiff52.h": {
   "raw": [
-   0.5183819401863045,
-   0.8453192952570087
+   0.5208636918117943,
+   0.8430355345553873
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/modality_diff_excl_within_source/hierarchical",
-  "v": "0.52 to 0.85"
+  "v": "0.52 to 0.84"
  },
  "a.nsd.UK.mdiff52.m": {
   "raw": [
@@ -6831,11 +6831,11 @@
  },
  "a.nsd.UK.src.h": {
   "raw": [
-   0.672556914236972,
-   0.9078666482266887
+   0.6791409703418199,
+   0.9098504104572103
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/same source/hierarchical",
-  "v": "0.67 to 0.91"
+  "v": "0.68 to 0.91"
  },
  "a.nsd.UK.src.m": {
   "raw": [
@@ -6852,8 +6852,8 @@
  },
  "a.nsd.UK.w_in_out.h": {
   "raw": [
-   -0.052632195886294496,
-   0.2994268866715947
+   -0.05493090170885591,
+   0.3023515879273825
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|wound|in x out/hierarchical",
   "v": "−0.05 to 0.30"
@@ -6873,11 +6873,11 @@
  },
  "a.nsd.UK.w_out_across.h": {
   "raw": [
-   -0.3663204602451538,
-   -0.10370320572895436
+   -0.37922902979241313,
+   -0.10176130418087921
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|wound|out, across modality/hierarchical",
-  "v": "−0.37 to −0.10"
+  "v": "−0.38 to −0.10"
  },
  "a.nsd.UK.w_out_across.m": {
   "raw": [
@@ -6894,11 +6894,11 @@
  },
  "a.nsd.UK.w_out_same.h": {
   "raw": [
-   0.7278174232821821,
-   0.9207706865337988
+   0.7109745206523355,
+   0.9225672120579474
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/comp|wound|out, same modality/hierarchical",
-  "v": "0.73 to 0.92"
+  "v": "0.71 to 0.92"
  },
  "a.nsd.UK.w_out_same.m": {
   "raw": [
@@ -6915,11 +6915,11 @@
  },
  "a.nsd.UK.wound.h": {
   "raw": [
-   0.32677338504695425,
-   0.7242059112092225
+   0.33642304154162167,
+   0.7259056343086976
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+K/wound pairs/hierarchical",
-  "v": "0.33 to 0.72"
+  "v": "0.34 to 0.73"
  },
  "a.nsd.UK.wound.m": {
   "raw": [
@@ -6936,11 +6936,11 @@
  },
  "a.nsd.UM.across.h": {
   "raw": [
-   -0.23430445133739564,
-   -0.021050405928364997
+   -0.2391021214106835,
+   -0.02466923597800051
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/across modality/hierarchical",
-  "v": "−0.23 to −0.02"
+  "v": "−0.24 to −0.02"
  },
  "a.nsd.UM.across.m": {
   "raw": [
@@ -6957,11 +6957,11 @@
  },
  "a.nsd.UM.c_in_out.h": {
   "raw": [
-   -0.17175023810329262,
-   0.10966626697531695
+   -0.18607313180904805,
+   0.10735980953629079
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.17 to 0.11"
+  "v": "−0.19 to 0.11"
  },
  "a.nsd.UM.c_in_out.m": {
   "raw": [
@@ -6978,11 +6978,11 @@
  },
  "a.nsd.UM.c_out_across.h": {
   "raw": [
-   -0.550168570137873,
-   -0.29820919439410587
+   -0.5494832664124571,
+   -0.3104908263576456
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.55 to −0.30"
+  "v": "−0.55 to −0.31"
  },
  "a.nsd.UM.c_out_across.m": {
   "raw": [
@@ -6999,11 +6999,11 @@
  },
  "a.nsd.UM.c_out_same.h": {
   "raw": [
-   0.7777343627817068,
-   0.9188982156955279
+   0.7725328734505946,
+   0.9202348476408052
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|colonoscopy|out, same modality/hierarchical",
-  "v": "0.78 to 0.92"
+  "v": "0.77 to 0.92"
  },
  "a.nsd.UM.c_out_same.m": {
   "raw": [
@@ -7020,11 +7020,11 @@
  },
  "a.nsd.UM.colon.h": {
   "raw": [
-   0.5656768325603516,
-   0.8578693375802949
+   0.5754504584630529,
+   0.8635657072380496
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/colonoscopy pairs/hierarchical",
-  "v": "0.57 to 0.86"
+  "v": "0.58 to 0.86"
  },
  "a.nsd.UM.colon.m": {
   "raw": [
@@ -7041,8 +7041,8 @@
  },
  "a.nsd.UM.ctrl.h": {
   "raw": [
-   0.862595099925467,
-   0.9910846953937593
+   0.863845624527765,
+   0.9906134058867179
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/same dataset/hierarchical",
   "v": "0.86 to 0.99"
@@ -7062,11 +7062,11 @@
  },
  "a.nsd.UM.dsrc.h": {
   "raw": [
-   0.6319148093975918,
-   0.8530006126545323
+   0.6354632765996797,
+   0.8554058386800891
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/different source, same modality/hierarchical",
-  "v": "0.63 to 0.85"
+  "v": "0.64 to 0.86"
  },
  "a.nsd.UM.dsrc.m": {
   "raw": [
@@ -7083,11 +7083,11 @@
  },
  "a.nsd.UM.fa.h": {
   "raw": [
-   0.7701433514582305,
-   0.9638636169172473
+   0.778435820860468,
+   0.9639429257157669
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/fuseg~azh/hierarchical",
-  "v": "0.77 to 0.96"
+  "v": "0.78 to 0.96"
  },
  "a.nsd.UM.fa.m": {
   "raw": [
@@ -7104,11 +7104,11 @@
  },
  "a.nsd.UM.mdiff.h": {
   "raw": [
-   0.7514226002191368,
-   1.0621770491105036
+   0.7535306060280141,
+   1.0741297769000386
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/modality_diff/hierarchical",
-  "v": "0.75 to 1.06"
+  "v": "0.75 to 1.07"
  },
  "a.nsd.UM.mdiff.m": {
   "raw": [
@@ -7125,11 +7125,11 @@
  },
  "a.nsd.UM.mdiff52.h": {
   "raw": [
-   0.7227594994141718,
-   1.0482551755007803
+   0.7218766224893667,
+   1.0609900818687927
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/modality_diff_excl_within_source/hierarchical",
-  "v": "0.72 to 1.05"
+  "v": "0.72 to 1.06"
  },
  "a.nsd.UM.mdiff52.m": {
   "raw": [
@@ -7146,11 +7146,11 @@
  },
  "a.nsd.UM.src.h": {
   "raw": [
-   0.7911758983702375,
-   0.9390857921153426
+   0.8071755590707904,
+   0.9387723501552929
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/same source/hierarchical",
-  "v": "0.79 to 0.94"
+  "v": "0.81 to 0.94"
  },
  "a.nsd.UM.src.m": {
   "raw": [
@@ -7167,11 +7167,11 @@
  },
  "a.nsd.UM.w_in_out.h": {
   "raw": [
-   -0.5009794888595551,
-   -0.14055073839794802
+   -0.5124348413219371,
+   -0.14366965577725538
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|wound|in x out/hierarchical",
-  "v": "−0.50 to −0.14"
+  "v": "−0.51 to −0.14"
  },
  "a.nsd.UM.w_in_out.m": {
   "raw": [
@@ -7188,11 +7188,11 @@
  },
  "a.nsd.UM.w_out_across.h": {
   "raw": [
-   0.13808739295052946,
-   0.556975340203262
+   0.11742139720904486,
+   0.5793849251943802
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|wound|out, across modality/hierarchical",
-  "v": "0.14 to 0.56"
+  "v": "0.12 to 0.58"
  },
  "a.nsd.UM.w_out_across.m": {
   "raw": [
@@ -7209,11 +7209,11 @@
  },
  "a.nsd.UM.w_out_same.h": {
   "raw": [
-   0.5656768325603516,
-   0.8578693375802949
+   0.5754504584630529,
+   0.8635657072380496
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/comp|wound|out, same modality/hierarchical",
-  "v": "0.57 to 0.86"
+  "v": "0.58 to 0.86"
  },
  "a.nsd.UM.w_out_same.m": {
   "raw": [
@@ -7230,11 +7230,11 @@
  },
  "a.nsd.UM.wound.h": {
   "raw": [
-   0.7777343627817068,
-   0.9188982156955279
+   0.7725328734505946,
+   0.9202348476408052
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M/wound pairs/hierarchical",
-  "v": "0.78 to 0.92"
+  "v": "0.77 to 0.92"
  },
  "a.nsd.UM.wound.m": {
   "raw": [
@@ -7251,11 +7251,11 @@
  },
  "a.nsd.UM19.across.h": {
   "raw": [
-   -0.27723168689243916,
-   -0.1039823060902683
+   -0.2886732800057396,
+   -0.1097556024075202
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/across modality/hierarchical",
-  "v": "−0.28 to −0.10"
+  "v": "−0.29 to −0.11"
  },
  "a.nsd.UM19.across.m": {
   "raw": [
@@ -7272,11 +7272,11 @@
  },
  "a.nsd.UM19.c_in_out.h": {
   "raw": [
-   -0.24038626941048413,
-   -0.0003070471492865662
+   -0.252068046646451,
+   -0.01392066289889333
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|colonoscopy|in x out/hierarchical",
-  "v": "−0.24 to 0.00"
+  "v": "−0.25 to −0.01"
  },
  "a.nsd.UM19.c_in_out.m": {
   "raw": [
@@ -7293,11 +7293,11 @@
  },
  "a.nsd.UM19.c_out_across.h": {
   "raw": [
-   -0.531648935949474,
-   -0.3241959709294563
+   -0.5239976961199062,
+   -0.32386464755417294
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|colonoscopy|out, across modality/hierarchical",
-  "v": "−0.53 to −0.32"
+  "v": "−0.52 to −0.32"
  },
  "a.nsd.UM19.c_out_across.m": {
   "raw": [
@@ -7314,8 +7314,8 @@
  },
  "a.nsd.UM19.c_out_same.h": {
   "raw": [
-   0.8121745467472683,
-   0.9219309747345397
+   0.807454101563493,
+   0.9213500215628189
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|colonoscopy|out, same modality/hierarchical",
   "v": "0.81 to 0.92"
@@ -7335,11 +7335,11 @@
  },
  "a.nsd.UM19.colon.h": {
   "raw": [
-   0.5791632162968338,
-   0.8590783188333079
+   0.559684465138154,
+   0.8589143279816056
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/colonoscopy pairs/hierarchical",
-  "v": "0.58 to 0.86"
+  "v": "0.56 to 0.86"
  },
  "a.nsd.UM19.colon.m": {
   "raw": [
@@ -7350,25 +7350,25 @@
   "v": "0.63 to 0.85"
  },
  "a.nsd.UM19.ctrl": {
-  "raw": 0.968231389284021,
+  "raw": 0.9727358937885255,
   "src": "v7/stats_v7.json:point/nsd|U+M19/same dataset",
   "v": "0.97"
  },
  "a.nsd.UM19.ctrl.h": {
   "raw": [
-   0.8429641895071014,
-   0.9873829418362732
+   0.850140341241506,
+   0.9869477808419793
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/same dataset/hierarchical",
-  "v": "0.84 to 0.99"
+  "v": "0.85 to 0.99"
  },
  "a.nsd.UM19.ctrl.m": {
   "raw": [
-   0.9240441577356185,
-   0.9861759935923727
+   0.9309955114070388,
+   0.9890754129701924
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/same dataset/method_only_repro_B2000",
-  "v": "0.92 to 0.99"
+  "v": "0.93 to 0.99"
  },
  "a.nsd.UM19.dsrc": {
   "raw": 0.7881423934055513,
@@ -7377,11 +7377,11 @@
  },
  "a.nsd.UM19.dsrc.h": {
   "raw": [
-   0.6452682845704416,
-   0.8571526176119653
+   0.626536082851497,
+   0.8568893132405688
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/different source, same modality/hierarchical",
-  "v": "0.65 to 0.86"
+  "v": "0.63 to 0.86"
  },
  "a.nsd.UM19.dsrc.m": {
   "raw": [
@@ -7398,8 +7398,8 @@
  },
  "a.nsd.UM19.fa.h": {
   "raw": [
-   0.7824069223139853,
-   0.9517200283181867
+   0.7840216139399624,
+   0.9453030512286585
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/fuseg~azh/hierarchical",
   "v": "0.78 to 0.95"
@@ -7419,11 +7419,11 @@
  },
  "a.nsd.UM19.mdiff.h": {
   "raw": [
-   0.823940315558279,
-   1.1162147171298584
+   0.82336514996733,
+   1.1280762549407983
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/modality_diff/hierarchical",
-  "v": "0.82 to 1.12"
+  "v": "0.82 to 1.13"
  },
  "a.nsd.UM19.mdiff.m": {
   "raw": [
@@ -7440,11 +7440,11 @@
  },
  "a.nsd.UM19.mdiff52.h": {
   "raw": [
-   0.7920935528654293,
-   1.108263333866649
+   0.7831014939368207,
+   1.1190451759922797
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/modality_diff_excl_within_source/hierarchical",
-  "v": "0.79 to 1.11"
+  "v": "0.78 to 1.12"
  },
  "a.nsd.UM19.mdiff52.m": {
   "raw": [
@@ -7461,11 +7461,11 @@
  },
  "a.nsd.UM19.src.h": {
   "raw": [
-   0.7844392860629411,
-   0.935182912244746
+   0.7798732325216151,
+   0.9345852407521982
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/same source/hierarchical",
-  "v": "0.78 to 0.94"
+  "v": "0.78 to 0.93"
  },
  "a.nsd.UM19.src.m": {
   "raw": [
@@ -7482,11 +7482,11 @@
  },
  "a.nsd.UM19.w_in_out.h": {
   "raw": [
-   -0.5768220565812023,
-   -0.2886751941214143
+   -0.5742268883327962,
+   -0.28818991833318114
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|wound|in x out/hierarchical",
-  "v": "−0.58 to −0.29"
+  "v": "−0.57 to −0.29"
  },
  "a.nsd.UM19.w_in_out.m": {
   "raw": [
@@ -7503,11 +7503,11 @@
  },
  "a.nsd.UM19.w_out_across.h": {
   "raw": [
-   0.19484931529693508,
-   0.6175780997981271
+   0.20694327049306913,
+   0.6010369649160696
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|wound|out, across modality/hierarchical",
-  "v": "0.19 to 0.62"
+  "v": "0.21 to 0.60"
  },
  "a.nsd.UM19.w_out_across.m": {
   "raw": [
@@ -7524,11 +7524,11 @@
  },
  "a.nsd.UM19.w_out_same.h": {
   "raw": [
-   0.5791632162968338,
-   0.8590783188333079
+   0.559684465138154,
+   0.8589143279816056
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/comp|wound|out, same modality/hierarchical",
-  "v": "0.58 to 0.86"
+  "v": "0.56 to 0.86"
  },
  "a.nsd.UM19.w_out_same.m": {
   "raw": [
@@ -7545,8 +7545,8 @@
  },
  "a.nsd.UM19.wound.h": {
   "raw": [
-   0.8121745467472683,
-   0.9219309747345397
+   0.807454101563493,
+   0.9213500215628189
   ],
   "src": "v7/stats_v7.json:bootstrap/nsd|U+M19/wound pairs/hierarchical",
   "v": "0.81 to 0.92"
@@ -9969,6 +9969,34 @@
   "src": "v7/bench_v7.json:seed_effect_amp40/P10_s2/other/est",
   "v": "0.18"
  },
+ "c.co2.n": {
+  "raw": 764,
+  "src": "manuscript_v6/constants_v6.json: sanchez2024 (CO2Wounds-V2 dataset paper, arXiv:2408.10827): 764 images",
+  "v": "764"
+ },
+ "c.co2.pat": {
+  "raw": 96,
+  "src": "manuscript_v6/constants_v6.json: sanchez2024: 96 patients",
+  "v": "96"
+ },
+ "c.nn.ep.default": {
+  "raw": 1000,
+  "src": "manuscript_v6/constants_v6.json: nnU-Net v2 default trainer (nnUNetTrainer.num_epochs = 1000), isensee2021 / nnU-Net repository",
+  "v": "1,000"
+ },
+ "c.rule.hi": {
+  "raw": 0.7,
+  "src": "results/v7_morning/BRIEF_V7.md (pre-specified reading)",
+  "v": "0.7"
+ },
+ "c.rule.lo": {
+  "raw": [
+   0.1,
+   0.3
+  ],
+  "src": "results/v7_morning/BRIEF_V7.md (pre-specified reading)",
+  "v": "0.1 to 0.3"
+ },
  "cal.c50": {
   "raw": 0.5452556751061681,
   "src": "v7/robust_v7.json:threshold/calibration_probe/M19|0.50/mean_rho_wound",
@@ -9984,6 +10012,330 @@
   "src": "v7/robust_v7.json:threshold/calibration_probe/M19|default/mean_rho_wound",
   "v": "0.27"
  },
+ "d.B.arch": {
+  "raw": 2000,
+  "src": "v7/stats_v7.json:definitions/seed_analysis_boot/B_method",
+  "v": "2,000"
+ },
+ "d.B.hier": {
+  "raw": 1000,
+  "src": "v7/stats_v7.json:definitions/B_hier",
+  "v": "1,000"
+ },
+ "d.B.hier.bench": {
+  "raw": 2000,
+  "src": "v7/bench_v7.json:B (hierarchical and method draws)",
+  "v": "2,000"
+ },
+ "d.B.method": {
+  "raw": 2000,
+  "src": "v7/stats_v7.json:definitions (method bootstrap B 2000)",
+  "v": "2,000"
+ },
+ "d.B.unit": {
+  "raw": 2000,
+  "src": "v7/practical_v7.json:B",
+  "v": "2,000"
+ },
+ "d.alpha": {
+  "raw": 0.05,
+  "src": "significance level for the Holm-corrected exact tests",
+  "v": "5%"
+ },
+ "d.amp.hi": {
+  "raw": 40,
+  "src": "v7/bench_v7.json:v6/genB_texture (set names)",
+  "v": "40"
+ },
+ "d.amp.lo": {
+  "raw": 11,
+  "src": "v7/bench_v7.json:v6/genB_texture (set names)",
+  "v": "11"
+ },
+ "d.amps": {
+  "raw": [
+   11,
+   28,
+   40
+  ],
+  "src": "v7/bench_v7.json:v6/genB_texture (set names)",
+  "v": "11, 28 and 40"
+ },
+ "d.bin": {
+  "raw": 127,
+  "src": "scripts/perimage32.py: /def load_kvasir_one\\(ip, mp, max_side=\\d+, threshold=(\\d+)/",
+  "v": "127"
+ },
+ "d.black": {
+  "raw": 8,
+  "src": "v7/black_share_v7.json:definition",
+  "v": "8"
+ },
+ "d.ci": {
+  "raw": 95,
+  "src": "percentile intervals 2.5 to 97.5 in every analysis script",
+  "v": "95%"
+ },
+ "d.floor": {
+  "raw": 0.1,
+  "src": "definition (facts_v6.py FLOOR_T; group mean Dice)",
+  "v": "0.1"
+ },
+ "d.fs.ep": {
+  "raw": 30,
+  "src": "woundbench/deep.py: /^EPOCHS = (\\d+)/",
+  "v": "30"
+ },
+ "d.fs.lr": {
+  "raw": 0.001,
+  "src": "woundbench/deep.py: /^LR = ([0-9.e-]+)/",
+  "v": "0.001"
+ },
+ "d.fs.size": {
+  "raw": 128,
+  "src": "woundbench/deep.py: /^SIZE = (\\d+)/",
+  "v": "128"
+ },
+ "d.grid": {
+  "raw": [
+   0.05,
+   0.9
+  ],
+  "src": "kaggle2/rescore/*/grid_thresholds",
+  "v": "0.05 to 0.90"
+ },
+ "d.grid.step": {
+  "raw": 0.05,
+  "src": "kaggle2/rescore/*/grid_thresholds (step)",
+  "v": "0.05"
+ },
+ "d.kv.thr": {
+  "raw": 0.6,
+  "src": "results/kaggle/log.txt: /kvasir pixel classifiers .*; pixel threshold ([0-9.]+)/",
+  "v": "0.60"
+ },
+ "d.lb": {
+  "raw": 256,
+  "src": "kaggle2/kit_run.py: /^PT_SIZE = (\\d+)/",
+  "v": "256"
+ },
+ "d.maxside": {
+  "raw": 256,
+  "src": "scripts/perimage32.py: /def load_kvasir_one\\(ip, mp, max_side=(\\d+)/",
+  "v": "256"
+ },
+ "d.miss": {
+  "raw": 0.1,
+  "src": "v7/practical_v7.json:miss/0.1 (miss threshold)",
+  "v": "0.1"
+ },
+ "d.n.azh": {
+  "raw": 150,
+  "src": "perimage32/azh.json (images before exclusions)",
+  "v": "150"
+ },
+ "d.n.fus": {
+  "raw": 120,
+  "src": "perimage32/fuseg.json (images before exclusions)",
+  "v": "120"
+ },
+ "d.nn.ep": {
+  "raw": 100,
+  "src": "kaggle/kit_run.py: /\"NNUNET_EPOCHS\", \"(\\d+)\"/",
+  "v": "100"
+ },
+ "d.nn.thr": {
+  "raw": 0.5,
+  "src": "kaggle/kit_run.py: /\"nnunet_2d\": postprocess_prob\\(p, ([0-9.]+)\\)/",
+  "v": "0.5"
+ },
+ "d.nref": {
+  "raw": 11,
+  "src": "scripts/perimage_v6.py:REFS",
+  "v": "11"
+ },
+ "d.nsample": {
+  "raw": 150,
+  "src": "perimage32/<CO2Wounds-V2, CVC-ClinicDB, CVC-ColonDB, ETIS, PH2, TN3K>.json (images)",
+  "v": "150"
+ },
+ "d.nsd.tau": {
+  "raw": 2.0,
+  "src": "perimage32/*.json:nsd_tau",
+  "v": "2"
+ },
+ "d.nsd.tols": {
+  "raw": [
+   "nsd1",
+   "nsd2",
+   "nsd3",
+   "nsd5",
+   "nsd_diag1"
+  ],
+  "src": "v7/robust_v7.json:tolerance (nsd1, nsd3, nsd5, nsd_diag1)",
+  "v": "1, 3 and 5 pixels and at 1% of the image diagonal"
+ },
+ "d.one": {
+  "raw": 1,
+  "src": "definition of Spearman correlation",
+  "v": "1"
+ },
+ "d.pp.elem": {
+  "raw": 5,
+  "src": "woundbench/postproc.py: /^MORPH_KERNEL = (\\d+)/",
+  "v": "5"
+ },
+ "d.pp.minarea": {
+  "raw": 0.0005,
+  "src": "woundbench/postproc.py: /^MIN_COMPONENT_FRAC = ([0-9.]+)/",
+  "v": "0.05%"
+ },
+ "d.pp.sigma": {
+  "raw": 2.0,
+  "src": "woundbench/postproc.py: /^PROB_GAUSSIAN_SIGMA = ([0-9.]+)/",
+  "v": "2"
+ },
+ "d.pt.batch": {
+  "raw": 16,
+  "src": "kaggle2/k2_train.py: /^BATCH = (\\d+)/",
+  "v": "16"
+ },
+ "d.pt.lr": {
+  "raw": 0.0003,
+  "src": "kaggle2/k2_train.py: /AdamW\\(m\\.parameters\\(\\), lr=([0-9.e-]+)/",
+  "v": "0.0003"
+ },
+ "d.pt.wd": {
+  "raw": 0.0001,
+  "src": "kaggle2/k2_train.py: /AdamW\\(m\\.parameters\\(\\), lr=[0-9.e-]+, weight_decay=([0-9.e-]+)/",
+  "v": "0.0001"
+ },
+ "d.px.img": {
+  "raw": [
+   0,
+   249
+  ],
+  "src": "kaggle/kit_run.py: pixel classifier images range(0, n)",
+  "v": "0 to 249"
+ },
+ "d.px.n": {
+  "raw": 247975,
+  "src": "results/refit_14.log: /([\\d,]+) px x 14 features/",
+  "v": "247,975"
+ },
+ "d.px.thr": {
+  "raw": 0.9,
+  "src": "woundbench/methods.py: /^DEFAULT_LEARNED_THRESHOLD = ([0-9.]+)/",
+  "v": "0.90"
+ },
+ "d.px.thrimg": {
+  "raw": [
+   250,
+   399
+  ],
+  "src": "kaggle/kit_run.py: pixel threshold images",
+  "v": "250 to 399"
+ },
+ "d.seed0": {
+  "raw": 0,
+  "src": "v7/bench_v7.json:groups (training seed label)",
+  "v": "0"
+ },
+ "d.seed1": {
+  "raw": 1,
+  "src": "v7/bench_v7.json:groups (training seed label)",
+  "v": "1"
+ },
+ "d.seed2": {
+  "raw": 2,
+  "src": "v7/bench_v7.json:groups (training seed label)",
+  "v": "2"
+ },
+ "d.seeds": {
+  "raw": [
+   0,
+   1,
+   2
+  ],
+  "src": "v7/bench_v7.json:groups/N8_s* (training seeds)",
+  "v": "0, 1 and 2"
+ },
+ "d.seeds02": {
+  "raw": [
+   0,
+   2
+  ],
+  "src": "kaggle2/train_report_k2.json (manet_r50 seeds missing)",
+  "v": "0 and 2"
+ },
+ "d.seeds12": {
+  "raw": [
+   1,
+   2
+  ],
+  "src": "v7/bench_v7.json:groups (training seeds of the second session)",
+  "v": "1 and 2"
+ },
+ "d.splits": {
+  "raw": 500,
+  "src": "v7/stats_v7.json:definitions/n_splits",
+  "v": "500"
+ },
+ "d.syn.n": {
+  "raw": 45,
+  "src": "v7/bench_v7.json:checks/n_images_per_synth_set",
+  "v": "45"
+ },
+ "d.synseeds": {
+  "raw": [
+   2024,
+   7,
+   101
+  ],
+  "src": "v7/bench_v7.json:v6/genB_texture (set names, order of the kit)",
+  "v": "2024, 7 and 101"
+ },
+ "d.tex.res": {
+  "raw": 512,
+  "src": "woundbench/imagestats.py: /^CANONICAL_SIDE = (\\d+)/",
+  "v": "512"
+ },
+ "d.tex.win": {
+  "raw": 9,
+  "src": "woundbench/imagestats.py: /^WINDOW = (\\d+)/",
+  "v": "9"
+ },
+ "d.thr.img": {
+  "raw": [
+   400,
+   549
+  ],
+  "src": "kaggle/kit_run.py: threshold images",
+  "v": "400 to 549"
+ },
+ "d.tr.img": {
+  "raw": [
+   0,
+   392
+  ],
+  "src": "kaggle/kit_run.py: training images range(0, n)",
+  "v": "0 to 392"
+ },
+ "d.unet.params": {
+  "raw": 117681,
+  "src": "woundbench/deep.py: /([\\d,]+)-parameter U-Net/",
+  "v": "117,681"
+ },
+ "d.unet.thr": {
+  "raw": 0.5,
+  "src": "woundbench/methods.py: /^DEFAULT_UNET_THRESHOLD = ([0-9.]+)/",
+  "v": "0.5"
+ },
+ "d.zero": {
+  "raw": 0,
+  "src": "definition of Spearman correlation",
+  "v": "0"
+ },
  "d52.UFK.range": {
   "raw": [
    0.4560136395958089,
@@ -9991,6 +10343,14 @@
   ],
   "src": "v7/stats_v7.json:exact/dice|U,F,K/excl_within_source_52/diff",
   "v": "0.46 to 0.60"
+ },
+ "d52.UK.range": {
+  "raw": [
+   0.5234150464919697,
+   0.5953352004830427
+  ],
+  "src": "v7/stats_v7.json:exact/dice|U,K/excl_within_source_52/diff",
+  "v": "0.52 to 0.60"
  },
  "da.add.cap": {
   "raw": 0.25877570369670305,
@@ -10038,7 +10398,7 @@
   "v": "0.045"
  },
  "frac.ctrl": {
-  "raw": 0.008769132653061224,
+  "raw": 0.008838887117346938,
   "src": "perimage32/azh_train_slice.json:gt_fraction (median of kept images)",
   "v": "0.009"
  },
@@ -10126,6 +10486,14 @@
   "src": "v7/bench_v7.json:lomo/M19/<dropped>/bench",
   "v": "0.12 to 0.32"
  },
+ "lomo.M19.bench.and": {
+  "raw": [
+   0.11816305469556242,
+   0.31561747506019955
+  ],
+  "src": "v7/bench_v7.json:lomo/M19/<dropped>/bench (min and max)",
+  "v": "0.12 and 0.32"
+ },
  "md.F.azh": {
   "raw": 0.42112018428544784,
   "src": "v7/stats_v7.json:floor/mean_dice/F/azh",
@@ -10137,9 +10505,9 @@
   "v": "0.28"
  },
  "md.F.ctrl": {
-  "raw": 0.28385127975334307,
+  "raw": 0.2890631115148545,
   "src": "v7/stats_v7.json:floor/mean_dice/F/azh_train_slice",
-  "v": "0.28"
+  "v": "0.29"
  },
  "md.F.cvc1": {
   "raw": 0.0891429546056787,
@@ -10226,7 +10594,7 @@
   "v": "0.21 to 0.64"
  },
  "md.K.ctrl": {
-  "raw": 0.16237055275208573,
+  "raw": 0.1614294883162776,
   "src": "v7/stats_v7.json:floor/mean_dice/K/azh_train_slice",
   "v": "0.16"
  },
@@ -10302,9 +10670,9 @@
   "v": "0.44"
  },
  "md.M19.ctrl": {
-  "raw": 0.4745801415821418,
+  "raw": 0.479791535314785,
   "src": "v7/stats_v7.json:floor/mean_dice/M19/azh_train_slice",
-  "v": "0.47"
+  "v": "0.48"
  },
  "md.M19.cvc1": {
   "raw": 0.06777240790653444,
@@ -10383,9 +10751,9 @@
   "v": "0.43"
  },
  "md.N8s.ctrl": {
-  "raw": 0.5135465489695918,
+  "raw": 0.5185442280491998,
   "src": "v7/stats_v7.json:floor/mean_dice/N8s/azh_train_slice",
-  "v": "0.51"
+  "v": "0.52"
  },
  "md.N8s.cvc1": {
   "raw": 0.06508211083764422,
@@ -10467,7 +10835,7 @@
   "v": "0.07 to 0.23"
  },
  "md.U.ctrl": {
-  "raw": 0.24989701959229413,
+  "raw": 0.24875703873309638,
   "src": "v7/stats_v7.json:floor/mean_dice/U/azh_train_slice",
   "v": "0.25"
  },
@@ -10540,12 +10908,28 @@
   "src": "v7/stats_v7.json:point/dice|U,F,K/modality_diff",
   "v": "0.47 to 0.60"
  },
+ "mdiff.dice.UK.range": {
+  "raw": [
+   0.4977387996618766,
+   0.5961091942910921
+  ],
+  "src": "v7/stats_v7.json:point/dice|U,K/modality_diff",
+  "v": "0.50 to 0.60"
+ },
  "mdiff.nsd.UFK.range": {
   "raw": [
    0.420808918458918,
    0.6767681036911807
   ],
   "src": "v7/stats_v7.json:point/nsd|U,F,K/modality_diff",
+  "v": "0.42 to 0.68"
+ },
+ "mdiff.nsd.UK.range": {
+  "raw": [
+   0.420808918458918,
+   0.6767681036911807
+  ],
+  "src": "v7/stats_v7.json:point/nsd|U,K/modality_diff",
   "v": "0.42 to 0.68"
  },
  "miss.N8.azh": {
@@ -10591,17 +10975,17 @@
   "v": "10.3% to 39.7%"
  },
  "miss.N8.ctrl": {
-  "raw": 0.36267605633802813,
+  "raw": 0.35763888888888895,
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/N8_archmean/est",
-  "v": "36.3%"
+  "v": "35.8%"
  },
  "miss.N8.ctrl.ci": {
   "raw": [
-   0.2816865778001342,
-   0.4476443248532289
+   0.2751018316728933,
+   0.43981481481481477
   ],
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/N8_archmean/ci",
-  "v": "28.2% to 44.8%"
+  "v": "27.5% to 44.0%"
  },
  "miss.N8.fus": {
   "raw": 0.02546296296296296,
@@ -10659,17 +11043,17 @@
   "v": "18.4% to 40.4%"
  },
  "miss.P10.ctrl": {
-  "raw": 0.4690140845070423,
+  "raw": 0.4625,
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/P10_archmean/est",
-  "v": "46.9%"
+  "v": "46.2%"
  },
  "miss.P10.ctrl.ci": {
   "raw": [
-   0.3779391644717588,
-   0.5652622354497353
+   0.3707747064579256,
+   0.5533474025974026
   ],
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/P10_archmean/ci",
-  "v": "37.8% to 56.5%"
+  "v": "37.1% to 55.3%"
  },
  "miss.P10.fus": {
   "raw": 0.02685185185185185,
@@ -10727,17 +11111,17 @@
   "v": "10.3% to 40.4%"
  },
  "miss.P18.ctrl": {
-  "raw": 0.4217527386541471,
+  "raw": 0.415895061728395,
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/P18_archmean/est",
-  "v": "42.2%"
+  "v": "41.6%"
  },
  "miss.P18.ctrl.ci": {
   "raw": [
-   0.33601717659688674,
-   0.5129182750825945
+   0.3298161442692692,
+   0.5001363521055302
   ],
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/groups/P18_archmean/ci",
-  "v": "33.6% to 51.3%"
+  "v": "33.0% to 50.0%"
  },
  "miss.P18.fus": {
   "raw": 0.026234567901234563,
@@ -10812,17 +11196,17 @@
   "v": "19.3% to 33.3%"
  },
  "miss.nn.ctrl": {
-  "raw": 0.014084507042253521,
+  "raw": 0.013888888888888888,
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/per_architecture/nnunet_2d/mean",
   "v": "1.4%"
  },
  "miss.nn.ctrl.ci": {
   "raw": [
    0.0,
-   0.046153846153846156
+   0.04413410886742748
   ],
   "src": "v7/practical_v7.json:miss/0.1/azh_train_slice/per_architecture/nnunet_2d/ci_of_seed_mean",
-  "v": "0.0% to 4.6%"
+  "v": "0.0% to 4.4%"
  },
  "miss.nn.fus": {
   "raw": 0.046296296296296294,
@@ -10880,6 +11264,11 @@
   "src": "v7/stats_v7.json:definitions/method_sets/K/n",
   "v": "14"
  },
+ "n.K11": {
+  "raw": 11,
+  "src": "v7/robust_v7.json:definitions/groups/K11/n",
+  "v": "11"
+ },
  "n.M": {
   "raw": 11,
   "src": "v7/stats_v7.json:definitions/method_sets/M/n",
@@ -10894,6 +11283,21 @@
   "raw": 19,
   "src": "v7/stats_v7.json:definitions/method_sets/M19/n",
   "v": "19"
+ },
+ "n.M19s0": {
+  "raw": 18,
+  "src": "v7/practical_v7.json:candidate_sets/M19_s0",
+  "v": "18"
+ },
+ "n.M19s1": {
+  "raw": 19,
+  "src": "v7/practical_v7.json:candidate_sets/M19_s1",
+  "v": "19"
+ },
+ "n.M19s2": {
+  "raw": 17,
+  "src": "v7/practical_v7.json:candidate_sets/M19_s2",
+  "v": "17"
  },
  "n.N7": {
   "raw": 7,
@@ -10949,6 +11353,11 @@
   "raw": 150,
   "src": "stats_v7 n_images + exclusions",
   "v": "150"
+ },
+ "n.cross36": {
+  "raw": 36,
+  "src": "6 ordered seed pairs (s != t of 3 seeds) x wound pairs (stats_v7 seeds crossseed)",
+  "v": "36"
  },
  "n.ctrl.before": {
   "raw": 150,
@@ -11021,9 +11430,9 @@
   "v": "4"
  },
  "n.excl.ctrl": {
-  "raw": 73,
+  "raw": 72,
   "src": "exclusions_v6.json:azh_train_slice",
-  "v": "73"
+  "v": "72"
  },
  "n.excl.ctrl.azhdup": {
   "raw": 2,
@@ -11031,9 +11440,9 @@
   "v": "2"
  },
  "n.excl.ctrl.crop": {
-  "raw": 71,
+  "raw": 70,
   "src": "exclusions_v6.json reasons",
-  "v": "71"
+  "v": "70"
  },
  "n.excl.ctrl.mininl": {
   "raw": 25,
@@ -11046,9 +11455,9 @@
   "v": "51"
  },
  "n.excl.ctrl.val": {
-  "raw": 20,
+  "raw": 19,
   "src": "exclusions_v6.json reasons",
-  "v": "20"
+  "v": "19"
  },
  "n.excl.fus": {
   "raw": 8,
@@ -11076,9 +11485,9 @@
   "v": "150"
  },
  "n.img.ctrl": {
-  "raw": 77,
+  "raw": 78,
   "src": "v7/stats_v7.json:n_images/azh_train_slice",
-  "v": "77"
+  "v": "78"
  },
  "n.img.cvc1": {
   "raw": 150,
@@ -11135,10 +11544,70 @@
   "src": "design: manet_r18 seeds 1, 2; manet_r50 seeds 0, 1, 2",
   "v": "5"
  },
+ "n.ord": {
+  "raw": 12,
+  "src": "ordered pairs of wound datasets (selection off-diagonal)",
+  "v": "12"
+ },
  "n.other.run2": {
   "raw": 39,
   "src": "design",
   "v": "39"
+ },
+ "n.pairs": {
+  "raw": 55,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "55"
+ },
+ "n.pairs.across": {
+  "raw": 39,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "39"
+ },
+ "n.pairs.colon": {
+  "raw": 10,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "10"
+ },
+ "n.pairs.dsrc": {
+  "raw": 13,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "13"
+ },
+ "n.pairs.oacross": {
+  "raw": 11,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "11"
+ },
+ "n.pairs.same": {
+  "raw": 16,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "16"
+ },
+ "n.pairs.src": {
+  "raw": 3,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "3"
+ },
+ "n.pairs.w_out": {
+  "raw": 28,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "28"
+ },
+ "n.pairs.wdiff": {
+  "raw": 5,
+  "src": "wound pairs from different sources",
+  "v": "5"
+ },
+ "n.pairs.wound": {
+  "raw": 6,
+  "src": "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)",
+  "v": "6"
+ },
+ "n.pairs52": {
+  "raw": 52,
+  "src": "pairs minus within-source pairs",
+  "v": "52"
  },
  "n.pre": {
   "raw": 18,
@@ -11191,9 +11660,9 @@
   "v": "150"
  },
  "n.unit.ctrl": {
-  "raw": 70,
+  "raw": 71,
   "src": "v7/stats_v7.json:n_units/azh_train_slice",
-  "v": "70"
+  "v": "71"
  },
  "n.unit.cvc1": {
   "raw": 150,
@@ -11448,6 +11917,19 @@
   "src": "v7/stats_v7.json:dice_noempty/U+K/p",
   "v": "0.00014, the smallest attainable"
  },
+ "ne.UK.pmax": {
+  "raw": 0.0005772005772005772,
+  "src": "v7/stats_v7.json:dice_noempty/U,K/p (max)",
+  "v": "0.00058"
+ },
+ "ne.UK.range": {
+  "raw": [
+   0.5011975204282897,
+   0.5970520444100073
+  ],
+  "src": "v7/stats_v7.json:dice_noempty/U,K/modality_diff",
+  "v": "0.50 to 0.60"
+ },
  "ne.UK.wound": {
   "raw": 0.24792277614858263,
   "src": "v7/stats_v7.json:dice_noempty/U+K/wound pairs",
@@ -11564,19 +12046,24 @@
   "v": "47"
  },
  "ov.ctrl.new": {
-  "raw": 24,
+  "raw": 23,
   "src": "v7/exclusions_v6_summary.json:azh_train_slice/n_new_crops_excluded",
-  "v": "24"
+  "v": "23"
  },
  "ov.ctrl.new.ref": {
-  "raw": 8,
+  "raw": 7,
   "src": "v7/exclusions_v6_summary.json:azh_train_slice/new_crops_by_use/reference",
-  "v": "8"
+  "v": "7"
  },
  "ov.ctrl.new.train": {
   "raw": 16,
   "src": "v7/exclusions_v6_summary.json:azh_train_slice/new_crops_by_use/train",
   "v": "16"
+ },
+ "ov.ctrl.unused": {
+  "raw": 1,
+  "src": "v7/exclusions_v6_summary.json:azh_train_slice/n_new_crops_kept_unused_frames + n_v5_kept_by_rule",
+  "v": "1"
  },
  "ov.ctrl.v5": {
   "raw": 47,
@@ -11702,6 +12189,11 @@
   "raw": 0.0001443001443001443,
   "src": "v7/stats_v7.json:exact/dice|U+K/full_55/p",
   "v": "0.00014"
+ },
+ "p.dice.UK.max": {
+  "raw": 0.0005772005772005772,
+  "src": "v7/stats_v7.json:exact/dice|U,K/full_55/p (max)",
+  "v": "0.00058"
  },
  "p.dice.UK.t": {
   "raw": 0.0001443001443001443,
@@ -11833,6 +12325,11 @@
   "src": "v7/stats_v7.json:exact/nsd|U+K/full_55/p",
   "v": "0.00014"
  },
+ "p.nsd.UK.max": {
+  "raw": 0.0004329004329004329,
+  "src": "v7/stats_v7.json:exact/nsd|U,K/full_55/p (max)",
+  "v": "0.00043"
+ },
  "p.nsd.UK.t": {
   "raw": 0.0001443001443001443,
   "src": "v7/stats_v7.json:exact/nsd|U+K/full_55/p",
@@ -11862,6 +12359,11 @@
   "raw": 0.00909090909090909,
   "src": "v7/stats_v7.json:exact/dice|U,F,K/excl_within_source_52/p (max)",
   "v": "0.0091"
+ },
+ "p52.UK.max": {
+  "raw": 0.0001443001443001443,
+  "src": "v7/stats_v7.json:exact/dice|U,K/excl_within_source_52/p (max)",
+  "v": "0.00014"
  },
  "p52.dice.ALL": {
   "raw": 0.0001443001443001443,
@@ -12540,6 +13042,201 @@
   "src": "v7/robust_pooled_v7.json:composition_summary/U+M19|wound/range_within_U",
   "v": "0.35 to 0.64"
  },
+ "rv.U.nofus": {
+  "raw": 0.348469212246302,
+  "src": "v7/review_v7.json:R2_M6_floor/U_wound_pairs_without_fuseg_3pairs",
+  "v": "0.35"
+ },
+ "rv.bd.K": {
+  "raw": 0.8967032967032968,
+  "src": "v7/review_v7.json:R3_m7_per_reference_benchmark_differences/K/difference/est",
+  "v": "0.90"
+ },
+ "rv.bd.K.m": {
+  "raw": [
+   0.15659833440102494,
+   1.5034014417101662
+  ],
+  "src": "v7/review_v7.json:R3_m7_per_reference_benchmark_differences/K/difference/ci95",
+  "v": "0.16 to 1.50"
+ },
+ "rv.bd.U": {
+  "raw": 0.4871001031991745,
+  "src": "v7/review_v7.json:R3_m7_per_reference_benchmark_differences/U/difference/est",
+  "v": "0.49"
+ },
+ "rv.bd.U.m": {
+  "raw": [
+   -0.03388574079597061,
+   1.051621898581322
+  ],
+  "src": "v7/review_v7.json:R3_m7_per_reference_benchmark_differences/U/difference/ci95",
+  "v": "−0.03 to 1.05"
+ },
+ "rv.dwd.nn": {
+  "raw": 0.6826931231734649,
+  "src": "v7/review_v7.json:R2_M3_scale/dice_when_detected_azh/nnunet",
+  "v": "0.68"
+ },
+ "rv.dwd.pre": {
+  "raw": 0.7885863415656638,
+  "src": "v7/review_v7.json:R2_M3_scale/dice_when_detected_azh/P18_architecture_mean",
+  "v": "0.79"
+ },
+ "rv.gapdiff": {
+  "raw": 0.4169973544973544,
+  "src": "v7/review_v7.json:R3_M3_seed_gap_subgroups/gap_P9_minus_N7/est",
+  "v": "0.42"
+ },
+ "rv.gapdiff.m": {
+  "raw": [
+   -0.06596109240553717,
+   0.8277678342883018
+  ],
+  "src": "v7/review_v7.json:R3_M3_seed_gap_subgroups/gap_P9_minus_N7/ci95",
+  "v": "−0.07 to 0.83"
+ },
+ "rv.half.indep": {
+  "raw": 0.3564191176470588,
+  "src": "v7/review_v7.json:R3_M4_shared_images/half_splits/C16/independent_halves",
+  "v": "0.36"
+ },
+ "rv.half.shared": {
+  "raw": 0.45382516339869283,
+  "src": "v7/review_v7.json:R3_M4_shared_images/half_splits/C16/shared_halves",
+  "v": "0.45"
+ },
+ "rv.holm.max": {
+  "raw": 0.009235209235209235,
+  "src": "v7/review_v7.json:R3_M1_holm/largest_adjusted_p",
+  "v": "0.0092"
+ },
+ "rv.holm.max.t": {
+  "raw": 0.009235209235209235,
+  "src": "v7/review_v7.json:R3_M1_holm/largest_adjusted_p",
+  "v": "0.0092"
+ },
+ "rv.holm.nsets": {
+  "raw": 7,
+  "src": "v7/review_v7.json:R3_M1_holm/n_tests",
+  "v": "7"
+ },
+ "rv.ident.UM19.sw": {
+  "raw": 0.2762239010116769,
+  "src": "v7/review_v7.json:R3_m1_stratification_identity/dice|U+M19/weighted_avg_ng_minus_1_over_ng_wound_pairs",
+  "v": "0.28"
+ },
+ "rv.ident.maxmean": {
+  "raw": 0.0003281034851612368,
+  "src": "v7/review_v7.json:R3_m1_stratification_identity/*/mean_over_55_pairs_diff (max; bound printed)",
+  "v": "0.001"
+ },
+ "rv.ident.maxpair": {
+  "raw": 0.0054157784557322675,
+  "src": "v7/review_v7.json:R3_m1_stratification_identity/*/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng (max)",
+  "v": "0.005"
+ },
+ "rv.mag.nn": {
+  "raw": 0.8339756618974525,
+  "src": "v7/review_v7.json:R2_M3_scale/magnification_vs_fuseg_training_input/nnunet_native",
+  "v": "0.83"
+ },
+ "rv.mag.pre": {
+  "raw": 1.9062300843370343,
+  "src": "v7/review_v7.json:R2_M3_scale/magnification_vs_fuseg_training_input/pretrained_letterbox",
+  "v": "1.9"
+ },
+ "rv.missdiff": {
+  "raw": 0.05655637254901963,
+  "src": "v7/review_v7.json:R3_m9_azh_miss_original_minus_new/difference_units_only/est",
+  "v": "5.7"
+ },
+ "rv.missdiff.fix": {
+  "raw": [
+   0.033628853785103774,
+   0.07984264365468413
+  ],
+  "src": "v7/review_v7.json:R3_m9_azh_miss_original_minus_new/difference_units_only/ci95",
+  "v": "3.4 to 8.0"
+ },
+ "rv.missdiff.res": {
+  "raw": [
+   -0.007826666666666671,
+   0.12950922184567254
+  ],
+  "src": "v7/review_v7.json:R3_m9_azh_miss_original_minus_new/difference_units_and_architectures/ci95",
+  "v": "−0.8 to 13.0"
+ },
+ "rv.orc.co2": {
+  "raw": 0.9615384615384616,
+  "src": "v7/review_v7.json:R2_M5_oracle_grid_censoring/co2wounds/share_at_grid_min_0.05",
+  "v": "96.2%"
+ },
+ "rv.orc.med": {
+  "raw": 0.9230769230769231,
+  "src": "v7/review_v7.json:R2_M5_oracle_grid_censoring/medetec/share_at_grid_min_0.05",
+  "v": "92.3%"
+ },
+ "rv.rel.UFK": {
+  "raw": [
+   0.8392857142857142,
+   0.9937694704049844
+  ],
+  "src": "v7/review_v7.json:R3_m2_split_half_reliability/U_F_K_pooled_range_11_clinical",
+  "v": "0.84 to 0.99"
+ },
+ "rv.scale": {
+  "raw": 1.1990757592671357,
+  "src": "v7/review_v7.json:R2_M3_scale/sift_scale_fuseg_px_per_azh_px/median_all_61_matched_test_images",
+  "v": "1.20"
+ },
+ "rv.sel.B": {
+  "raw": 2000,
+  "src": "v7/review_v7.json:R3_M5_selection/M19/unit_bootstrap/B",
+  "v": "2,000"
+ },
+ "rv.sel.diff": {
+  "raw": -0.015688648908764098,
+  "src": "v7/review_v7.json:R3_M5_selection/M19/unit_bootstrap/chooser_minus_random/est",
+  "v": "−0.016"
+ },
+ "rv.sel.diff.ci": {
+  "raw": [
+   -0.03289356372996421,
+   0.002837835303282045
+  ],
+  "src": "v7/review_v7.json:R3_M5_selection/M19/unit_bootstrap/chooser_minus_random/ci95",
+  "v": "−0.033 to 0.003"
+ },
+ "rv.sel.half": {
+  "raw": [
+   0.0012912493682882707,
+   0.02358770836553694
+  ],
+  "src": "v7/review_v7.json:R3_M5_selection/M19/half_split_same_dataset/range",
+  "v": "0.001 to 0.024"
+ },
+ "rv.sel.off.ci": {
+  "raw": [
+   0.03161412227115699,
+   0.07301185798120978
+  ],
+  "src": "v7/review_v7.json:R3_M5_selection/M19/unit_bootstrap/chooser_loss/ci95",
+  "v": "0.032 to 0.073"
+ },
+ "rv.sel.rand.ci": {
+  "raw": [
+   0.05510963954255226,
+   0.08083594758153315
+  ],
+  "src": "v7/review_v7.json:R3_M5_selection/M19/unit_bootstrap/random_loss/ci95",
+  "v": "0.055 to 0.081"
+ },
+ "rv.syn.seedagree": {
+  "raw": 0.9345029239766083,
+  "src": "v7/review_v7.json:R3_m17_synthetic_reliability/between_synthetic_seeds_mean_spearman",
+  "v": "0.93"
+ },
  "s.dice.UF.mdiff": {
   "raw": 0.539226667463925,
   "src": "v7/stats_v7.json:stratified/dice|U+F/pearson_on_percentiles/modality_diff",
@@ -12873,6 +13570,14 @@
   "src": "v7/stats_v7.json:seeds/dice|N7/summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/est",
   "v": "0.08"
  },
+ "sd.gap.N7.h": {
+  "raw": [
+   -0.1605195473251029,
+   0.48588416848220767
+  ],
+  "src": "v7/stats_v7.json:seeds/dice|N7/summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/hierarchical",
+  "v": "−0.16 to 0.49"
+ },
  "sd.gap.N7.m": {
   "raw": [
    -0.12997903563941302,
@@ -12885,6 +13590,14 @@
   "raw": 0.4953703703703703,
   "src": "v7/stats_v7.json:seeds/dice|P9/summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/est",
   "v": "0.50"
+ },
+ "sd.gap.P9.h": {
+  "raw": [
+   0.07723013493253372,
+   0.8123916004398462
+  ],
+  "src": "v7/stats_v7.json:seeds/dice|P9/summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/hierarchical",
+  "v": "0.08 to 0.81"
  },
  "sd.gap.P9.m": {
   "raw": [
@@ -12909,6 +13622,26 @@
   ],
   "src": "v7/stats_v7.json:seeds/dice|C16/summary/gap|wound: same-dataset cross-seed minus cross-dataset cross-seed/method_boot",
   "v": "0.11 to 0.57"
+ },
+ "sd.pair.co2_fus": {
+  "raw": -0.005882352941176505,
+  "src": "v7/stats_v7.json:seeds/disattenuation/dice|C16/wound_pairs/co2wounds~fuseg/observed_seedavg",
+  "v": "−0.01"
+ },
+ "sd.pair.fus_azh": {
+  "raw": 0.17058823529411762,
+  "src": "v7/stats_v7.json:seeds/disattenuation/dice|C16/wound_pairs/fuseg~azh/observed_seedavg",
+  "v": "0.17"
+ },
+ "sd.pair.med_co2": {
+  "raw": 0.6764705882352942,
+  "src": "v7/stats_v7.json:seeds/disattenuation/dice|C16/wound_pairs/medetec~co2wounds/observed_seedavg",
+  "v": "0.68"
+ },
+ "sd.pair.med_fus": {
+  "raw": -0.20588235294117654,
+  "src": "v7/stats_v7.json:seeds/disattenuation/dice|C16/wound_pairs/medetec~fuseg/observed_seedavg",
+  "v": "−0.21"
  },
  "sd.rbar": {
   "raw": 0.44019607843137254,
@@ -12947,25 +13680,25 @@
   "v": "0.20 to 0.59"
  },
  "sd.rbar.ctrl": {
-  "raw": 0.8392156862745098,
+  "raw": 0.8323529411764706,
   "src": "v7/stats_v7.json:seeds/dice|C16/summary/rbar_control/est",
-  "v": "0.84"
+  "v": "0.83"
  },
  "sd.rbar.ctrl.h": {
   "raw": [
-   0.4950057405281285,
-   0.9308723773826391
+   0.47962650931321216,
+   0.9345958856717054
   ],
   "src": "v7/stats_v7.json:seeds/dice|C16/summary/rbar_control/hierarchical",
-  "v": "0.50 to 0.93"
+  "v": "0.48 to 0.93"
  },
  "sd.rbar.ctrl.m": {
   "raw": [
-   0.560154772134601,
-   0.9430031930599586
+   0.5465800234098929,
+   0.9416923122014128
   ],
   "src": "v7/stats_v7.json:seeds/dice|C16/summary/rbar_control/method_boot",
-  "v": "0.56 to 0.94"
+  "v": "0.55 to 0.94"
  },
  "sd.rbar.h": {
   "raw": [
@@ -13326,6 +14059,21 @@
   "src": "v7/practical_v7.json:clinical_best_by_training_seed/<wound>/M19_s0..2/model (architecture differs)",
   "v": "three"
  },
+ "sel.fus.rand": {
+  "raw": 0.0747195249009437,
+  "src": "v7/practical_v7.json:selection/M19/random_choice_expected_loss/<other 3 than fuseg> (mean)",
+  "v": "0.075"
+ },
+ "sel.fus.row": {
+  "raw": 0.1006678584802343,
+  "src": "v7/practical_v7.json:selection/M19/matrix_rows_choose_on_cols_deploy_on/fuseg/<other 3> (mean)",
+  "v": "0.101"
+ },
+ "sel.nn.azh.dice": {
+  "raw": 0.6272606776470105,
+  "src": "v7/practical_v7.json:spread/M19/azh/means/nnunet_2d",
+  "v": "0.63"
+ },
  "sel.off": {
   "raw": 0.047639330925014635,
   "src": "v7/practical_v7.json:selection/M19/offdiag_mean",
@@ -13639,6 +14387,11 @@
   ],
   "src": "v7/robust_v7.json:threshold/common/M19|0.50/wound pairs/ci",
   "v": "0.14 to 0.63"
+ },
+ "thr.c50.t": {
+  "raw": 0.5,
+  "src": "v7/robust_v7.json:threshold/common/M19|0.50",
+  "v": "0.5"
  },
  "thr.c90": {
   "raw": 0.6248538011695906,
@@ -14141,6 +14894,11 @@
   "src": "v7/bench_v7.json:texture/U+M19/<wound>/lo > 0",
   "v": "4"
  },
+ "tx.expect": {
+  "raw": 0.8,
+  "src": "tx.within.tot x 0.05 (intervals expected to exclude 0 with no effect)",
+  "v": "0.8"
+ },
  "tx.within.n": {
   "raw": 1,
   "src": "v7/bench_v7.json:texture/U,F,K,M19/<wound>/lo,hi (intervals excluding 0)",
@@ -14165,6 +14923,46 @@
   "raw": "2.11.0+cu128",
   "src": "kaggle2/train_report_k2.json:*/versions/torch",
   "v": "2.11.0"
+ },
+ "w.N8.n": {
+  "raw": 8,
+  "src": "v7/bench_v7.json:groups/N8s",
+  "v": "eight"
+ },
+ "w.N8s02.n": {
+  "raw": 7,
+  "src": "v7/bench_v7.json:groups/N8_s0, N8_s2",
+  "v": "seven"
+ },
+ "w.P10.n": {
+  "raw": 10,
+  "src": "v7/bench_v7.json:groups/P10s",
+  "v": "ten"
+ },
+ "w.P10s2.n": {
+  "raw": 9,
+  "src": "v7/bench_v7.json:groups/P10_s2",
+  "v": "nine"
+ },
+ "w.ctrl.unused.cap": {
+  "raw": 1,
+  "src": "ov.ctrl.unused (word)",
+  "v": "One"
+ },
+ "w.nmod": {
+  "raw": 4,
+  "src": "scripts/perimage_v6.py:MODALITY (distinct)",
+  "v": "four"
+ },
+ "w.nref.cap": {
+  "raw": 11,
+  "src": "scripts/perimage_v6.py:REFS (word)",
+  "v": "Eleven"
+ },
+ "w.nsrc": {
+  "raw": 8,
+  "src": "scripts/perimage_v6.py:SOURCE (distinct)",
+  "v": "eight"
  },
  "ws.bad": {
   "raw": 322,

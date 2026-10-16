@@ -14,28 +14,33 @@ const LINK = "28598A";
 const W = 9360;
 const FONT = "Times New Roman";
 
-// Inline markup: **bold**, *italic*. Kept deliberately small.
+// Inline markup: **bold**, *italic*, x_{sub}, x^{sup}; $...$ marks a formula (the
+// markers are dropped; build_v6.js allows literal digits only inside formulas).
 function runs(text, base = {}) {
   const out = [];
-  const re = /(\*\*[^*]+\*\*|\*[^*]+\*)/g;
+  const re = /(\*\*[^*]+\*\*|\*[^*]+\*|_\{[^}]+\}|\^\{[^}]+\})/g;
+  text = String(text).replace(/\$/g, "");
   let last = 0, m;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) out.push({ t: text.slice(last, m.index) });
     const s = m[0];
     if (s.startsWith("**")) out.push({ t: s.slice(2, -2), b: true });
+    else if (s.startsWith("_{")) out.push({ t: s.slice(2, -1), sub: true });
+    else if (s.startsWith("^{")) out.push({ t: s.slice(2, -1), sup: true });
     else out.push({ t: s.slice(1, -1), i: true });
     last = m.index + s.length;
   }
   if (last < text.length) out.push({ t: text.slice(last) });
   return out.map(r => new TextRun({
     text: r.t, font: FONT, size: base.size || 22, bold: r.b || base.bold,
-    italics: r.i || base.italics, color: base.color || INK
+    italics: r.i || base.italics, color: base.color || INK,
+    subScript: !!r.sub, superScript: !!r.sup
   }));
 }
 
 function p(text, o = {}) {
   return new Paragraph({
-    alignment: o.align || AlignmentType.JUSTIFIED,
+    alignment: o.align || AlignmentType.LEFT,
     spacing: { after: o.after === undefined ? 140 : o.after, line: 276 },
     indent: o.indent,
     keepNext: o.keepNext,
@@ -142,17 +147,20 @@ function rule(after = 260) {
   });
 }
 
-// Reference entry with hanging indent; a trailing URL becomes a working link.
+// Reference entry with hanging indent; a URL (at the end or inside, as in
+// "Available at URL. Accessed ...") becomes a working link.
 function ref(text) {
-  const m = text.match(/(https?:\/\/\S+)$/);
+  const m = text.match(/https?:\/\/\S+?(?=\.?(?:\s|$))/);
   const head = m ? text.slice(0, m.index) : text;
+  const tail = m ? text.slice(m.index + m[0].length) : "";
   const children = runs(head, { size: 19 });
   if (m) {
     children.push(new ExternalHyperlink({
-      link: m[1],
-      children: [new TextRun({ text: m[1], font: FONT, size: 19, color: LINK,
+      link: m[0],
+      children: [new TextRun({ text: m[0], font: FONT, size: 19, color: LINK,
                                underline: { type: "single", color: LINK } })]
     }));
+    if (tail) children.push(...runs(tail, { size: 19 }));
   }
   return new Paragraph({
     alignment: AlignmentType.LEFT,

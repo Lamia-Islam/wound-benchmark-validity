@@ -51,7 +51,7 @@ Short answer: the composition effect, judged by all three criteria (C1 to C3, de
   - dice|U+K11 (stats_v7 is U+K, 14 Kvasir methods): wound pairs 0.2001 vs 0.2702; wound vs other 0.0803 vs 0.0985; modality_diff 0.6668 vs 0.6773; stratified wound pairs 0.3154 vs 0.3558; exact p 0.00014 vs 0.00014
   - nsd2|U+K11 (stats_v7 is U+K, 14 Kvasir methods): wound pairs 0.5540 vs 0.5537; wound vs other 0.1184 vs 0.1332; modality_diff 0.7512 vs 0.7180; stratified wound pairs 0.4553 vs 0.4636; exact p 0.00014 vs 0.00014
 - Independent route (scipy spearmanr) for pooled wound pairs and wound vs other, 24 values: max abs difference 3.3e-16.
-- Kept images: medetec 152, co2wounds 150, fuseg 112, azh 146, kvasir_disjoint 120, kvasir_sessile 120, cvc_clinicdb 150, cvc_colondb 150, etis_larib 150, ph2 150, tn3k_test 150, azh_train_slice 77, fuseg_r256 112.
+- Kept images: medetec 152, co2wounds 150, fuseg 112, azh 146, kvasir_disjoint 120, kvasir_sessile 120, cvc_clinicdb 150, cvc_colondb 150, etis_larib 150, ph2 150, tn3k_test 150, azh_train_slice 78, fuseg_r256 112.
 
 ## 1. Composition effect under every condition (wound domain)
 

@@ -240,9 +240,9 @@ Written by `scripts/v7/fig_v6.py` while drawing; every value below is the exact 
 | a | different dataset, different seed: mean of 6 pairs | estimate | 0.089706 | `stats_v7.json['seeds']['dice|C16']['summary']['crossseed|wound pairs']['est']` |
 | a | different dataset, different seed: mean of 6 pairs | 95% lower | -0.122449 | `stats_v7.json['seeds']['dice|C16']['summary']['crossseed|wound pairs']['method_boot'][0]` |
 | a | different dataset, different seed: mean of 6 pairs | 95% upper | 0.324722 | `stats_v7.json['seeds']['dice|C16']['summary']['crossseed|wound pairs']['method_boot'][1]` |
-| a | control: Control images, different seed | estimate | 0.839216 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['est']` |
-| a | control: Control images, different seed | 95% lower | 0.560155 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['method_boot'][0]` |
-| a | control: Control images, different seed | 95% upper | 0.943003 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['method_boot'][1]` |
+| a | control: Control images, different seed | estimate | 0.832353 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['est']` |
+| a | control: Control images, different seed | 95% lower | 0.546580 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['method_boot'][0]` |
+| a | control: Control images, different seed | 95% upper | 0.941692 | `stats_v7.json['seeds']['dice|C16']['summary']['rbar_control']['method_boot'][1]` |
 | b | common threshold 0.05 | estimate | 0.360819 | `robust_v7.json['threshold']['common']['M19|0.05']['wound pairs']['est']` |
 | b | common threshold 0.05 | 95% lower | 0.039633 | `robust_v7.json['threshold']['common']['M19|0.05']['wound pairs']['ci'][0]` |
 | b | common threshold 0.05 | 95% upper | 0.635767 | `robust_v7.json['threshold']['common']['M19|0.05']['wound pairs']['ci'][1]` |

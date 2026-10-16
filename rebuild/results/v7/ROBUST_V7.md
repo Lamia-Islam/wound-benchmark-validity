@@ -38,7 +38,7 @@ Verdict: post-processing, NSD tolerance and resolution do not change either conc
   - K11|dice: wound pairs 0.258 vs 0.258; colonoscopy pairs 0.713 vs 0.713; modality_diff 0.459 vs 0.459
   - K11|nsd2: wound pairs 0.182 vs 0.182; colonoscopy pairs 0.863 vs 0.863; modality_diff 0.605 vs 0.605
 - P0 Dice equals the grid Dice at each model's own threshold: max abs difference 0.0e+00; models with off-grid thresholds: 0.
-- Rescore files align with `results/perimage32` (same n and empty-reference flags; same lesion fraction except fuseg_r256). Kept images: medetec 152, co2wounds 150, fuseg 112, azh 146, kvasir_disjoint 120, kvasir_sessile 120, cvc_clinicdb 150, cvc_colondb 150, etis_larib 150, ph2 150, tn3k_test 150, azh_train_slice 77, fuseg_r256 112.
+- Rescore files align with `results/perimage32` (same n and empty-reference flags; same lesion fraction except fuseg_r256). Kept images: medetec 152, co2wounds 150, fuseg 112, azh 146, kvasir_disjoint 120, kvasir_sessile 120, cvc_clinicdb 150, cvc_colondb 150, etis_larib 150, ph2 150, tn3k_test 150, azh_train_slice 78, fuseg_r256 112.
 
 ## 1. Post-processing
 
@@ -59,7 +59,7 @@ Agreement summaries, estimate [95% method-bootstrap interval]. The last column i
 | K11 | nsd2 | P1 | 0.114 [-0.199, 0.511] | 0.830 [0.550, 0.938] | 0.595 [0.274, 0.869] | -0.068 [-0.206, 0.012] |
 | K11 | nsd2 | P2 | 0.174 [-0.192, 0.592] | 0.838 [0.556, 0.944] | 0.610 [0.250, 0.919] | -0.008 [-0.159, 0.174] |
 
-Does post-processing reorder methods? Spearman between variants of the per-method means on each dataset. On the non-floor sets (medetec, co2wounds, fuseg, azh, azh_train_slice, fuseg_r256) the lowest value is M19|dice 0.900 (fuseg_r256); M19|nsd2 0.726 (co2wounds); K11|dice 0.964 (fuseg_r256); K11|nsd2 0.918 (azh_train_slice).
+Does post-processing reorder methods? Spearman between variants of the per-method means on each dataset. On the non-floor sets (medetec, co2wounds, fuseg, azh, azh_train_slice, fuseg_r256) the lowest value is M19|dice 0.900 (fuseg_r256); M19|nsd2 0.726 (co2wounds); K11|dice 0.964 (fuseg_r256); K11|nsd2 0.909 (azh_train_slice).
 
 | dataset | M19 Dice P0~P1 | P0~P2 | M19 mean Dice P0/P1/P2 | M19 NSD P0~P1 | P0~P2 | K11 Dice P0~P1 | P0~P2 | K11 NSD P0~P1 | P0~P2 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ Does post-processing reorder methods? Spearman between variants of the per-metho
 | etis_larib | 0.972 | 0.984 | 0.023/0.022/0.022 | 0.932 | 0.942 | 0.991 | 0.991 | 0.982 | 0.982 |
 | ph2 | 0.998 | 0.998 | 0.048/0.047/0.048 | 0.981 | 0.968 | 0.973 | 0.973 | 0.991 | 1.000 |
 | tn3k_test | 1.000 | 1.000 | 0.015/0.015/0.015 | 0.998 | 0.998 | 1.000 | 1.000 | 0.982 | 0.927 |
-| azh_train_slice | 0.993 | 0.995 | 0.475/0.469/0.473 | 0.953 | 0.949 | 0.991 | 0.973 | 0.991 | 0.918 |
+| azh_train_slice | 0.993 | 0.995 | 0.480/0.475/0.478 | 0.951 | 0.961 | 1.000 | 0.973 | 0.991 | 0.909 |
 | fuseg_r256 | 0.900 | 0.923 | 0.781/0.788/0.794 | 0.902 | 0.916 | 0.973 | 0.964 | 0.991 | 0.991 |
 
 ## 2. NSD tolerance (P0)
@@ -146,7 +146,7 @@ Oracle effect per dataset (M19): group mean Dice at default and oracle threshold
 | etis_larib | 0.023 | 0.030 | 1.00 | 1.00 | 0.05 | 0.840 |
 | ph2 | 0.048 | 0.075 | 1.00 | 1.00 | 0.05 | 0.928 |
 | tn3k_test | 0.015 | 0.027 | 1.00 | 0.96 | 0.05 | 0.963 |
-| azh_train_slice | 0.475 | 0.509 | 0.96 | 0.54 | 0.05 | 0.940 |
+| azh_train_slice | 0.480 | 0.513 | 0.96 | 0.54 | 0.05 | 0.940 |
 
 ## 4. Resolution: fuseg vs fuseg_r256 (P0)
 
@@ -176,7 +176,7 @@ Mean Dice per dataset (kept images). gt box = one box per reference component (o
 | etis_larib | 150 | 0.896 | 0.798 | 0.750 | 0.021 | 0.021 | 0.020 | 0.020 |
 | ph2 | 150 | 0.887 | 0.813 | 0.561 | 0.471 | 0.283 | 0.440 | 0.440 |
 | tn3k_test | 150 | 0.764 | 0.747 | 0.698 | 0.131 | 0.109 | 0.140 | 0.140 |
-| azh_train_slice | 77 | 0.874 | 0.552 | 0.661 | 0.526 | 0.492 | 0.538 | 0.538 |
+| azh_train_slice | 78 | 0.875 | 0.553 | 0.660 | 0.532 | 0.496 | 0.539 | 0.539 |
 
 Paired differences in mean Dice, [95% unit-bootstrap interval, 2000 draws, seed 7070]. nnbox variants are compared with the nnU-Net masks their boxes came from (rescore P0).
 
@@ -193,7 +193,7 @@ Paired differences in mean Dice, [95% unit-bootstrap interval, 2000 draws, seed 
 | etis_larib | -0.048 [-0.071, -0.023] | 0.001 [-0.001, 0.003] | 0.001 [-0.002, 0.004] |
 | ph2 | -0.253 [-0.297, -0.210] | 0.031 [0.018, 0.043] | -0.157 [-0.188, -0.129] |
 | tn3k_test | -0.049 [-0.076, -0.020] | -0.009 [-0.021, 0.000] | -0.031 [-0.047, -0.017] |
-| azh_train_slice | 0.110 [0.046, 0.163] | -0.012 [-0.045, 0.022] | -0.046 [-0.106, 0.016] |
+| azh_train_slice | 0.108 [0.049, 0.162] | -0.008 [-0.040, 0.026] | -0.043 [-0.104, 0.014] |
 
 Same, NSD (2 px):
 
@@ -210,7 +210,7 @@ Same, NSD (2 px):
 | etis_larib | -0.090 [-0.135, -0.046] | 0.001 [-0.002, 0.003] | -0.001 [-0.003, 0.001] |
 | ph2 | -0.148 [-0.184, -0.116] | -0.012 [-0.028, 0.004] | -0.066 [-0.095, -0.041] |
 | tn3k_test | -0.038 [-0.077, 0.001] | -0.001 [-0.012, 0.009] | -0.036 [-0.054, -0.020] |
-| azh_train_slice | 0.163 [0.103, 0.222] | 0.094 [0.041, 0.150] | 0.032 [-0.056, 0.119] |
+| azh_train_slice | 0.160 [0.098, 0.222] | 0.104 [0.046, 0.165] | 0.038 [-0.046, 0.123] |
 
 Images with no nnU-Net box. Rule (`k2_sam.predict_nn`): no component in the nnU-Net mask means no prompt and an empty prediction, scored 1 if the reference is empty and 0 otherwise (Dice and NSD). The nnU-Net masks are not stored locally, so the count is exact only for empty references (nnU-Net Dice 1 there means an empty mask). For non-empty references, Dice 0 with NSD 0 at every tolerance is necessary for an empty mask but not sufficient, so it gives an upper bound; images where an nnbox variant scores above 0 had a box and are removed.
 
@@ -227,7 +227,7 @@ Images with no nnU-Net box. Rule (`k2_sam.predict_nn`): no component in the nnU-
 | etis_larib | 150 | 0 | 0 | 134 | 0 | 0 to 134 |
 | ph2 | 150 | 0 | 0 | 14 | 0 | 0 to 14 |
 | tn3k_test | 150 | 0 | 0 | 75 | 1 | 0 to 74 |
-| azh_train_slice | 77 | 6 | 0 | 0 | 0 | 0 to 0 |
+| azh_train_slice | 78 | 6 | 0 | 0 | 0 | 0 to 0 |
 
 ## 6. nnU-Net on held-out FUSeg training images
 

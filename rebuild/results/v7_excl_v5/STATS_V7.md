@@ -929,4 +929,4 @@ Plain reading (Dice, the 4 wound datasets): the 19 modern methods span 0.069 to 
 - Units-only and hierarchical intervals for agreement sit partly below the estimate because resampling adds noise that attenuates correlation.
 - The by-image split reliability for Medetec mixes the four stored variants of one photograph across halves and overstates reliability, and the photograph split is the one to use.
 
-Runtime 14.5 s.
+Runtime 13.0 s.

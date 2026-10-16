@@ -231,13 +231,14 @@ intval("ov.ctrl.found", J(XS, "azh_train_slice/v5_found_again"), XS + ":azh_trai
 intval("ov.ctrl.new", J(XS, "azh_train_slice/n_new_crops_excluded"), XS + ":azh_train_slice/n_new_crops_excluded")
 intval("ov.ctrl.new.train", J(XS, "azh_train_slice/new_crops_by_use/train"), XS + ":azh_train_slice/new_crops_by_use/train")
 intval("ov.ctrl.new.ref", J(XS, "azh_train_slice/new_crops_by_use/reference"), XS + ":azh_train_slice/new_crops_by_use/reference")
+intval("ov.ctrl.unused", J(XS, "azh_train_slice/n_new_crops_kept_unused_frames") + J(XS, "azh_train_slice/n_v5_kept_by_rule"), XS + ":azh_train_slice/n_new_crops_kept_unused_frames + n_v5_kept_by_rule")
 intval("ov.ctrl.azh", J(CO, "n_control_images_matched"), CO + ":n_control_images_matched")
 intval("ov.ctrl.azh.added", J(XS, "azh_train_slice/n_copies_of_azh_test_added"), XS + ":azh_train_slice/n_copies_of_azh_test_added")
 assert J(XS, "azh/n_excluded") == len(ax) and J(XS, "azh_train_slice/n_excluded") == len(cx)
 assert J(XS, "azh_train_slice/v5_by_use/train") + J(XS, "azh_train_slice/new_crops_by_use/train") == F["n.excl.ctrl.train"]["raw"]
 assert J(XS, "azh_train_slice/v5_by_use/reference") + J(XS, "azh_train_slice/new_crops_by_use/reference") == F["n.excl.ctrl.val"]["raw"]
 assert F["ov.azh.used"]["raw"] + F["ov.azh.unused"]["raw"] == F["ov.azh.match"]["raw"] and F["ov.azh.valref"]["raw"] == 0
-assert F["ov.ctrl.v5"]["raw"] + F["ov.ctrl.new"]["raw"] + F["ov.ctrl.azh.added"]["raw"] == len(cx)
+assert J(XS, "azh_train_slice/n_v5_confirmed") + F["ov.ctrl.new"]["raw"] + F["ov.ctrl.azh.added"]["raw"] == len(cx)
 ws = J(AU, "check9_log/hits/FAILED/0")
 m = re.search(r"(\d+) of (\d+) masks differ in size", ws)
 intval("ws.bad", int(m.group(1)), AU + ":check9_log/hits/FAILED/0")
@@ -657,6 +658,277 @@ md_ = max(v["abs_delta_dice"] for v in rk.values())
 assert all(v["rank_dice_run1"] == v["rank_dice_run2"] and v["rank_nsd2_run1"] == v["rank_nsd2_run2"] for v in rk.values())
 put("nn.mean.maxdiff", f"{md_:.5f}", md_, AU + f":{NR}/rank_among_11_v6_modern/*/abs_delta_dice (max)")
 
+
+# ------------------------------------------------------------------ design numbers (read from code, logs and configs)
+SRC_ROOT = ROOT
+
+
+def src_re(key, rel, pattern, conv=lambda x: x, fmt=str, group=1):
+    """A number defined in a code, log or config file: regex group from the file text."""
+    txt = open(os.path.join(SRC_ROOT, rel)).read()
+    m = re.search(pattern, txt, re.M)
+    if not m:
+        raise KeyError(f"{key}: pattern not found in {rel}")
+    x = conv(m.group(group))
+    put(key, fmt(x), x, f"{rel}: /{pattern}/")
+    return x
+
+
+def dec(x):
+    """Plain decimal form of a float constant (1e-3 -> 0.001, 3e-4 -> 0.0003)."""
+    s = f"{float(x):.10f}".rstrip("0")
+    return s + "0" if s.endswith(".") else s
+
+
+import sys as _sys                                                 # noqa: E402
+_sys.path.insert(0, os.path.join(ROOT, "scripts"))
+import perimage_v6 as P6                                           # noqa: E402
+WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve"]
+intval("d.nref", len(P6.REFS), "scripts/perimage_v6.py:REFS")
+put("w.nref.cap", WORDS[len(P6.REFS)].capitalize(), len(P6.REFS), "scripts/perimage_v6.py:REFS (word)")
+nmod = len(set(P6.MODALITY.values()))
+put("w.nmod", WORDS[nmod], nmod, "scripts/perimage_v6.py:MODALITY (distinct)")
+nsrc = len(set(P6.SOURCE.values()))
+put("w.nsrc", WORDS[nsrc], nsrc, "scripts/perimage_v6.py:SOURCE (distinct)")
+# pair counts by level (as stats_v7.py)
+import itertools as _it                                            # noqa: E402
+PR_ = list(_it.combinations(P6.REFS, 2))
+same_src = [p_ for p_ in PR_ if P6.SOURCE[p_[0]] == P6.SOURCE[p_[1]]]
+same_mod = [p_ for p_ in PR_ if P6.MODALITY[p_[0]] == P6.MODALITY[p_[1]]]
+dsrc = [p_ for p_ in same_mod if p_ not in same_src]
+across = [p_ for p_ in PR_ if p_ not in same_mod]
+woundp = [p_ for p_ in PR_ if all(P6.MODALITY[x] == "wound" for x in p_)]
+colonp = [p_ for p_ in PR_ if all(P6.MODALITY[x] == "colonoscopy" for x in p_)]
+w_out = [p_ for p_ in PR_ if sum(P6.MODALITY[x] == "wound" for x in p_) == 1]
+o_across = [p_ for p_ in across if p_ not in w_out]
+for k_, v_ in [("n.pairs", PR_), ("n.pairs.src", same_src), ("n.pairs.dsrc", dsrc), ("n.pairs.across", across),
+               ("n.pairs.same", same_mod), ("n.pairs.wound", woundp), ("n.pairs.colon", colonp),
+               ("n.pairs.w_out", w_out), ("n.pairs.oacross", o_across)]:
+    intval(k_, len(v_), "scripts/perimage_v6.py: REFS, MODALITY, SOURCE (pair counts)")
+intval("n.pairs52", len(PR_) - len(same_src), "pairs minus within-source pairs")
+intval("n.pairs.wdiff", len([p_ for p_ in woundp if p_ not in same_src]), "wound pairs from different sources")
+assert len(PR_) == len(same_src) + len(dsrc) + len(across)
+assert len(PR_) == len(woundp) + len(w_out) + len(colonp) + len(o_across)
+intval("n.cross36", len(woundp) * 6, "6 ordered seed pairs (s != t of 3 seeds) x wound pairs (stats_v7 seeds crossseed)")
+intval("n.ord", len(WOUND) * (len(WOUND) - 1), "ordered pairs of wound datasets (selection off-diagonal)")
+# sampling of the references
+p32 = {s_: load(f"perimage32/{s_}.json") for s_ in ("fuseg", "azh") + tuple(OTHER) + ("co2wounds",)}
+intval("d.n.fus", len(p32["fuseg"]["ids"]), "perimage32/fuseg.json (images before exclusions)")
+intval("d.n.azh", len(p32["azh"]["ids"]), "perimage32/azh.json (images before exclusions)")
+SIX = ("co2wounds", "cvc_clinicdb", "cvc_colondb", "etis_larib", "ph2", "tn3k_test")   # the evenly spaced samples
+ns = {len(p32[s_]["ids"]) for s_ in SIX}
+assert len(ns) == 1
+intval("d.nsample", ns.pop(), "perimage32/<CO2Wounds-V2, CVC-ClinicDB, CVC-ColonDB, ETIS, PH2, TN3K>.json (images)")
+src_re("d.maxside", "scripts/perimage32.py", r"def load_kvasir_one\(ip, mp, max_side=(\d+)", int)
+src_re("d.bin", "scripts/perimage32.py", r"def load_kvasir_one\(ip, mp, max_side=\d+, threshold=(\d+)", int)
+src_re("d.unet.params", "woundbench/deep.py", r"([\d,]+)-parameter U-Net", lambda x: int(x.replace(",", "")), lambda x: f"{x:,}")
+src_re("d.px.n", "results/refit_14.log", r"([\d,]+) px x 14 features", lambda x: int(x.replace(",", "")), lambda x: f"{x:,}")
+m_ = re.search(r"list\(range\(0, (\d+)\)\), list\(range\((\d+), (\d+)\)\)", open(os.path.join(ROOT, "kaggle/kit_run.py")).read())
+put("d.px.img", f"0 to {int(m_.group(1)) - 1}", [0, int(m_.group(1)) - 1], "kaggle/kit_run.py: pixel classifier images range(0, n)")
+put("d.px.thrimg", f"{m_.group(2)} to {int(m_.group(3)) - 1}", [int(m_.group(2)), int(m_.group(3)) - 1], "kaggle/kit_run.py: pixel threshold images")
+src_re("d.px.thr", "woundbench/methods.py", r"^DEFAULT_LEARNED_THRESHOLD = ([0-9.]+)", float, lambda x: f"{x:.2f}")
+src_re("d.unet.thr", "woundbench/methods.py", r"^DEFAULT_UNET_THRESHOLD = ([0-9.]+)", float, lambda x: f"{x:.1f}")
+m_ = re.search(r"tr = \[i for i in range\(0, (\d+)\).*\n.*sw = \[i for i in range\((\d+), (\d+)\)", open(os.path.join(ROOT, "kaggle/kit_run.py")).read())
+put("d.tr.img", f"0 to {int(m_.group(1)) - 1}", [0, int(m_.group(1)) - 1], "kaggle/kit_run.py: training images range(0, n)")
+put("d.thr.img", f"{m_.group(2)} to {int(m_.group(3)) - 1}", [int(m_.group(2)), int(m_.group(3)) - 1], "kaggle/kit_run.py: threshold images")
+src_re("d.fs.size", "woundbench/deep.py", r"^SIZE = (\d+)", int)
+src_re("d.fs.ep", "woundbench/deep.py", r"^EPOCHS = (\d+)", int)
+src_re("d.fs.lr", "woundbench/deep.py", r"^LR = ([0-9.e-]+)", float, dec)
+src_re("d.kv.thr", "results/kaggle/log.txt", r"kvasir pixel classifiers .*; pixel threshold ([0-9.]+)", float, lambda x: f"{x:.2f}")
+src_re("d.lb", "kaggle2/kit_run.py", r"^PT_SIZE = (\d+)", int)
+src_re("d.pt.lr", "kaggle2/k2_train.py", r"AdamW\(m\.parameters\(\), lr=([0-9.e-]+)", float, dec)
+src_re("d.pt.wd", "kaggle2/k2_train.py", r"AdamW\(m\.parameters\(\), lr=[0-9.e-]+, weight_decay=([0-9.e-]+)", float, dec)
+src_re("d.pt.batch", "kaggle2/k2_train.py", r"^BATCH = (\d+)", int)
+assert int(F["ep.pre"]["raw"]) == int(re.search(r'"PT_EPOCHS", "(\d+)"', open(os.path.join(ROOT, "kaggle2/k2_train.py")).read()).group(1))
+gr = load("kaggle2/rescore/nnunet/medetec.json")["grid_thresholds"]
+put("d.grid", f"{gr[0]:.2f} to {gr[-1]:.2f}", [gr[0], gr[-1]], "kaggle2/rescore/*/grid_thresholds")
+stp = {round(b - a, 10) for a, b in zip(gr, gr[1:])}
+assert len(stp) == 1
+put("d.grid.step", f"{stp.pop():.2f}", gr[1] - gr[0], "kaggle2/rescore/*/grid_thresholds (step)")
+src_re("d.nn.ep", "kaggle/kit_run.py", r'"NNUNET_EPOCHS", "(\d+)"', int)
+src_re("d.nn.thr", "kaggle/kit_run.py", r'"nnunet_2d": postprocess_prob\(p, ([0-9.]+)\)', float, lambda x: f"{x:.1f}")
+CONST = json.load(open(os.path.join(os.path.dirname(ROOT), "manuscript_v6", "constants_v6.json")))
+for k_ in ("co2.n", "co2.pat", "nn.ep.default"):
+    put("c." + k_, f"{CONST[k_]['value']:,}", CONST[k_]["value"], "manuscript_v6/constants_v6.json: " + CONST[k_]["source"])
+br = open(os.path.join(RES, "v7_morning", "BRIEF_V7.md")).read()
+m_ = re.search(r"cross-seed agreement is high \(> ([0-9.]+)\) while cross-dataset wound agreement stays low \(about ([0-9.]+) to ([0-9.]+)\)", br)
+put("c.rule.hi", m_.group(1), float(m_.group(1)), "results/v7_morning/BRIEF_V7.md (pre-specified reading)")
+put("c.rule.lo", f"{m_.group(2)} to {m_.group(3)}", [float(m_.group(2)), float(m_.group(3))], "results/v7_morning/BRIEF_V7.md (pre-specified reading)")
+assert J(ST, "seeds/dice|C16/summary/rbar_wound/est") < float(m_.group(1))
+# seeds and synthetic sets
+sd_ = sorted({int(re.search(r"_s(\d)$", c).group(1)) for c in J(BE, "groups/N8_s0") + J(BE, "groups/N8_s1") + J(BE, "groups/N8_s2")})
+assert sd_ == [0, 1, 2]
+put("d.seeds", "0, 1 and 2", sd_, BE + ":groups/N8_s* (training seeds)")
+for k_, v_ in [("d.seed0", "0"), ("d.seed1", "1"), ("d.seed2", "2")]:
+    put(k_, v_, int(v_), BE + ":groups (training seed label)")
+put("d.seeds12", "1 and 2", [1, 2], BE + ":groups (training seeds of the second session)")
+put("d.seeds02", "0 and 2", [0, 2], "kaggle2/train_report_k2.json (manet_r50 seeds missing)")
+assert all(f"manet_r50_s{x}" not in TR for x in (0, 2)) and "manet_r50_s1" in TR
+SYN_ = list(J(BE, "v6/genB_texture").keys())
+amps = sorted({int(re.search(r"amp(\d+)_", x).group(1)) for x in SYN_})
+syns = []
+for x in SYN_:
+    v_ = int(re.search(r"_s(\d+)$", x).group(1))
+    if v_ not in syns:
+        syns.append(v_)
+put("d.amps", f"{amps[0]}, {amps[1]} and {amps[2]}", amps, BE + ":v6/genB_texture (set names)")
+put("d.amp.lo", str(amps[0]), amps[0], BE + ":v6/genB_texture (set names)")
+put("d.amp.hi", str(amps[-1]), amps[-1], BE + ":v6/genB_texture (set names)")
+put("d.synseeds", f"{syns[0]}, {syns[1]} and {syns[2]}", syns, BE + ":v6/genB_texture (set names, order of the kit)")
+nsyn = J(BE, "checks/n_images_per_synth_set")
+assert len(nsyn) == 1
+intval("d.syn.n", nsyn[0], BE + ":checks/n_images_per_synth_set")
+src_re("d.tex.win", "woundbench/imagestats.py", r"^WINDOW = (\d+)", int)
+src_re("d.tex.res", "woundbench/imagestats.py", r"^CANONICAL_SIDE = (\d+)", int)
+src_re("d.pp.elem", "woundbench/postproc.py", r"^MORPH_KERNEL = (\d+)", int)
+src_re("d.pp.sigma", "woundbench/postproc.py", r"^PROB_GAUSSIAN_SIGMA = ([0-9.]+)", float, lambda x: f"{x:g}")
+src_re("d.pp.minarea", "woundbench/postproc.py", r"^MIN_COMPONENT_FRAC = ([0-9.]+)", float, lambda x: f"{100 * x:g}%")
+put("d.nsd.tau", f"{load('perimage32/medetec.json')['nsd_tau']:g}", load("perimage32/medetec.json")["nsd_tau"], "perimage32/*.json:nsd_tau")
+tols = sorted({k_.split("|")[1] for k_ in J(RB, "tolerance") if k_.startswith("M19|") and "nsd" in k_.split("|")[1]})
+assert tols == ["nsd1", "nsd2", "nsd3", "nsd5", "nsd_diag1"], tols
+put("d.nsd.tols", "1, 3 and 5 pixels and at 1% of the image diagonal", tols, RB + ":tolerance (nsd1, nsd3, nsd5, nsd_diag1)")
+# bootstrap sizes
+intval("d.B.method", J(ST, "definitions/seed_analysis_boot/B_method"), ST + ":definitions (method bootstrap B 2000)")
+intval("d.B.hier", J(ST, "definitions/B_hier"), ST + ":definitions/B_hier")
+intval("d.B.hier.bench", J(BE, "B"), BE + ":B (hierarchical and method draws)")
+intval("d.splits", J(ST, "definitions/n_splits"), ST + ":definitions/n_splits")
+intval("d.B.arch", J(ST, "definitions/seed_analysis_boot/B_method"), ST + ":definitions/seed_analysis_boot/B_method")
+intval("d.B.unit", J(PR, "B"), PR + ":B")
+put("d.ci", "95%", 95, "percentile intervals 2.5 to 97.5 in every analysis script")
+put("d.one", "1", 1, "definition of Spearman correlation")
+put("d.zero", "0", 0, "definition of Spearman correlation")
+FLOOR_T = 0.1          # the floor: group mean Dice below this (also used for the assertions below)
+put("d.floor", f"{FLOOR_T:g}", FLOOR_T, "definition (facts_v6.py FLOOR_T; group mean Dice)")
+mt = [float(k_) for k_ in J(PR, "miss") if re.fullmatch(r"[0-9.]+", k_)]
+assert 0.1 in mt
+put("d.miss", "0.1", 0.1, PR + ":miss/0.1 (miss threshold)")
+m_ = re.search(r"every channel <= (\d+)", load("v7/black_share_v7.json")["definition"])
+put("d.black", m_.group(1), int(m_.group(1)), "v7/black_share_v7.json:definition")
+put("d.alpha", "5%", 0.05, "significance level for the Holm-corrected exact tests")
+intval("n.K11", J(RB, "definitions/groups/K11/n"), RB + ":definitions/groups/K11/n")
+
+# ------------------------------------------------------------------ further result facts (P1 revisions)
+for s_ in (0, 1, 2):
+    intval(f"n.M19s{s_}", len(J(PR, f"candidate_sets/M19_s{s_}")), PR + f":candidate_sets/M19_s{s_}")
+FR = J(PR, "selection/M19/matrix_rows_choose_on_cols_deploy_on")
+others = [r for r in WOUND if r != "fuseg"]
+rowv = FR["fuseg"] if isinstance(FR, dict) else None
+fus_row = float(np.mean([FR["fuseg"][r] for r in others]))
+put("sel.fus.row", f3(fus_row), fus_row, PR + ":selection/M19/matrix_rows_choose_on_cols_deploy_on/fuseg/<other 3> (mean)")
+fus_rand = float(np.mean([J(PR, f"selection/M19/random_choice_expected_loss/{r}") for r in others]))
+put("sel.fus.rand", f3(fus_rand), fus_rand, PR + ":selection/M19/random_choice_expected_loss/<other 3 than fuseg> (mean)")
+assert abs(fus_row - J("v7/review_v7.json", "R3_M5_selection/M19/choose_on_fuseg_mean_loss_other3")) < 1e-12
+assert fus_row > fus_rand and fus_row == max(float(np.mean([FR[a][b] for b in WOUND if b != a])) for a in WOUND)
+num("sel.nn.azh.dice", PR, "spread/M19/azh/means/nnunet_2d")
+assert J(PR, "selection/M19/best_per_dataset/azh/model") == "segformer_mitb2@seeds"
+DP = "seeds/disattenuation/dice|C16/wound_pairs"
+for k_, pr_ in [("med_fus", "medetec~fuseg"), ("co2_fus", "co2wounds~fuseg"), ("fus_azh", "fuseg~azh"), ("med_co2", "medetec~co2wounds")]:
+    num(f"sd.pair.{k_}", ST, f"{DP}/{pr_}/observed_seedavg")
+GAPL = "gap|wound: same-dataset cross-seed minus cross-dataset cross-seed"
+for g_ in ("P9", "N7"):
+    ci(f"sd.gap.{g_}.h", ST, f"seeds/dice|{g_}/summary/{GAPL}/hierarchical")
+for met in ["dice", "nsd"]:
+    ds = [J(ST, f"point/{met}|{g}/modality_diff") for g in ["U", "K"]]
+    put(f"mdiff.{met}.UK.range", ival(min(ds), max(ds)), [min(ds), max(ds)], ST + f":point/{met}|U,K/modality_diff")
+    ps = [J(ST, f"exact/{met}|{g}/full_55/p") for g in ["U", "K"]]
+    put(f"p.{met}.UK.max", fp(max(ps)), max(ps), ST + f":exact/{met}|U,K/full_55/p (max)")
+ne = [J(ST, f"dice_noempty/{g}/modality_diff") for g in ["U", "K"]]
+put("ne.UK.range", ival(min(ne), max(ne)), [min(ne), max(ne)], ST + ":dice_noempty/U,K/modality_diff")
+nep = [J(ST, f"dice_noempty/{g}/p") for g in ["U", "K"]]
+put("ne.UK.pmax", fp(max(nep)), max(nep), ST + ":dice_noempty/U,K/p (max)")
+p52 = [J(ST, f"exact/dice|{g}/excl_within_source_52/p") for g in ["U", "K"]]
+put("p52.UK.max", fp(max(p52)), max(p52), ST + ":exact/dice|U,K/excl_within_source_52/p (max)")
+d52 = [J(ST, f"exact/dice|{g}/excl_within_source_52/diff") for g in ["U", "K"]]
+put("d52.UK.range", ival(min(d52), max(d52)), [min(d52), max(d52)], ST + ":exact/dice|U,K/excl_within_source_52/diff")
+put("lomo.M19.bench.and", f"{f2(min(lb))} and {f2(max(lb))}", [min(lb), max(lb)], BE + ":lomo/M19/<dropped>/bench (min and max)")
+txe = F["tx.within.tot"]["raw"] * 0.05
+put("tx.expect", f"{txe:g}", txe, "tx.within.tot x 0.05 (intervals expected to exclude 0 with no effect)")
+put("thr.c50.t", "0.5", 0.5, RB + ":threshold/common/M19|0.50")
+assert "M19|0.50" in J(RB, "threshold/common")
+bg = J(BE, "groups")
+for k_, g_ in [("w.P10.n", "P10s"), ("w.N8.n", "N8s")]:
+    put(k_, WORDS[len(bg[g_])], len(bg[g_]), BE + f":groups/{g_}")
+put("w.P10s2.n", WORDS[len(bg["P10_s2"])], len(bg["P10_s2"]), BE + ":groups/P10_s2")
+assert len(bg["N8_s0"]) == len(bg["N8_s2"])
+put("w.N8s02.n", WORDS[len(bg["N8_s0"])], len(bg["N8_s0"]), BE + ":groups/N8_s0, N8_s2")
+assert len(bg["N8_s1"]) == len(bg["N8s"]) and len(bg["P10_s0"]) == len(bg["P10_s1"]) == len(bg["P10s"])
+# U+M19 benchmark: below the other wound datasets for every reference
+for r in WOUND:
+    assert J(BE, f"rel/U+M19/40/{r}|diff/est") < 0, r
+# the oracle threshold is the largest of the non-common-threshold M19 changes
+chg = {k_: abs(v_["est"]) for k_, v_ in J(RB, "postprocessing/delta_vs_P0").items() if k_.startswith("M19|dice") and "wound" in k_}
+assert abs(J(RB, "threshold/delta_vs_default/M19|oracle|wound pairs/est")) > max(chg.values())
+
+u_ = F["ov.ctrl.unused"]["raw"]
+assert u_ == 1, "the Methods sentence on the kept control crop is written for one image"
+put("w.ctrl.unused.cap", WORDS[u_].capitalize(), u_, "ov.ctrl.unused (word)")
+# claims in the robustness and modern-model paragraphs
+assert F["rp.UM19.holds"]["raw"] == F["rp.UM19.ncond"]["raw"]          # every condition, interval above zero
+assert F["rp.UF.holds"]["raw"] == 0                                      # U+F: no condition
+for s_ in WOUND:                                                          # seed SD several times the neighbour gap
+    assert J(ST, f"seeds/spread/dice|{s_}/C16_seed_sd_pooled") >= 3 * J(ST, f"seeds/spread/dice|{s_}/M19_median_adjacent_gap"), s_
+assert max(J(ST, f"seeds/spread/dice|{s_}/M19_median_adjacent_gap") for s_ in WOUND) < 0.01   # "below a hundredth"
+assert sum(J(ST, f"floor/mean_dice/K/{s_}") < FLOOR_T for s_ in OTHER) <= 1 and sum(J(ST, f"floor/mean_dice/U/{s_}") < FLOOR_T for s_ in OTHER) <= 1
+for s_ in (0, 1, 2):                                                      # single-seed chooser close to random
+    assert J(PR, f"selection/M19_s{s_}/offdiag_mean") <= J(PR, f"selection/M19_s{s_}/random_mean_over_B")
+assert {J(PR, "selection/M19/best_per_dataset/medetec/model"), J(PR, "selection/M19/best_per_dataset/fuseg/model")} == {"manet_r18_in@seeds", "manet_r50@seeds"}
+
+# ------------------------------------------------------------------ review_v7.json (numbers computed for the reviews)
+RV = "v7/review_v7.json"
+r3 = "R3_m2_split_half_reliability/U_F_K_pooled_range_11_clinical"
+ci("rv.rel.UFK", RV, r3)
+SEL = "R3_M5_selection/M19"
+num("rv.sel.diff", RV, f"{SEL}/unit_bootstrap/chooser_minus_random/est", f3)
+ci("rv.sel.diff.ci", RV, f"{SEL}/unit_bootstrap/chooser_minus_random/ci95", f3)
+ci("rv.sel.off.ci", RV, f"{SEL}/unit_bootstrap/chooser_loss/ci95", f3)
+ci("rv.sel.rand.ci", RV, f"{SEL}/unit_bootstrap/random_loss/ci95", f3)
+intval("rv.sel.B", J(RV, f"{SEL}/unit_bootstrap/B"), RV + f":{SEL}/unit_bootstrap/B")
+ci("rv.sel.half", RV, f"{SEL}/half_split_same_dataset/range", f3)
+assert abs(J(RV, f"{SEL}/chooser_loss") - J(PR, "selection/M19/offdiag_mean")) < 1e-12
+GS = "R3_M3_seed_gap_subgroups/gap_P9_minus_N7"
+num("rv.gapdiff", RV, f"{GS}/est")
+ci("rv.gapdiff.m", RV, f"{GS}/ci95")
+assert J(RV, f"{GS}/ci95")[0] < 0 < J(RV, f"{GS}/ci95")[1]
+HS = "R3_M4_shared_images/half_splits/C16"
+num("rv.half.shared", RV, f"{HS}/shared_halves")
+num("rv.half.indep", RV, f"{HS}/independent_halves")
+assert J(RV, f"{HS}/shared_halves") > J(RV, f"{HS}/independent_halves")
+BD = "R3_m7_per_reference_benchmark_differences"
+for g_ in ("U", "K"):
+    num(f"rv.bd.{g_}", RV, f"{BD}/{g_}/difference/est")
+    ci(f"rv.bd.{g_}.m", RV, f"{BD}/{g_}/difference/ci95")
+assert abs(J(RV, f"{BD}/K/difference/est") - (J(BE, "rel/K/40/azh|bench/est") - J(BE, "rel/K/40/fuseg|bench/est"))) < 1e-12
+assert abs(J(RV, f"{BD}/U/difference/est") - (J(BE, "rel/U/40/co2wounds|bench/est") - J(BE, "rel/U/40/azh|bench/est"))) < 1e-12
+MD_ = "R3_m9_azh_miss_original_minus_new"
+num("rv.missdiff", RV, f"{MD_}/difference_units_only/est", lambda x: f1(100 * x))
+ci("rv.missdiff.fix", RV, f"{MD_}/difference_units_only/ci95", lambda x: f1(100 * x))
+ci("rv.missdiff.res", RV, f"{MD_}/difference_units_and_architectures/ci95", lambda x: f1(100 * x))
+num("rv.syn.seedagree", RV, "R3_m17_synthetic_reliability/between_synthetic_seeds_mean_spearman")
+H_ = "R3_M1_holm"
+intval("rv.holm.nsets", J(RV, f"{H_}/n_tests"), RV + f":{H_}/n_tests")
+pval("rv.holm.max", RV, f"{H_}/largest_adjusted_p")
+assert J(RV, f"{H_}/largest_adjusted_p") < 0.05
+ID_ = "R3_m1_stratification_identity"
+mxp = max(J(RV, f"{ID_}/{m}|{g}/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng") for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
+put("rv.ident.maxpair", f3(mxp), mxp, RV + f":{ID_}/*/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng (max)")
+mxm = max(J(RV, f"{ID_}/{m}|{g}/mean_over_55_pairs_diff") for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
+put("rv.ident.maxmean", "0.001" if mxm < 0.001 else f3(mxm), mxm, RV + f":{ID_}/*/mean_over_55_pairs_diff (max; bound printed)")
+assert mxm < 0.001
+num("rv.ident.UM19.sw", RV, f"{ID_}/dice|U+M19/weighted_avg_ng_minus_1_over_ng_wound_pairs")
+assert all(J(RV, f"{ID_}/{m}|{g}/wound_pair_mean_diff") < 1e-12 for m in ("dice", "nsd") for g in ("U+M19", "U+F"))
+SC = "R2_M3_scale"
+num("rv.scale", RV, f"{SC}/sift_scale_fuseg_px_per_azh_px/median_all_61_matched_test_images")
+num("rv.mag.pre", RV, f"{SC}/magnification_vs_fuseg_training_input/pretrained_letterbox", lambda x: f"{x:.1f}")
+num("rv.mag.nn", RV, f"{SC}/magnification_vs_fuseg_training_input/nnunet_native")
+num("rv.dwd.pre", RV, f"{SC}/dice_when_detected_azh/P18_architecture_mean")
+num("rv.dwd.nn", RV, f"{SC}/dice_when_detected_azh/nnunet")
+OR_ = "R2_M5_oracle_grid_censoring"
+num("rv.orc.med", RV, f"{OR_}/medetec/share_at_grid_min_0.05", pct)
+num("rv.orc.co2", RV, f"{OR_}/co2wounds/share_at_grid_min_0.05", pct)
+assert J(RV, f"{OR_}/medetec/share_at_grid_min_0.05") > 0.5 and J(RV, f"{OR_}/co2wounds/share_at_grid_min_0.05") > 0.5
+num("rv.U.nofus", RV, "R2_M6_floor/U_wound_pairs_without_fuseg_3pairs")
+assert J(ST, "floor/mean_dice/U/fuseg") < FLOOR_T
+assert abs(J(RV, "R3_M7_oracle_minus_main/M19_wound_pairs_change/est") - J(RB, "threshold/delta_vs_default/M19|oracle|wound pairs/est")) < 1e-12
 
 # ------------------------------------------------------------------ checks behind qualitative statements
 for s_ in WOUND:

@@ -370,11 +370,6 @@
    "crop of FUSeg train 0119.png (72 SIFT inliers)"
   ],
   [
-   123,
-   "1c27d8289cbfa6a1a0da01d7ec757a46_0.png",
-   "crop of FUSeg validation 0284.png (41 SIFT inliers; equally matched to train 0121.png)"
-  ],
-  [
    125,
    "1c58fc115fbca1fff4e83c069493625b_0.png",
    "crop of FUSeg validation 0124.png (51 SIFT inliers)"
