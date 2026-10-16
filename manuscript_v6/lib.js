@@ -113,7 +113,7 @@ function table(header, rows, widths, opts = {}) {
         : new TableRow({
         cantSplit: true,
         children: r.map((t, i) => cell(t, { w: widths[i], bold: bold.includes(ri), align: al(i), size,
-                                            keepNext: opts.keep !== false && ri < rows.length - 1 }))
+                                            keepNext: opts.keep !== false && (ri < rows.length - 1 || !!opts.keepWithNext) }))
       }))
     ]
   });
