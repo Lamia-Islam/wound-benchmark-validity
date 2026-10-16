@@ -12932,7 +12932,7 @@
    0.10505831364535174
   ]
  },
- "runtime_s": 6.1,
+ "runtime_s": 6.4,
  "modality_diff_all_conditions": {
   "n_conditions": 72,
   "lowest_lower_bound": {

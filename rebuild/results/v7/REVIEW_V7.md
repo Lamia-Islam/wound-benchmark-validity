@@ -227,4 +227,4 @@ M19 wound pairs (Dice): main protocol 0.206, oracle 0.115 (−0.136 to 0.391); p
 
 Largest abs difference among the 1e-12 checks: 6.9e-17.
 
-Runtime 2.1 s.
+Runtime 2.5 s.

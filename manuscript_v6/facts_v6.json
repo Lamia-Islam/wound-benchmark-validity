@@ -10164,6 +10164,11 @@
   "src": "perimage32/*.json:nsd_tau",
   "v": "2"
  },
+ "d.nsd.tol5": {
+  "raw": 5,
+  "src": "v7/robust_v7.json:tolerance (nsd5)",
+  "v": "5"
+ },
  "d.nsd.tols": {
   "raw": [
    "nsd1",
@@ -10215,7 +10220,7 @@
    0,
    249
   ],
-  "src": "kaggle/kit_run.py: pixel classifier images range(0, n)",
+  "src": "woundbench/learned.py: N_TRAIN_IMAGES_PIXEL",
   "v": "0 to 249"
  },
  "d.px.n": {
@@ -10233,7 +10238,7 @@
    250,
    399
   ],
-  "src": "kaggle/kit_run.py: pixel threshold images",
+  "src": "scripts/fit_learned.py: threshold images load_pairs(250, 400)",
   "v": "250 to 399"
  },
  "d.seed0": {
@@ -10493,6 +10498,26 @@
   ],
   "src": "v7/bench_v7.json:lomo/M19/<dropped>/bench (min and max)",
   "v": "0.12 and 0.32"
+ },
+ "m19.pair.co2_fus": {
+  "raw": -0.1298245614035088,
+  "src": "v7/stats_v7.json:disattenuated/dice|M19/pairs/co2wounds~fuseg/observed_full",
+  "v": "−0.13"
+ },
+ "m19.pair.fus_azh": {
+  "raw": 0.21052631578947362,
+  "src": "v7/stats_v7.json:disattenuated/dice|M19/pairs/fuseg~azh/observed_full",
+  "v": "0.21"
+ },
+ "m19.pair.med_co2": {
+  "raw": 0.7315789473684209,
+  "src": "v7/stats_v7.json:disattenuated/dice|M19/pairs/medetec~co2wounds/observed_full",
+  "v": "0.73"
+ },
+ "m19.pair.med_fus": {
+  "raw": -0.1175438596491228,
+  "src": "v7/stats_v7.json:disattenuated/dice|M19/pairs/medetec~fuseg/observed_full",
+  "v": "−0.12"
  },
  "md.F.azh": {
   "raw": 0.42112018428544784,
@@ -13134,7 +13159,7 @@
  "rv.ident.maxpair": {
   "raw": 0.0054157784557322675,
   "src": "v7/review_v7.json:R3_m1_stratification_identity/*/max_abs_single_pair_diff_pearsonpct_vs_ng_minus_1_over_ng (max)",
-  "v": "0.005"
+  "v": "0.006"
  },
  "rv.mag.nn": {
   "raw": 0.8339756618974525,
@@ -14433,6 +14458,19 @@
   ],
   "src": "v7/robust_v7.json:threshold/oracle/M19/wound pairs/ci",
   "v": "−0.14 to 0.39"
+ },
+ "tol5.d": {
+  "raw": -0.16988304093567247,
+  "src": "v7/robust_v7.json:tolerance_delta_vs_nsd2/M19|nsd5-nsd2|wound pairs/est",
+  "v": "−0.17"
+ },
+ "tol5.d.m": {
+  "raw": [
+   -0.4184661272901307,
+   0.09494339790552607
+  ],
+  "src": "v7/robust_v7.json:tolerance_delta_vs_nsd2/M19|nsd5-nsd2|wound pairs/ci",
+  "v": "−0.42 to 0.09"
  },
  "tx.F": {
   "raw": 0.02673992673992681,
