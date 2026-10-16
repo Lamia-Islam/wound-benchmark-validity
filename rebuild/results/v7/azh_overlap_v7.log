@@ -1,0 +1,37 @@
+FUSeg features: 1010 images, 85s
+test done 255s
+{
+ "rule": "SIFT, ratio 0.75, RANSAC similarity 3 px, >= 25 inliers; FUSeg train (810) + validation (200)",
+ "validation_control": {
+  "recorded_exclusions": 47,
+  "found_again": 47,
+  "new_hits_not_recorded": [
+   "00be2ad4736f6657b767683186615f3f_0",
+   "00d87e85e220404257d75a9c6d574e0b_0",
+   "0272003ec882522e7bec012aac93cc26_1",
+   "04475f8d2c89fbf998cf4713d234ce50_0",
+   "054008cac63fbda02ca31e4c9cd5ee46_0",
+   "09174d2f9d9ac1b948ba8fb889081e88_0",
+   "0a5a3ada2bb75c4af2daf8e4726bf099_1",
+   "0b12ef4301fbef4071bc8a7b0beeff49_0",
+   "0c79e72868d6bbc3673fd091109ff6ff_0",
+   "0ddc7e1cf8508f1fcae87bd41106d8c6_0",
+   "0e9585008d43fdf08d840064a49674f3_0",
+   "11ebfc1753d3ef581684f936c934b55e_0",
+   "12f816e49ae64a52d95a484a559ac2d4_0",
+   "1576e366442683aac204404e081eb938_1",
+   "1576e366442683aac204404e081eb938_2",
+   "16bbfa585c420f96ef4cd0812e9c163d_0",
+   "19ff49b10de40e6a431a38b19a212ec0_0",
+   "1a969119fbcdf79012ff301231d59e95_0",
+   "1b43b69901255b1f2fc7aedcfefa7912_0",
+   "1c27d8289cbfa6a1a0da01d7ec757a46_0",
+   "1c700b5e74caa409d88eb73957906b05_1",
+   "1c8e887ad6ec44f3c6cc91e88dd59f56_0",
+   "1d557cd47276255d999c71bc49ccf493_0",
+   "1d557cd47276255d999c71bc49ccf493_1"
+  ]
+ },
+ "runtime_s": 428
+}
+{'n': 150, 'max_inliers_nonmatch': 24, 'n_match': 61, 'n_match_train': 49, 'n_match_validation': 12}
