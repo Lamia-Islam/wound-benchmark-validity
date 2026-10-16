@@ -21,7 +21,7 @@ Data
                  copy of P0 by definition (checked here, exactly).
   Kaggle rescore results/kaggle2/rescore/<family>/<set>.json, same var layout,
                  values rounded to 5 decimals (robust_v7.py docstring).
-  Exclusions     results/exclusions_v5.json by image index (perimage_v6.EXCL);
+  Exclusions     the list WB_EXCL names (default results/exclusions_v6.json) by image index (perimage_v6.EXCL);
                  fuseg_r256 uses the fuseg exclusions (same images, same order).
 
 Method groups
@@ -94,9 +94,10 @@ import perimage_v7 as P                                            # noqa: E402
 
 T0 = time.time()
 RES = os.path.join(ROOT, "results")
-OUT = os.path.join(RES, "v7")
+import excl_cfg as C                                               # noqa: E402
+OUT = C.V7OUT
 RS = os.path.join(RES, "kaggle2", "rescore")
-RL = os.path.join(OUT, "rescore_local")
+RL = os.path.join(C.V7IN, "rescore_local")
 FAMS = ["pretrained_s0", "pretrained_s1", "pretrained_s2", "modern2_s0",
         "modern2_s1", "modern2_s2", "kvasir_nets", "kvasir_unet", "nnunet"]
 VARIANTS = ["P0", "P1", "P2"]
@@ -623,8 +624,11 @@ for st, sk in (("U+M19", "U+M19"), ("U+F", "U+F"), ("U", "U"), ("F", "F"), ("M19
         sv[f"{m}|{st}" + (" (stats_v7 is U+K, 14 Kvasir methods)" if st == "U+K11" else "")] = row_
 CHECKS["P0_vs_stats_v7_point"] = sv
 um = RESU["U+M19"]["dice|P0"]
-assert round(um["pooled"]["wound pairs"]["est"], 3) == 0.821, um["pooled"]["wound pairs"]
-assert round(um["pooled"]["modality_diff"]["est"], 3) == 1.101, um["pooled"]["modality_diff"]
+# required values: stats_v7 point estimates for U+M19 Dice at 3 decimals (0.821 and
+# 1.101 under the V6 exclusions; read from stats_v7.json so they follow the exclusions)
+REQ = {q: round(SV7["point"]["dice|U+M19"][SV7_KEY[q]], 3) for q in ("wound pairs", "modality_diff")}
+assert round(um["pooled"]["wound pairs"]["est"], 3) == REQ["wound pairs"], (um["pooled"]["wound pairs"], REQ)
+assert round(um["pooled"]["modality_diff"]["est"], 3) == REQ["modality_diff"], (um["pooled"]["modality_diff"], REQ)
 assert um["exact_modality"]["p"] == SV7["exact"]["dice|U+M19"]["full_55"]["p"] == 2 / 13860
 assert RESU["M19"]["dice|P0"]["exact_modality"]["p"] == SV7["exact"]["dice|M19"]["full_55"]["p"]
 for st in ("U", "F", "U+F"):          # local-only sets: tiny differences only (P0 vs perimage32 <= 1e-6)
@@ -633,7 +637,7 @@ for st in ("U", "F", "U+F"):          # local-only sets: tiny differences only (
             assert sv[f"{m}|{st}"][q]["abs_diff"] < 1e-6, (st, m, q, sv[f"{m}|{st}"][q])
 CHECKS["U+M19_dice_P0"] = {"wound pairs": um["pooled"]["wound pairs"]["est"],
                            "modality_diff": um["pooled"]["modality_diff"]["est"],
-                           "required": {"wound pairs": 0.821, "modality_diff": 1.101},
+                           "required": REQ,
                            "exact_p": um["exact_modality"]["p"],
                            "M19_exact_p": RESU["M19"]["dice|P0"]["exact_modality"]["p"]}
 
@@ -740,7 +744,7 @@ R = {"definitions": {
         "C3": f"|stratified minus size-weighted within-group average| <= {STRAT_TOL} (point values)",
         "holds": "C1 and C2 and C3",
         "domains": "wound (main claim); colonoscopy (mirror view)"},
-    "exclusions": "results/exclusions_v5.json by image index; fuseg_r256 uses the fuseg exclusions",
+    "exclusions": f"results/{C.EXCL_NAME} by image index; fuseg_r256 uses the fuseg exclusions",
     "sources": {"local": "results/v7/rescore_local/<set>.json", "kaggle": "results/kaggle2/rescore/<family>/<set>.json"}},
     "checks": CHECKS, "results": RESU, "composition_summary": COMPS,
     "modality_diff_summary": MODRANGE, "change_summary": CHG}
@@ -879,7 +883,7 @@ L.append("")
 
 L.append("## What was analysed")
 L.append("")
-L.append("- Sources: local rescore files (`results/v7/rescore_local`, 32 local methods, unrounded) and the Kaggle rescore files (`results/kaggle2/rescore`, rounded to 5 decimals). Exclusions from `results/exclusions_v5.json`; FUSeg 256 uses the FUSeg exclusions.")
+L.append(f"- Sources: local rescore files (`results/v7/rescore_local`, 32 local methods, unrounded) and the Kaggle rescore files (`results/kaggle2/rescore`, rounded to 5 decimals). Exclusions from `results/{C.EXCL_NAME}`; FUSeg 256 uses the FUSeg exclusions.")
 L.append(f"- Groups: U {len(GROUPS['U'])} untrained, F {len(GROUPS['F'])} trained from scratch on FUSeg (split by `ALL_METHOD_FAMILY` as `perimage_v6`), "
          f"M19 {len(GROUPS['M19'])} (18 pretrained architectures averaged per image over the seeds that exist, plus nnU-Net 2D), "
          f"K11 {len(GROUPS['K11'])} (the paper's K without {', '.join(K_MISSING)}, which were not rescored).")
@@ -919,7 +923,7 @@ L.append(f"- Untrained methods: P1 equals P0 exactly (max abs difference {ck['un
 c = ck["M19_K11_vs_robust_v7"]
 L.append(f"- M19 and K11 computed here vs `robust_v7.json` ({c['n_compared']} summaries and changes): max abs difference estimate {c['max_abs_diff_est']:.1e}, interval {c['max_abs_diff_ci']:.1e}.")
 c = ck["U+M19_dice_P0"]
-L.append(f"- U+M19 Dice P0: wound-pair agreement {c['wound pairs']:.4f} (required 0.821), modality difference {c['modality_diff']:.4f} (required 1.101), "
+L.append(f"- U+M19 Dice P0: wound-pair agreement {c['wound pairs']:.4f} (required {c['required']['wound pairs']:.3f}), modality difference {c['modality_diff']:.4f} (required {c['required']['modality_diff']:.3f}), "
          f"exact p {c['exact_p']:.5f}; M19 exact p {c['M19_exact_p']:.5f}. Both p values equal `stats_v7.json`.")
 L.append("- P0 values from the rescore files vs `stats_v7.json` (run-1 scores):")
 for k, v in ck["P0_vs_stats_v7_point"].items():

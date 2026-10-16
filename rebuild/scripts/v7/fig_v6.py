@@ -35,6 +35,10 @@ os.makedirs(SUB, exist_ok=True)
 
 J = {n: json.load(open(os.path.join(RES, f"{n}.json"))) for n in ("stats_v7", "bench_v7", "robust_v7")}
 V5 = json.load(open(os.path.join(ROOT, "results", "stats_v5.json")))
+# stats_v5.json was computed under exclusions_v5.json. The value checks against it
+# apply only when the V7 results use the same exclusions; with exclusions_v6.json
+# the V5-comparable values differ by design (AZH and the control lost images).
+V5_SAME_EXCL = json.load(open(os.path.join(RES, "stats_v7.json"))).get("exclusions", "exclusions_v5.json") == "exclusions_v5.json"
 
 MM = 1 / 25.4
 INK, SEC, MUT, GRID, BAND = "#111111", "#444444", "#6E6E6E", "#E2E2E2", "#C8C8C8"
@@ -191,7 +195,7 @@ def fig1():
     for _l, _t, dom, pools in panels:
         for pool in pools:
             v5key = f"dice|{pool}|{dom}"
-            if v5key not in V5["comp"]:
+            if v5key not in V5["comp"] or not V5_SAME_EXCL:
                 continue
             for c, _ in CATS:
                 b = get("stats_v7", ["bootstrap", f"dice|{pool}", f"comp|{dom}|{c}"])
@@ -200,7 +204,9 @@ def fig1():
                 dmax = max(dmax, d)
                 nchk += 1
                 check(f"Fig1 {pool}|{dom}|{c} equals stats_v5 comp", d < TOL, f"max abs diff {d:.1e}")
-    check("Fig1 number of V5-comparable cells", nchk == 28, f"{nchk} cell checks: U wound (drawn in panels a and b, checked twice), F, U+F, U colonoscopy, K, U+K; max abs diff {dmax:.1e}")
+    if not V5_SAME_EXCL:
+        CHECKS.append("Fig1 values vs stats_v5: not applicable (exclusions_v6.json); the same extraction passed under exclusions_v5.json")
+    check("Fig1 number of V5-comparable cells", nchk == (28 if V5_SAME_EXCL else 0), f"{nchk} cell checks: U wound (drawn in panels a and b, checked twice), F, U+F, U colonoscopy, K, U+K; max abs diff {dmax:.1e}")
 
     fig, axes = plt.subplots(1, 3, figsize=(174 * MM, 66 * MM), sharex=True, sharey=True)
     y0 = np.arange(len(CATS))[::-1]
@@ -249,7 +255,7 @@ def fig2():
         d2 = max(abs(r["pairs6"]["est"] - s["est"]), abs(r["pairs6"]["lo"] - s[BKEY][0]),
                  abs(r["pairs6"]["hi"] - s[BKEY][1]))
         check(f"Fig2 {pool} wound-to-wound equals stats_v7 method-only B2000", d2 < 1e-9, f"{d2:.1e}")
-        if pool in V5["bench40"]:
+        if pool in V5["bench40"] and V5_SAME_EXCL:
             e = V5["bench40"][pool]
             d3 = max(max(abs(r["mean|bench"][k] - e["mean over references"][k]) for k in ("est", "lo", "hi")),
                      max(abs(r["pairs6"][k] - e["clinical wound pairs"][k]) for k in ("est", "lo", "hi")))

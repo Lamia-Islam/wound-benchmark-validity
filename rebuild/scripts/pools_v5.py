@@ -44,7 +44,7 @@ def groups():
     return g
 
 
-EXCL = json.load(open(os.path.join(RES, "exclusions_v5.json")))
+from excl_cfg import EXCL                                           # noqa: E402  (WB_EXCL selects the list)
 CLEAN = os.environ.get("WB_CLEAN", "1") == "1"
 
 

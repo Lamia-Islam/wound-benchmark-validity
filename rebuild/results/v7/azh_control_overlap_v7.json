@@ -1,0 +1,43 @@
+{
+ "rule": "pixel identity; SIFT ratio 0.75, RANSAC similarity 3 px, >= 25 inliers, brute-force matcher",
+ "n_test": 150,
+ "n_control": 150,
+ "pixel_identical": {
+  "c8cf2da63be1a27497baa852387fe31f_0": [
+   "1d557cd47276255d999c71bc49ccf493_0"
+  ],
+  "c8cf2da63be1a27497baa852387fe31f_1": [
+   "1d557cd47276255d999c71bc49ccf493_1"
+  ],
+  "c8cf2da63be1a27497baa852387fe31f_2": [
+   "1d557cd47276255d999c71bc49ccf493_2"
+  ],
+  "d89317533d1ca29abe05734f949b0934_0": [
+   "1ad70e82589acbd9638b6e465366a7fe_0"
+  ]
+ },
+ "crop_matches": {
+  "c8cf2da63be1a27497baa852387fe31f_0": [
+   {
+    "control": "1d557cd47276255d999c71bc49ccf493_0",
+    "inliers": 106
+   }
+  ],
+  "c8cf2da63be1a27497baa852387fe31f_1": [
+   {
+    "control": "1d557cd47276255d999c71bc49ccf493_1",
+    "inliers": 69
+   }
+  ]
+ },
+ "n_test_pixel_identical": 4,
+ "n_test_with_crop_match": 2,
+ "control_images_matched": [
+  "1ad70e82589acbd9638b6e465366a7fe_0",
+  "1d557cd47276255d999c71bc49ccf493_0",
+  "1d557cd47276255d999c71bc49ccf493_1",
+  "1d557cd47276255d999c71bc49ccf493_2"
+ ],
+ "runtime_s": 3,
+ "n_control_images_matched": 4
+}

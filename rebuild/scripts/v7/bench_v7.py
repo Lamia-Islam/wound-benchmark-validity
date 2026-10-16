@@ -73,9 +73,17 @@ GB = {a: [f"genB_amp{a}_s{s}" for s in SEEDS] for a in AMPS}
 NR = [f"{g}_s{s}" for g in GENS for s in SEEDS]
 SYNTH = sum((GB[a] for a in AMPS), []) + NR
 assert sorted(SYNTH) == sorted(V7.SYNTH)
-MAN = json.load(open("/home/claude/kaggle_kit/manifest.json"))
+import excl_cfg as C                                               # noqa: E402
+KITMAN = os.path.join(os.environ.get("WB_KIT", "/home/claude/kaggle_kit"), "manifest.json")
+MAN = json.load(open(KITMAN)) if os.path.exists(KITMAN) else {}
+if "synth" not in MAN:                  # no kit, or the partial kit of kit_partial_v7.py
+    # The texture of each synthetic set does not depend on any exclusion. Without
+    # the Kaggle kit, read it from bench_v6.json, which stored the kit manifest values.
+    _b6 = json.load(open(os.path.join(ROOT, "results", "v6", "bench_v6.json")))
+    MAN = {"synth": {k: {"texture": v} for d in ("nr_texture", "genB_texture") for k, v in _b6[d].items()},
+           "_source": "results/v6/bench_v6.json (kit manifest values)"}
 TT = P.load()["dice"]
-OUT = os.path.join(ROOT, "results", "v7")
+OUT = C.V7OUT
 V6JSON = os.path.join(ROOT, "results", "v6", "bench_v6.json")
 OLDV7 = os.path.join(ROOT, "results", "v7_morning", "bench_v7.json")
 
@@ -438,7 +446,8 @@ def v6_block(src):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    R = {"definitions": __doc__, "B": B,
+    R = {"definitions": __doc__, "B": B, "exclusions": C.EXCL_NAME,
+         "texture_source": MAN.get("_source", KITMAN),
          "groups": {g: GRP[g] for g in GRP if g not in ("S2o", "S2n")},
          "seedcols": V7.SEEDCOLS}
     V6 = json.load(open(V6JSON))
@@ -475,6 +484,7 @@ def main():
         if src == "v7":
             R6v7 = R6
     R["v6_reproduction"] = {
+        "exclusions": C.EXCL_NAME, "enforced": C.OLD,
         "tt": dict(rep["tt"], route="K and M means from pools_v5 (V6 code path)"),
         "v7": dict(rep["v7"], route="K and M means from perimage_v7 per-image data; "
                                     "includes hierarchical and data-only bootstraps")}
@@ -483,10 +493,13 @@ def main():
     # bit-identical; only plain group mean Dice may differ in the last bit,
     # because per-method means are summed in a different order (per-image
     # columns of perimage_v7 vs pools_v5 means).
-    assert rep["tt"]["n_mismatched"] == 0 and rep["tt"]["n_missing"] == 0, rep["tt"]
-    assert rep["v7"]["n_missing"] == 0, rep["v7"]
-    assert all(k.startswith("/mean_dice/") for k in rep["v7"]["mismatched"]), rep["v7"]
-    assert rep["v7"]["n_mismatched"] <= 50 and rep["v7"]["max_abs_diff"] < 1e-15, rep["v7"]
+    # Enforced only under the V6 exclusions (WB_EXCL=exclusions_v5.json); under
+    # exclusions_v6.json the differences are the effect of the new exclusions.
+    if C.OLD:
+        assert rep["tt"]["n_mismatched"] == 0 and rep["tt"]["n_missing"] == 0, rep["tt"]
+        assert rep["v7"]["n_missing"] == 0, rep["v7"]
+        assert all(k.startswith("/mean_dice/") for k in rep["v7"]["mismatched"]), rep["v7"]
+        assert rep["v7"]["n_mismatched"] <= 50 and rep["v7"]["max_abs_diff"] < 1e-15, rep["v7"]
     print("V6 reproduction exact:", {k: (v["n_numeric_exact"], v["n_numeric"]) for k, v in rep.items()})
     R["v6"] = R6v7
 
@@ -526,7 +539,7 @@ def main():
 
     # ---------------- cross-check against the earlier V7 implementation
     xc = {}
-    if os.path.exists(OLDV7):
+    if os.path.exists(OLDV7) and C.OLD:
         O = json.load(open(OLDV7))
         for mine, theirs in (("M19", "M19"), ("U+M19", "U+M19"), ("M19_s0", "Ms0"),
                              ("M19_s1", "Ms1"), ("M19_s2", "Ms2")):

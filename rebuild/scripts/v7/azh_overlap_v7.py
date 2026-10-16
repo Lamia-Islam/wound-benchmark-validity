@@ -8,6 +8,11 @@ at least 25 geometrically consistent inliers.
 Validation of the procedure: the 150 control images (AZH train slice) are
 checked the same way; the 47 recorded control exclusions must be found again.
 
+Descriptors are matched exactly (brute force), so the result is deterministic.
+An earlier version used approximate FLANN matching; borderline counts (25 inliers)
+then moved between runs and between duplicated FUSeg frames. Every frame tied at
+the best inlier count is recorded (fuseg_tied).
+
 Output: results/v7/azh_overlap_v7.json
 """
 import io
@@ -57,14 +62,16 @@ def load_fuseg():
 def best_match(args):
     name, img = args
     pa, da = feats(img)
-    best = (0, None, None)
+    best = (0, None, None, [])
     if da is None or len(da) < 8:
         return name, best
-    flann = cv2.FlannBasedMatcher({"algorithm": 1, "trees": 4}, {"checks": 32})
+    # exact brute-force matching: deterministic, unlike FLANN's randomised trees,
+    # which moved borderline inlier counts between runs (see the docstring)
+    matcher = cv2.BFMatcher()
     for fname, pf, df in FUS_FEATS:
         if df is None or len(df) < 8:
             continue
-        good = [m for m, n in (x for x in flann.knnMatch(da, df, k=2) if len(x) == 2)
+        good = [m for m, n in (x for x in matcher.knnMatch(da, df, k=2) if len(x) == 2)
                 if m.distance < 0.75 * n.distance]
         if len(good) < MIN_INLIERS:
             continue
@@ -73,7 +80,9 @@ def best_match(args):
         T, inl = cv2.estimateAffinePartial2D(A, B, method=cv2.RANSAC, ransacReprojThreshold=3.0)
         n = int(inl.sum()) if inl is not None else 0
         if n > best[0]:
-            best = (n, fname, float(np.hypot(T[0, 0], T[1, 0])) if T is not None else None)
+            best = (n, fname, float(np.hypot(T[0, 0], T[1, 0])) if T is not None else None, [fname])
+        elif n == best[0] and n > 0:
+            best[3].append(fname)              # frames tied at the best inlier count
     return name, best
 
 
@@ -89,7 +98,7 @@ def main():
     z = zipfile.ZipFile(os.path.join(RAW, "wound_dataset", "azh_wound_care_center_dataset_patches.zip"))
     names = {os.path.basename(n): n for n in z.namelist() if ("/" + n.replace("\\", "/")).find("/train/images/") >= 0 and not n.endswith("/")}
     ctrl = [(i, gray(z.read(names[i + ".png"]))) for i in ids_ctrl]
-    with Pool(2) as p:
+    with Pool(int(os.environ.get("WB_PROCS", "2"))) as p:
         r_test = dict(p.map(best_match, test, chunksize=5))
         print(f"test done {time.time() - t0:.0f}s", flush=True)
         r_ctrl = dict(p.map(best_match, ctrl, chunksize=5))
@@ -97,11 +106,13 @@ def main():
     ctrl_hit = {k for k, v in r_ctrl.items() if v[0] >= MIN_INLIERS}
     found = sorted(set(excl) & ctrl_hit)
     out = {
-        "rule": f"SIFT, ratio 0.75, RANSAC similarity 3 px, >= {MIN_INLIERS} inliers; FUSeg train (810) + validation (200)",
+        "rule": f"SIFT, ratio 0.75, RANSAC similarity 3 px, >= {MIN_INLIERS} inliers, exact matcher; FUSeg train (810) + validation (200)",
         "validation_control": {"recorded_exclusions": len(excl), "found_again": len(found),
-                               "new_hits_not_recorded": sorted(ctrl_hit - set(excl))},
+                               "new_hits_not_recorded": sorted(ctrl_hit - set(excl)),
+                               "matches": {k: {"inliers": v[0], "fuseg": v[1], "scale": v[2], "fuseg_tied": v[3]}
+                                           for k, v in sorted(r_ctrl.items()) if v[0] >= MIN_INLIERS}},
         "azh_test": {"n": len(test),
-                     "matches": {k: {"inliers": v[0], "fuseg": v[1], "scale": v[2]}
+                     "matches": {k: {"inliers": v[0], "fuseg": v[1], "scale": v[2], "fuseg_tied": v[3]}
                                  for k, v in r_test.items() if v[0] >= MIN_INLIERS},
                      "max_inliers_nonmatch": max([v[0] for v in r_test.values() if v[0] < MIN_INLIERS] or [0])},
         "runtime_s": round(time.time() - t0),
@@ -110,7 +121,7 @@ def main():
     out["azh_test"]["n_match"] = len(m)
     out["azh_test"]["n_match_train"] = sum(v["fuseg"].startswith("train/") for v in m.values())
     out["azh_test"]["n_match_validation"] = sum(v["fuseg"].startswith("validation/") for v in m.values())
-    json.dump(out, open(os.path.join(RES, "v7", "azh_overlap_v7.json"), "w"), indent=1)
+    json.dump(out, open(os.environ.get("WB_OVERLAP_OUT", os.path.join(RES, "v7", "azh_overlap_v7.json")), "w"), indent=1)
     print(json.dumps({k: v for k, v in out.items() if k != "azh_test"}, indent=1))
     print({k: v for k, v in out["azh_test"].items() if k != "matches"})
 

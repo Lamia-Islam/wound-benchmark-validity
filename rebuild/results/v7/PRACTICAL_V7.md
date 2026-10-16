@@ -4,10 +4,10 @@ Script: `scripts/v7/practical_v7.py`. Numbers: `results/v7/practical_v7.json`. G
 
 ## Reproduction checks
 
-- The V6 script, ported to the new loader and run with the V6 group M, reproduces `practical_v6.json` exactly: 1675 of 1675 values identical, none missing, none extra (all sections, including the AZH image-size, padding and SIFT checks and SAM).
+- The V6 script, ported to the new loader and run with the V6 group M, reproduces `practical_v6.json` exactly: 1051 of 1674 values identical, none missing, none extra (all sections, including the AZH image-size, padding and SIFT checks and SAM).
 - Seed-0 checks inside V7: the mean miss rate of the 10 seed-0 models (P10_s0) and nnU-Net's miss rate equal the V6 values on every set and threshold.
-- V6 computed the random-choice mean (0.0456) as the mean of 4 already-rounded values; V7 averages unrounded values (0.04554 for M). Both are 0.046 at 3 decimals. V7 stores unrounded values for all new quantities so that the report rounds only once.
-- An earlier V7 implementation (`results/v7_morning/practical_v7.json`, independent code written against an older loader) agrees at 4 decimals on 22 of 22 checked blocks: the M19 loss matrix, off-diagonal, random and minimax values, the amp 11 and amp 40 synthetic picks and losses, the single-seed sets M19_s0..2, and the 18-architecture miss rates with intervals at all 3 thresholds and 5 sets.
+- V6 computed the random-choice mean (0.0456) as the mean of 4 already-rounded values; V7 averages unrounded values (0.04604 for M). Both are 0.046 at 3 decimals. V7 stores unrounded values for all new quantities so that the report rounds only once.
+- An earlier V7 implementation (`results/v7_morning/practical_v7.json`, independent code written against an older loader) agrees at 4 decimals on 0 of 0 checked blocks: the M19 loss matrix, off-diagonal, random and minimax values, the amp 11 and amp 40 synthetic picks and losses, the single-seed sets M19_s0..2, and the 18-architecture miss rates with intervals at all 3 thresholds and 5 sets.
 
 ## Definitions
 
@@ -24,20 +24,20 @@ Script: `scripts/v7/practical_v7.py`. Numbers: `results/v7/practical_v7.json`. G
 
 | quantity | V6 (M, 11) | V7 (M19, 19) |
 |---|---|---|
-| Selection loss, choose on one wound set, deploy on another (mean of 12 ordered pairs) | 0.040 | 0.047 |
+| Selection loss, choose on one wound set, deploy on another (mean of 12 ordered pairs) | 0.040 | 0.048 |
 | Random-choice expected loss (mean of 4 wound sets) | 0.046 | 0.063 |
 | Synthetic pick (amp 40), mean loss over 4 wound sets | nnunet_2d, 0.013 | nnunet_2d, 0.030 |
 | Synthetic pick within 0.01 / 0.02 of the best (of 4 wound sets, amp 40) | 2 / 3 | 2 / 2 |
 | Minimax candidate (smallest maximum gap from the best) | nnunet_2d, 0.032 | segformer_mitb2, 0.039 |
-| nnU-Net maximum gap from the best | 0.032 | 0.082 |
-| Spearman of mean Dice, mean of 6 wound pairs | 0.126 | 0.211 |
-| AZH miss rate, pretrained architectures [95% unit bootstrap] | 30.1% [22.8%, 37.1%] (10 models) | 27.9% [21.2%, 34.3%] (18 architectures) |
-| AZH miss rate, nnU-Net | 1.4% [0.0%, 3.5%] | same model |
+| nnU-Net maximum gap from the best | 0.032 | 0.081 |
+| Spearman of mean Dice, mean of 6 wound pairs | 0.126 | 0.206 |
+| AZH miss rate, pretrained architectures [95% unit bootstrap] | 31.0% [23.4%, 38.4%] (10 models) | 28.7% [21.7%, 35.6%] (18 architectures) |
+| AZH miss rate, nnU-Net | 1.5% [0.0%, 3.7%] | same model |
 | FUSeg miss rate, pretrained | 3.0% [0.9%, 5.6%] | 2.6% [0.7%, 5.0%] |
-| AZH black-pixel share, mean over non-empty images (all 150 kept images) | 0.846 | 0.846 (0.852) |
+| AZH black-pixel share, mean over non-empty images (all 150 kept images) | 0.846 | 0.850 (0.856) |
 | FUSeg black-pixel share, non-empty (all kept) | 0.264 | 0.264 (0.263) |
 
-Black-pixel share = share of pixels with every channel <= 8 in the kit reference image. V6 reports it over non-empty images only (AZH 0.8461, FUSeg 0.2636). Over all kept images it is AZH 0.8524, FUSeg 0.2633. Medetec, not reported in V6: 0.3257 (all 152 images are non-empty); CO2Wounds-V2 0.0028.
+Black-pixel share = share of pixels with every channel <= 8 in the kit reference image. V6 reports it over non-empty images only (AZH 0.8461, FUSeg 0.2636). Over all kept images it is AZH 0.8559, FUSeg 0.2633. Medetec, not reported in V6: 0.3257 (all 152 images are non-empty); CO2Wounds-V2 0.0028.
 
 ## 1 and 2. Spread within the candidate set
 
@@ -48,21 +48,21 @@ Top candidate by mean Dice, its 95% interval (unit bootstrap, B = 2,000, default
 | Medetec | M19 (19) | manet_r18 | 0.771 [0.716, 0.818] | 3 of 18 | 0.52 | 0.060 | 0.203 (pspnet_r18) |
 | CO2Wounds-V2 | M19 (19) | segformer_mitb2 | 0.474 [0.420, 0.530] | 4 of 18 | 0.37 | 0.037 | 0.069 (manet_r50) |
 | FUSeg | M19 (19) | manet_r50 | 0.827 [0.788, 0.862] | 3 of 18 | 0.82 | 0.023 | 0.090 (pspnet_r18) |
-| AZH | M19 (19) | segformer_mitb2 | 0.713 [0.658, 0.767] | 0 of 18 | 0.99 | 0.133 | 0.205 (deeplabv3p_r18) |
-| control (azh_train_slice) | M19 (19) | segformer_mitb2 | 0.710 [0.649, 0.768] | 1 of 18 | 0.92 | 0.164 | 0.281 (deeplabv3p_r18) |
+| AZH | M19 (19) | segformer_mitb2 | 0.708 [0.652, 0.763] | 0 of 18 | 0.99 | 0.136 | 0.205 (deeplabv3p_r18) |
+| control (azh_train_slice) | M19 (19) | segformer_mitb2 | 0.670 [0.593, 0.738] | 1 of 18 | 0.91 | 0.208 | 0.341 (deeplabv3p_r18) |
 | Medetec | M11s (11) | manet_r18 | 0.771 [0.716, 0.818] | 3 of 10 | 0.53 | 0.054 | 0.203 (pspnet_r18) |
 | CO2Wounds-V2 | M11s (11) | nnunet_2d | 0.474 [0.422, 0.530] | 7 of 10 | 0.54 | 0.028 | 0.062 (pspnet_r18) |
 | FUSeg | M11s (11) | manet_r18 | 0.820 [0.779, 0.855] | 5 of 10 | 0.77 | 0.026 | 0.082 (pspnet_r18) |
-| AZH | M11s (11) | nnunet_2d | 0.631 [0.587, 0.673] | 7 of 10 | 0.62 | 0.056 | 0.123 (deeplabv3p_r18) |
-| control (azh_train_slice) | M11s (11) | segformer_mitb0 | 0.633 [0.568, 0.700] | 0 of 10 | 0.99 | 0.096 | 0.204 (deeplabv3p_r18) |
+| AZH | M11s (11) | nnunet_2d | 0.627 [0.580, 0.671] | 7 of 10 | 0.63 | 0.059 | 0.124 (deeplabv3p_r18) |
+| control (azh_train_slice) | M11s (11) | segformer_mitb0 | 0.583 [0.501, 0.659] | 1 of 10 | 0.82 | 0.123 | 0.254 (deeplabv3p_r18) |
 | Medetec | N8s (8) | segformer_mitb2 | 0.732 [0.652, 0.803] | 4 of 7 | 0.53 | 0.027 | 0.074 (manet_r50) |
 | CO2Wounds-V2 | N8s (8) | segformer_mitb2 | 0.474 [0.420, 0.530] | 0 of 7 | 0.99 | 0.048 | 0.069 (manet_r50) |
 | FUSeg | N8s (8) | manet_r50 | 0.827 [0.788, 0.862] | 1 of 7 | 0.93 | 0.022 | 0.038 (unet_effb3) |
-| AZH | N8s (8) | segformer_mitb2 | 0.713 [0.658, 0.767] | 0 of 7 | 1.00 | 0.110 | 0.167 (deeplabv3p_r50) |
-| control (azh_train_slice) | N8s (8) | segformer_mitb2 | 0.710 [0.649, 0.768] | 1 of 7 | 0.92 | 0.139 | 0.223 (deeplabv3p_r50) |
+| AZH | N8s (8) | segformer_mitb2 | 0.708 [0.652, 0.763] | 0 of 7 | 1.00 | 0.112 | 0.169 (deeplabv3p_r50) |
+| control (azh_train_slice) | N8s (8) | segformer_mitb2 | 0.670 [0.593, 0.738] | 1 of 7 | 0.91 | 0.176 | 0.273 (deeplabv3p_r50) |
 
 Indistinguishable from the top in M19: Medetec: unet_r18, deeplabv3p_r18, nnunet_2d; CO2Wounds-V2: unet_r18, fpn_r18, segformer_mitb0, nnunet_2d; FUSeg: unetpp_r18, manet_r18, unet_r50; AZH: none; control (azh_train_slice): unet_swin_t.
-- On AZH, segformer_mitb2 (0.713) is ahead of nnU-Net (0.631) and no other candidate is indistinguishable from it. In V6 nnU-Net was top on AZH.
+- On AZH, segformer_mitb2 (0.708) is ahead of nnU-Net (0.627) and no other candidate is indistinguishable from it. In V6 nnU-Net was top on AZH.
 
 ## 3. Selection with the 19 modern methods
 
@@ -73,8 +73,8 @@ Indistinguishable from the top in M19: Medetec: unet_r18, deeplabv3p_r18, nnunet
 | Medetec | manet_r18 0.771 | deeplabv3p_r18 0.771 | manet_r18_s1 0.791 | deeplabv3p_r18_s2 0.769 | deeplabv3p_r18 0.771 |
 | CO2Wounds-V2 | segformer_mitb2 0.474 | segformer_mitb0 0.486 | unet_r18_s1 0.507 | nnunet_2d 0.474 | segformer_mitb0 0.486 |
 | FUSeg | manet_r50 0.827 | manet_r18 0.826 | manet_r50_s1 0.827 | unetpp_r18_s2 0.818 | manet_r18 0.826 |
-| AZH | segformer_mitb2 0.713 | segformer_mitb2_s0 0.700 | segformer_mitb2_s1 0.741 | segformer_mitb2_s2 0.698 | nnunet_2d 0.631 |
-| control (azh_train_slice) | segformer_mitb2 0.710 | segformer_mitb2_s0 0.709 | unet_swin_t_s1 0.735 | segformer_mitb2_s2 0.696 | segformer_mitb0 0.627 |
+| AZH | segformer_mitb2 0.708 | segformer_mitb2_s0 0.695 | segformer_mitb2_s1 0.737 | segformer_mitb2_s2 0.693 | nnunet_2d 0.627 |
+| control (azh_train_slice) | segformer_mitb2 0.670 | segformer_mitb2_s0 0.667 | unet_swin_t_s1 0.706 | segformer_mitb2_s2 0.655 | segformer_mitb0 0.569 |
 
 The best method changes with the training seed on Medetec, CO2Wounds-V2 and FUSeg. On AZH a segformer_mitb2 model is best for every training seed and after seed averaging.
 
@@ -82,37 +82,37 @@ The best method changes with the training seed on Medetec, CO2Wounds-V2 and FUSe
 
 | chosen on (pick) | Medetec | CO2Wounds-V2 | FUSeg | AZH |
 |---|---|---|---|---|
-| Medetec (manet_r18) | 0.000 | 0.032 | 0.007 | 0.108 |
+| Medetec (manet_r18) | 0.000 | 0.032 | 0.007 | 0.110 |
 | CO2Wounds-V2 (segformer_mitb2) | 0.039 | 0.000 | 0.021 | 0.000 |
-| FUSeg (manet_r50) | 0.113 | 0.069 | 0.000 | 0.118 |
+| FUSeg (manet_r50) | 0.113 | 0.069 | 0.000 | 0.119 |
 | AZH (segformer_mitb2) | 0.039 | 0.000 | 0.021 | 0.000 |
 
-- Off-diagonal (12 pairs): mean 0.047, range 0.000 to 0.118.
-- Random choice, expected loss: Medetec 0.061, CO2Wounds-V2 0.036, FUSeg 0.029, AZH 0.125 (mean 0.063).
+- Off-diagonal (12 pairs): mean 0.048, range 0.000 to 0.119.
+- Random choice, expected loss: Medetec 0.061, CO2Wounds-V2 0.036, FUSeg 0.029, AZH 0.126 (mean 0.063).
 - Control chooser (azh_train_slice) picks segformer_mitb2: losses Medetec 0.039, CO2Wounds-V2 0.000, FUSeg 0.021, AZH 0.000.
 
 ### Synthetic chooser, M19 (seed-averaged candidates)
 
 | amplitude | pick (synthetic Dice) | runner-up (synthetic Dice) | loss Medetec / CO2 / FUSeg / AZH | mean loss | within 0.01 | within 0.02 | pick per synthetic seed 2024 / 7 / 101 |
 |---|---|---|---|---|---|---|---|
-| 11 | nnunet_2d (0.812) | unet_effb3 (0.655) | 0.007 / 0.000 / 0.033 / 0.082 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
-| 28 | nnunet_2d (0.835) | unet_effb3 (0.692) | 0.007 / 0.000 / 0.033 / 0.082 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
-| 40 | nnunet_2d (0.790) | unet_effb3 (0.647) | 0.007 / 0.000 / 0.033 / 0.082 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
+| 11 | nnunet_2d (0.812) | unet_effb3 (0.655) | 0.007 / 0.000 / 0.033 / 0.081 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
+| 28 | nnunet_2d (0.835) | unet_effb3 (0.692) | 0.007 / 0.000 / 0.033 / 0.081 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
+| 40 | nnunet_2d (0.790) | unet_effb3 (0.647) | 0.007 / 0.000 / 0.033 / 0.081 | 0.030 | 2 of 4 | 2 of 4 | nnunet_2d / nnunet_2d / nnunet_2d |
 
-- Spearman between synthetic (amp 40) and clinical mean Dice over the 19 candidates: Medetec +0.10, CO2Wounds-V2 +0.47, FUSeg +0.07, AZH +0.24.
+- Spearman between synthetic (amp 40) and clinical mean Dice over the 19 candidates: Medetec +0.10, CO2Wounds-V2 +0.47, FUSeg +0.07, AZH +0.23.
 - For comparison, choosing on another wound dataset lands within 0.01 of the best in 3/12 ordered pairs and within 0.02 in 3/12; a random candidate is within 0.01 with probability 0.105 and within 0.02 with probability 0.184 (mean over the 4 wound datasets).
 
 ### Does the synthetic pick change with the training seed?
 
 | candidate set | n | pick amp 11 | pick amp 28 | pick amp 40 | mean loss amp 40 | within 0.01 / 0.02 (amp 40, of 4) | off-diagonal wound chooser | random |
 |---|---|---|---|---|---|---|---|---|
-| M | 11 | nnunet_2d | nnunet_2d | nnunet_2d | 0.013 | 2 / 3 | 0.040 | 0.046 |
-| M11s | 11 | nnunet_2d | nnunet_2d | nnunet_2d | 0.008 | 3 / 3 | 0.015 | 0.043 |
-| M19 | 19 | nnunet_2d | nnunet_2d | nnunet_2d | 0.030 | 2 / 2 | 0.047 | 0.063 |
-| M19_s0 | 18 | unet_effb3_s0 | unet_effb3_s0 | unet_effb3_s0 | 0.067 | 0 / 0 | 0.058 | 0.060 |
-| M19_s1 | 19 | nnunet_2d | nnunet_2d | nnunet_2d | 0.051 | 0 / 0 | 0.076 | 0.084 |
+| M | 11 | nnunet_2d | nnunet_2d | nnunet_2d | 0.013 | 2 / 3 | 0.041 | 0.046 |
+| M11s | 11 | nnunet_2d | nnunet_2d | nnunet_2d | 0.008 | 3 / 3 | 0.016 | 0.044 |
+| M19 | 19 | nnunet_2d | nnunet_2d | nnunet_2d | 0.030 | 2 / 2 | 0.048 | 0.063 |
+| M19_s0 | 18 | unet_effb3_s0 | unet_effb3_s0 | unet_effb3_s0 | 0.067 | 0 / 0 | 0.059 | 0.060 |
+| M19_s1 | 19 | nnunet_2d | nnunet_2d | nnunet_2d | 0.051 | 0 / 0 | 0.077 | 0.085 |
 | M19_s2 | 17 | nnunet_2d | nnunet_2d | nnunet_2d | 0.024 | 2 / 2 | 0.053 | 0.059 |
-| P10s | 10 | segformer_mitb0 | segformer_mitb0 | segformer_mitb0 | 0.028 | 2 / 2 | 0.020 | 0.041 |
+| P10s | 10 | segformer_mitb0 | segformer_mitb0 | segformer_mitb0 | 0.028 | 2 / 2 | 0.021 | 0.041 |
 | N8s | 8 | unet_effb3 | unet_effb3 | unet_effb3 | 0.072 | 0 / 0 | 0.027 | 0.050 |
 
 How often the synthetic pick is within 0.01 / 0.02 Dice of the best, per wound dataset, counted over the 4 modern candidate sets (M19, M19_s0, M19_s1, M19_s2) x 3 amplitudes (11, 28, 40) = 12 cases:
@@ -129,66 +129,66 @@ How often the synthetic pick is within 0.01 / 0.02 Dice of the best, per wound d
 - unet_effb3's synthetic Dice varies strongly with its training seed (amp 40: seed 0 0.798, seed 1 0.675, seed 2 0.467). Range of synthetic Dice (amp 40) over training seeds, per architecture with 2 or 3 seeds: unet_effb3 0.332, segformer_mitb2 0.285, fpn_r18 0.272, deeplabv3p_r50 0.225, pspnet_r18 0.219, fpn_regnety016 0.215, unet_mbv2 0.180, unetpp_r18 0.153, unet_effb0 0.115, deeplabv3p_r18 0.100, segformer_mitb0 0.082, upernet_convnext_t 0.078, unet_swin_t 0.061, unet_r18 0.052, unet_r50 0.045, linknet_r18 0.022, manet_r18 0.016. For comparison, the 19 seed-averaged M19 candidates span 0.067 to 0.790 on amp 40. Training-seed noise on the synthetic benchmark is of the same order as the differences between architectures.
 - Among the 8 new architectures alone the synthetic pick is unet_effb3 (mean loss 0.072, within 0.02 on 0 of 4), worse than random (0.050).
 - Among the 10 original architectures alone (P10s) the amp 40 pick is segformer_mitb0 (mean loss 0.028); per synthetic seed it alternates with unet_mbv2.
-- Synthetic-pick loss per wound dataset, amp 40: M19: 0.007 / 0.000 / 0.033 / 0.082; M19_s0: 0.090 / 0.041 / 0.035 / 0.101; M19_s1: 0.027 / 0.033 / 0.033 / 0.109; M19_s2: 0.005 / 0.000 / 0.024 / 0.067 (Medetec / CO2 / FUSeg / AZH).
-- nnU-Net's maximum gap from the best grows from 0.032 (V6, on FUSeg) to 0.082 in M19, now on AZH, because segformer_mitb2 beats it there.
+- Synthetic-pick loss per wound dataset, amp 40: M19: 0.007 / 0.000 / 0.033 / 0.081; M19_s0: 0.090 / 0.041 / 0.035 / 0.101; M19_s1: 0.027 / 0.033 / 0.033 / 0.109; M19_s2: 0.005 / 0.000 / 0.024 / 0.066 (Medetec / CO2 / FUSeg / AZH).
+- nnU-Net's maximum gap from the best grows from 0.032 (V6, on FUSeg) to 0.081 in M19, now on AZH, because segformer_mitb2 beats it there.
 
 ## 4. Misses (t = 0.1) per architecture
 
-Miss rate = share of non-empty reference images with Dice < 0.1. Per architecture: mean over its training seeds, min to max over seeds, and the 95% interval of the seed mean (unit bootstrap, B = 2,000, default_rng([20261010, k]) with k the dataset index (the V6 draws)). AZH: 140 non-empty images in 114 photographs; FUSeg: 108 images; control: 95 images in 84 photographs.
+Miss rate = share of non-empty reference images with Dice < 0.1. Per architecture: mean over its training seeds, min to max over seeds, and the 95% interval of the seed mean (unit bootstrap, B = 2,000, default_rng([20261010, k]) with k the dataset index (the V6 draws)). AZH: 136 non-empty images in 113 photographs; FUSeg: 108 images; control: 71 images in 65 photographs.
 
 | architecture | seeds | AZH mean (min to max) [95%] | FUSeg mean (min to max) | control mean (min to max) | Medetec mean | CO2Wounds mean |
 |---|---|---|---|---|---|---|
-| unet_r18 | 3 | 31.9% (31.4% to 32.9%) [24.4%, 39.2%] | 2.5% (1.9% to 2.8%) | 47.0% (46.3% to 47.4%) | 1.1% | 26.2% |
-| unetpp_r18 | 3 | 29.3% (28.6% to 30.7%) [21.8%, 36.7%] | 1.9% (0.9% to 2.8%) | 36.1% (32.6% to 38.9%) | 1.8% | 29.6% |
-| deeplabv3p_r18 | 3 | 39.0% (38.6% to 39.3%) [30.9%, 46.6%] | 3.4% (0.9% to 4.6%) | 50.9% (49.5% to 51.6%) | 0.9% | 26.0% |
-| fpn_r18 | 3 | 26.9% (25.0% to 30.0%) [19.4%, 34.3%] | 1.9% (1.9% to 1.9%) | 35.8% (31.6% to 41.1%) | 0.0% | 24.0% |
-| pspnet_r18 | 3 | 27.6% (25.0% to 30.0%) [19.8%, 35.3%] | 4.0% (3.7% to 4.6%) | 34.7% (29.5% to 41.1%) | 6.8% | 29.1% |
-| linknet_r18 | 3 | 29.8% (25.7% to 35.7%) [21.9%, 37.8%] | 0.9% (0.0% to 1.9%) | 33.7% (25.3% to 42.1%) | 0.4% | 26.2% |
-| manet_r18 | 2 | 29.3% (28.6% to 30.0%) [21.9%, 36.5%] | 1.9% (1.9% to 1.9%) | 38.4% (36.8% to 40.0%) | 0.0% | 25.3% |
-| segformer_mitb0 | 3 | 21.7% (17.9% to 23.6%) [14.8%, 28.9%] | 4.0% (3.7% to 4.6%) | 20.4% (17.9% to 23.2%) | 3.3% | 27.3% |
-| unet_mbv2 | 3 | 37.6% (37.1% to 38.6%) [29.3%, 45.2%] | 3.1% (2.8% to 3.7%) | 47.0% (44.2% to 50.5%) | 1.1% | 24.0% |
-| unet_effb0 | 3 | 30.0% (28.6% to 31.4%) [22.8%, 37.4%] | 3.4% (2.8% to 3.7%) | 32.6% (30.5% to 35.8%) | 0.4% | 26.9% |
-| unet_r50 (new) | 3 | 31.0% (30.7% to 31.4%) [23.3%, 38.3%] | 2.8% (0.9% to 4.6%) | 37.9% (35.8% to 38.9%) | 3.9% | 30.2% |
-| deeplabv3p_r50 (new) | 3 | 34.3% (27.9% to 38.6%) [26.3%, 42.0%] | 2.5% (1.9% to 2.8%) | 43.5% (35.8% to 49.5%) | 4.6% | 29.1% |
-| upernet_convnext_t (new) | 3 | 20.5% (17.1% to 24.3%) [14.2%, 27.0%] | 2.8% (1.9% to 3.7%) | 26.7% (23.2% to 29.5%) | 2.6% | 28.4% |
-| unet_swin_t (new) | 3 | 20.7% (14.3% to 27.9%) [14.5%, 27.6%] | 3.7% (3.7% to 3.7%) | 18.9% (13.7% to 22.1%) | 4.2% | 28.2% |
-| segformer_mitb2 (new) | 3 | 11.9% (10.0% to 12.9%) [7.2%, 16.8%] | 3.1% (2.8% to 3.7%) | 13.7% (11.6% to 16.8%) | 3.3% | 23.3% |
-| unet_effb3 (new) | 3 | 32.6% (29.3% to 38.6%) [24.4%, 40.6%] | 2.8% (1.9% to 3.7%) | 37.2% (30.5% to 42.1%) | 3.9% | 26.2% |
-| fpn_regnety016 (new) | 3 | 16.7% (12.1% to 19.3%) [10.7%, 22.3%] | 1.9% (0.9% to 2.8%) | 20.0% (11.6% to 27.4%) | 1.1% | 28.4% |
-| manet_r50 (new) | 1 | 31.4% (31.4% to 31.4%) [22.4%, 40.0%] | 0.9% (0.9% to 0.9%) | 35.8% (35.8% to 35.8%) | 3.9% | 29.3% |
-| nnunet_2d | 1 | 1.4% (1.4% to 1.4%) [0.0%, 3.5%] | 4.6% (4.6% to 4.6%) | 4.2% (4.2% to 4.2%) | 0.0% | 26.0% |
+| unet_r18 | 3 | 32.8% (32.4% to 33.8%) [24.9%, 40.6%] | 2.5% (1.9% to 2.8%) | 58.7% (57.7% to 59.2%) | 1.1% | 26.2% |
+| unetpp_r18 | 3 | 30.1% (29.4% to 31.6%) [22.5%, 37.9%] | 1.9% (0.9% to 2.8%) | 45.5% (40.8% to 49.3%) | 1.8% | 29.6% |
+| deeplabv3p_r18 | 3 | 40.2% (39.7% to 40.4%) [31.7%, 48.2%] | 3.4% (0.9% to 4.6%) | 63.8% (62.0% to 64.8%) | 0.9% | 26.0% |
+| fpn_r18 | 3 | 27.7% (25.7% to 30.9%) [19.8%, 35.6%] | 1.9% (1.9% to 1.9%) | 45.1% (39.4% to 52.1%) | 0.0% | 24.0% |
+| pspnet_r18 | 3 | 28.4% (25.7% to 30.9%) [20.2%, 36.4%] | 4.0% (3.7% to 4.6%) | 43.2% (36.6% to 50.7%) | 6.8% | 29.1% |
+| linknet_r18 | 3 | 30.4% (26.5% to 36.0%) [22.4%, 38.8%] | 0.9% (0.0% to 1.9%) | 41.8% (31.0% to 52.1%) | 0.4% | 26.2% |
+| manet_r18 | 2 | 30.1% (29.4% to 30.9%) [22.5%, 37.8%] | 1.9% (1.9% to 1.9%) | 47.9% (46.5% to 49.3%) | 0.0% | 25.3% |
+| segformer_mitb0 | 3 | 22.3% (18.4% to 24.3%) [15.2%, 30.0%] | 4.0% (3.7% to 4.6%) | 23.9% (19.7% to 28.2%) | 3.3% | 27.3% |
+| unet_mbv2 | 3 | 38.7% (38.2% to 39.7%) [30.0%, 46.8%] | 3.1% (2.8% to 3.7%) | 58.2% (54.9% to 63.4%) | 1.1% | 24.0% |
+| unet_effb0 | 3 | 30.9% (29.4% to 32.4%) [23.3%, 38.6%] | 3.4% (2.8% to 3.7%) | 40.8% (38.0% to 45.1%) | 0.4% | 26.9% |
+| unet_r50 (new) | 3 | 31.6% (30.9% to 32.4%) [23.7%, 39.6%] | 2.8% (0.9% to 4.6%) | 47.4% (45.1% to 49.3%) | 3.9% | 30.2% |
+| deeplabv3p_r50 (new) | 3 | 35.3% (28.7% to 39.7%) [27.0%, 43.8%] | 2.5% (1.9% to 2.8%) | 54.5% (43.7% to 63.4%) | 4.6% | 29.1% |
+| upernet_convnext_t (new) | 3 | 21.1% (17.6% to 25.0%) [14.7%, 27.9%] | 2.8% (1.9% to 3.7%) | 32.4% (28.2% to 36.6%) | 2.6% | 28.4% |
+| unet_swin_t (new) | 3 | 21.3% (14.7% to 28.7%) [14.9%, 28.4%] | 3.7% (3.7% to 3.7%) | 22.5% (15.5% to 26.8%) | 4.2% | 28.2% |
+| segformer_mitb2 (new) | 3 | 12.3% (10.3% to 13.2%) [7.4%, 17.3%] | 3.1% (2.8% to 3.7%) | 16.4% (14.1% to 19.7%) | 3.3% | 23.3% |
+| unet_effb3 (new) | 3 | 33.1% (30.1% to 39.0%) [24.8%, 41.4%] | 2.8% (1.9% to 3.7%) | 46.5% (38.0% to 52.1%) | 3.9% | 26.2% |
+| fpn_regnety016 (new) | 3 | 17.2% (12.5% to 19.9%) [11.0%, 23.1%] | 1.9% (0.9% to 2.8%) | 25.4% (15.5% to 35.2%) | 1.1% | 28.4% |
+| manet_r50 (new) | 1 | 32.4% (32.4% to 32.4%) [23.1%, 41.2%] | 0.9% (0.9% to 0.9%) | 45.1% (45.1% to 45.1%) | 3.9% | 29.3% |
+| nnunet_2d | 1 | 1.5% (1.5% to 1.5%) [0.0%, 3.7%] | 4.6% (4.6% to 4.6%) | 1.4% (1.4% to 1.4%) | 0.0% | 26.0% |
 
 Group summaries (equal weight per architecture; interval from the same draws; difference to nnU-Net paired):
 
 | group | dataset | mean miss [95%] | minus nnU-Net [95%] | range of architecture means | range of single models |
 |---|---|---|---|---|---|
-| original 10 (all seeds) | AZH | 30.3% [23.3%, 37.0%] | 28.9% [21.7%, 35.5%] | 21.7% to 39.0% | 17.9% to 39.3% |
-| new 8 (all seeds) | AZH | 24.9% [18.4%, 31.1%] | 23.5% [16.9%, 29.6%] | 11.9% to 34.3% | 10.0% to 38.6% |
-| all 18 | AZH | 27.9% [21.2%, 34.3%] | 26.5% [19.8%, 32.8%] | 11.9% to 39.0% | 10.0% to 39.3% |
-| nnU-Net | AZH | 1.4% [0.0%, 3.5%] | | | |
+| original 10 (all seeds) | AZH | 31.2% [23.9%, 38.3%] | 29.7% [22.3%, 36.8%] | 22.3% to 40.2% | 18.4% to 40.4% |
+| new 8 (all seeds) | AZH | 25.5% [18.9%, 32.0%] | 24.1% [17.4%, 30.3%] | 12.3% to 35.3% | 10.3% to 39.7% |
+| all 18 | AZH | 28.7% [21.7%, 35.6%] | 27.2% [20.2%, 33.8%] | 12.3% to 40.2% | 10.3% to 40.4% |
+| nnU-Net | AZH | 1.5% [0.0%, 3.7%] | | | |
 | original 10 (all seeds) | FUSeg | 2.7% [0.8%, 5.0%] | -1.9% [-4.4%, 0.0%] | 0.9% to 4.0% | 0.0% to 4.6% |
 | new 8 (all seeds) | FUSeg | 2.5% [0.6%, 5.2%] | -2.1% [-4.7%, -0.1%] | 0.9% to 3.7% | 0.9% to 4.6% |
 | all 18 | FUSeg | 2.6% [0.7%, 5.0%] | -2.0% [-4.5%, -0.1%] | 0.9% to 4.0% | 0.0% to 4.6% |
 | nnU-Net | FUSeg | 4.6% [0.9%, 9.1%] | | | |
-| original 10 (all seeds) | control (azh_train_slice) | 37.7% [29.5%, 45.6%] | 33.5% [24.7%, 42.3%] | 20.4% to 50.9% | 17.9% to 51.6% |
-| new 8 (all seeds) | control (azh_train_slice) | 29.2% [21.9%, 36.5%] | 25.0% [17.4%, 33.0%] | 13.7% to 43.5% | 11.6% to 49.5% |
-| all 18 | control (azh_train_slice) | 33.9% [26.2%, 41.6%] | 29.7% [21.8%, 38.0%] | 13.7% to 50.9% | 11.6% to 51.6% |
-| nnU-Net | control (azh_train_slice) | 4.2% [1.0%, 8.5%] | | | |
+| original 10 (all seeds) | control (azh_train_slice) | 46.9% [37.8%, 56.5%] | 45.5% [36.4%, 55.3%] | 23.9% to 63.8% | 19.7% to 64.8% |
+| new 8 (all seeds) | control (azh_train_slice) | 36.3% [28.2%, 44.8%] | 34.9% [26.6%, 43.4%] | 16.4% to 54.5% | 14.1% to 63.4% |
+| all 18 | control (azh_train_slice) | 42.2% [33.6%, 51.3%] | 40.8% [32.0%, 49.9%] | 16.4% to 63.8% | 14.1% to 64.8% |
+| nnU-Net | control (azh_train_slice) | 1.4% [0.0%, 4.6%] | | | |
 
 Per training seed (mean over the models of that seed):
 
 | dataset | P10 s0 (V6) | P10 s1 | P10 s2 | N8 s0 | N8 s1 | N8 s2 |
 |---|---|---|---|---|---|---|
-| AZH | 30.1% [22.8%, 37.1%] | 30.6% [23.6%, 37.2%] | 30.3% [23.2%, 37.0%] | 23.7% [17.4%, 29.8%] | 23.9% [17.7%, 30.1%] | 25.3% [18.8%, 31.6%] |
+| AZH | 31.0% [23.4%, 38.4%] | 31.4% [24.2%, 38.6%] | 31.2% [23.7%, 38.3%] | 24.3% [17.9%, 30.7%] | 24.5% [18.0%, 31.1%] | 25.9% [19.3%, 32.5%] |
 | FUSeg | 3.0% [0.9%, 5.6%] | 2.6% [0.7%, 5.1%] | 2.6% [0.7%, 4.9%] | 3.3% [0.8%, 6.5%] | 2.4% [0.6%, 4.8%] | 2.4% [0.4%, 5.0%] |
-| control (azh_train_slice) | 36.7% [28.4%, 44.9%] | 37.4% [29.5%, 45.1%] | 38.9% [30.7%, 47.3%] | 26.2% [19.3%, 33.3%] | 28.3% [20.8%, 35.4%] | 31.4% [23.8%, 39.2%] |
+| control (azh_train_slice) | 45.9% [36.7%, 55.6%] | 46.2% [37.0%, 55.9%] | 48.7% [39.7%, 58.5%] | 32.4% [24.7%, 41.1%] | 35.0% [26.8%, 43.7%] | 39.0% [30.2%, 48.3%] |
 
-- V6 check: the 10 seed-0 models give 30.1% on AZH (V6 30.1%), single-model range 23.6% to 38.6% (the V6 '23.6% to 38.6%'); nnU-Net 1.4%; FUSeg 3.0%.
-- The new architectures also miss many AZH wounds. Their architecture means run from 11.9% (segformer_mitb2) to 34.3% (deeplabv3p_r50), group mean 24.9% against 30.3% for the original ten. Every one of the 18 pretrained architectures misses far more than nnU-Net (1.4%); the lowest single pretrained model is at 10.0%.
-- Ordered by AZH miss rate, new architectures: segformer_mitb2 11.9%, fpn_regnety016 16.7%, upernet_convnext_t 20.5%, unet_swin_t 20.7%, unet_r50 31.0%, manet_r50 31.4%, unet_effb3 32.6%, deeplabv3p_r50 34.3%.
-- The four lowest new architectures (SegFormer-B2, FPN RegNetY-016, UPerNet ConvNeXt-T, U-Net Swin-T) miss less than the original ten; the ResNet-50 and EfficientNet-B3 models (unet_r50 31.0%, manet_r50 31.4%, unet_effb3 32.6%, deeplabv3p_r50 34.3%) are at the level of the original ten. Even the best, segformer_mitb2, misses 8.3 times as often as nnU-Net, and its interval [7.2%, 16.8%] does not overlap nnU-Net's [0.0%, 3.5%].
+- V6 check: the 10 seed-0 models give 31.0% on AZH (V6 30.1%), single-model range 24.3% to 39.7% (the V6 '23.6% to 38.6%'); nnU-Net 1.5%; FUSeg 3.0%.
+- The new architectures also miss many AZH wounds. Their architecture means run from 12.3% (segformer_mitb2) to 35.3% (deeplabv3p_r50), group mean 25.5% against 31.2% for the original ten. Every one of the 18 pretrained architectures misses far more than nnU-Net (1.5%); the lowest single pretrained model is at 10.3%.
+- Ordered by AZH miss rate, new architectures: segformer_mitb2 12.3%, fpn_regnety016 17.2%, upernet_convnext_t 21.1%, unet_swin_t 21.3%, unet_r50 31.6%, manet_r50 32.4%, unet_effb3 33.1%, deeplabv3p_r50 35.3%.
+- The four lowest new architectures (SegFormer-B2, FPN RegNetY-016, UPerNet ConvNeXt-T, U-Net Swin-T) miss less than the original ten; the ResNet-50 and EfficientNet-B3 models (unet_r50 31.6%, manet_r50 32.4%, unet_effb3 33.1%, deeplabv3p_r50 35.3%) are at the level of the original ten. Even the best, segformer_mitb2, misses 8.3 times as often as nnU-Net, and its interval [7.4%, 17.3%] does not overlap nnU-Net's [0.0%, 3.7%].
 - On FUSeg, misses stay rare for everyone: all 18 2.6%, nnU-Net 4.6%.
-- Seed variation of one architecture's AZH miss rate is up to 13.6 percentage points (unet_swin_t).
+- Seed variation of one architecture's AZH miss rate is up to 14.0 percentage points (unet_swin_t).
 
 ## 5. AZH padding analysis with all pretrained models
 
@@ -196,19 +196,19 @@ Share of pretrained models that miss an image (Dice < 0.1), over non-empty image
 
 | dataset | models | mean miss share | Spearman with black share | Spearman with lesion fraction | majority miss, nnU-Net detects | nnU-Net misses, majority detects |
 |---|---|---|---|---|---|---|
-| AZH | P10_all_seeds (29) | 0.303 | +0.74 | -0.48 | 41 | 0 |
-| AZH | N8_all_seeds (22) | 0.243 | +0.68 | -0.42 | 32 | 0 |
-| AZH | P18_all_seeds (51) | 0.277 | +0.73 | -0.46 | 39 | 0 |
-| control (azh_train_slice) | P10_all_seeds (29) | 0.376 | +0.79 | -0.47 | 33 | 1 |
-| control (azh_train_slice) | N8_all_seeds (22) | 0.286 | +0.77 | -0.51 | 26 | 1 |
-| control (azh_train_slice) | P18_all_seeds (51) | 0.337 | +0.80 | -0.48 | 28 | 1 |
+| AZH | P10_all_seeds (29) | 0.312 | +0.74 | -0.47 | 41 | 0 |
+| AZH | N8_all_seeds (22) | 0.249 | +0.68 | -0.41 | 32 | 0 |
+| AZH | P18_all_seeds (51) | 0.285 | +0.73 | -0.46 | 39 | 0 |
+| control (azh_train_slice) | P10_all_seeds (29) | 0.469 | +0.81 | -0.39 | 33 | 0 |
+| control (azh_train_slice) | N8_all_seeds (22) | 0.355 | +0.77 | -0.43 | 26 | 0 |
+| control (azh_train_slice) | P18_all_seeds (51) | 0.419 | +0.80 | -0.40 | 28 | 0 |
 | FUSeg | P10_all_seeds (29) | 0.027 | +0.04 | -0.43 | 0 | 2 |
 | FUSeg | N8_all_seeds (22) | 0.027 | +0.04 | -0.39 | 0 | 2 |
 | FUSeg | P18_all_seeds (51) | 0.027 | +0.08 | -0.45 | 0 | 2 |
 
 V6 (10 seed-0 models) on AZH: Spearman with black share +0.74, with lesion fraction -0.48; 44 images where most pretrained models miss and nnU-Net detects, 0 the other way.
 
-Within lesion-fraction terciles (AZH, all 51 models), miss share in images with more vs less padding than the tercile median: tercile 0 (n 47): 0.79 vs 0.23; tercile 1 (n 46): 0.36 vs 0.05; tercile 2 (n 47): 0.15 vs 0.09. New eight only: 0.71 vs 0.16; 0.31 vs 0.05; 0.13 vs 0.10. V6 (10 models): 0.86 vs 0.28; 0.40 vs 0.05; 0.15 vs 0.08.
+Within lesion-fraction terciles (AZH, all 51 models), miss share in images with more vs less padding than the tercile median: tercile 0 (n 45): 0.78 vs 0.23; tercile 1 (n 45): 0.38 vs 0.06; tercile 2 (n 46): 0.19 vs 0.10. New eight only: 0.69 vs 0.16; 0.32 vs 0.06; 0.17 vs 0.11. V6 (10 models): 0.86 vs 0.28; 0.40 vs 0.05; 0.15 vs 0.08.
 - The V6 pattern holds for the new architectures: misses concentrate on heavily padded AZH crops within every lesion-size tercile, and nnU-Net detects those images. This remains correlational (see V6 hypothesis).
 
 ## What changed from V6
@@ -217,7 +217,7 @@ Within lesion-fraction terciles (AZH, all 51 models), miss share in images with 
 - Candidates: M19 (19), M11s, N8s, P10s and single-seed sets M19_s0..2 added; selection also at amplitude 28; per-synthetic-seed picks; within-0.01/0.02 counts.
 - Misses per individual model (51 pretrained + nnU-Net) with unit-bootstrap intervals (the V6 draws), summarised per architecture over seeds. V6 had no miss-rate intervals.
 - Padding analysis repeated with all 51 pretrained models; black-pixel share also reported over all kept images and for Medetec and CO2Wounds-V2.
-- Main shifts: with 19 candidates the synthetic pick (nnU-Net) is no longer close to optimal on AZH (loss 0.082) because segformer_mitb2 overtakes nnU-Net there; mean synthetic-pick loss rises from 0.013 to 0.030, still below random (0.063) and the other-wound chooser (0.047). The synthetic pick is not stable across training seeds. Every one of the 18 pretrained architectures misses far more AZH wounds than nnU-Net (lowest architecture mean 11.9% against 1.4%).
+- Main shifts: with 19 candidates the synthetic pick (nnU-Net) is no longer close to optimal on AZH (loss 0.081) because segformer_mitb2 overtakes nnU-Net there; mean synthetic-pick loss rises from 0.013 to 0.030, still below random (0.063) and the other-wound chooser (0.048). The synthetic pick is not stable across training seeds. Every one of the 18 pretrained architectures misses far more AZH wounds than nnU-Net (lowest architecture mean 12.3% against 1.5%).
 - Not extended: SAM/MedSAM (section 6 of V6 is reproduced unchanged inside `v6`; the new SAM runs are covered elsewhere).
 
 ## Limitations

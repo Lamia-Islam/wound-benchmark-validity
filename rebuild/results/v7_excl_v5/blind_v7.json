@@ -1,0 +1,765 @@
+{
+ "checks": {
+  "group_sizes": {
+   "U": 18,
+   "F": 14,
+   "K": 14,
+   "M": 11,
+   "M11s": 11,
+   "M19": 19,
+   "N8s": 8,
+   "M_s1": 11,
+   "M_s2": 10,
+   "U+M": 29,
+   "U+M19": 37
+  },
+  "seeds_per_arch": {
+   "unet_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "unetpp_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "deeplabv3p_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "fpn_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "pspnet_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "linknet_r18_in": [
+    0,
+    1,
+    2
+   ],
+   "manet_r18_in": [
+    0,
+    1
+   ],
+   "segformer_mitb0_in": [
+    0,
+    1,
+    2
+   ],
+   "unet_mbv2_in": [
+    0,
+    1,
+    2
+   ],
+   "unet_effb0_in": [
+    0,
+    1,
+    2
+   ],
+   "unet_r50": [
+    0,
+    1,
+    2
+   ],
+   "deeplabv3p_r50": [
+    0,
+    1,
+    2
+   ],
+   "upernet_convnext_t": [
+    0,
+    1,
+    2
+   ],
+   "unet_swin_t": [
+    0,
+    1,
+    2
+   ],
+   "segformer_mitb2": [
+    0,
+    1,
+    2
+   ],
+   "unet_effb3": [
+    0,
+    1,
+    2
+   ],
+   "fpn_regnety016": [
+    0,
+    1,
+    2
+   ],
+   "manet_r50": [
+    1
+   ]
+  },
+  "kept_images": {
+   "medetec": 152,
+   "co2wounds": 150,
+   "fuseg": 112,
+   "azh": 150,
+   "kvasir_disjoint": 120,
+   "kvasir_sessile": 120,
+   "cvc_clinicdb": 150,
+   "cvc_colondb": 150,
+   "etis_larib": 150,
+   "ph2": 150,
+   "tn3k_test": 150,
+   "azh_train_slice": 103
+  },
+  "synthetic_images": {
+   "genB_amp40_s2024": 45,
+   "genB_amp40_s7": 45,
+   "genB_amp40_s101": 45
+  },
+  "scipy_spearman_M19_wound": 0.21140350877192984
+ },
+ "items": [
+  {
+   "item": 1,
+   "quantity": "wound-pair agreement, Dice, M",
+   "reported": 0.12575757575757576,
+   "replicated": 0.12575757575757576,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 1,
+   "quantity": "wound-pair agreement, Dice, M11s",
+   "reported": 0.27424242424242423,
+   "replicated": 0.2742424242424243,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 1,
+   "quantity": "wound-pair agreement, Dice, M19",
+   "reported": 0.2114035087719298,
+   "replicated": 0.21140350877192984,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 1,
+   "quantity": "wound-pair agreement, Dice, N8s",
+   "reported": 0.2579365079365079,
+   "replicated": 0.25793650793650796,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 1,
+   "quantity": "wound-pair agreement, NSD, M19",
+   "reported": 0.4730994152046783,
+   "replicated": 0.47309941520467835,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 2,
+   "quantity": "wound-pair agreement, Dice, U+M19",
+   "reported": 0.8206495969653865,
+   "replicated": 0.8206495969653864,
+   "abs_diff": 1.1102230246251565e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 2,
+   "quantity": "wound-pair agreement, Dice, U+M",
+   "reported": 0.8013957307060755,
+   "replicated": 0.8013957307060754,
+   "abs_diff": 1.1102230246251565e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, M",
+   "reported": 0.4608855502123414,
+   "replicated": 0.46088555021234134,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, M19",
+   "reported": 0.22531770130454334,
+   "replicated": 0.22531770130454334,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, M11s",
+   "reported": 0.3294143356643357,
+   "replicated": 0.3294143356643357,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, N8s",
+   "reported": 0.054868742368742326,
+   "replicated": 0.054868742368742354,
+   "abs_diff": 2.7755575615628914e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, U+M19",
+   "reported": 1.1005242543894649,
+   "replicated": 1.1005242543894647,
+   "abs_diff": 2.220446049250313e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, M seed 1 (10 pretrained s1 + nnU-Net)",
+   "reported": 0.023525990577165257,
+   "replicated": 0.023525990577165284,
+   "abs_diff": 2.7755575615628914e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 3,
+   "quantity": "modality difference, Dice, M seed 2 (9 pretrained s2 + nnU-Net)",
+   "reported": 0.1802447552447552,
+   "replicated": 0.1802447552447553,
+   "abs_diff": 1.1102230246251565e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 4,
+   "quantity": "exact relabeling p, M19 Dice modality difference",
+   "reported": 0.005772005772005772,
+   "replicated": 0.005772005772005772,
+   "abs_diff": 0.0,
+   "decimals": 5,
+   "status": "PASS",
+   "note": "80 of 13860 labelings with statistic >= observed"
+  },
+  {
+   "item": 4,
+   "quantity": "exact relabeling p, U+M19 Dice modality difference",
+   "reported": 0.0001443001443001443,
+   "replicated": 0.0001443001443001443,
+   "abs_diff": 0.0,
+   "decimals": 5,
+   "status": "PASS",
+   "note": "2 of 13860 (2 is the minimum: ph2 and tn3k labels swap)"
+  },
+  {
+   "item": 5,
+   "quantity": "same wound dataset, different seed, mean Spearman (C16)",
+   "reported": 0.44583333333333336,
+   "replicated": 0.4458333333333333,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "wound-pair agreement, single seeds (mean of 3), C16",
+   "reported": 0.17679738562091504,
+   "replicated": 0.17679738562091504,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "wound-pair agreement, seed averages, C16",
+   "reported": 0.17892156862745098,
+   "replicated": 0.17892156862745098,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "different wound dataset and different seed (C16)",
+   "reported": 0.10016339869281045,
+   "replicated": 0.10016339869281043,
+   "abs_diff": 1.3877787807814457e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "gap, C16",
+   "reported": 0.3456699346405229,
+   "replicated": 0.34566993464052287,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "gap, 9 original architectures",
+   "reported": 0.49305555555555547,
+   "replicated": 0.4930555555555557,
+   "abs_diff": 2.220446049250313e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 5,
+   "quantity": "gap, 7 new architectures",
+   "reported": 0.054563492063492036,
+   "replicated": 0.05456349206349209,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, M",
+   "reported": 0.3530303030303031,
+   "replicated": 0.3530303030303031,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, M11s",
+   "reported": 0.4083333333333334,
+   "replicated": 0.40833333333333344,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, M19",
+   "reported": 0.20774853801169588,
+   "replicated": 0.2077485380116959,
+   "abs_diff": 2.7755575615628914e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, N8s",
+   "reported": -0.12698412698412698,
+   "replicated": -0.126984126984127,
+   "abs_diff": 2.7755575615628914e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, U+M19",
+   "reported": 0.6467915283704758,
+   "replicated": 0.6467915283704757,
+   "abs_diff": 1.1102230246251565e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": "U synthetic means from results/pool_decomposition_cells.jsonl"
+  },
+  {
+   "item": 6,
+   "quantity": "benchmark amp40 agreement with 4 wound sets, U+M",
+   "reported": 0.7207717569786535,
+   "replicated": 0.7207717569786534,
+   "abs_diff": 1.1102230246251565e-16,
+   "decimals": 3,
+   "status": "PASS",
+   "note": "U synthetic means from results/pool_decomposition_cells.jsonl"
+  },
+  {
+   "item": 7,
+   "quantity": "M19 selection loss, choose on another wound set (mean of 12)",
+   "reported": 0.047319595168701635,
+   "replicated": 0.047319595168701635,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 7,
+   "quantity": "M19 random-pick expected loss (mean of 4 wound sets)",
+   "reported": 0.063027683373617,
+   "replicated": 0.063027683373617,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 7,
+   "quantity": "AZH best M19 method mean Dice (segformer_mitb2@seeds)",
+   "reported": 0.7131169088222322,
+   "replicated": 0.7131169088222322,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": "reported best is segformer_mitb2@seeds; replicated best is segformer_mitb2@seeds"
+  },
+  {
+   "item": 7,
+   "quantity": "AZH nnU-Net mean Dice",
+   "reported": 0.6314807448949576,
+   "replicated": 0.6314807448949576,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 7,
+   "quantity": "AZH miss rate, new 8 architectures, all seeds (%)",
+   "reported": 24.88095238095238,
+   "replicated": 24.88095238095238,
+   "abs_diff": 0.0,
+   "decimals": 1,
+   "status": "PASS",
+   "note": "equal weight per architecture (PRACTICAL_V7 definition); equal weight per model (22 models) gives 24.29%"
+  },
+  {
+   "item": 7,
+   "quantity": "AZH miss rate, original 10 architectures, all seeds (%)",
+   "reported": 30.309523809523803,
+   "replicated": 30.309523809523803,
+   "abs_diff": 0.0,
+   "decimals": 1,
+   "status": "PASS",
+   "note": "equal weight per architecture; per model (29 models) 30.34%"
+  },
+  {
+   "item": 7,
+   "quantity": "AZH miss rate, nnU-Net (%)",
+   "reported": 1.4285714285714286,
+   "replicated": 1.4285714285714286,
+   "abs_diff": 0.0,
+   "decimals": 1,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 7,
+   "quantity": "AZH miss rate, segformer_mitb2, mean over 3 seeds (%)",
+   "reported": 11.904761904761903,
+   "replicated": 11.904761904761903,
+   "abs_diff": 0.0,
+   "decimals": 1,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 8,
+   "quantity": "M19 wound pairs, rescore P0 (check, should equal the main M19 value)",
+   "reported": 0.2114035087719298,
+   "replicated": 0.21140350877192984,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 8,
+   "quantity": "M19 wound pairs, one common threshold 0.50",
+   "reported": 0.41169590643274856,
+   "replicated": 0.41169590643274856,
+   "abs_diff": 0.0,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 8,
+   "quantity": "M19 wound pairs, per-dataset oracle threshold",
+   "reported": 0.12222222222222218,
+   "replicated": 0.12222222222222223,
+   "abs_diff": 5.551115123125783e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": ""
+  },
+  {
+   "item": 8,
+   "quantity": "M19 wound pairs, fuseg replaced by fuseg_r256 (P0)",
+   "reported": 0.17076023391812864,
+   "replicated": 0.17076023391812867,
+   "abs_diff": 2.7755575615628914e-17,
+   "decimals": 3,
+   "status": "PASS",
+   "note": "with run-1 scores for the other three sets: 0.170760"
+  }
+ ],
+ "exact_tests": {
+  "M": {
+   "diff": 0.46088555021234134,
+   "p": 0.0007215007215007215,
+   "count_ge": 10
+  },
+  "M19": {
+   "diff": 0.22531770130454334,
+   "p": 0.005772005772005772,
+   "count_ge": 80
+  },
+  "M11s": {
+   "diff": 0.3294143356643357,
+   "p": 0.00202020202020202,
+   "count_ge": 28
+  },
+  "N8s": {
+   "diff": 0.054868742368742354,
+   "p": 0.32886002886002885,
+   "count_ge": 4558
+  },
+  "U+M19": {
+   "diff": 1.1005242543894647,
+   "p": 0.0001443001443001443,
+   "count_ge": 2
+  },
+  "M_s1": {
+   "diff": 0.023525990577165284,
+   "p": 0.3769119769119769,
+   "count_ge": 5224
+  },
+  "M_s2": {
+   "diff": 0.1802447552447553,
+   "p": 0.022366522366522368,
+   "count_ge": 310
+  }
+ },
+ "seed_analysis": {
+  "C16": {
+   "rbar_by_set": {
+    "medetec": 0.3333333333333333,
+    "co2wounds": 0.26372549019607844,
+    "fuseg": 0.5892156862745098,
+    "azh": 0.5970588235294118,
+    "azh_train_slice": 0.8254901960784314
+   },
+   "same_dataset_diff_seed": 0.4458333333333333,
+   "single_seed": [
+    0.048039215686274526,
+    0.2485294117647059,
+    0.23382352941176468
+   ],
+   "single_seed_mean": 0.17679738562091504,
+   "seed_average": 0.17892156862745098,
+   "cross_dataset_cross_seed": 0.10016339869281043,
+   "gap": 0.34566993464052287
+  },
+  "P9": {
+   "rbar_by_set": {
+    "medetec": 0.6444444444444445,
+    "co2wounds": 0.3333333333333333,
+    "fuseg": 0.5833333333333334,
+    "azh": 0.688888888888889,
+    "azh_train_slice": 0.85
+   },
+   "same_dataset_diff_seed": 0.5625000000000001,
+   "single_seed": [
+    0.06944444444444445,
+    0.09444444444444443,
+    0.17777777777777778
+   ],
+   "single_seed_mean": 0.11388888888888889,
+   "seed_average": 0.12222222222222225,
+   "cross_dataset_cross_seed": 0.06944444444444445,
+   "gap": 0.4930555555555557
+  },
+  "N7": {
+   "rbar_by_set": {
+    "medetec": -0.19047619047619055,
+    "co2wounds": 0.1666666666666667,
+    "fuseg": 0.5476190476190478,
+    "azh": 0.511904761904762,
+    "azh_train_slice": 0.6666666666666669
+   },
+   "same_dataset_diff_seed": 0.2589285714285715,
+   "single_seed": [
+    0.08333333333333336,
+    0.505952380952381,
+    0.3035714285714286
+   ],
+   "single_seed_mean": 0.29761904761904767,
+   "seed_average": 0.3988095238095239,
+   "cross_dataset_cross_seed": 0.20436507936507942,
+   "gap": 0.05456349206349209
+  }
+ },
+ "benchmark": {
+  "M": {
+   "mean": 0.3530303030303031,
+   "per_ref": {
+    "medetec": 0.29696969696969705,
+    "co2wounds": 0.4454545454545455,
+    "fuseg": 0.2787878787878788,
+    "azh": 0.39090909090909093
+   }
+  },
+  "M11s": {
+   "mean": 0.40833333333333344,
+   "per_ref": {
+    "medetec": 0.16969696969696968,
+    "co2wounds": 0.6636363636363637,
+    "fuseg": 0.19090909090909092,
+    "azh": 0.6090909090909092
+   }
+  },
+  "M19": {
+   "mean": 0.2077485380116959,
+   "per_ref": {
+    "medetec": 0.07251461988304093,
+    "co2wounds": 0.4719298245614035,
+    "fuseg": 0.045614035087719294,
+    "azh": 0.2409356725146199
+   }
+  },
+  "N8s": {
+   "mean": -0.126984126984127,
+   "per_ref": {
+    "medetec": -0.253968253968254,
+    "co2wounds": 0.06349206349206349,
+    "fuseg": -0.1031746031746032,
+    "azh": -0.2142857142857143
+   }
+  },
+  "U+M19": {
+   "mean": 0.6467915283704757,
+   "per_ref": {
+    "medetec": 0.6416152995100363,
+    "co2wounds": 0.7553342816500711,
+    "fuseg": 0.579263474000316,
+    "azh": 0.6109530583214794
+   }
+  },
+  "U+M": {
+   "mean": 0.7207717569786534,
+   "per_ref": {
+    "medetec": 0.7513957307060753,
+    "co2wounds": 0.8121510673234811,
+    "fuseg": 0.657142857142857,
+    "azh": 0.6623973727422002
+   }
+  }
+ },
+ "practical": {
+  "loss_matrix": {
+   "medetec->medetec": 0.0,
+   "medetec->co2wounds": 0.03209105699211806,
+   "medetec->fuseg": 0.0070747357850147186,
+   "medetec->azh": 0.10764745100665718,
+   "co2wounds->medetec": 0.039205120447453834,
+   "co2wounds->co2wounds": 0.0,
+   "co2wounds->fuseg": 0.02093007367216304,
+   "co2wounds->azh": 0.0,
+   "fuseg->medetec": 0.11339349014543698,
+   "fuseg->co2wounds": 0.06914479327166123,
+   "fuseg->fuseg": 0.0,
+   "fuseg->azh": 0.11821322658429778,
+   "azh->medetec": 0.039205120447453834,
+   "azh->co2wounds": 0.0,
+   "azh->fuseg": 0.02093007367216304,
+   "azh->azh": 0.0
+  },
+  "random": {
+   "medetec": 0.06148602081593412,
+   "co2wounds": 0.036325433656617445,
+   "fuseg": 0.029153344632283893,
+   "azh": 0.12514593438963253
+  },
+  "azh_best": "segformer_mitb2@seeds",
+  "best_per_set": {
+   "medetec": "manet_r18_in@seeds",
+   "co2wounds": "segformer_mitb2@seeds",
+   "fuseg": "manet_r50@seeds",
+   "azh": "segformer_mitb2@seeds",
+   "azh_train_slice": "segformer_mitb2@seeds"
+  },
+  "azh_miss": {
+   "non_empty_images": 140,
+   "new8_equal_weight_per_architecture": 0.2488095238095238,
+   "new8_equal_weight_per_model_22": 0.24285714285714285,
+   "orig10_equal_weight_per_architecture": 0.30309523809523803,
+   "orig10_equal_weight_per_model_29": 0.3034482758620691,
+   "per_architecture": {
+    "unet_r18_in": 0.319047619047619,
+    "unetpp_r18_in": 0.29285714285714287,
+    "deeplabv3p_r18_in": 0.3904761904761905,
+    "fpn_r18_in": 0.26904761904761904,
+    "pspnet_r18_in": 0.27619047619047615,
+    "linknet_r18_in": 0.2976190476190476,
+    "manet_r18_in": 0.2928571428571428,
+    "segformer_mitb0_in": 0.21666666666666665,
+    "unet_mbv2_in": 0.3761904761904762,
+    "unet_effb0_in": 0.3,
+    "unet_r50": 0.30952380952380953,
+    "deeplabv3p_r50": 0.3428571428571428,
+    "upernet_convnext_t": 0.20476190476190478,
+    "unet_swin_t": 0.20714285714285716,
+    "segformer_mitb2": 0.11904761904761903,
+    "unet_effb3": 0.3261904761904762,
+    "fpn_regnety016": 0.16666666666666666,
+    "manet_r50": 0.3142857142857143
+   },
+   "nnunet": 0.014285714285714285
+  }
+ },
+ "robustness": {
+  "p0_wound": 0.21140350877192984,
+  "common50_wound": 0.41169590643274856,
+  "oracle_wound": 0.12222222222222223,
+  "r256_wound_all_rescore": 0.17076023391812867,
+  "r256_wound_mixed": 0.17076023391812867,
+  "max_abs_p0_minus_run1_mean": 2.5814933435008847e-05
+ },
+ "n_pass": 41,
+ "n_fail": 0,
+ "exclusions": "exclusions_v5.json",
+ "reported_from": "results/v7_excl_v5/{stats,bench,practical,robust}_v7.json",
+ "check_reported_equal_v6_typed_values": 41
+}

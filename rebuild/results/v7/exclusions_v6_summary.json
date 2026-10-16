@@ -1,0 +1,43 @@
+{
+ "rule": "Build results/exclusions_v6.json from exclusions_v5.json and the overlap checks.\n\nRule (one rule for every evaluation set): an evaluation image is removed before\nany analysis if it is a copy or a crop of a photograph that another part of the\nstudy uses, that is\n  (a) a FUSeg training image used to train a model (training indices 0 to 392)\n      or to tune a threshold (400 to 549) (results/v7/fuseg_train_index.json), or\n  (b) an image of another evaluation set: the FUSeg reference (the first 120\n      FUSeg validation images) or, for the control, the AZH test set.\nCrops of FUSeg photographs that nothing in the study uses are kept: they are\nnot leakage and not shared between evaluation sets.",
+ "fuseg": {
+  "n": 8
+ },
+ "azh": {
+  "n_checked": 150,
+  "n_match": 61,
+  "n_match_train_split": 49,
+  "n_match_validation_split": 12,
+  "n_excluded": 4,
+  "excluded_by_use": {
+   "train": 4,
+   "threshold": 0,
+   "reference": 0
+  },
+  "n_kept_crops_of_unused_frames": 57,
+  "n_match_validation_in_reference": 0,
+  "max_inliers_nonmatch": 23,
+  "n_kept": 146
+ },
+ "azh_train_slice": {
+  "n_checked": 150,
+  "n_v5": 47,
+  "v5_found_again": 47,
+  "n_new_crops_excluded": 24,
+  "new_crops_by_use": {
+   "train": 16,
+   "threshold": 0,
+   "reference": 8
+  },
+  "n_new_crops_kept_unused_frames": 0,
+  "n_copies_of_azh_test_added": 2,
+  "n_control_images_matching_azh_test": 4,
+  "n_excluded": 73,
+  "n_kept": 77,
+  "v5_by_use": {
+   "train": 35,
+   "threshold": 0,
+   "reference": 12
+  }
+ }
+}

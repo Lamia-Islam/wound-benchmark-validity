@@ -172,7 +172,7 @@ def disp(ident):
 
 
 # ------------------------------------------------------------------ datasets
-EX = load("exclusions_v5.json")
+EX = load("exclusions_v6.json")
 for s in SETS12:
     k = SK[s]
     num(f"n.img.{k}", ST, f"n_images/{s}", lambda x: f"{x:,}")
@@ -192,16 +192,52 @@ put("frac.ratio", str(round(ratio)), ratio, "perimage32: max/min median lesion f
 put("frac.wound.range", f"{min(fr_w):.3f} to {max(fr_w):.3f}", [min(fr_w), max(fr_w)], "perimage32 medians")
 
 fx = EX["fuseg"]
-intval("n.excl.fus", len(fx), "exclusions_v5.json:fuseg")
-intval("n.excl.fus.train", sum("FUSeg train" in r[2] for r in fx), "exclusions_v5.json:fuseg reasons")
-intval("n.excl.fus.eval", sum("evaluation image" in r[2] for r in fx), "exclusions_v5.json:fuseg reasons")
+EXN = "exclusions_v6.json"
+intval("n.excl.fus", len(fx), EXN + ":fuseg")
+intval("n.excl.fus.train", sum("FUSeg train" in r[2] for r in fx), EXN + ":fuseg reasons")
+intval("n.excl.fus.eval", sum("evaluation image" in r[2] for r in fx), EXN + ":fuseg reasons")
 cx = EX["azh_train_slice"]
-intval("n.excl.ctrl", len(cx), "exclusions_v5.json:azh_train_slice")
-intval("n.excl.ctrl.train", sum("crop of FUSeg train" in r[2] for r in cx), "exclusions_v5.json reasons")
-intval("n.excl.ctrl.val", sum("crop of FUSeg validation" in r[2] for r in cx), "exclusions_v5.json reasons")
-minin = min(int(re.search(r"\((\d+) SIFT inliers\)", r[2]).group(1)) for r in cx)
-intval("n.excl.ctrl.mininl", minin, "exclusions_v5.json reasons (smallest SIFT inlier count)")
+intval("n.excl.ctrl", len(cx), EXN + ":azh_train_slice")
+intval("n.excl.ctrl.crop", sum(r[2].startswith("crop of FUSeg") for r in cx), EXN + " reasons")
+intval("n.excl.ctrl.train", sum("crop of FUSeg train" in r[2] for r in cx), EXN + " reasons")
+intval("n.excl.ctrl.val", sum("crop of FUSeg validation" in r[2] for r in cx), EXN + " reasons")
+intval("n.excl.ctrl.azhdup", sum(r[2].startswith("pixel-identical to AZH test") for r in cx), EXN + " reasons")
+assert F["n.excl.ctrl.crop"]["raw"] + F["n.excl.ctrl.azhdup"]["raw"] == len(cx)
+minin = min(int(re.search(r"\((\d+) SIFT inliers", r[2]).group(1)) for r in cx if r[2].startswith("crop of FUSeg"))
+intval("n.excl.ctrl.mininl", minin, EXN + " reasons (smallest SIFT inlier count)")
 intval("n.ctrl.before", J(ST, "n_images/azh_train_slice") + len(cx), "stats_v7 n_images + exclusions")
+ax = EX["azh"]
+intval("n.excl.azh", len(ax), EXN + ":azh")
+intval("n.azh.before", J(ST, "n_images/azh") + len(ax), "stats_v7 n_images + exclusions")
+# overlap check of AZH test and control against all FUSeg photographs (results/v7/azh_overlap_v7.json)
+OV, XS, CO = "v7/azh_overlap_v7.json", "v7/exclusions_v6_summary.json", "v7/azh_control_overlap_v7.json"
+put("sift.ratio", re.search(r"ratio ([0-9.]+)", J(OV, "rule")).group(1), J(OV, "rule"), OV + ":rule")
+put("sift.min", re.search(r">= (\d+) inliers", J(OV, "rule")).group(1), J(OV, "rule"), OV + ":rule")
+_fn = re.search(r"train \((\d+)\) \+ validation \((\d+)\)", J(OV, "rule"))
+intval("sift.fus.n", int(_fn.group(1)) + int(_fn.group(2)), OV + ":rule (FUSeg train + validation photographs)")
+intval("sift.fus.train", int(_fn.group(1)), OV + ":rule")
+intval("sift.fus.val", int(_fn.group(2)), OV + ":rule")
+intval("ov.azh.n", J(OV, "azh_test/n"), OV + ":azh_test/n")
+intval("ov.azh.match", J(OV, "azh_test/n_match"), OV + ":azh_test/n_match")
+intval("ov.azh.train", J(OV, "azh_test/n_match_train"), OV + ":azh_test/n_match_train")
+intval("ov.azh.val", J(OV, "azh_test/n_match_validation"), OV + ":azh_test/n_match_validation")
+intval("ov.azh.valref", J(XS, "azh/n_match_validation_in_reference"), XS + ":azh/n_match_validation_in_reference")
+intval("ov.azh.used", J(XS, "azh/n_excluded"), XS + ":azh/n_excluded")
+intval("ov.azh.used.train", J(XS, "azh/excluded_by_use/train"), XS + ":azh/excluded_by_use/train")
+intval("ov.azh.unused", J(XS, "azh/n_kept_crops_of_unused_frames"), XS + ":azh/n_kept_crops_of_unused_frames")
+intval("ov.azh.maxnon", J(OV, "azh_test/max_inliers_nonmatch"), OV + ":azh_test/max_inliers_nonmatch")
+intval("ov.ctrl.v5", J(XS, "azh_train_slice/n_v5"), XS + ":azh_train_slice/n_v5")
+intval("ov.ctrl.found", J(XS, "azh_train_slice/v5_found_again"), XS + ":azh_train_slice/v5_found_again")
+intval("ov.ctrl.new", J(XS, "azh_train_slice/n_new_crops_excluded"), XS + ":azh_train_slice/n_new_crops_excluded")
+intval("ov.ctrl.new.train", J(XS, "azh_train_slice/new_crops_by_use/train"), XS + ":azh_train_slice/new_crops_by_use/train")
+intval("ov.ctrl.new.ref", J(XS, "azh_train_slice/new_crops_by_use/reference"), XS + ":azh_train_slice/new_crops_by_use/reference")
+intval("ov.ctrl.azh", J(CO, "n_control_images_matched"), CO + ":n_control_images_matched")
+intval("ov.ctrl.azh.added", J(XS, "azh_train_slice/n_copies_of_azh_test_added"), XS + ":azh_train_slice/n_copies_of_azh_test_added")
+assert J(XS, "azh/n_excluded") == len(ax) and J(XS, "azh_train_slice/n_excluded") == len(cx)
+assert J(XS, "azh_train_slice/v5_by_use/train") + J(XS, "azh_train_slice/new_crops_by_use/train") == F["n.excl.ctrl.train"]["raw"]
+assert J(XS, "azh_train_slice/v5_by_use/reference") + J(XS, "azh_train_slice/new_crops_by_use/reference") == F["n.excl.ctrl.val"]["raw"]
+assert F["ov.azh.used"]["raw"] + F["ov.azh.unused"]["raw"] == F["ov.azh.match"]["raw"] and F["ov.azh.valref"]["raw"] == 0
+assert F["ov.ctrl.v5"]["raw"] + F["ov.ctrl.new"]["raw"] + F["ov.ctrl.azh.added"]["raw"] == len(cx)
 ws = J(AU, "check9_log/hits/FAILED/0")
 m = re.search(r"(\d+) of (\d+) masks differ in size", ws)
 intval("ws.bad", int(m.group(1)), AU + ":check9_log/hits/FAILED/0")
